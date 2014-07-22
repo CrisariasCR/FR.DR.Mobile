@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".5">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            local:MvxBind="Text Nombre"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            local:MvxBind="Text Codigo"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+</LinearLayout>

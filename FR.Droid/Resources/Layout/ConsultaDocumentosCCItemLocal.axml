@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".08"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Tipo,Converter=ConvertidorTipoDocumento"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".18"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Numero"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".105"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text FechaVencimiento,Converter=ConvertidorFecha"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".095"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text SaldoDocLocal,Converter=FormatoNumero"
+        android:gravity="right"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".105"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text MontoDocLocal,Converter=FormatoNumero;"
+        android:gravity="right"
+        style="@style/ListItemText" />
+</LinearLayout>

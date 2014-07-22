@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".85">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="1100dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/consultaretencionesheader"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaRetenciones"
+                android:layout_width="1100dp"
+                android:layout_height="0dip"
+                android:layout_weight=".8"
+                android:orientation="vertical"
+                android:choiceMode="singleChoice"
+                local:MvxItemTemplate="@layout/consultaretencionesitem"
+                local:MvxBind="ItemsSource Retenciones" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Total Retenciones:"
+            style="@style/normalBoldText" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            local:MvxBind="Text TotalRetenciones,Converter=FormatoNumero"
+            style="@style/normalText" />
+    </LinearLayout>
+</LinearLayout>

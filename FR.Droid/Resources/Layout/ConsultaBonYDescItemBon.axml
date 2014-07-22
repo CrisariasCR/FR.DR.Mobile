@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dip"
+        android:layout_weight=".25">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            local:MvxBind="Text Fecha"
+            android:gravity="right"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dip"
+        android:layout_weight=".25">
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Codigo"
+            local:MvxBind="Text Codigo"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".25">
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Minima"
+            local:MvxBind="Text Minima"
+            android:gravity="right"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".25">
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Maxima"
+            local:MvxBind="Text Maxima"
+            android:gravity="right"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".25">
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cantidad"
+            local:MvxBind="Text Cantidad"
+            android:gravity="right"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+</LinearLayout>

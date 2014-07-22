@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Fecha: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Fecha"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/txtFecha"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="# Cuenta: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCuentasad"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:label="Cuentas"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Cuentas; SelectedItem CuentaActual; Clickable Cuentas.Count, Converter=CountToEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="# Depósito: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <EditText
+            local:MvxBind="Text DepositoProperty"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/txtDeposito"
+            android:layout_marginBottom="0.0dp"
+            style="@style/numeralEditText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Compañía: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Compania"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/txtCompania"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Nombre: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Nombre"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/txtNombre"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Banco: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Banco"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/txtBanco"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Moneda: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Moneda"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/txtMoneda"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Monto: "
+            android:layout_width="0dip"
+            android:layout_weight=".33"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Monto,Converter=FormatoMonto;Enabled TxtMontoEnabled"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/txtMonto"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnTerminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoFinalizar" />
+    </LinearLayout>
+</LinearLayout>

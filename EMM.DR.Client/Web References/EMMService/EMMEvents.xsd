@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/EMMEvents.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/EMMEvents.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/EMMEvents.xsd" id="EMMEvents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="EMMEvents">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EMM_EVENTLOG">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="PDA" type="xs:string" />
+              <xs:element minOccurs="0" name="Date" type="xs:string" />
+              <xs:element minOccurs="0" name="Conduit" type="xs:string" />
+              <xs:element minOccurs="0" name="Action" type="xs:string" />
+              <xs:element minOccurs="0" name="Description" type="xs:string" />
+              <xs:element minOccurs="0" name="Stack" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

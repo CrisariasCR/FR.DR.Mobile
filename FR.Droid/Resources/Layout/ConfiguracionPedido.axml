@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:text="Compañía:"
+            android:gravity="right"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCompaniascfp"
+            android:layout_width="0dip"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:text="País:"
+            android:gravity="right"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbPaiscfp"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_width="0dip"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Paises; SelectedItem PaisActual; Clickable ComboPaisEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            local:MvxBind="Text LabelDiv1" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbDiv1cfp"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_width="0dip"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Divisiones1; SelectedItem Div1Actual; Clickable ComboDiv1Enabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            local:MvxBind="Text LabelDiv2" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbDiv2cfp"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_width="0dip"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Divisiones2; SelectedItem Div2Actual; Clickable ComboDiv2Enabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:text="Condición Pago:"
+            android:gravity="right"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCondicioncfp"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_width="0dip"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Condiciones; SelectedItem CondicionActual; Clickable ComboCondicionEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:text="Nivel de Precio:"
+            android:gravity="right"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbNivelPreciocfp"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_width="0dip"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource NivelesPrecio; SelectedItem NivelActual; Clickable ComboNivelPrecioEnabled" />
+    </LinearLayout>
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <RadioButton
+            android:id="@+id/rdNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Normal"
+            local:MvxBind="Checked RadioNormalChecked;Clickable RadiosEnabled" />
+        <RadioButton
+            android:id="@+id/rdCredito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crédito Fiscal"
+            local:MvxBind="Clickable RadiosEnabled" />
+    </RadioGroup>
+    <Checkbox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Utilizar Sugerido de Venta"
+        local:MvxBind="Checked SugeridoChecked; Enabled SugeridoEnabled" />
+    <Checkbox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Facturar Pedido"
+        local:MvxBind="Checked FacturaPedidoChecked; Enabled FacturaPedidoEnabled; Visibility CheckFacturaPedidoVisible, Converter=BoolToVisibility" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="0.1"
+        android:layout_gravity="right"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_regresar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoInicializar" />
+        <ImageButton
+            android:src="@drawable/ic_cancelar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage"
+            local:MvxBind="Click ComandoCancelar" />
+        <ImageButton
+            android:src="@drawable/ic_continuar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage"
+            local:MvxBind="Click ComandoContinuar" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbCriteriossc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource CriteriosBusqueda; SelectedItem CriterioActual" />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/txtBusqueda"
+            android:layout_weight=".6"
+            android:windowSoftInputMode="adjustResize"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            local:MvxBind="Text TextoBusqueda" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbRutasc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource Rutas; Clickable Rutas.Count, Converter=CountToEnabled" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbDiasc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource ItemsComboDia; SelectedItem DiaActual" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbVisitadosc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource ItemsComboEstadoVisita; SelectedItem EstadoVisitaActual" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.6"
+        android:orientation="vertical">
+        <Mvx.MvxBindableListView
+            android:id="@+id/HeaderLista"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:orientation="vertical"
+            android:layout_weight=".2"
+            local:MvxItemTemplate="@layout/seleccionclienteheader"
+            local:MvxBind="ItemsSource Header" />
+        <Mvx.MvxBindableListView
+            android:id="@+id/listaclientes"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:orientation="vertical"
+            android:layout_weight=".8"
+            android:choiceMode="singleChoice"
+            local:MvxItemTemplate="@layout/seleccionclienteitem"
+            local:MvxBind="ItemsSource Clientes;SelectedItem ClienteSeleccionado" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+        <CheckBox
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            local:MvxBind="Checked OrdenAlfabetico"
+            android:text="Ordenar Alfabéticamente" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Dirección"
+            style="@style/normalBoldText"
+            android:layout_weight=".2" />
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                local:MvxBind="Text ClienteSeleccionado.Direccion"
+                style="@style/normalEditText"
+                android:minLines="3" />
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnIniciar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoIniciar" />
+        <ImageButton
+            android:src="@drawable/ic_visitar"
+            android:id="@+id/btnVisitar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoVisitar" />
+        <ImageButton
+            android:src="@drawable/ic_search"
+            android:id="@+id/btnConsultar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoConsultar" />
+        <ImageButton
+            android:src="@drawable/ic_refresh"
+            android:id="@+id/btnRefrescar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoRefrescar" />
+        <ImageButton
+            android:src="@drawable/ic_direccion"
+            android:id="@+id/btnGPS"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoGPS;Visibility GpsEnabled, Converter=BoolToCollapsed" />
+    </LinearLayout>
+</LinearLayout>

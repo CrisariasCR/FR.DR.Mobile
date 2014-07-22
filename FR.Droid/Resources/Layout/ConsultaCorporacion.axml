@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Nombre:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Nombre"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Dirección:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Direccion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Teléfono:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Telefono"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Fax:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Fax"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Slogan:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Slogan"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="NIT:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Nit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="E-mail:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+    </LinearLayout>
+</ScrollView>

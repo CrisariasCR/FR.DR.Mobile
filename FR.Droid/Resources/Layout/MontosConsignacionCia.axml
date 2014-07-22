@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.9"
+        android:layout_height="0dip">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Compañia:" />
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbCompaniasmcc"
+                    android:layout_width="0dip"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    android:gravity="right"
+                    local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Nivel Precio:" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".6"
+                    android:gravity="right"
+                    style="@style/normalText"
+                    local:MvxBind="Text NivelPrecio,Converter=FormatoNumero"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Crédito:" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".6"
+                    android:gravity="right"
+                    style="@style/normalText"
+                    local:MvxBind="Text Credito,Converter=FormatoNumero"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Total Bruto:" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".6"
+                    android:gravity="right"
+                    style="@style/normalText"
+                    local:MvxBind="Text TotalBruto,Converter=FormatoNumero"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Descuento:" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".6"
+                    android:gravity="right"
+                    style="@style/normalText"
+                    local:MvxBind="Text Descuento,Converter=FormatoNumero"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    style="@style/normalBoldText"
+                    android:text="Imp. Ventas:" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".6"
+                    android:gravity="right"
+                    style="@style/normalText"
+                    local:MvxBind="Text ImpuestoVentas,Converter=FormatoNumero"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Imp.Consumo:" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".6"
+                    android:gravity="right"
+                    style="@style/normalText"
+                    local:MvxBind="Text Consumo,Converter=FormatoNumero"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Total Neto:" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".6"
+                    android:gravity="right"
+                    style="@style/normalText"
+                    local:MvxBind="Text TotalNeto,Converter=FormatoNumero"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight=".10"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        local:MvxBind="Visibility CreditoExceedVisible, Converter=BoolToVisibility,ConverterParameter=True">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".6"
+            android:gravity="right"
+            style="@style/normalText"
+            local:MvxBind="Text TotalNeto,Converter=FormatoNumero"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_weight=".10"
+            android:layout_height="0dip"
+            android:orientation="horizontal" />
+        <ImageButton
+            android:src="@drawable/ic_editar"
+            android:id="@+id/btnNotas"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoNotas" />
+    </LinearLayout>
+</LinearLayout>

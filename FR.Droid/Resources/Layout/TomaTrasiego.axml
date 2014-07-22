@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.4"
+        android:layout_height="0dip">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Artículo:" />
+                <EditText
+                    android:id="@+id/txtBusqueda"
+                    local:MvxBind="Text TextoBusqueda"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    style="@style/normalEditText"
+                    android:gravity="left" />
+                <ImageButton
+                    android:src="@drawable/ic_refresh"
+                    android:id="@+id/btnRefrescar"
+                    android:layout_width="0dip"
+                    android:layout_weight=".1"
+                    android:layout_height="wrap_content"
+                    local:MvxBind="Click ComandoRefrescar" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".1"
+                    android:gravity="center"
+                    local:MvxBind="Text ArticuloDescripcion"
+                    style="@style/normalText"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal"
+                local:MvxBind="Visibility LotesVisible,Converter=BoolToCollapsed">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Lotes:" />
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbLotestt"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:gravity="right"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    local:MvxBind="ItemsSource Lotes; SelectedItem LoteActual; Clickable Lotes.Count, Converter=CountToEnabled" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Tipo:" />
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbTipott"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:gravity="right"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    local:MvxBind="ItemsSource Tipos; SelectedItem TipoActual; Clickable Tipos.Count, Converter=CountToEnabled" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal"
+                local:MvxBind="Visibility ClasesVisible,Converter=BoolToCollapsed">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Clase:" />
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbClasett"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:gravity="right"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    local:MvxBind="ItemsSource Clases; SelectedItem ClaseActual; Clickable Clases.Count, Converter=CountToEnabled" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Almacén   " />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Detalle   " />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Cantidad:" />
+                <EditText
+                    android:id="@+id/txtCantAlmacen"
+                    local:MvxBind="Text CantAlmacen;Enabled CantAlmEnabled"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    style="@style/numeralEditText"
+                    android:gravity="left" />
+                <EditText
+                    android:id="@+id/txtCantDetalle"
+                    local:MvxBind="Text CantDetalle;Enabled CantDetEnabled"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    style="@style/numeralEditText"
+                    android:gravity="left" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight=".3"
+        android:layout_height="0dip"
+        android:orientation="horizontal" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_agregar"
+            android:id="@+id/btnAgregar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoAgregar" />
+        <ImageButton
+            android:src="@drawable/ic_remover"
+            android:id="@+id/btnRemover"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoRemover" />
+        <ImageButton
+            android:src="@drawable/ic_cancelar"
+            android:id="@+id/btnCancelar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoCancelar" />
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoAceptar" />
+    </LinearLayout>
+</LinearLayout>

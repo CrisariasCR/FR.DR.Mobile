@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_weight=".60">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/headerSF"
+                local:MvxItemTemplate="@layout/seleccionfacturasheader"
+                android:layout_width="1400dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/items"
+                local:MvxItemTemplate="@layout/seleccionfacturasitem"
+                local:MvxBind="ItemsSource Items; SelectedItem ItemActual;"
+                android:layout_width="1400dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Fecha Vencimiento:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="FechaVence"
+            local:MvxBind="Text FechaVence, Converter=ConvertidorFecha"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Monto Documento:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="MontoDoc"
+            local:MvxBind="Text MontoDoc, Converter=FormatoMonedaCobros"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Saldo Documento:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="SaldoDoc"
+            local:MvxBind="Text SaldoDoc, Converter=FormatoMonedaCobros"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Monto Pagar:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <EditText
+            android:text="MontoPagar"
+            local:MvxBind="Text MontoPagar, Converter=FormatoMonedaCobros; Enabled MontoPagarEnabled"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:gravity="right"
+            style="@style/numeralEditText" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Total a Pagar:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="TotalPagar"
+            local:MvxBind="Text TotalPagar, Converter=FormatoMonedaCobros"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:id="@+id/btnContinuar"
+            local:MvxBind="Click ComandoContinuar"
+            android:src="@drawable/ic_aceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".2"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:MvxBind="Text Articulo.Codigo"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".35"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Articulo.Descripcion"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:MvxBind="Text UnidadesAlmacen,Converter=FormatoDecimal"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:MvxBind="Text UnidadesDetalle,Converter=FormatoDecimal"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:MvxBind="Text Estado"
+        style="@style/ListItemText" />
+</LinearLayout>

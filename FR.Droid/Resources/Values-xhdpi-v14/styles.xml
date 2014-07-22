@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style
+    name="MainTheme"
+    parent="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
+    <item name="android:radioButtonStyle">@style/RadioButtonText</item>
+    <item name="android:imageButtonStyle">@style/btnStyleImage</item>
+    <item name="android:checkboxStyle">@style/CheckBoxText</item>
+    <item name="android:activatedBackgroundIndicator">@drawable/list_selector2</item>
+  </style>
+</resources>

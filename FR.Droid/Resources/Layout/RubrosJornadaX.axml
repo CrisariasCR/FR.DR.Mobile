@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:id="@+id/lyUno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 1:"
+                android:id="@+id/lblUno"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtUno"
+                style="@style/normalEditText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lyDos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 2:"
+                android:id="@+id/lblDos"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtDos"
+                style="@style/normalEditText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lyTres"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 3:"
+                android:id="@+id/lblTres"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTres"
+                style="@style/normalEditText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lyCuatro"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 4:"
+                android:id="@+id/lblCuatro"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCuatro"
+                style="@style/normalEditText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lyCinco"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 5:"
+                android:id="@+id/lblCinco"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCinco"
+                style="@style/normalEditText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.2"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

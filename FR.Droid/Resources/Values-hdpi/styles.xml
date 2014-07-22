@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="btnStyleDefault" parent="@android:style/Widget.Button">
+    <item name="android:textSize">20dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:gravity">center</item>
+    <item name="android:layout_height">80dp</item>
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:background">@drawable/gradient_layoutbg</item>
+    <item name="android:textColor">@drawable/menu_color_selector</item>
+    <item name="android:padding">10dip</item>
+  </style>
+  <style name="btnStyleImage" parent="@android:style/Widget.ImageButton">
+    <item name="android:gravity">center</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:background">@drawable/gradient_buttonbg</item>
+    <item name="android:textColor">@drawable/text_color_selector</item>
+    <item name="android:shadowColor">#00000000</item>
+    <item name="android:shadowDx">0.5</item>
+    <item name="android:shadowDy">0.5</item>
+    <item name="android:shadowRadius">0.25</item>
+    <!--<item name="android:layout_margin">3dp</item>-->
+    <item name="android:padding">5dp</item>
+  </style>
+  <style name="btnStyleSeagull" parent="@android:style/Widget.Button">
+    <item name="android:textSize">15dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">#FFFFFF</item>
+    <item name="android:gravity">center</item>
+    <item name="android:shadowColor">#000000</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">1</item>
+    <item name="android:shadowRadius">0.6</item>
+    <item name="android:background">@drawable/custom_btn_seagull</item>
+    <item name="android:padding">10dip</item>
+  </style>  
+  <style name="btnStyleBreakerBay" parent="@android:style/Widget.Button">
+    <item name="android:textSize">20dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">#FFFFFF</item>
+    <item name="android:gravity">center</item>
+    <item name="android:shadowColor">#000000</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">1</item>
+    <item name="android:shadowRadius">0.6</item>
+    <item name="android:background">@drawable/custom_btn_breaker_bay</item>
+    <item name="android:padding">10dip</item>
+  </style>  
+  <style name="btnStyleBlackpearl" parent="@android:style/Widget.Button">
+    <item name="android:textSize">20dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">#FFFFFF</item>
+    <item name="android:gravity">center</item>
+    <item name="android:shadowColor">#000000</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">1</item>
+    <item name="android:shadowRadius">0.6</item>
+    <item name="android:background">@drawable/custom_btn_black_pearl</item>
+    <item name="android:padding">10dip</item>
+  </style>       
+  <style name="ListHeaderText" parent="@android:style/Widget.TextView">
+    <item name="android:padding">4dip</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textSize">17dp</item>
+    <item name="android:background">@drawable/gradient_bg_header</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="ListItemText" parent="@android:style/Widget.TextView">
+    <item name="android:padding">4dip</item>    
+    <item name="android:textSize">17dp</item>
+    <item name="android:textColor">@drawable/text_color_selector</item>
+  </style>
+  <style name="ListMenuText" parent="@android:style/Widget.TextView">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">20dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:background">@drawable/gradient_layoutbg</item>
+    <item name="android:textColor">@drawable/menu_color_selector</item>
+  </style>
+  <style name="ListComboText" parent="@android:style/Widget.TextView">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">17dp</item>
+    <!--<item name="android:background">@drawable/gradient_layoutbg</item>-->
+    <item name="android:textColor">@drawable/text_color_selector</item>
+  </style>
+  <style name="RadioButtonText" parent="@android:style/Widget.CompoundButton.RadioButton">
+    <item name="android:textSize">17dp</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="CheckBoxText" parent="@android:style/Widget.CompoundButton.CheckBox">
+    <item name="android:textSize">17dp</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="layout">
+    <item name="android:background">@drawable/gradient_layoutbg</item>
+  </style>
+  <style name="Fondo">
+    <item name="android:background">@drawable/fondo</item>
+  </style>
+  <style name="normalText" parent="@android:style/TextAppearance">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">17dp</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="normalIdentText" parent="@android:style/TextAppearance">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">17dp</item>
+    <item name="android:layout_marginLeft">20dp</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="smallBoldText" parent="@android:style/TextAppearance">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">15dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="normalBoldText" parent="@android:style/TextAppearance">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">17dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="mediumBoldText" parent="@android:style/TextAppearance">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">19dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="normalEditText" parent="@android:style/Widget.EditText">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">17dp</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="numeralEditText" parent="@android:style/Widget.EditText">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">17dp</item>
+    <item name="android:inputType">numberDecimal</item>
+    <item name="android:selectAllOnFocus">true</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style name="DecimalEditText" parent="@android:style/Widget.EditText">
+    <item name="android:padding">4dip</item>
+    <item name="android:textSize">17dp</item>
+    <item name="android:inputType">numberDecimal</item>
+    <item name="android:selectAllOnFocus">true</item>
+    <item name="android:textColor">#000000</item>
+  </style>
+  <style
+    name="MainTheme"
+    parent="@android:style/Theme.Light">
+    <item name="android:radioButtonStyle">@style/RadioButtonText</item>
+    <item name="android:imageButtonStyle">@style/btnStyleImage</item>
+    <item name="android:checkboxStyle">@style/CheckBoxText</item>
+    <item name="android:activatedBackgroundIndicator">@drawable/list_selector2</item>
+  </style>
+</resources>

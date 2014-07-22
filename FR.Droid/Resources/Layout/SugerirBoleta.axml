@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight=".90"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <RadioGroup
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroup1"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Mantener boleta anterior"
+                    android:id="@+id/rdAnterior" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sólo saldos"
+                    android:id="@+id/rdSoloSaldo" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No sugerir"
+                    android:id="@+id/rdNinguno" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_regresar"
+                android:id="@+id/btnInicializar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoInicializar"
+                android:layout_weight=".25" />
+            <ImageButton
+                android:src="@drawable/ic_cancelar"
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoCancelar"
+                android:layout_weight=".25" />
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoAceptar"
+                android:layout_weight=".25" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

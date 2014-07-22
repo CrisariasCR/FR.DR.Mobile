@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight=".10"
+        android:layout_height="0dip"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            android:text="Compañía:"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCompanias"
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:label="Compañias"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Companias; Clickable Companias.Count, Converter=CountToEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
+        <Mvx.MvxBindableListView
+            android:id="@+id/HeaderLista"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".05"
+            local:MvxItemTemplate="@layout/busquedaarticulosheadercodigo"
+            local:MvxBind="ItemsSource Header" />
+        <Mvx.MvxBindableListView
+            android:id="@+id/listaArticulos"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".55"
+            android:choiceMode="singleChoice"
+            local:MvxItemTemplate="@layout/busquedaarticulositemcodigo"
+            local:MvxBind="ItemsSource Articulos;  SelectedItem ArticuloActual; ItemClick ComandoConsultar" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight=".10"
+        android:layout_height="0dip"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".3"
+            android:layout_height="wrap_content"
+            android:text="Filtro:"
+            style="@style/normalBoldText"
+            android:gravity="center" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCriterios"
+            android:layout_width="0dip"
+            android:layout_weight=".7"
+            android:layout_height="wrap_content"
+            android:label="Criterios"
+            android:divider="#FFCC00"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:dividerHeight="4dp"
+            local:MvxBind="ItemsSource Criterios; SelectedItem CriterioActual" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight=".10"
+        android:layout_height="0dip"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".3"
+            android:layout_height="wrap_content"
+            android:text="Valor:"
+            style="@style/normalBoldText"
+            android:gravity="center" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".7"
+            android:layout_height="wrap_content"
+            style="@style/normalEditText"
+            android:id="@+id/txtBusquedaba"
+            local:MvxBind="Text TextoBusqueda" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_refresh"
+            android:id="@+id/btnRefrescar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage" />
+    </LinearLayout>
+</LinearLayout>

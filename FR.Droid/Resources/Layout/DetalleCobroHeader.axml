@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/Contactos.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="#606060">
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dip"
+        android:layout_weight=".2">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Número Doc."
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dip"
+        android:layout_weight=".16">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo Doc."
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".16">
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Monto Local"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".16">
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Saldo Local"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".16">
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Monto Dólar"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".16">
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Saldo Dólar"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+    </RelativeLayout>
+</LinearLayout>

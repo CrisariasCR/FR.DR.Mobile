@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6" />
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbCompaniastp"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+        </RelativeLayout>
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".50">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/tomagarantiaheader"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaPedidos"
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:choiceMode="singleChoice"
+                local:MvxItemTemplate="@layout/tomagarantiaitem"
+                local:MvxBind="ItemsSource Articulos;SelectedItem ArticuloSeleccionado" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Mvx.MvxBindableSpinner
+            android:textSize="8dp"
+            android:id="@+id/cmbCriteriostp"
+            android:layout_width="0dip"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_weight=".43"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Criterios; SelectedItem CriterioActual; Clickable Criterios.Count, Converter=CountToEnabled" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".43"
+            android:id="@+id/txtBusquedatp"
+            style="@style/normalText"
+            android:layout_height="wrap_content"
+            android:hint="(Buscar)"
+            local:MvxBind="Text TextoBusqueda;Visibility TextoBusquedaVisible,Converter=BoolToCollapsed"
+            android:layout_gravity="bottom" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbFamiliastp"
+            android:layout_width="0dip"
+            android:layout_weight=".43"
+            android:layout_height="wrap_content"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Familias;Visibility ComboFamiliasVisible,Converter=BoolToCollapsed" />
+        <ImageButton
+            android:src="@drawable/ic_refresh"
+            android:id="@+id/btnRefrescar"
+            android:layout_width="0dip"
+            android:layout_weight=".14"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight=".30"
+            style="@style/normalBoldText"
+            android:text="Cant:" />
+        <EditText
+            android:id="@+id/txtCantAlm"
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:hint="Alm."
+            style="@style/numeralEditText"
+            local:MvxBind="Text CantidadAlmacen,Converter=FormatoMonto" />
+        <EditText
+            android:id="@+id/txtCantDet"
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:hint="Det."
+            style="@style/numeralEditText"
+            android:layout_height="wrap_content"
+            local:MvxBind="Text CantidadDetalle,Converter=FormatoMonto;Enabled UnidadDetalleEnabled" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight=".3"
+            style="@style/normalBoldText"
+            android:text="$ Alm:" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".4"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            style="@style/normalText"
+            local:MvxBind="Text PrecioAlmacen,Converter=FormatoNumero"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            android:text="" />
+    <!--<TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight=".30"
+            style="@style/normalBoldText"
+            android:text="Desc:" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:hint="Desc1"
+            style="@style/numeralEditText"
+            local:MvxBind="Text DescuentoA,Converter=FormatoMonto;Enabled DescuentoEnabled" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:hint="Desc2"
+            style="@style/numeralEditText"
+            local:MvxBind="Text DescuentoB;Visibility CambiarDescuentoVisible,Converter=BoolToVisibility" />-->
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            android:text="$ Det:" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".40"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            style="@style/normalText"
+            local:MvxBind="Text PrecioDetalle,Converter=FormatoNumero"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".70"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            android:text="" />
+    <!-- <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight=".30"
+            style="@style/normalBoldText"
+            android:text="Bonif:" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:hint="Bon.Alm"
+            style="@style/numeralEditText"
+            local:MvxBind="Text CantBonifAlmacen,Converter=FormatoMonto;Enabled CambiarBonificacionEnabled" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:hint="Bon.Det"
+            style="@style/numeralEditText"
+            local:MvxBind="Text CantBonifDetalle,Converter=FormatoMonto;Enabled CambiarBonificacionEnabled" />-->
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            android:text="Sub:" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".40"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            style="@style/normalText"
+            local:MvxBind="Text Subtotal,Converter=FormatoNumero"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight=".70"
+            style="@style/normalBoldText"
+            android:text="" />
+    <!--  <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight=".30"
+            style="@style/normalBoldText"
+            android:text="Adic:" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:hint="Ad.Alm"
+            style="@style/numeralEditText"
+            local:MvxBind="Text AdicionalesAlmacen,Converter=FormatoMonto;Enabled AdicionalEnabled" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            android:hint="Ad.Det"
+            style="@style/numeralEditText"
+            local:MvxBind="Text AdicionalesDetalle,Converter=FormatoMonto;Enabled AdicionalEnabled" />-->
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight=".30"
+            style="@style/normalBoldText"
+            android:text="Total:" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".40"
+            android:layout_height="wrap_content"
+            style="@style/normalText"
+            android:text="0.00"
+            local:MvxBind="Text Total,Converter=FormatoNumero"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:text="Existencia:"
+            style="@style/normalBoldText"
+            local:MvxBind="Visibility ExistenciaVisible,Converter=BoolToVisibility"
+            android:gravity="right" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            style="@style/normalText"
+            local:MvxBind="Text Existencias;Visibility ExistenciaVisible,Converter=BoolToVisibility"
+            android:gravity="right" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:text="Inventario:"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".20"
+            android:layout_height="wrap_content"
+            style="@style/normalText"
+            local:MvxBind="Text CantidadInventario"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+    <!--<ImageButton
+            android:src="@drawable/ic_precio"
+            android:id="@+id/btnPrecio"
+            android:layout_width="0dip"
+            android:layout_weight=".16"
+            style="@style/btnStyleImage"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoCambiarPrecio;Visibility CambiarPrecioVisible,Converter=BoolToVisibility" />-->
+    <!--<ImageButton
+            android:src="@drawable/ic_search"
+            android:id="@+id/btnConsultar"
+            android:layout_width="0dip"
+            android:layout_weight=".16"
+            style="@style/btnStyleImage"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoConsultar" />-->
+        <ImageButton
+            android:src="@drawable/ic_agregar"
+            android:id="@+id/btnAgregar"
+            android:layout_width="0dip"
+            android:layout_weight=".16"
+            style="@style/btnStyleImage"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoAgregar" />
+        <ImageButton
+            android:src="@drawable/ic_remover"
+            android:id="@+id/btnRemover"
+            android:layout_width="0dip"
+            android:layout_weight=".16"
+            style="@style/btnStyleImage"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoRemover" />
+        <ImageButton
+            android:src="@drawable/ic_cancelar"
+            android:id="@+id/btnCancelar"
+            android:layout_width="0dip"
+            android:layout_weight=".16"
+            style="@style/btnStyleImage"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoCancelar" />
+        <ImageButton
+            android:src="@drawable/ic_continuar"
+            android:id="@+id/btnContinuar"
+            android:layout_width="0dip"
+            android:layout_weight=".16"
+            style="@style/btnStyleImage"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoContinuar" />
+    </LinearLayout>
+</LinearLayout>

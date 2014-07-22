@@ -1,0 +1,1062 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D64FB787-5F4D-420E-B4A9-369E23B88902}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FR.Droid</RootNamespace>
+    <AssemblyName>FR.Droid</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <MandroidI18n />
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidUseLatestPlatformSdk />
+    <AndroidStoreUncompressedFileExtensions />
+    <JavaMaximumHeapSize />
+    <JavaOptions />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkSkip />
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <BundleAssemblies>False</BundleAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding.Android">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Binding.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Droid">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache.Droid">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.DownloadCache.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File.Droid">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.File.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.ResourceLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader.Droid">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.ResourceLoader.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Support.v4" />
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>S:\Droid\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization">
+      <HintPath>S:\Droid\Debug\System.Xml.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Json">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net">
+      <HintPath>S:\Droid\Debug\System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows">
+      <HintPath>S:\Droid\Debug\System.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.monoandroid">
+      <HintPath>S:\Movil\zxing.monoandroid.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile">
+      <HintPath>S:\Movil\ZXing.Net.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="PrintingLib">
+      <HintPath>S:\Movil\PrintingLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomViews\CustomToast.cs" />
+    <Compile Include="NativeServices\MessageDisplayer.cs" />
+    <Compile Include="ResolutionsDisp.cs" />
+    <Compile Include="SplashScreenActivity.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="SQLite\Softland.SQLiteExtensions.cs" />
+    <Compile Include="SQLite\SQLite.Implementation.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="Views\Actualizador\ActualizarView2.cs" />
+    <Compile Include="Views\Actualizador\MenuActualizadorView.cs" />
+    <Compile Include="Views\Articulo\BusquedaArticulosView.cs" />
+    <Compile Include="Views\Articulo\ConsultarArticuloView.cs" />
+    <Compile Include="Views\Articulo\ConsultaBonYDescView.cs" />
+    <Compile Include="Views\Cliente\ConsultaClienteView.cs" />
+    <Compile Include="Views\Cliente\UbicacionView.cs" />
+    <Compile Include="Views\Cliente\MenuClienteView.cs" />
+    <Compile Include="Views\Cliente\OpcionesClienteView.cs" />
+    <Compile Include="Views\Cliente\VisitaView.cs" />
+    <Compile Include="Views\Cobro\AplicarDepositoView.cs" />
+    <Compile Include="Views\Cobro\AplicarPagoContadoView.cs" />
+    <Compile Include="Views\Cobro\AplicarPagoView.cs" />
+    <Compile Include="Views\Cobro\ChequesView.cs" />
+    <Compile Include="Views\Cobro\ConsultaChequesView.cs" />
+    <Compile Include="Views\Cobro\ConsultaCobroView.cs" />
+    <Compile Include="Views\Cobro\ConsultaDocumentosCCView.cs" />
+    <Compile Include="Views\Cobro\ConsultaNotasCreditoView.cs" />
+    <Compile Include="Views\Cobro\ConsultaTipoCambioView.cs" />
+    <Compile Include="Views\Cobro\CreacionReciboView.cs" />
+    <Compile Include="Views\Cobro\DescuentoProntoPagoView.cs" />
+    <Compile Include="Views\Cobro\DetalleCobroView.cs" />
+    <Compile Include="Views\Cobro\SeleccionFacturasView.cs" />
+    <Compile Include="Views\Cobro\SeleccionNotasCreditoView.cs" />
+    <Compile Include="Views\Cobro\SeleccionRecibosView.cs" />
+    <Compile Include="Views\Cobro\TomaEfectivoView.cs" />
+    <Compile Include="Views\Consignacion\AplicarFacturaConsignacionView.cs" />
+    <Compile Include="Views\Consignacion\AplicarVentaConsignacionView.cs" />
+    <Compile Include="Views\Consignacion\ConfiguracionVentaConsigView.cs" />
+    <Compile Include="Views\Consignacion\ConsultaConsignacionView.cs" />
+    <Compile Include="Views\Consignacion\DesgloseVentaConsignacionView.cs" />
+    <Compile Include="Views\Consignacion\DetalleVentaConsignacionView.cs" />
+    <Compile Include="Views\Consignacion\MontosConsignacionCiaView.cs" />
+    <Compile Include="Views\Consignacion\NotaDetalleDesgloseView.cs" />
+    <Compile Include="Views\Consignacion\NotaVentaConsignacionView.cs" />
+    <Compile Include="Views\Consignacion\SugerirBoletaView.cs" />
+    <Compile Include="Views\Consignacion\TomaVentaConsigView.cs" />
+    <Compile Include="Views\Jornada\JornadaViewX.cs" />
+    <Compile Include="Views\MainMenuViewX.cs" />
+    <Compile Include="Views\Devoluciones\ConsultaDevolucionesView.cs" />
+    <Compile Include="Views\Devoluciones\TomaDevolucionesDocumentosView.cs" />
+    <Compile Include="Views\Devoluciones\DetalleDevolucionesView.cs" />
+    <Compile Include="Views\Devoluciones\TipoDevolucionView.cs" />
+    <Compile Include="Views\Devoluciones\TomaDevolucionesView.cs" />
+    <Compile Include="Views\Garantias\AplicarGarantiaView.cs" />
+    <Compile Include="Views\Garantias\ConfiguracionGarantiaView.cs" />
+    <Compile Include="Views\Garantias\TomaGarantiaView.cs" />
+    <Compile Include="Views\Inventario\ConsultaInventarioView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Inventario\DetalleInventarioView.cs" />
+    <Compile Include="Views\Inventario\SoftlandActivityView.cs" />
+    <Compile Include="Views\Inventario\TomaInventarioView.cs" />
+    <Compile Include="Views\Jornada\JornadaView.cs" />
+    <Compile Include="Views\MainMenuView.cs" />
+    <Compile Include="Views\Cliente\SeleccionClienteView.cs" />
+    <Compile Include="Views\Pedido\AplicarPedidoView.cs" />
+    <Compile Include="Views\Pedido\AsignaLotesView.cs" />
+    <Compile Include="Views\Pedido\CambioPrecioView.cs" />
+    <Compile Include="Views\Pedido\ConfiguracionPedidoView.cs" />
+    <Compile Include="Views\Pedido\ConsultaPedidosView.cs" />
+    <Compile Include="Views\Pedido\DesBon\CambioBonificacionView.cs" />
+    <Compile Include="Views\Pedido\DesBon\DetalleBonificacionesView.cs" />
+    <Compile Include="Views\Pedido\DetalleHistoricosPedidoView.cs" />
+    <Compile Include="Views\Pedido\DetallePedidoView.cs" />
+    <Compile Include="Views\Pedido\HistoricosPedidoView.cs" />
+    <Compile Include="Views\Pedido\LineasFacturaLoteView.cs" />
+    <Compile Include="Views\Pedido\MontosPedidoView.cs" />
+    <Compile Include="Views\Pedido\SugeridoVentaView.cs" />
+    <Compile Include="Views\Pedido\TomaPedidoView.cs" />
+    <Compile Include="Views\Principal\ConsultaConsecNCFView.cs" />
+    <Compile Include="Views\Principal\ConsultaCorporacionView.cs" />
+    <Compile Include="Views\Principal\ConsultaDispositivoView.cs" />
+    <Compile Include="Views\Principal\ConsultaConsecNCFViewX.cs" />
+    <Compile Include="Views\Principal\MenuParametrosAdapter.cs" />
+    <Compile Include="Views\Principal\MenuParametrosViewX.cs" />
+    <Compile Include="Views\Principal\ExactusXmlViewX.cs" />
+    <Compile Include="Views\Principal\LoginViewX.cs" />
+    <Compile Include="Views\Principal\ExactusXmlView.cs" />
+    <Compile Include="Views\Principal\JornadaLaboralView.cs" />
+    <Compile Include="Views\Principal\LoginView.cs" />
+    <Compile Include="Views\Principal\MenuParametrosView.cs" />
+    <Compile Include="Views\Principal\ParametrosImpresionView.cs" />
+    <Compile Include="Views\Principal\ParametrosSistemaView.cs" />
+    <Compile Include="Views\Reportes\ReporteLiquidacionInventarioView.cs" />
+    <Compile Include="Views\Reportes\ImpresionView.cs" />
+    <Compile Include="Views\Reportes\MenuReportesView.cs" />
+    <Compile Include="Views\Reportes\ReporteCierreView.cs" />
+    <Compile Include="Views\Reportes\ReporteDevueltoView.cs" />
+    <Compile Include="Views\Reportes\ReporteDocDiariosView.cs" />
+    <Compile Include="Views\Reportes\ReporteInventarioView.cs" />
+    <Compile Include="Views\Reportes\ReporteVisitaMontosView.cs" />
+    <Compile Include="Views\Reportes\ReporteVisitasView.cs" />
+    <Compile Include="Views\Retenciones\ConsultaRetencionesView.cs" />
+    <Compile Include="Views\Sincro\MenuDatosView.cs" />
+    <Compile Include="Views\TomaFísica\ConexionTomFisicaView.cs" />
+    <Compile Include="Views\TomaFísica\ConsultaInvFisicoView.cs" />
+    <Compile Include="Views\TomaFísica\ConsultaLinTomaFisicaView.cs" />
+    <Compile Include="Views\TomaFísica\FactDiferenciasTFView.cs" />
+    <Compile Include="Views\TomaFísica\TomaFisicaInventarioView.cs" />
+    <Compile Include="Views\TomaTrasiego\TomaTrasiegoView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\DetalleDevolucion.rdl" />
+    <AndroidAsset Include="Assets\VentaConsignacion.rdl" />
+    <AndroidAsset Include="Assets\DetalleRecibos.rdl" />
+    <AndroidAsset Include="Assets\Factura.rdl" />
+    <AndroidAsset Include="Assets\Pedido.rdl" />
+    <AndroidAsset Include="Assets\ReporteCierre.rdl" />
+    <AndroidAsset Include="Assets\ReporteDevoluciones.rdl" />
+    <AndroidAsset Include="Assets\ReporteInventario.rdl" />
+    <AndroidAsset Include="Assets\ReporteInventarioTomaFisica.rdl" />
+    <AndroidAsset Include="Assets\ReporteJornada.rdl" />
+    <AndroidAsset Include="Assets\ReporteMontos.rdl" />
+    <AndroidAsset Include="Assets\ReporteVisita.rdl" />
+    <AndroidAsset Include="Assets\ResumenDevoluciones.rdl" />
+    <AndroidAsset Include="Assets\ResumenFacturas.rdl" />
+    <AndroidAsset Include="Assets\ResumenPedidos.rdl" />
+    <AndroidAsset Include="Assets\ResumenRecibos.rdl" />
+    <AndroidAsset Include="Assets\Pedido_3.rdl" />
+    <AndroidAsset Include="Assets\ReporteCierre_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteCierre_3.rdl" />
+    <AndroidAsset Include="Assets\ReporteDevoluciones_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteDevoluciones_3.rdl" />
+    <AndroidAsset Include="Assets\ReporteInventario_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteInventario_3.rdl" />
+    <AndroidAsset Include="Assets\ReporteInventarioTomaFisica_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteInventarioTomaFisica_3.rdl" />
+    <AndroidAsset Include="Assets\ReporteJornada_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteJornada_3.rdl" />
+    <AndroidAsset Include="Assets\ReporteMontos_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteMontos_3.rdl" />
+    <AndroidAsset Include="Assets\ReporteVisita_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteVisita_3.rdl" />
+    <AndroidAsset Include="Assets\ResumenDevoluciones_2.rdl" />
+    <AndroidAsset Include="Assets\ResumenDevoluciones_3.rdl" />
+    <AndroidAsset Include="Assets\ResumenFacturas_2.rdl" />
+    <AndroidAsset Include="Assets\ResumenFacturas_3.rdl" />
+    <AndroidAsset Include="Assets\ResumenPedidos_2.rdl" />
+    <AndroidAsset Include="Assets\ResumenPedidos_3.rdl" />
+    <AndroidAsset Include="Assets\ResumenRecibos_2.rdl" />
+    <AndroidAsset Include="Assets\ResumenRecibos_3.rdl" />
+    <AndroidAsset Include="Assets\VentaConsignacion_2.rdl" />
+    <AndroidAsset Include="Assets\VentaConsignacion_3.rdl" />
+    <AndroidAsset Include="Assets\DetalleDevolucion_2.rdl" />
+    <AndroidAsset Include="Assets\DetalleDevolucion_3.rdl" />
+    <AndroidAsset Include="Assets\DetalleRecibos_2.rdl" />
+    <AndroidAsset Include="Assets\DetalleRecibos_3.rdl" />
+    <AndroidAsset Include="Assets\Factura_2.rdl" />
+    <AndroidAsset Include="Assets\Factura_3.rdl" />
+    <AndroidAsset Include="Assets\Pedido_2.rdl" />
+    <AndroidAsset Include="Assets\Garantia_3.rdl" />
+    <AndroidAsset Include="Assets\Garantia_2.rdl" />
+    <AndroidAsset Include="Assets\Garantia.rdl" />
+    <AndroidAsset Include="Assets\ReporteLiquidacionInventario.rdl" />
+    <AndroidAsset Include="Assets\ReporteLiquidacionInventario_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteLiquidacionInventario_3.rdl" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="FR.Droid.tar.gz" />
+    <None Include="Requerimientos Fr.docx" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\Layout\SplashScreen.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosItemCodigo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosHeaderCodigo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosHeaderDescripcion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosItemDescripcion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosHeaderFamilia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosItemFamilia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosHeaderClase.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosItemClase.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosHeaderBarras.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BusquedaArticulosItemBarras.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultarArticulo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\SeleccionClientes.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\SeleccionClienteHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\SeleccionClienteItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaBonYDesc.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaBonYDescHeaderDesc.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaBonYDescItemDesc.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaBonYDescHeaderBon.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaBonYDescItemBon.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultarArticuloDos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaInventario.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaInventarioItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaInventarioHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\OpcionesCliente.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaCliente.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaCobros.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaCobroHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaCobroItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleCobro.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleCobroHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleCobroItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaCheques.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaChequesHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaChequesItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaDocumentosCC.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaDocumentosCCHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaDocumentosCCItemLocal.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaDocumentosCCItemDolar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaPedidos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaPedidosHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaPedidosItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedido.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoHeaderDescripcion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoItemDescripcion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoHeaderCodigo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoItemCodigo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoHeaderFamilia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoItemFamilia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoHeaderBarras.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoItemBarras.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoHeaderClase.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetallePedidoItemClase.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaPedido.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaPedidoHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaPedidoItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\AplicarPedido.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleBonificaciones.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\MontosPedido.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\HistoricosPedido.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\HistoricosPedidosHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\HistoricosPedidosItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\HistoricosPedidosItemTodos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\HistoricosPedidosHeaderTodos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleHistoricosPedido.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleHistoricosPedidosHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleHistoricosPedidosItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaCorporacion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\MenuReportes.axml" />
+    <AndroidResource Include="Resources\Layout\MenuParametros.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteCierre.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteVisitasItem.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteCierreHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteCierreItem.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteDevuelto.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteDevueltoHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteDevueltoItem.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventario.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioHeaderBarras.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioHeaderClase.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioHeaderCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioHeaderDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioHeaderFamilia.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioItemBarras.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioItemClase.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioItemCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioItemDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteInventarioItemFamilia.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteVisitaMontos.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteVisitaMontosHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteVisitaMontosItem.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteVisitas.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteVisitasHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaDevoluciones.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaDevolucionesHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaDevolucionesItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevoluciones.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesHeaderBarras.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesHeaderFamilia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesHeaderClase.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesHeaderCodigo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesHeaderDescripcion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesItemBarras.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesItemFamilia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesItemClase.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesItemCodigo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleDevolucionesItemDescripcion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaInventario.axml" />
+    <AndroidResource Include="Resources\Layout\TomaInventarioItem.axml" />
+    <AndroidResource Include="Resources\Layout\TomaInventarioHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ParametrosSistema.axml" />
+    <AndroidResource Include="Resources\Layout\MenuDatos.axml" />
+    <AndroidResource Include="Resources\Layout\MenuActualizador.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventario.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioItemFamilia.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioHeaderBarras.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioHeaderClase.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioHeaderCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioHeaderDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioHeaderFamilia.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioItemBarras.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioItemClase.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioItemCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleInventarioItemDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaDispositivo.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaConsecNCF.axml" />
+    <AndroidResource Include="Resources\Layout\MenuCliente.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Visita.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TipoDevolucion.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TipoDevolucionHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TipoDevolucionItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaDevoluciones.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaDevolucionesHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaDevolucionesItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaDevolucionesDocumentos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaDevolucionesDocumentosItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConfiguracionPedido.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\SugeridoVenta.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\SugeridoVentaItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaVentaConsig.axml" />
+    <AndroidResource Include="Resources\Layout\TomaVentaConsigItem.axml" />
+    <AndroidResource Include="Resources\Layout\TomaVentaConsigHeader.axml" />
+    <AndroidResource Include="Resources\Layout\TomaEfectivo.axml" />
+    <AndroidResource Include="Resources\Layout\TomaFisicaInventario.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionFacturas.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionRecibosItem.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionFacturasHeader.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionFacturasItem.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionRecibos.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionRecibosHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ParametrosImpresion.axml" />
+    <AndroidResource Include="Resources\Layout\NotaVentaConsignacion.axml" />
+    <AndroidResource Include="Resources\Layout\MontosConsignacionCia.axml" />
+    <AndroidResource Include="Resources\Layout\JornadaLaboral.axml" />
+    <AndroidResource Include="Resources\Layout\Impresion.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacion.axml" />
+    <AndroidResource Include="Resources\Layout\FactDiferenciasTFItems.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionHeaderClase.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionHeaderCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionHeaderDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionItemClase.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionItemCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionItemDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\FactDiferenciasTF.axml" />
+    <AndroidResource Include="Resources\Layout\FactDiferenciasTFHeader.axml" />
+    <AndroidResource Include="Resources\Layout\DescuentoProntoPagoItem.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaTipoCambio.axml" />
+    <AndroidResource Include="Resources\Layout\CreacionRecibo.axml" />
+    <AndroidResource Include="Resources\Layout\DescuentoProntoPago.axml" />
+    <AndroidResource Include="Resources\Layout\DescuentoProntoPagoHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaInvFisico.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaNotasCreditoItem.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaInvFisicoHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaInvFisicoItem.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaLinTomaFisica.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaLinTomaFisicaHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaLinTomaFisicaItem.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaNotasCredito.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaNotasCreditoHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaConsignacionItem.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaConsignacion.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaConsignacionHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ConfiguracionVentaConsig.axml" />
+    <AndroidResource Include="Resources\Layout\ConexionTomFisica.axml" />
+    <AndroidResource Include="Resources\Layout\AplicarVentaConsignacion.axml" />
+    <AndroidResource Include="Resources\Layout\AplicarPago.axml" />
+    <AndroidResource Include="Resources\Layout\AplicarDeposito.axml" />
+    <AndroidResource Include="Resources\Layout\LineasFacturaLote.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\LineasFacturaLoteItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\AsignaLotes.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\AsignaLotesItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\LineasFacturaLoteHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\AsignaLotesHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleBonificacionesHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleBonificacionesItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\CambioBonificacion.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\CambioBonificacionItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\AplicarFacturaConsignacion.axml" />
+    <AndroidResource Include="Resources\Layout\Cheques.axml" />
+    <AndroidResource Include="Resources\Layout\ChequesItem.axml" />
+    <AndroidResource Include="Resources\Layout\ChequesHeader.axml" />
+    <AndroidResource Include="Resources\Layout\DesgloceVentaConsignacion.axml" />
+    <AndroidResource Include="Resources\Layout\DesgloceVentaConsignacionItem.axml" />
+    <AndroidResource Include="Resources\Layout\DesgloceVentaConsignacionHeader.axml" />
+    <AndroidResource Include="Resources\Layout\NotaDetalleDesglose.axml" />
+    <AndroidResource Include="Resources\Layout\SugerirBoleta.axml" />
+    <AndroidResource Include="Resources\Layout\AplicarPagoContado.axml" />
+    <AndroidResource Include="Resources\Layout\ExactusXML.axml" />
+    <AndroidResource Include="Resources\Layout\PruebaImpresion.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteDocDiarios.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionNotasCredito.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionNotasCreditoHeader.axml" />
+    <AndroidResource Include="Resources\Layout\SeleccionNotasCreditoItem.axml" />
+    <AndroidResource Include="Resources\Layout\OpcionMenuItem.axml" />
+    <AndroidResource Include="Resources\Layout\CambioPrecio.axml" />
+    <AndroidResource Include="Resources\Layout\LoginXHDPI.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\LoginT7.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\OpcionComboEnum.axml" />
+    <AndroidResource Include="Resources\Layout\OpcionDropDownEnum.axml" />
+    <AndroidResource Include="Resources\Layout\LoginHDPI.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionItemBarras.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleVentaConsignacionHeaderBarras.axml" />
+    <AndroidResource Include="Resources\Layout\UbicacionCliente.axml" />
+    <AndroidResource Include="Resources\Layout\ActualizarItem2.axml" />
+    <AndroidResource Include="Resources\Layout\ActualizarHeader2.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Actualizar2.axml" />
+    <AndroidResource Include="Resources\Layout\ZxingOverlay.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ReporteLiquidacionInventario.axml" />
+    <AndroidResource Include="Resources\Layout\RubrosJornada.axml" />
+    <AndroidResource Include="Resources\Layout\TomaTrasiego.axml" />
+    <AndroidResource Include="Resources\Layout\ConfiguracionGarantia.axml" />
+    <AndroidResource Include="Resources\Layout\TomaGarantiaHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaGarantiaItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TomaGarantia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\AplicarGarantia.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaRetenciones.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaRetencionesHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ConsultaRetencionesItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\LoginHDPIX.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\LoginT7X.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\LoginXHDPIX.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ExactusXMLX.axml" />
+    <AndroidResource Include="Resources\Layout\MainMenuX.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\RubrosJornadaX.axml" />
+    <AndroidResource Include="Resources\Layout\MenuParametrosX.axml" />
+    <AndroidResource Include="Resources\Layout\OpcionMenuItemX.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaConsecNCFX.axml" />
+    <None Include="SoftlandFR.keystore" />
+    <None Include="Views\Lista Pantallas.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Layout\MainMenu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FR.DR.Core\FR.DR.Core.csproj">
+      <Project>{E600623B-3663-4283-89B5-F2514A5EF9FA}</Project>
+      <Name>FR.DR.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FR.DR.EMF\FR.DR.EMF.csproj">
+      <Project>{35FEFF11-618B-4108-B8D2-FD2A16D380B7}</Project>
+      <Name>FR.DR.EMF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\MvxBindingAttribute.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Server.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\SyncServer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\ServerError.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\SyncClient.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\SyncError.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\FR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FR.Droid.csproj.DotSettings.user" />
+    <Content Include="KeyStorePassAndAlias.txt" />
+    <Content Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <AndroidResource Include="Resources\Drawable\custom_btn_black_pearl.xml" />
+    <AndroidResource Include="Resources\Drawable\custom_btn_breaker_bay.xml" />
+    <AndroidResource Include="Resources\Drawable\custom_btn_seagull.xml" />
+    <AndroidResource Include="Resources\Drawable\gradient_bg.xml" />
+    <AndroidResource Include="Resources\Drawable\gradient_bg_header.xml" />
+    <AndroidResource Include="Resources\Drawable\gradient_bg_hover.xml" />
+    <AndroidResource Include="Resources\Drawable\gradient_layoutbg.xml" />
+    <AndroidResource Include="Resources\Drawable\Icon2.png" />
+    <AndroidResource Include="Resources\Drawable\list_selector.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Drawable\RoundButton.xml" />
+    <AndroidResource Include="Resources\Drawable\text_color_selector.xml" />
+    <AndroidResource Include="Resources\Drawable\gradient_buttonbg.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\btnParametros.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btnReportes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btnDatos.png" />
+    <AndroidResource Include="Resources\Values-hdpi-v14\styles.xml" />
+    <AndroidResource Include="Resources\Values-hdpi-v11\styles.xml" />
+    <AndroidResource Include="Resources\Values-hdpi\styles.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\btnClientes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\fondo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btnDepositos.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\fondo.png" />
+    <AndroidResource Include="Resources\Values-large-mdpi\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values-large-mdpi-v11\styles.xml" />
+    <AndroidResource Include="Resources\Values-large-mdpi-v14\styles.xml" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\btnClientes.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\UserTxt.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\btnDatos.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\btnDepositos.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\btnInicio.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\btnParametros.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\btnReportes.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\passwordtxt.png" />
+    <AndroidResource Include="Resources\Values-xhdpi-v14\styles.xml" />
+    <AndroidResource Include="Resources\Values-xhdpi-v11\styles.xml" />
+    <AndroidResource Include="Resources\Values-xhdpi\styles.xml" />
+    <Content Include="ResFolders.txt" />
+    <AndroidResource Include="Resources\Values-xlarge-mdpi-v14\styles.xml" />
+    <AndroidResource Include="Resources\Values-xlarge-mdpi-v11\styles.xml" />
+    <AndroidResource Include="Resources\Values-xlarge-mdpi\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\fondo.jpg" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btnClientes.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btnDatos.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btnDepositos.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btnParametros.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btnReportes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\passwordtxt.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\UserTxt.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\passwordtxt.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\UserTxt.png" />
+    <AndroidResource Include="Resources\Drawable\gradient_combobg.xml" />
+    <AndroidResource Include="Resources\drawable-xhdpi\login.jpg" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\login.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\login.jpg" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\login.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\btnJornada.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\btnJornada.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btnJornada.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\btnClientes.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\btnDatos.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\btnDepositos.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\btnJornada.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\btnParametros.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\btnReportes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcCobros.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcConsignacion.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcConsultar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcDevolucion.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcInventario.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcPedido.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcAnular.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcConsignacion.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcConsultar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcDevolucion.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcInventario.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcPedido.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcAnular.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcCobros.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcConsignacion.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcConsultar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcDevolucion.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcInventario.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcPedido.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcAnular.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcCobros.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcConsignacion.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcConsultar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcDevolucion.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcInventario.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcPedido.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcAnular.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcCobros.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_aceptar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_agregar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_anular.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_calendario.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_cancelar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_continuar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_devolucion.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_direccion.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_editar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_eliminar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_entrega.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_guardar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_imprimir.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_login.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_precio.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_refresh.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_regresar.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_remover.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_visitar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_visitar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_aceptar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_agregar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_anular.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_calendario.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_cancelar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_continuar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_devolucion.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_direccion.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_editar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_eliminar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_entrega.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_guardar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_imprimir.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_login.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_precio.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_refresh.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_regresar.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_remover.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_aceptar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_agregar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_anular.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_calendario.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_cancelar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_continuar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_devolucion.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_direccion.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_editar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_eliminar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_entrega.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_guardar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_imprimir.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_login.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_precio.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_refresh.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_regresar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_remover.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_visitar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_eliminar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_entrega.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_guardar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_imprimir.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_login.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_precio.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_refresh.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_regresar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_remover.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_visitar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_aceptar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_agregar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_anular.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_calendario.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_cancelar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_continuar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_devolucion.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_direccion.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_editar.png" />
+    <AndroidResource Include="Resources\Drawable\menu_color_selector.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\mcGarantia.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\mcGarantia.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\mcGarantia.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mcGarantia.png" />
+    <AndroidResource Include="Resources\Menu\Abar.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menucli.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_menucli.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_menucli.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_menucli.png" />
+    <AndroidResource Include="Resources\Drawable\toast.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_consulreten.png" />
+    <AndroidResource Include="Resources\drawable-large-mdpi\ic_consulreten.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_consulreten.png" />
+    <AndroidResource Include="Resources\drawable-xlarge-mdpi\ic_consulreten.png" />
+    <None Include="Resources\Values\Colors.xml" />
+    <AndroidResource Include="Resources\Drawable\list_selector2.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Compañía: "
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCompaniassr"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:label="Companias"
+            local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Moneda: "
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <RadioGroup
+            android:orientation="horizontal"
+            android:layout_weight=".70"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup1"
+            android:gravity="center_horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Local"
+                android:id="@+id/rdLocal" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dolar"
+                android:id="@+id/rdDolar" />
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Banco: "
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbEntidadessr"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:label="Entidades"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Entidades; SelectedItem EntidadActual; Clickable Entidades.Count, Converter=CountToEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:id="@+id/btnSeleccionarTodos"
+            local:MvxBind="Click ComandoSeleccionarTodos"
+            android:src="@android:drawable/checkbox_on_background" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:id="@+id/btnSeleccionarNinguno"
+            local:MvxBind="Click ComandoSeleccionarNinguno"
+            android:src="@android:drawable/checkbox_off_background" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".60">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/header"
+                local:MvxItemTemplate="@layout/seleccionrecibosheader"
+                local:MvxBind="ItemsSource Header"
+                android:layout_width="600dp"
+                android:layout_height="20dip"
+                android:orientation="vertical" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/items"
+                local:MvxItemTemplate="@layout/seleccionrecibositem"
+                local:MvxBind="ItemsSource Items; SelectedItem ItemActual; ItemClick ComandoSeleccionar"
+                android:layout_width="600dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_cancelar"
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoCancelar" />
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnTerminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoTerminar" />
+    </LinearLayout>
+</LinearLayout>

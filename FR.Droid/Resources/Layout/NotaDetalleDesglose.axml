@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.9"
+        android:layout_height="0dip">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".2"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="left"
+                    android:text="Observaciones:" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".8"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/txtNotas"
+                    local:MvxBind="Text Notas"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".1"
+                    android:lines="15"
+                    style="@style/normalEditText"
+                    android:gravity="top|left" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

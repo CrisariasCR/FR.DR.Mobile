@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Compañía:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textStyle="bold"
+            android:gravity="left"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCompaniascr"
+            android:label="Compañias"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Moneda:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            style="@style/normalBoldText"
+            android:gravity="left" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbMonedascr"
+            android:label="Monedas"
+            local:MvxBind="ItemsSource Monedas; SelectedItem MonedaActual; Clickable TipoPagos.Count, Converter=CountToEnabled; Enabled MonedaEnabled"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:divider="#FFCC00"
+            android:dividerHeight="4dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Tipo de Pago:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            style="@style/normalBoldText"
+            android:gravity="left" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbTipoPagoscr"
+            android:label="TipoPagos"
+            local:MvxBind="ItemsSource TipoPagos; SelectedItem TipoPagoActual"
+            android:layout_width="0dip"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:divider="#FFCC00"
+            android:dividerHeight="4dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        local:MvxBind="Visibility NumReciboVisible, Converter=BoolToCollapsed,ConverterParameter=True">
+        <TextView
+            android:text="Número Recibo:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            style="@style/normalBoldText"
+            android:gravity="left" />
+        <EditText
+            android:id="@+id/txtNumeroRecibo"
+            android:text="NumeroRecibo"
+            local:MvxBind="Text NumeroRecibo"
+            android:gravity="right"
+            style="@style/numeralEditText"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:id="@+id/btnSalir"
+            local:MvxBind="Click ComandoCancelar"
+            android:src="@drawable/ic_cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageButton
+            android:id="@+id/btnConsultar"
+            local:MvxBind="Click ComandoContinuar"
+            android:src="@drawable/ic_aceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

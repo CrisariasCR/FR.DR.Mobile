@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E600623B-3663-4283-89B5-F2514A5EF9FA}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FR.DR.Core</RootNamespace>
+    <AssemblyName>FR.DR.Core</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cirrious.MvvmCross, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Color">
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.Color.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\Droid\Debug\Cirrious.MvvmCross.Plugins.ResourceLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>I:\Tools\referencias\MVVM\MvvmCross\VS2012\Droid\Release\System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\Droid\Debug\System.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Converters\Converters.cs" />
+    <Compile Include="DataAccess\DataStore.cs" />
+    <Compile Include="DataAccess\GestorDatos.cs" />
+    <Compile Include="DataAccess\IDataStore.cs" />
+    <Compile Include="Data\Acciones.cs" />
+    <Compile Include="Data\Cobro\Banco.cs" />
+    <Compile Include="Data\Corporativo\ConsecResolu.cs" />
+    <Compile Include="Data\Corporativo\ConsecResoluBase.cs" />
+    <Compile Include="Data\Corporativo\DivisionGeografica.cs" />
+    <Compile Include="Data\Corporativo\ReporteLiquidacionInventario.cs" />
+    <Compile Include="Data\Documentos\FRDesBon\ConvertidorFiltro.cs" />
+    <Compile Include="Data\Documentos\FRDesBon\Regalias.cs" />
+    <Compile Include="Data\Documentos\FRPedido\Garantia.cs" />
+    <Compile Include="Data\Documentos\FRPedido\Garantias.cs" />
+    <Compile Include="Data\Documentos\FRPedido\DetallesGarantias.cs" />
+    <Compile Include="Data\Documentos\FRPedido\DetalleGarantia.cs" />
+    <Compile Include="Data\Documentos\Retenciones\fclsExcepcionCiudad.cs" />
+    <Compile Include="Data\Documentos\Retenciones\fclsExcepcionRegimen.cs" />
+    <Compile Include="Data\Documentos\Retenciones\fclsRetencion.cs" />
+    <Compile Include="Data\Documentos\Retenciones\RetencionesDocCC.cs" />
+    <Compile Include="Data\Jornada\Jornada.cs" />
+    <Compile Include="Data\Trasiego\Trasiego.cs" />
+    <Compile Include="Data\Utilidad\Ubicacion.cs" />
+    <Compile Include="Helper\OpcionMenu.cs" />
+    <Compile Include="Helper\ReportHelper.cs" />
+    <Compile Include="Model\Cobro\Cheque.cs" />
+    <Compile Include="Data\Cobro\Cobros.cs" />
+    <Compile Include="Data\Cobro\CuentaBanco.cs" />
+    <Compile Include="Data\Cobro\Deposito.cs" />
+    <Compile Include="Data\Cobro\DetalleDeposito.cs" />
+    <Compile Include="Data\Cobro\DetalleRecibo.cs" />
+    <Compile Include="Data\Cobro\DocumentoContable.cs" />
+    <Compile Include="Model\Cobro\Factura.cs" />
+    <Compile Include="Data\Cobro\FacturaDescuento.cs" />
+    <Compile Include="Data\Cobro\NotaCredito.cs" />
+    <Compile Include="Model\Cobro\Recibo.cs" />
+    <Compile Include="Data\Cobro\ReporteRecibos.cs" />
+    <Compile Include="Data\Configuracion\HandHeldConfig.cs" />
+    <Compile Include="Data\Configuracion\OneHandHeldConfig.cs" />
+    <Compile Include="Data\Configuracion\OneHandHeldConfigGlobal.cs" />
+    <Compile Include="Data\Corporativo\CompaniaBase.cs" />
+    <Compile Include="Data\Corporativo\CondicionPago.cs" />
+    <Compile Include="Data\Corporativo\Corporacion.cs" />
+    <Compile Include="Data\Corporativo\DescuentoProntoPago.cs" />
+    <Compile Include="Data\Corporativo\JornadaRuta.cs" />
+    <Compile Include="Data\Corporativo\NCF.cs" />
+    <Compile Include="Data\Corporativo\NCFBase.cs" />
+    <Compile Include="Data\Corporativo\Pais.cs" />
+    <Compile Include="Data\Corporativo\ParametroSistema.cs" />
+    <Compile Include="Data\Corporativo\ReporteJornada.cs" />
+    <Compile Include="Data\Documentos\ConfigDocCia.cs" />
+    <Compile Include="Data\Documentos\DetalleDocumento.cs" />
+    <Compile Include="Data\Documentos\DetalleLinea.cs" />
+    <Compile Include="Data\Documentos\DetalleSort.cs" />
+    <Compile Include="Data\Documentos\Encabezado.cs" />
+    <Compile Include="Data\Documentos\EncabezadoDocumento.cs" />
+    <Compile Include="Data\Documentos\FRConsignacion\BoletasConsignacion.cs" />
+    <Compile Include="Data\Documentos\FRConsignacion\DetalleRestablecer.cs" />
+    <Compile Include="Data\Documentos\FRConsignacion\DetallesVenta.cs" />
+    <Compile Include="Data\Documentos\FRConsignacion\DetalleVenta.cs" />
+    <Compile Include="Data\Documentos\FRConsignacion\VentaConsignacion.cs" />
+    <Compile Include="Data\Documentos\FRConsignacion\VentasConsignacion.cs" />
+    <Compile Include="Data\Documentos\FRDesBon\Escala.cs" />
+    <Compile Include="Data\Documentos\FRDesBon\LineaRegalia.cs" />
+    <Compile Include="Data\Documentos\FRDesBon\Paquete.cs" />
+    <Compile Include="Data\Documentos\FRDesBon\ProbadorFiltros.cs" />
+    <Compile Include="Data\Documentos\FRDesBon\Regla.cs" />
+    <Compile Include="Data\Documentos\FRDevolucion\DetalleDevolucion.cs" />
+    <Compile Include="Data\Documentos\FRDevolucion\DetallesDevolucion.cs" />
+    <Compile Include="Data\Documentos\FRDevolucion\Devolucion.cs" />
+    <Compile Include="Data\Documentos\FRDevolucion\Devoluciones.cs" />
+    <Compile Include="Data\Documentos\FRInventario\DetalleInventario.cs" />
+    <Compile Include="Data\Documentos\FRInventario\DetallesInventario.cs" />
+    <Compile Include="Model\Articulo\BonYDesc.cs" />
+    <Compile Include="Model\Inventario\Inventario.cs" />
+    <Compile Include="Model\Inventario\Inventarios.cs" />
+    <Compile Include="Data\Documentos\FRInventario\ReporteInventario.cs" />
+    <Compile Include="Data\Documentos\FRPedido\DetallePedido.cs" />
+    <Compile Include="Data\Documentos\FRPedido\DetallesPedido.cs" />
+    <Compile Include="Data\Documentos\FRPedido\ListaEncabezadoPedido.cs" />
+    <Compile Include="Data\Documentos\FRPedido\Pedido.cs" />
+    <Compile Include="Data\Documentos\FRPedido\Pedidos.cs" />
+    <Compile Include="Data\Documentos\Gestor.cs" />
+    <Compile Include="Data\Documentos\GestorBonificacionDescuento.cs" />
+    <Compile Include="Data\Documentos\GestorDocumentos.cs" />
+    <Compile Include="Data\Documentos\SugeridoVenta.cs" />
+    <Compile Include="Data\Enums.cs" />
+    <Compile Include="Data\FRArticulo\Bodega.cs" />
+    <Compile Include="Data\FRArticulo\CriterioBusqueda.cs" />
+    <Compile Include="Data\FRArticulo\Impuesto.cs" />
+    <Compile Include="Data\FRArticulo\Lotes.cs" />
+    <Compile Include="Data\FRCliente\ClienteBase.cs" />
+    <Compile Include="Data\FRCliente\ClienteMontos.cs" />
+    <Compile Include="Data\FRCliente\ClienteUbicacion.cs" />
+    <Compile Include="Data\FRCliente\CriterioBusqueda.cs" />
+    <Compile Include="Data\FRCliente\DireccionEntrega.cs" />
+    <Compile Include="Data\FRCliente\FRVisita\DocumentoVisita.cs" />
+    <Compile Include="Data\FRCliente\FRVisita\RazonVisita.cs" />
+    <Compile Include="Data\FRCliente\FRVisita\ReporteVisitas.cs" />
+    <Compile Include="Data\FRCliente\FRVisita\Visita.cs" />
+    <Compile Include="Data\FRCliente\FRVisita\VisitaUbicacion.cs" />
+    <Compile Include="Data\FRdConfig.cs" />
+    <Compile Include="Data\FRmConfig.cs" />
+    <Compile Include="Data\Mensaje.cs" />
+    <Compile Include="Data\Reporte\Impresora.cs" />
+    <Compile Include="Data\Reporte\ReporteMontos.cs" />
+    <Compile Include="Data\Seguridad\Cryptography.cs" />
+    <Compile Include="Data\Seguridad\FrmException.cs" />
+    <Compile Include="Data\Seguridad\GestorSeguridad.cs" />
+    <Compile Include="Data\Sincronizar\GestorSincronizar.cs" />
+    <Compile Include="Data\TomaFisica\TomaFisicaInventario.cs" />
+    <Compile Include="Data\Utilidad\Bitacora.cs" />
+    <Compile Include="Data\Utilidad\ConfigurationClass.cs" />
+    <Compile Include="Data\Utilidad\GestorUtilitario.cs" />
+    <Compile Include="Helper\EnumHelper.cs" />
+    <Compile Include="Helper\ResourceHelper.cs" />
+    <Compile Include="Helper\DescriptionAttribute.cs" />
+    <Compile Include="Model\Articulo\Articulo.cs" />
+    <Compile Include="Model\Articulo\Bonificacion.cs" />
+    <Compile Include="Model\Articulo\Descuento.cs" />
+    <Compile Include="Model\Articulo\NivelPrecio.cs" />
+    <Compile Include="Model\Articulo\Precio.cs" />
+    <Compile Include="Model\Cliente\Cliente.cs" />
+    <Compile Include="Model\Cliente\ClienteCia.cs" />
+    <Compile Include="Model\Corporativo\Compania.cs" />
+    <Compile Include="Model\Corporativo\Ruta.cs" />
+    <Compile Include="Model\Global\Enums.cs" />
+    <Compile Include="Model\Global\GlobalUI.cs" />
+    <Compile Include="Model\Global\Util.cs" />
+    <Compile Include="Model\IObservableCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartApplicationObject.cs" />
+    <Compile Include="ViewModels\Actualizador\ActualizarCustomViewModel.cs" />
+    <Compile Include="ViewModels\Actualizador\MenuActualizadorViewModel.cs" />
+    <Compile Include="ViewModels\Articulo\BusquedaArticulosViewModel.cs" />
+    <Compile Include="ViewModels\Articulo\ConsultaArticuloViewModel.cs" />
+    <Compile Include="ViewModels\Articulo\ConsultaBonYDescViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Cliente\ConsultaClienteViewModel.cs" />
+    <Compile Include="ViewModels\Cliente\UbicacionClienteModel.cs" />
+    <Compile Include="ViewModels\Cliente\MenuClienteViewModel.cs" />
+    <Compile Include="ViewModels\Cliente\OpcionesClienteViewModel.cs" />
+    <Compile Include="ViewModels\Cliente\SeleccionClienteViewModel.cs" />
+    <Compile Include="ViewModels\Cliente\VisitaViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\AplicarDepositoViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\AplicarPagoContadoViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\AplicarPagoViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\ChequesViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\ConsultaChequesViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\ConsultaCobroViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\ConsultaDocumentosCCViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\ConsultaNotasCreditoViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\CreacionReciboViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\DescuentoProntoPagoViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\DetalleCobroViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\SeleccionFacturasViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\SeleccionNotasCreditoViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\SeleccionRecibosViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\TipoCambioViewModel.cs" />
+    <Compile Include="ViewModels\Cobro\TomaEfectivoViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\AplicarFacturaConsignacionViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\AplicarVentaConsignacionViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\ConfiguracionVentaConsigViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\ConsultaConsignacionViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\DesgloceVentaConsignacionViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\DetalleVentaConsignacionViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\MontoConsignacionCiaViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\NotaDetalleDesgloseViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\NotaVentaConsignacionViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\SugerirBoletaViewModel.cs" />
+    <Compile Include="ViewModels\Consignacion\TomaVentaConsigViewModel.cs" />
+    <Compile Include="ViewModels\Devoluciones\ConsultaDevolucionesViewModel.cs" />
+    <Compile Include="ViewModels\Devoluciones\DetalleDevolucionesViewModel.cs" />
+    <Compile Include="ViewModels\Devoluciones\TipoDevolucionViewModel.cs" />
+    <Compile Include="ViewModels\Devoluciones\TomaDevolucionesDocumentosViewModel.cs" />
+    <Compile Include="ViewModels\Devoluciones\TomaDevolucionesViewModel.cs" />
+    <Compile Include="ViewModels\Garantia\AplicarGarantiaViewModel.cs" />
+    <Compile Include="ViewModels\Garantia\ConfiguracionGarantiaViewModel.cs" />
+    <Compile Include="ViewModels\Garantia\TomaGarantiaViewModel.cs" />
+    <Compile Include="ViewModels\Gestor.cs" />
+    <Compile Include="ViewModels\Inventario\ConsultaInventarioViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Inventario\DetalleInventarioViewModel.cs" />
+    <Compile Include="ViewModels\Inventario\TomaInventarioViewModel.cs" />
+    <Compile Include="ViewModels\Jornada\RubrosJornadaViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\AplicarPedidoViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\AsignaLotesViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\CambioPrecioViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\ConfiguracionPedidoViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\ConsultaPedidosViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\DesBon\CambioBonificacionViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\DesBon\DetalleBonificacionesViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\DetalleHistoricosPedidoViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\DetallePedidoViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\HistoricoPedidosViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\LineasFacturaLoteViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\MontosPedidoViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\SugeridoVentaViewModel.cs" />
+    <Compile Include="ViewModels\Pedido\TomaPedidoViewModel.cs" />
+    <Compile Include="ViewModels\Principal\ConsultaConsecNCFViewModel.cs" />
+    <Compile Include="ViewModels\Principal\ConsultaCorporacionViewModel.cs" />
+    <Compile Include="ViewModels\Principal\ConsultaDispositivoViewModel.cs" />
+    <Compile Include="ViewModels\Principal\DatosViewModel.cs" />
+    <Compile Include="ViewModels\Principal\ExactusXMLViewModel.cs" />
+    <Compile Include="ViewModels\Principal\JornadaLaboralViewModel.cs" />
+    <Compile Include="ViewModels\Principal\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Principal\MenuParametrosViewModel.cs" />
+    <Compile Include="ViewModels\Principal\MenuPrincipalViewModel.cs" />
+    <Compile Include="ViewModels\Principal\ParametrosImpresoraViewModel.cs" />
+    <Compile Include="ViewModels\Principal\ParametrosSistemaViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ReporteLiquidacionInventarioViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ImpresionViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ReporteDocDiariosViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ReporteInventarioViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ReporteDevueltoViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ReporteCierreViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ReporteVisitasViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\ReporteVisitaMontosViewModel.cs" />
+    <Compile Include="ViewModels\Reportes\MenuReportesViewModel.cs" />
+    <Compile Include="ViewModels\DialogViewModel.cs" />
+    <Compile Include="ViewModels\Retenciones\ConsultaRetencionesViewModel.cs" />
+    <Compile Include="ViewModels\Sincro\MenuDatosViewModel.cs" />
+    <Compile Include="ViewModels\Sincro\SincroDesatendida.cs" />
+    <Compile Include="ViewModels\Sincro\SincroStatusViewModel.cs" />
+    <Compile Include="ViewModels\TomaFisica\ConexionTomFisicaViewModel.cs" />
+    <Compile Include="ViewModels\TomaFisica\ConsultaInvFisicoViewModel.cs" />
+    <Compile Include="ViewModels\TomaFisica\ConsultaLinTomaFisicaViewModel.cs" />
+    <Compile Include="ViewModels\TomaFisica\FactDiferenciasTFViewModel.cs" />
+    <Compile Include="ViewModels\TomaFisica\TomaFisicaInventarioViewModel.cs" />
+    <Compile Include="ViewModels\TomaTrasiego\TomaTrasiegoViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Corporativo\ParametroSistema.resx">
+      <DependentUpon>ParametroSistema.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\AccesoDatos\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EMM.DR.Client\EMM.DR.Client.csproj">
+      <Project>{10C32B8D-308D-4EB9-8C14-ABE4DA9AA04E}</Project>
+      <Name>EMM.DR.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FR.DR.EMF\FR.DR.EMF.csproj">
+      <Project>{35FEFF11-618B-4108-B8D2-FD2A16D380B7}</Project>
+      <Name>FR.DR.EMF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reportes\DetalleDevolucion.rdl" />
+    <None Include="Reportes\DetalleRecibos.rdl" />
+    <None Include="Reportes\Factura.rdl" />
+    <None Include="Reportes\Pedido.rdl" />
+    <None Include="Reportes\ReporteCierre.rdl" />
+    <None Include="Reportes\ReporteDevoluciones.rdl" />
+    <None Include="Reportes\ReporteInventario.rdl" />
+    <None Include="Reportes\ReporteInventarioTomaFisica.rdl" />
+    <None Include="Reportes\ReporteJornada.rdl" />
+    <None Include="Reportes\ReporteMontos.rdl" />
+    <None Include="Reportes\ReporteVisita.rdl" />
+    <None Include="Reportes\ResumenDevoluciones.rdl" />
+    <None Include="Reportes\ResumenFacturas.rdl" />
+    <None Include="Reportes\ResumenPedidos.rdl" />
+    <None Include="Reportes\ResumenRecibos.rdl" />
+    <None Include="Reportes\VentaConsignacion.rdl" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

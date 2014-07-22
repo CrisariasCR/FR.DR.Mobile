@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"
+        android:layout_weight=".60">
+        <Mvx.MvxBindableListView
+            android:id="@+id/header"
+            local:MvxItemTemplate="@layout/chequesheader"
+            local:MvxBind="ItemsSource Header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <Mvx.MvxBindableListView
+            android:id="@+id/items"
+            android:choiceMode="singleChoice"
+            local:MvxItemTemplate="@layout/chequesitem"
+            local:MvxBind="ItemsSource Cheques; SelectedItem ItemActual; ItemClick ComandoSeleccionar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_marginTop="2dp">
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbBancoschq"
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:label="Bancos"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Bancos; SelectedItem BancoActual; Clickable Bancos.Count, Converter=CountToEnabled" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Número Cheque: "
+            android:layout_width="0dip"
+            android:layout_weight=".55"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <EditText
+            local:MvxBind="Text Cheque"
+            android:layout_width="0dip"
+            android:layout_weight=".45"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/numeralEditText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Número Cuenta: "
+            android:layout_width="0dip"
+            android:layout_weight=".55"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <EditText
+            local:MvxBind="Text Cuenta"
+            android:layout_width="0dip"
+            android:layout_weight=".45"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalEditText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Fecha: "
+            android:layout_width="0dip"
+            android:layout_weight=".55"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <EditText
+            local:MvxBind="Text Fecha,Converter=ConvertidorFecha"
+            android:layout_width="0dip"
+            android:layout_weight=".45"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalEditText"
+            android:inputType="datetime" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Monto: "
+            android:layout_width="0dip"
+            android:layout_weight=".55"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <EditText
+            local:MvxBind="Text MontoCheque,Converter=FormatoMonto"
+            android:layout_width="0dip"
+            android:layout_weight=".45"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/DecimalEditText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout5"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Total Cheques: "
+            android:layout_width="0dip"
+            android:layout_weight=".55"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text TotalCheques,Converter=FormatoMonto"
+            android:layout_width="0dip"
+            android:layout_weight=".45"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout6"
+        android:layout_marginTop="2dp">
+        <TextView
+            android:text="Saldo Pendiente: "
+            android:layout_width="0dip"
+            android:layout_weight=".55"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Saldo,Converter=FormatoMonto"
+            android:layout_width="0dip"
+            android:layout_weight=".45"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalText" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_agregar"
+            android:id="@+id/btnAgregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoAgregar" />
+        <ImageButton
+            android:src="@drawable/ic_remover"
+            android:id="@+id/btnRemover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoEliminar" />
+        <ImageButton
+            android:src="@drawable/ic_cancelar"
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoCancelar" />
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btnStyleImage"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoAceptar" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        local:MvxBind="Text Lote"
+        android:layout_width="0dp"
+        android:layout_weight=".3"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        local:MvxBind="Text ExistenciaParcial"
+        android:layout_width="0dp"
+        android:layout_weight=".3"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        local:MvxBind="Text FechaVencimiento, Converter=ConvertidorFecha"
+        android:layout_width="0dp"
+        android:layout_weight=".4"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/ListItemText" />
+</LinearLayout>

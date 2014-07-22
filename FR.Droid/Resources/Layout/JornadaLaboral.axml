@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+<!--<Mvx.MvxBindableListView
+        android:id="@+id/listaOpciones"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"
+        android:layout_weight=".95"
+        local:MvxBind="ItemsSource Opciones; ItemClick MenuSelected" />-->
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".10" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight=".65"
+        android:layout_height="0dip"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageButton
+            android:src="@drawable/ic_agregar"
+            android:id="@+id/btnInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoInicio; Visibility InicioVisible,Converter=BoolToCollapsed" />
+        <ImageButton
+            android:src="@drawable/ic_cancelar"
+            android:id="@+id/btnCierre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoCierre; Visibility CierreVisible,Converter=BoolToCollapsed" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".25">
+        <TextView
+            android:text="Inicio:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Inicio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Cierre:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Cierre"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+    </LinearLayout>
+</LinearLayout>

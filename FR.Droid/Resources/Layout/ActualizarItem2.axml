@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal">
+    <CheckBox
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        local:MvxBind="Checked Selected" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Name"
+        local:MvxBind="Text Name"
+        android:layout_width="0dip"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_weight=".2"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Version"
+        local:MvxBind="Text Version"
+        android:layout_width="0dip"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_weight=".14"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Date"
+        local:MvxBind="Text Date"
+        android:layout_width="0dip"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_weight=".2"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="ID"
+        local:MvxBind="Text ID"
+        android:layout_width="0dip"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_weight=".2"
+        style="@style/ListItemText" />
+</LinearLayout>

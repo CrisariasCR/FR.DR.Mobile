@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/Contactos.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="#606060">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="Compañía"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="Hecho"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="Monto Neto"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="País"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="Condición Pago"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="Lista Precio"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="Clase Factura"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:text="Estado Documento"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+</LinearLayout>

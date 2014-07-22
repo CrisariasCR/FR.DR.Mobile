@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuracion>
+	<BasesDeDatos>
+		<BaseDeDatos>
+			<Nombre>Hola</Nombre>
+			<DBA>XXX</DBA>
+			<Servidor>127.0.0.1</Servidor>
+			<Compañia>A</Compañia>
+			<Compañia>B</Compañia>
+			<Compañia>C</Compañia>
+		</BaseDeDatos>
+		<BaseDeDatos>
+			<Nombre>test</Nombre>
+			<DBA>sa</DBA>
+			<Servidor>127.0.0.1</Servidor>
+			<Compañia>A</Compañia>
+			<Compañia>B</Compañia>
+			<Compañia>C</Compañia>
+		</BaseDeDatos>
+	</BasesDeDatos>
+	<Aplicaciones>
+		<App1>
+			<A>2</A>
+			<B>2</B>
+			<C>3</C>
+		</App1>
+		<App2>
+			<A>1</A>
+			<B>2</B>
+			<C>3</C>
+		</App2>
+		<Synchronization>
+			<User>wrodriguez</User>
+			<Password>aiculedssul</Password>
+			<Server>ameneses</Server>
+			<Domain>exactus.com</Domain>
+		</Synchronization>
+	</Aplicaciones>
+</configuracion>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dip"
+        android:layout_weight=".34">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            local:MvxBind="Text Numero"
+            android:gravity="left"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".33">
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            local:MvxBind="Text Banco.Descripcion"
+            style="@style/ListItemText"
+            android:gravity="left" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".33">
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            local:MvxBind="Text Monto,Converter=FormatoNumero"
+            style="@style/ListItemText"
+            android:gravity="right" />
+    </RelativeLayout>
+</LinearLayout>

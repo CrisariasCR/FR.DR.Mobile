@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/Contactos.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="#606060">
+    <TextView
+        android:id="@+id/text1"
+        android:text="Artículo"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:text="Descripción"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".16"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:text="Diferencia"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:text="Cant. Fact"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:text="Cant.NoFact"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:text="Localización"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:text="Lote"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+</LinearLayout>

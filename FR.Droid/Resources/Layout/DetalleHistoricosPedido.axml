@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="800dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/detallehistoricospedidosheader"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaPedidos"
+                android:layout_width="800dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:choiceMode="singleChoice"
+                local:MvxItemTemplate="@layout/detallehistoricospedidositem"
+                local:MvxBind="ItemsSource Detalles" />
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:id="@+id/text1"
+        android:text="Nombre"
+        local:MvxBind="Text Nombre"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Montos.MontoPagado"
+        local:MvxBind="Text Montos.MontoPagado, Converter=FormatoNumero"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:id="@+id/text3"
+        android:text="Montos.MontoNotasAplicadas"
+        local:MvxBind="Text Montos.MontoNotasAplicadas, Converter=FormatoNumero"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:id="@+id/text4"
+        android:text="Montos.MontoComprado"
+        local:MvxBind="Text Montos.MontoComprado, Converter=FormatoNumero"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:id="@+id/text5"
+        android:text="Montos.MontoPreventa"
+        local:MvxBind="Text Montos.MontoPreventa, Converter=FormatoNumero"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:id="@+id/text6"
+        android:text="Montos.MontoFacturas"
+        local:MvxBind="Text Montos.MontoFacturas, Converter=FormatoNumero"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        style="@style/ListItemText"
+        android:gravity="right" />
+</LinearLayout>

@@ -1,0 +1,12 @@
+﻿// for Phones
+drawable-ldpi
+drawable-mdpi
+drawable-hdpi
+drawable-xhdpi
+
+//for 7 inch tablets
+drawable-large-mdpi
+drawable-large-hdpi(for Nexus 7)
+
+// for 10 inch tablets
+drawable-xlarge-mdpi

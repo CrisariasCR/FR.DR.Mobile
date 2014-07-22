@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Tipo Moneda:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            android:id="@+id/txtMoneda"
+            local:MvxBind="Text TipoModena"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalText" />
+        <TextView
+            android:text="Total Pagar:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            android:id="@+id/txtTotalPagar"
+            local:MvxBind="Text TotalPagar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalText" />
+        <TextView
+            android:text="Tipo Cambio:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            android:id="@+id/txtTipoCambio"
+            local:MvxBind="Text TipoCambio,Converter=FormatoMonto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalText" />
+        <TextView
+            android:text="Total:"
+            local:MvxBind="Text lblTotal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            android:id="@+id/txtTotal"
+            local:MvxBind="Text Total,Converter=FormatoMonto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalText" />
+    </LinearLayout>
+</ScrollView>

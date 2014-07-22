@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".60">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="600dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/actualizarheader2"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/items"
+                local:MvxItemTemplate="@layout/actualizaritem2"
+                local:MvxBind="ItemsSource Items;SelectedItem ItemActual"
+                android:layout_width="600dp"
+                android:orientation="vertical"
+                android:layout_weight=".9"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:id="@+id/btnAceptar"
+            local:MvxBind="Click ComandoAceptar"
+            android:src="@drawable/ic_aceptar"
+            android:layout_width="wrap_content"
+            style="@style/btnStyleImage"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+    </LinearLayout>
+</LinearLayout>

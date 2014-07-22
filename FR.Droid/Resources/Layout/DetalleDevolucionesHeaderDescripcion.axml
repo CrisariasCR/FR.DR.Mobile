@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/Contactos.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="#606060">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".35"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".20"
+        android:layout_height="wrap_content"
+        android:text="Cod. Artículo"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:text="Almacén"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:text="Detalle"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+</LinearLayout>

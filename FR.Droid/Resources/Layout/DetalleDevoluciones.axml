@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5" />
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbCompaniasdd"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+        </RelativeLayout>
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".50">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/detalledevolucionesheaderdescripcion"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaDevoluciones"
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:choiceMode="singleChoice"
+                local:MvxItemTemplate="@layout/detalledevolucionesitemdescripcion"
+                local:MvxBind="ItemsSource Detalles; SelectedItem DetalleSeleccionado" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".8"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            android:text="Total Artículos (Detalle):" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".2"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalText"
+            local:MvxBind="Text TotalArticulos"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".8"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalBoldText"
+            android:text="Total Líneas:" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".2"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            style="@style/normalText"
+            local:MvxBind="Text Detalles.Count" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight=".10"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCriteriosdd"
+            android:layout_width="0dip"
+            android:layout_weight=".4"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Criterios; SelectedItem CriterioActual"
+            android:layout_gravity="center_vertical" />
+        <EditText
+            android:layout_width="0dip"
+            android:layout_weight=".4"
+            android:layout_height="wrap_content"
+            style="@style/normalEditText"
+            android:id="@+id/txtBusquedadd"
+            local:MvxBind="Text TextoBusqueda"
+            android:layout_gravity="center_vertical" />
+        <ImageButton
+            android:src="@drawable/ic_refresh"
+            android:id="@+id/btnRefrescar"
+            android:layout_width="0dip"
+            android:layout_weight=".2"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_search"
+            android:id="@+id/btnConsultar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            local:MvxBind="Click ComandoConsultar" />
+        <ImageButton
+            android:src="@drawable/ic_remover"
+            android:id="@+id/btnEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            local:MvxBind="Click ComandoEliminar;Visibility EsConsulta,Converter=BoolToCollapsed,ConverterParameter=true" />
+    </LinearLayout>
+</LinearLayout>

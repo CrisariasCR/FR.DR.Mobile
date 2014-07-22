@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Código:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text HandHeld"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Fecha:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Fecha"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Hora:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Hora"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Teléfono:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Corporacion.Telefono"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Código de Área:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text CodigoArea"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Versión Módulo:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Version"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Código:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30" />
+        <TextView
+            local:MvxBind="Text Articulo.Codigo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".70" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Descripción:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30" />
+        <TextView
+            local:MvxBind="Text Articulo.Descripcion"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".70" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Impuesto de Ventas:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".45" />
+        <TextView
+            local:MvxBind="Text Articulo.Impuesto.Impuesto1,Converter=ConvertidorImpuestos"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Impuesto Selec. Consumo:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55" />
+        <TextView
+            local:MvxBind="Text Articulo.Impuesto.Impuesto2,Converter=ConvertidorImpuestos"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".45" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Precio Und. Almacén:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".45" />
+        <TextView
+            local:MvxBind="Text PrecioAlmacen,Converter=ConvertidorPrecios,ConverterParameter=True"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Precio Und. Detalle:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".45" />
+        <TextView
+            local:MvxBind="Text PrecioDetalle,Converter=ConvertidorPrecios,ConverterParameter=True"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Descuento Escalonado:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".45" />
+        <TextView
+            local:MvxBind="Text Articulo.DescuentosEscalonados.Count,Converter=ConvertidorCantidades"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <TextView
+            android:text="Bonificaciones:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30" />
+        <TextView
+            local:MvxBind="Text Articulo.Bonificaciones.Count,Converter=ConvertidorCantidades"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".70" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 1:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText"
+                local:MvxBind="Text Rubro1Des" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                local:MvxBind="Text Rubro1;Enabled Rubro1Enabled" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 2:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText"
+                local:MvxBind="Text Rubro2Des" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                local:MvxBind="Text Rubro2;Enabled Rubro2Enabled" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 3:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText"
+                local:MvxBind="Text Rubro3Des" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                local:MvxBind="Text Rubro3;Enabled Rubro3Enabled" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 4:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText"
+                local:MvxBind="Text Rubro4Des" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                local:MvxBind="Text Rubro4;Enabled Rubro4Enabled" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Etiqueta 5:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText"
+                local:MvxBind="Text Rubro5Des" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.6"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                local:MvxBind="Text Rubro5;Enabled Rubro5Enabled" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.2"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnAceptar"
+            local:MvxBind="Click ComandoAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

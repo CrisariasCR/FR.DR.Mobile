@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal">
+    <Checkbox
+        android:layout_width="0dip"
+        android:layout_weight=".05"
+        android:layout_height="wrap_content"
+        local:MvxBind="Checked Seleccionado"
+        android:textSize="17dp" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".09"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Compania"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".12"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Numero"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".12"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text FechaRealizacion,Converter=ConvertidorFecha"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".12"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text FechaEntrega,Converter=ConvertidorFecha"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text MontoNeto,Converter=FormatoNumero"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".13"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Configuracion.Nivel.Nivel"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Configuracion.CondicionPago.Descripcion"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Configuracion.Pais.Nombre"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Configuracion.Clase"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text NCF.ValorNCF"
+        android:gravity="center"
+        style="@style/ListItemText" />
+</LinearLayout>

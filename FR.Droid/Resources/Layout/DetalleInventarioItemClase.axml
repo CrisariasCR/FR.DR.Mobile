@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:id="@+id/text1"
+        android:text="Clase"
+        local:MvxBind="Text Articulo.Clase"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".18"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Descripcion"
+        local:MvxBind="Text Articulo.Descripcion"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".34"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text3"
+        android:text="Codigo"
+        local:MvxBind="Text Articulo.Codigo"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".18"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text4"
+        android:text="UnidadesAlmacen"
+        local:MvxBind="Text UnidadesAlmacen"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:id="@+id/text5"
+        android:text="UnidadesDetalle"
+        local:MvxBind="Text UnidadesDetalle"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListItemText"
+        android:gravity="right" />
+</LinearLayout>

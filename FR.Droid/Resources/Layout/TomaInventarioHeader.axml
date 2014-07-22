@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/Contactos.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="#606060">
+    <TextView
+        android:text="Código"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".2"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:text="Descripción"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".45"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:text="Empaque"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".25"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+</LinearLayout>

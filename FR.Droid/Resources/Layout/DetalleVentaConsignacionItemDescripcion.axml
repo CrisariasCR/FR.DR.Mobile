@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        local:MvxBind="Text Articulo.Descripcion"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".17"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        local:MvxBind="Text Articulo.Codigo"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".15"
+        style="@style/ListItemText"
+        android:gravity="center" />
+    <TextView
+        local:MvxBind="Text UnidadesAlmacen"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".18"
+        style="@style/ListItemText"
+        android:gravity="center" />
+    <TextView
+        local:MvxBind="Text UnidadesDetalle"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".18"
+        style="@style/ListItemText"
+        android:gravity="center" />
+    <TextView
+        local:MvxBind="Text MontoTotal"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".2"
+        style="@style/ListItemText"
+        android:gravity="center" />
+</LinearLayout>

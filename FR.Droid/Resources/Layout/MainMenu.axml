@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_gravity="left"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <ImageButton
+                android:src="@drawable/btnClientes"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnClientes"
+                android:layout_gravity="center"
+                local:MvxBind="Click BusquedaClientesCommand" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <ImageButton
+                android:src="@drawable/btnDepositos"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/btnDepositos"
+                local:MvxBind="Click DepositosCommand" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_gravity="left"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <ImageButton
+                android:src="@drawable/btnReportes"
+                android:text=""
+                style="@style/btnStyleImage"
+                android:id="@+id/btnReportes"
+                local:MvxBind="Click ReportesCommand"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <ImageButton
+                android:src="@drawable/btnDatos"
+                android:text=""
+                android:id="@+id/btnDatos"
+                local:MvxBind="Click DatosCommand"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_gravity="left"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <ImageButton
+                android:src="@drawable/btnParametros"
+                android:text=""
+                android:id="@+id/btnParametros"
+                local:MvxBind="Click ParametrosCommand"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            local:MvxBind="Visibility JornadaVisible, Converter=BoolToCollapsed">
+            <ImageButton
+                android:src="@drawable/btnJornada"
+                android:text=""
+                android:id="@+id/btnJornada"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click JornadaLaboralCommand" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

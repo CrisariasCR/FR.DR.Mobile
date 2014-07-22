@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".09"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text LineaBonificada.Articulo.Codigo"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".12"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text LineaBonificada.Articulo.Descripcion"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".095"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text LineaBonificada.UnidadesAlmacen"
+        android:gravity="right"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".075"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text LineaBonificada.UnidadesDetalle"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+</LinearLayout>

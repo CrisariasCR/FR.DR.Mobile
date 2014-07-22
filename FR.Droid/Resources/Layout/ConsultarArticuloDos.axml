@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Código"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.Codigo"
+            local:MvxBind="Text Articulo.Codigo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Descripción"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.Descripcion"
+            local:MvxBind="Text Articulo.Descripcion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Impuesto de Ventas"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.Impuesto"
+            local:MvxBind="Text Articulo.Impuesto.Impuesto1,Converter=ConvertidorImpuestos"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Impuesto Selecto Consumo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.Impuesto.Impuesto2"
+            local:MvxBind="Text Articulo.Impuesto.Impuesto2,Converter=ConvertidorImpuestos"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Precio Unidad Almacén"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.Precio.Maximo"
+            local:MvxBind="Text Articulo.Precio.Maximo,Converter=FormatoNumero"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Precio Unidad Detalle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.Precio.Minimo"
+            local:MvxBind="Text Articulo.Precio.Minimo,Converter=FormatoNumero"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Descuento Escalonado"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.DescuentosEscalonados.Count"
+            local:MvxBind="Text Articulo.DescuentosEscalonados.Count,Converter=ConvertidorCantidades; Click ComandoDetalleDescuentos; "
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Bonificaciones"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            android:text="Articulo.DescuentosEscalonados.Count"
+            local:MvxBind="Text Articulo.Bonificaciones.Count,Converter=ConvertidorCantidades; Click ComandoDetalleBonificaciones; "
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+    </LinearLayout>
+</ScrollView>

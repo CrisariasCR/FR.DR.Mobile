@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5" />
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbCompaniaslfl"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight=".80"
+        android:orientation="vertical">
+        <Mvx.MvxBindableListView
+            android:id="@+id/HeaderLista"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            local:MvxItemTemplate="@layout/lineasfacturaloteheader"
+            local:MvxBind="ItemsSource Header" />
+        <Mvx.MvxBindableListView
+            android:id="@+id/ListaPedidos"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:choiceMode="singleChoice"
+            local:MvxItemTemplate="@layout/lineasfacturaloteitem"
+            local:MvxBind="ItemsSource ArticulosLote;SelectedItem ArticuloSeleccionado" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_continuar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoCancelar" />
+    </LinearLayout>
+</LinearLayout>

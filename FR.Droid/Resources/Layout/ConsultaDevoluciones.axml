@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".80">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="800dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/consultadevolucionesheader"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaDevoluciones"
+                android:layout_width="800dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/consultadevolucionesitem"
+                local:MvxBind="ItemsSource Devoluciones; SelectedItem DevolucionSeleccionada" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        local:MvxBind="Visibility Anulando,Converter=BoolToVisibility,ConverterParameter=True">
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCriterioscd"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:layout_weight="0.5"
+            local:MvxBind="ItemsSource Criterios" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_search"
+            android:id="@+id/btnConsultar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            local:MvxBind="Click ComandoConsultar" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:src="@drawable/ic_imprimir"
+                android:id="@+id/btnImprimir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                local:MvxBind="Click ComandoImprimir;Visibility Anulando,Converter=BoolToVisibility,ConverterParameter=True" />
+            <ImageButton
+                android:src="@drawable/ic_anular"
+                android:id="@+id/btnAnular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                local:MvxBind="Click ComandoAnular; Visibility Anulando,Converter=BoolToVisibility" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

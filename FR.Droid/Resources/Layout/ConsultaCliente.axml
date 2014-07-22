@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5" />
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5">
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbCompaniasccl"
+                    android:layout_width="fill_parent"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    android:layout_height="wrap_content"
+                    android:label="Compañias"
+                    local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:text="Código:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Cliente.Codigo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Nombre:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Cliente.Nombre"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Dirección:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Cliente.Direccion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Contacto:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ClienteCia.Contacto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Teléfono:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ClienteCia.Telefono"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Tipo Cliente:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ClienteCia.Tipo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Nivel de Precio:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ClienteCia.NivelPrecio.Nivel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Día de Visita"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text Dias"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Días de Crédito:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ClienteCia.DiasCredito"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Límite de Crédito:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text LimiteCredito"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Exento Impuesto Ventas:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ExoneracionImp1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Exento Imp.Selec.Cons.:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ExoneracionImp2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Facturas Pendientes:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text FacturasPendientes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Tipo de Moneda:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text ClienteCia.Moneda"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="Desc. General:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalBoldText" />
+        <TextView
+            local:MvxBind="Text DescGeneral"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+    </LinearLayout>
+</ScrollView>

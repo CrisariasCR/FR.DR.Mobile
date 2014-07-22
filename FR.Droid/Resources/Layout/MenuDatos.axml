@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:keepScreenOn="true"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+        <Button
+            android:text="Cargar Datos"
+            android:id="@+id/btnCarga"
+            style="@style/btnStyleDefault" />
+        <Button
+            android:text="Enviar Datos"
+            android:id="@+id/btnEnvio"
+            style="@style/btnStyleDefault" />
+        <Button
+            android:text="Purgar Datos"
+            android:id="@+id/btnPurga"
+            local:MvxBind="Visibility PurgaVisible,Converter=BoolToCollapsed,ConverterParameter=True"
+            style="@style/btnStyleDefault" />
+        <Button
+            android:text="Ver Notas de Credito"
+            android:id="@+id/btnCobros"
+            local:MvxBind="Visibility CobrosVisible,Converter=BoolToCollapsed,ConverterParameter=True"
+            style="@style/btnStyleDefault" />
+        <Button
+            android:text="Actualizar Archivos"
+            android:id="@+id/btnActualizar"
+            style="@style/btnStyleDefault" />
+    </LinearLayout>
+</LinearLayout>

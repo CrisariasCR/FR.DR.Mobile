@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <ScrollView
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        local:MvxBind="Visibility IngresandoDatos, Converter=BoolToCollapsed,ConverterParameter=True">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:MvxBind="Visibility IngresandoDatos, Converter=BoolToCollapsed,ConverterParameter=True">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcInventario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnInventario"
+                        android:layout_gravity="center"
+                        local:MvxBind="Click ComandoInventario;Clickable InventariosEnabled" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcCobros"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnCobro"
+                        android:layout_gravity="center"
+                        local:MvxBind="Click ComandoCobro" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:MvxBind="Visibility IngresandoDatos, Converter=BoolToCollapsed,ConverterParameter=True">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcPedido"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnPedido"
+                        local:MvxBind="Click ComandoPedidos; Clickable PedidosEnabled"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcDevolucion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnDevoluciones"
+                        local:MvxBind="Click ComandoDevoluciones; Clickable DevolucionesEnabled"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                local:MvxBind="Visibility ConsignacionesEnabled, Converter=BoolToCollapsed" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:MvxBind="Visibility IngresandoDatos, Converter=BoolToCollapsed,ConverterParameter=True">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcConsignacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnConsignacion"
+                        local:MvxBind="Click ComandoConsignaciones;Clickable ConsignacionesEnabled;Visibility ConsignacionesEnabled, Converter=BoolToCollapsed"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcGarantia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnPedido"
+                        local:MvxBind="Click ComandoGarantias; Clickable PedidosEnabled"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:MvxBind="Visibility IngresandoDatos, Converter=BoolToCollapsed,ConverterParameter=True">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcAnular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnMenuAnular"
+                        local:MvxBind="Click ComandoAnular"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageButton
+                        android:src="@drawable/mcConsultar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnMenuConsultar"
+                        local:MvxBind="Click ComandoConsultar"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        local:MvxBind="Visibility IngresandoAnular, Converter=BoolToCollapsed,ConverterParameter=True"
+        android:background="#FFFFFF">
+        <Mvx.MvxBindableListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            local:MvxItemTemplate="@layout/opcionmenuitem"
+            local:MvxBind="ItemsSource ItemsAnular;SelectedItem ItemAnularSeleccionado"
+            android:layout_marginTop="5dip" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        local:MvxBind="Visibility IngresandoConsultar, Converter=BoolToCollapsed,ConverterParameter=True"
+        android:background="#FFFFFF">
+        <Mvx.MvxBindableListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            local:MvxItemTemplate="@layout/opcionmenuitem"
+            local:MvxBind="ItemsSource ItemsConsultar; SelectedItem ItemConsultarSeleccionado"
+            android:layout_marginTop="5dip" />
+    </LinearLayout>
+</LinearLayout>

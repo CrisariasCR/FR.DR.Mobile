@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://tempuri.org/Configuration.xsd" />
+      <s:import namespace="http://tempuri.org/EMMEvents.xsd" />
+      <s:import namespace="http://tempuri.org/EMMStats.xsd" />
+      <s:import schemaLocation="http://jrjimenez/EMMService/EMMWS.asmx?schema=EMMStats" namespace="http://tempuri.org/EMMStats.xsd" />
+      <s:import schemaLocation="http://jrjimenez/EMMService/EMMWS.asmx?schema=EMMConfiguration" namespace="http://tempuri.org/Configuration.xsd" />
+      <s:import schemaLocation="http://jrjimenez/EMMService/EMMWS.asmx?schema=EMMEvents" namespace="http://tempuri.org/EMMEvents.xsd" />
+      <s:element name="GetConfiguration">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConfigurationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/Configuration.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDataBaseNamePDA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDataBaseNamePDAResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newConfiguration">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/Configuration.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetConfigurationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StartSynchronization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientInfo" type="tns:EMMClientInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EMMClientInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digitalSignature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StartSynchronizationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartSynchronizationResult" type="tns:EMMToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EMMToken">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="file" type="tns:EMMFile" />
+          <s:element minOccurs="0" maxOccurs="1" name="table" type="tns:SQLCETable" />
+          <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:EMMTokenType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EMMFile" />
+      <s:complexType name="SQLCETable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fields" type="tns:ArrayOfSQLCEField" />
+          <s:element minOccurs="1" maxOccurs="1" name="indextype" type="tns:SQLCEIndexType" />
+          <s:element minOccurs="0" maxOccurs="1" name="data" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="createdField" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="updatedField" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="indexUnique" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSQLCEField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SQLCEField" nillable="true" type="tns:SQLCEField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SQLCEField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:SQLCEType" />
+          <s:element minOccurs="1" maxOccurs="1" name="size" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="precision" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="allownull" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="primarykey" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="defaultvalue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SQLCEType">
+        <s:restriction base="s:string">
+          <s:enumeration value="db_int" />
+          <s:enumeration value="db_bigint" />
+          <s:enumeration value="db_numeric" />
+          <s:enumeration value="db_smallint" />
+          <s:enumeration value="db_tinyint" />
+          <s:enumeration value="db_bit" />
+          <s:enumeration value="db_real" />
+          <s:enumeration value="db_float" />
+          <s:enumeration value="db_money" />
+          <s:enumeration value="db_datetime" />
+          <s:enumeration value="db_ntext" />
+          <s:enumeration value="db_nchar" />
+          <s:enumeration value="db_nvarchar" />
+          <s:enumeration value="db_binary" />
+          <s:enumeration value="db_varbinary" />
+          <s:enumeration value="db_image" />
+          <s:enumeration value="db_uniqueidentifier" />
+          <s:enumeration value="db_identity" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="SQLCEIndexType">
+        <s:restriction base="s:string">
+          <s:enumeration value="JoinIndex" />
+          <s:enumeration value="SplitIndex" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="EMMTokenType">
+        <s:restriction base="s:string">
+          <s:enumeration value="response" />
+          <s:enumeration value="request" />
+          <s:enumeration value="restoreStateRequest" />
+          <s:enumeration value="retrieveAllRecords" />
+          <s:enumeration value="retrieveModifiedRecords" />
+          <s:enumeration value="invalidLicense" />
+          <s:enumeration value="error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="EndSynchronization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EndSynchronizationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActionsResult" type="tns:ArrayOfEMMAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEMMAction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EMMAction" nillable="true" type="tns:EMMAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EMMAction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:EMMActionType" />
+          <s:element minOccurs="0" maxOccurs="1" name="statement" type="tns:SQLCEStatement" />
+          <s:element minOccurs="1" maxOccurs="1" name="clientupdates" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="clientinserts" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EMMActionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="sendTable" />
+          <s:enumeration value="receiveTable" />
+          <s:enumeration value="synchronizeTable" />
+          <s:enumeration value="createTable" />
+          <s:enumeration value="executeStatementPDA" />
+          <s:enumeration value="executeStatementServer" />
+          <s:enumeration value="executeProcess" />
+          <s:enumeration value="executeAssembly" />
+          <s:enumeration value="end" />
+          <s:enumeration value="error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="SQLCEStatement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="table" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="statement" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterClientEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientEvent" type="tns:EMMEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EMMEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pda" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="action" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="time" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="stacktrace" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterClientEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExecuteAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="tns:EMMToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteActionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteActionResult" type="tns:EMMToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLog">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLogResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/EMMEvents.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStateResult" type="tns:EMMState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EMMState">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="digitalSignature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="currentaction" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="startTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="lastActivity" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dataSent" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="lastDataSent" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClearState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearStateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ClearLog">
+        <s:complexType />
+      </s:element>
+      <s:element name="ClearLogResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatesResult" type="tns:ArrayOfEMMState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEMMState">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EMMState" nillable="true" type="tns:EMMState" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatsBytes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatsBytesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatsBytesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/EMMStats.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatsTimes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conduit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatsTimesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatsTimesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/EMMStats.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="archivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="versionDetalle" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="archivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarEstadoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarActualizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarActualizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarActualizacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDataBaseNamePDASoapIn">
+    <wsdl:part name="parameters" element="tns:SetDataBaseNamePDA" />
+  </wsdl:message>
+  <wsdl:message name="SetDataBaseNamePDASoapOut">
+    <wsdl:part name="parameters" element="tns:SetDataBaseNamePDAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="SetConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartSynchronizationSoapIn">
+    <wsdl:part name="parameters" element="tns:StartSynchronization" />
+  </wsdl:message>
+  <wsdl:message name="StartSynchronizationSoapOut">
+    <wsdl:part name="parameters" element="tns:StartSynchronizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="EndSynchronizationSoapIn">
+    <wsdl:part name="parameters" element="tns:EndSynchronization" />
+  </wsdl:message>
+  <wsdl:message name="EndSynchronizationSoapOut">
+    <wsdl:part name="parameters" element="tns:EndSynchronizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActions" />
+  </wsdl:message>
+  <wsdl:message name="GetActionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterClientEventSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterClientEvent" />
+  </wsdl:message>
+  <wsdl:message name="RegisterClientEventSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterClientEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteActionSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteAction" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteActionSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="GetLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetState" />
+  </wsdl:message>
+  <wsdl:message name="GetStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearStateSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearState" />
+  </wsdl:message>
+  <wsdl:message name="ClearStateSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearLogSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearLog" />
+  </wsdl:message>
+  <wsdl:message name="ClearLogSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStates" />
+  </wsdl:message>
+  <wsdl:message name="GetStatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatsBytesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatsBytes" />
+  </wsdl:message>
+  <wsdl:message name="GetStatsBytesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatsBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatsTimesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatsTimes" />
+  </wsdl:message>
+  <wsdl:message name="GetStatsTimesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatsTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileList" />
+  </wsdl:message>
+  <wsdl:message name="GetFileListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="GetFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarActualizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarActualizacion" />
+  </wsdl:message>
+  <wsdl:message name="VerificarActualizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarActualizacionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EMMWSSoap">
+    <wsdl:operation name="GetConfiguration">
+      <wsdl:input message="tns:GetConfigurationSoapIn" />
+      <wsdl:output message="tns:GetConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDataBaseNamePDA">
+      <wsdl:input message="tns:SetDataBaseNamePDASoapIn" />
+      <wsdl:output message="tns:SetDataBaseNamePDASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetConfiguration">
+      <wsdl:input message="tns:SetConfigurationSoapIn" />
+      <wsdl:output message="tns:SetConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartSynchronization">
+      <wsdl:input message="tns:StartSynchronizationSoapIn" />
+      <wsdl:output message="tns:StartSynchronizationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EndSynchronization">
+      <wsdl:input message="tns:EndSynchronizationSoapIn" />
+      <wsdl:output message="tns:EndSynchronizationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActions">
+      <wsdl:input message="tns:GetActionsSoapIn" />
+      <wsdl:output message="tns:GetActionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterClientEvent">
+      <wsdl:input message="tns:RegisterClientEventSoapIn" />
+      <wsdl:output message="tns:RegisterClientEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAction">
+      <wsdl:input message="tns:ExecuteActionSoapIn" />
+      <wsdl:output message="tns:ExecuteActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input message="tns:GetLogSoapIn" />
+      <wsdl:output message="tns:GetLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <wsdl:input message="tns:GetStateSoapIn" />
+      <wsdl:output message="tns:GetStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearState">
+      <wsdl:input message="tns:ClearStateSoapIn" />
+      <wsdl:output message="tns:ClearStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearLog">
+      <wsdl:input message="tns:ClearLogSoapIn" />
+      <wsdl:output message="tns:ClearLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <wsdl:input message="tns:GetStatesSoapIn" />
+      <wsdl:output message="tns:GetStatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatsBytes">
+      <wsdl:input message="tns:GetStatsBytesSoapIn" />
+      <wsdl:output message="tns:GetStatsBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatsTimes">
+      <wsdl:input message="tns:GetStatsTimesSoapIn" />
+      <wsdl:output message="tns:GetStatsTimesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <wsdl:input message="tns:GetFileListSoapIn" />
+      <wsdl:output message="tns:GetFileListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input message="tns:GetFileSoapIn" />
+      <wsdl:output message="tns:GetFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <wsdl:input message="tns:ActualizarEstadoSoapIn" />
+      <wsdl:output message="tns:ActualizarEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarActualizacion">
+      <wsdl:input message="tns:VerificarActualizacionSoapIn" />
+      <wsdl:output message="tns:VerificarActualizacionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EMMWSSoap" type="tns:EMMWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetConfiguration">
+      <soap:operation soapAction="http://tempuri.org/GetConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDataBaseNamePDA">
+      <soap:operation soapAction="http://tempuri.org/SetDataBaseNamePDA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetConfiguration">
+      <soap:operation soapAction="http://tempuri.org/SetConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSynchronization">
+      <soap:operation soapAction="http://tempuri.org/StartSynchronization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndSynchronization">
+      <soap:operation soapAction="http://tempuri.org/EndSynchronization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActions">
+      <soap:operation soapAction="http://tempuri.org/GetActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterClientEvent">
+      <soap:operation soapAction="http://tempuri.org/RegisterClientEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAction">
+      <soap:operation soapAction="http://tempuri.org/ExecuteAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap:operation soapAction="http://tempuri.org/GetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap:operation soapAction="http://tempuri.org/GetState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearState">
+      <soap:operation soapAction="http://tempuri.org/ClearState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearLog">
+      <soap:operation soapAction="http://tempuri.org/ClearLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap:operation soapAction="http://tempuri.org/GetStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatsBytes">
+      <soap:operation soapAction="http://tempuri.org/GetStatsBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatsTimes">
+      <soap:operation soapAction="http://tempuri.org/GetStatsTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <soap:operation soapAction="http://tempuri.org/GetFileList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://tempuri.org/GetFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <soap:operation soapAction="http://tempuri.org/ActualizarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarActualizacion">
+      <soap:operation soapAction="http://tempuri.org/VerificarActualizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EMMWSSoap12" type="tns:EMMWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/GetConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDataBaseNamePDA">
+      <soap12:operation soapAction="http://tempuri.org/SetDataBaseNamePDA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/SetConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSynchronization">
+      <soap12:operation soapAction="http://tempuri.org/StartSynchronization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndSynchronization">
+      <soap12:operation soapAction="http://tempuri.org/EndSynchronization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActions">
+      <soap12:operation soapAction="http://tempuri.org/GetActions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterClientEvent">
+      <soap12:operation soapAction="http://tempuri.org/RegisterClientEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAction">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="http://tempuri.org/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap12:operation soapAction="http://tempuri.org/GetState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearState">
+      <soap12:operation soapAction="http://tempuri.org/ClearState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearLog">
+      <soap12:operation soapAction="http://tempuri.org/ClearLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap12:operation soapAction="http://tempuri.org/GetStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatsBytes">
+      <soap12:operation soapAction="http://tempuri.org/GetStatsBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatsTimes">
+      <soap12:operation soapAction="http://tempuri.org/GetStatsTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <soap12:operation soapAction="http://tempuri.org/GetFileList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap12:operation soapAction="http://tempuri.org/GetFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarActualizacion">
+      <soap12:operation soapAction="http://tempuri.org/VerificarActualizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EMMWS">
+    <wsdl:port name="EMMWSSoap" binding="tns:EMMWSSoap">
+      <soap:address location="http://jrjimenez/EMMService/EMMWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EMMWSSoap12" binding="tns:EMMWSSoap12">
+      <soap12:address location="http://jrjimenez/EMMService/EMMWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

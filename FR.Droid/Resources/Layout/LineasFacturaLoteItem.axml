@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        local:MvxBind="Text Articulo.Codigo"
+        android:layout_width="0dp"
+        android:layout_weight=".2"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText" />
+    <TextView
+        local:MvxBind="Text Articulo.Descripcion"
+        android:layout_width="0dp"
+        android:layout_weight=".33"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText" />
+    <TextView
+        local:MvxBind="Text UnidadesAlmacen, Converter=FormatoNumero"
+        android:layout_width="0dp"
+        android:layout_weight=".24"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText" />
+    <TextView
+        local:MvxBind="Text UnidadesDetalle, Converter=FormatoNumero"
+        android:layout_width="0dp"
+        android:layout_weight=".2"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText" />
+</LinearLayout>

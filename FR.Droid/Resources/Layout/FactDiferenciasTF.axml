@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".5">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/headerfctf"
+                local:MvxItemTemplate="@layout/factdiferenciastfheader"
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/itemsfctf"
+                local:MvxItemTemplate="@layout/factdiferenciastfitems"
+                android:layout_width="1000dp"
+                android:choiceMode="singleChoice"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxBind="ItemsSource ItemsFTF;SelectedItem ItemActualFTF" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.4"
+        android:layout_height="0dip">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Artículo:" />
+                <EditText
+                    local:MvxBind="Text TextoBusqueda"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    style="@style/normalEditText"
+                    android:gravity="right" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".1"
+                    android:gravity="center"
+                    local:MvxBind="Text ArticuloDescripcion"
+                    android:layout_height="wrap_content"
+                    style="@style/normalText" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Fact:   " />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="No Fact:   " />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight=".1"
+                android:layout_height="0dip"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".3"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Cantidad:" />
+                <EditText
+                    android:id="@+id/txtCantFacturar"
+                    local:MvxBind="Text CantFacturar"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    style="@style/numeralEditText"
+                    android:gravity="right" />
+                <TextView
+                    android:id="@+id/txtCantNoFacturar"
+                    local:MvxBind="Text CantNoFacturar"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    style="@style/normalBoldText"
+                    android:gravity="right" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_agregar"
+            android:id="@+id/btnAgregar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            local:MvxBind="Click ComandoAgregar" />
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="0dip"
+            android:layout_weight=".25"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoAceptar" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal">
+    <CheckBox
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        local:MvxBind="Checked Seleccionado" />
+    <TextView
+        android:id="@+id/text1"
+        local:MvxBind="Text Tipo, Converter=ConvertidorTipoDocumento"
+        android:layout_weight=".15"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Numero"
+        android:layout_weight=".2"
+        local:MvxBind="Text Numero"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text3"
+        android:text="TipoMoneda"
+        local:MvxBind="Text Moneda,Converter=EnumDescription"
+        android:layout_weight=".2"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text4"
+        android:text="MontoAPagarViewLocal"
+        local:MvxBind="Text MontoAPagarViewLocal, Converter=FormatoNumero; Visibility Moneda,Converter=MonedaCobrosToVisibility,ConverterParameter='False'"
+        android:layout_weight=".35"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text5"
+        android:text="MontoAPagarViewDolar"
+        local:MvxBind="Text MontoAPagarViewDolar, Converter=FormatoNumero,ConverterParameter='True'; Visibility Moneda,Converter=MonedaCobrosToVisibility,ConverterParameter='True'"
+        android:layout_weight=".35"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text6"
+        android:text="SaldoDocLocal"
+        local:MvxBind="Text SaldoDocLocal, Converter=FormatoNumero; Visibility Moneda,Converter=MonedaCobrosToVisibility,ConverterParameter='False'"
+        android:layout_weight=".3"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text7"
+        android:text="SaldoDocDolar"
+        local:MvxBind="Text SaldoDocDolar, Converter=FormatoNumero,ConverterParameter='True'; Visibility Moneda,Converter=MonedaCobrosToVisibility,ConverterParameter='True'"
+        android:layout_weight=".3"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText"
+        android:gravity="left" />
+    <TextView
+        android:id="@+id/text8"
+        android:text="TipoCambio"
+        local:MvxBind="Text TipoCambio, Converter=FormatoNumero"
+        android:layout_weight=".2"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        style="@style/ListItemText"
+        android:gravity="left" />
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#606060">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="0dip"
+            android:layout_weight=".2"
+            android:layout_height="wrap_content"
+            android:text="Artículo"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="0.1dip"
+            android:layout_height="wrap_content"
+            android:background="#000000" />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="0dip"
+            android:layout_weight=".3"
+            android:layout_height="wrap_content"
+            android:text="Descripción"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="0.1dip"
+            android:layout_height="wrap_content"
+            android:background="#000000" />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="0dip"
+            android:layout_weight=".22"
+            android:layout_height="wrap_content"
+            android:text="Almacén"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="0.1dip"
+            android:layout_height="wrap_content"
+            android:background="#000000" />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="0dip"
+            android:layout_weight=".18"
+            android:layout_height="wrap_content"
+            android:text="Detalle"
+            style="@style/ListHeaderText"
+            android:gravity="center" />
+    </LinearLayout>
+    <Mvx.MvxBindableListView
+        android:id="@+id/ListaBonificaciones"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".90"
+        android:orientation="vertical"
+        android:choiceMode="singleChoice"
+        local:MvxItemTemplate="@layout/detallebonificacionesitem"
+        local:MvxBind="ItemsSource Detalles; SelectedItem DetalleSeleccionado" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_devolucion"
+            android:id="@+id/btnBonificaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoBonificaciones" />
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnContinuar"
+            local:MvxBind="Click ComandoAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

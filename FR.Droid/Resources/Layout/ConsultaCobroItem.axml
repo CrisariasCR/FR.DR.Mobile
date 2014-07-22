@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal">
+    <CheckBox
+        android:layout_width="0dip"
+        android:layout_weight=".08"
+        android:textSize="17dp"
+        android:layout_height="wrap_content"
+        local:MvxBind="Checked Seleccionado" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".22"
+        android:layout_height="wrap_content"
+        android:text="Compania"
+        local:MvxBind="Text Compania"
+        android:gravity="center"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="0dip"
+        android:layout_weight=".25"
+        android:layout_height="wrap_content"
+        android:text="Inventario"
+        local:MvxBind="Text Numero"
+        style="@style/ListItemText"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="0dip"
+        android:layout_weight=".25"
+        android:layout_height="wrap_content"
+        android:text="Fecha Realizacion"
+        local:MvxBind="Text FechaRealizacion, Converter=ConvertidorFecha"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:id="@+id/linearLayout_dummy1"
+        android:layout_weight=".25">
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            local:MvxBind="Text MontoDocLocal,Converter=FormatoNumero; Visibility Moneda,Converter=TipoMonedaToVisibility,ConverterParameter='False'"
+            style="@style/ListItemText" />
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            local:MvxBind="Text MontoDocDolar,Converter=FormatoNumero; Visibility Moneda,Converter=TipoMonedaToVisibility,ConverterParameter='True'"
+            style="@style/ListItemText" />
+    </RelativeLayout>
+</LinearLayout>

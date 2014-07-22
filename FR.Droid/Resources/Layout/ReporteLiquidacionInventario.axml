@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <ScrollView
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_weight=".85"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <Mvx.MvxBindableSpinner
+                            android:id="@+id/cmbBodegarli"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            local:MvxItemTemplate="@layout/opcioncomboenum"
+                            android:gravity="right"
+                            local:MvxBind="ItemsSource Bodegas; SelectedItem BodegaActual; Clickable Bodegas.Count, Converter=CountToEnabled" />
+                        <Mvx.MvxBindableSpinner
+                            android:id="@+id/cmbCompaniasrli"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:gravity="right"
+                            local:MvxItemTemplate="@layout/opcioncomboenum"
+                            local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".3"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Artículo:" />
+                        <EditText
+                            android:id="@+id/txtBusqueda"
+                            local:MvxBind="Text TextoBusqueda"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".6"
+                            style="@style/normalEditText"
+                            android:gravity="left" />
+                        <ImageButton
+                            android:src="@drawable/ic_refresh"
+                            android:id="@+id/btnRefrescar"
+                            android:layout_width="0dip"
+                            android:layout_weight=".1"
+                            android:layout_height="wrap_content"
+                            local:MvxBind="Click ComandoRefrescar" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Tipo" />
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".3"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Almacén   " />
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".3"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Detalle   " />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Inventario Inicial:" />
+                        <TextView
+                            android:id="@+id/txtCantInicial"
+                            local:MvxBind="Text CantInicial"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtCantInicialDet"
+                            android:text="NA"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Cant. Disponible:" />
+                        <TextView
+                            android:id="@+id/txtCantDisponible"
+                            local:MvxBind="Text CantDisponible"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtCantDisponibleDet"
+                            android:text="NA"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Devoluciones:" />
+                        <TextView
+                            android:id="@+id/txtCantDevuelta"
+                            local:MvxBind="Text CantDevuelta"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtCantDevueltaDet"
+                            local:MvxBind="Text CantDevueltaDet"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Und. Vendidas:" />
+                        <TextView
+                            android:id="@+id/txtCantVendida"
+                            local:MvxBind="Text CantVendida"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtCantVendidaDet"
+                            local:MvxBind="Text CantVendidaDet"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Dep. Garantía:" />
+                        <TextView
+                            android:id="@+id/txtCantGarantia"
+                            local:MvxBind="Text CantGarantia"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtCantGarantiaDet"
+                            local:MvxBind="Text CantGarantiaDet"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Cilindros Vacíos:" />
+                        <TextView
+                            android:id="@+id/txtCantVacios"
+                            local:MvxBind="Text CantVacios"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtCantVacios"
+                            android:text="NA"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                <!--<LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight=".32"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText"
+                    android:gravity="right"
+                    android:text="Total:" />
+                <TextView
+                    android:id="@+id/txtCantTotal"
+                    local:MvxBind="Text CantTotal"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    style="@style/normalBoldText"
+                    android:gravity="right" />
+            </LinearLayout>-->
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.15"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_imprimir"
+            android:id="@+id/btnPrint"
+            android:layout_width="wrap_content"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoImprimir" />
+    </LinearLayout>
+</LinearLayout>

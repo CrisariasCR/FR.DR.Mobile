@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight=".90">
+            <TextView
+                android:text="Moneda Efect:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <TextView
+                android:id="@+id/txtMoneda"
+                local:MvxBind="Text Moneda"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalText" />
+            <TextView
+                android:text="Total Pagar:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <TextView
+                android:id="@+id/txtTotalPagar"
+                local:MvxBind="Text TotPagar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalText" />
+            <TextView
+                android:text="Monto Efectivo:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:id="@+id/txtMontoEfect"
+                local:MvxBind="Text MontoEfect,Converter=FormatoMonto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/DecimalEditText" />
+            <TextView
+                android:text="Saldo Pendiente:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <TextView
+                android:id="@+id/txtSaldoPendiente"
+                local:MvxBind="Text SalPag"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoAceptar"
+                android:layout_weight=".25" />
+            <ImageButton
+                android:src="@drawable/ic_cancelar"
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoCancelar"
+                android:layout_weight=".25" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

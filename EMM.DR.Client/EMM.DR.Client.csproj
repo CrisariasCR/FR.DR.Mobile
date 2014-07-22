@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10C32B8D-308D-4EB9-8C14-ABE4DA9AA04E}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EMM.DR.Client</RootNamespace>
+    <AssemblyName>EMM.DR.Client</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compression\BZip2\BZip2.cs" />
+    <Compile Include="Compression\BZip2\BZip2Constants.cs" />
+    <Compile Include="Compression\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Compression\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Compression\Checksums\Adler32.cs" />
+    <Compile Include="Compression\Checksums\CRC32.cs" />
+    <Compile Include="Compression\Checksums\IChecksum.cs" />
+    <Compile Include="Compression\Checksums\StrangeCRC.cs" />
+    <Compile Include="Compression\GZip\GZIPConstants.cs" />
+    <Compile Include="Compression\GZip\GzipInputStream.cs" />
+    <Compile Include="Compression\GZip\GzipOutputStream.cs" />
+    <Compile Include="Compression\Tar\InvalidHeaderException.cs" />
+    <Compile Include="Compression\Tar\TarArchive.cs" />
+    <Compile Include="Compression\Tar\TarBuffer.cs" />
+    <Compile Include="Compression\Tar\TarEntry.cs" />
+    <Compile Include="Compression\Tar\TarHeader.cs" />
+    <Compile Include="Compression\Tar\TarInputStream.cs" />
+    <Compile Include="Compression\Tar\TarOutputStream.cs" />
+    <Compile Include="Compression\ZipException.cs" />
+    <Compile Include="Compression\Zip\Compression\Deflater.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Compression\Zip\Compression\Inflater.cs" />
+    <Compile Include="Compression\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Compression\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Compression\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Compression\Zip\ZipConstants.cs" />
+    <Compile Include="Compression\Zip\ZipEntry.cs" />
+    <Compile Include="Compression\Zip\ZipFile.cs" />
+    <Compile Include="Compression\Zip\ZipInputStream.cs" />
+    <Compile Include="Compression\Zip\ZipOutputStream.cs" />
+    <Compile Include="EMMClientLogic\Bitacora.cs" />
+    <Compile Include="EMMClientLogic\SqlHelper.cs" />
+    <Compile Include="EMMClientLogic\EMMClientActionManager.cs" />
+    <Compile Include="EMMClientLogic\EMMFile.cs" />
+    <Compile Include="EMMClientLogic\IStatusForm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EMMClientManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Launcher.cs" />
+    <Compile Include="Util\ProcessInfo.cs" />
+    <Compile Include="Web References\EMMService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FR.DR.EMF\FR.DR.EMF.csproj">
+      <Project>{35FEFF11-618B-4108-B8D2-FD2A16D380B7}</Project>
+      <Name>FR.DR.EMF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Exactus.xml" />
+    <None Include="Web References\EMMService\EMMAction.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EMMService\EMMConfiguration.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EMMService\EMMConfiguration.xsd" />
+    <None Include="Web References\EMMService\EMMEvents.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EMMService\EMMState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EMMService\EMMStats.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EMMService\EMMToken.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EMMService\EMMWS.disco" />
+    <None Include="Web References\EMMService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://jrjimenez/EMMService/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EMMService\</RelPath>
+      <UpdateFromURL>http://jrjimenez/EMMService/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\EMMService\EMMEvents.xsd" />
+    <None Include="Web References\EMMService\EMMStats.xsd" />
+    <None Include="Web References\EMMService\EMMWS.wsdl" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

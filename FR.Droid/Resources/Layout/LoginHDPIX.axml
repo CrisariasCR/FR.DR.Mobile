@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:screenOrientation="portrait"
+    android:keepScreenOn="true"
+    android:background="@drawable/login">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.9"
+        android:gravity="bottom"
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="180dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/txtUser"
+                android:textStyle="bold"
+                android:hint="Usuario"
+                android:textSize="18dp"
+                android:imeOptions="actionNext"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/UserTxt" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:inputType="textPassword"
+                android:layout_width="180dp"
+                android:layout_height="fill_parent"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:id="@+id/txtPass"
+                android:textStyle="bold"
+                android:hint="Contraseña"
+                android:imeOptions="actionDone"
+                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/passwordtxt" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnAceptar"
+                android:text="  Ingresar  "
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#929292"
+                android:radius="20dip"
+                android:textSize="17dp"
+                style="@style/btnStyleDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.40" />
+</LinearLayout>

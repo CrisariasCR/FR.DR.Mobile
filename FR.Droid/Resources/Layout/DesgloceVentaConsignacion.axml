@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Compañía"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCompaniasdsc"
+            android:label="Compañias"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"
+        android:layout_weight=".60">
+        <Mvx.MvxBindableListView
+            android:id="@+id/header"
+            local:MvxItemTemplate="@layout/desgloceventaconsignacionheader"
+            local:MvxBind="ItemsSource Header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <Mvx.MvxBindableListView
+            android:id="@+id/items"
+            android:choiceMode="singleChoice"
+            local:MvxItemTemplate="@layout/desgloceventaconsignacionitem"
+            local:MvxBind="ItemsSource Items; SelectedItem ItemActual; ItemClick ComandoSeleccionar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCriteriosdsc"
+            android:label="Criterios"
+            local:MvxBind="ItemsSource Criterios; SelectedItem CriterioActual"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            android:divider="#FFCC00"
+            android:dividerHeight="4dp" />
+        <EditText
+            android:id="@+id/txtBusqueda"
+            android:text="TextoBusqueda"
+            local:MvxBind="Text TextoBusqueda"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            style="@style/normalEditText"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Consignado"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadAlmacenBoleta"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadAlmacenBoleta"
+            local:MvxBind="Text UnidadAlmacenConsignado"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadDetalleBoleta"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadDetalleBoleta"
+            local:MvxBind="Text UnidadDetalleConsignado"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Vendido:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadAlmacenVendido"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadAlmacenVendido"
+            local:MvxBind="Text UnidadAlmacenVendido"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadDetalleVendido"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadDetalleVendido"
+            local:MvxBind="Text UnidadDetalleVendido"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Dev.Bueno"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadAlmacenBueno"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadAlmacenBueno"
+            local:MvxBind="Text UnidadAlmacenBueno"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadDetalleBueno"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadDetalleBueno"
+            local:MvxBind="Text UnidadDetalleBueno"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Dev.Malo:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadAlmacenMalo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadAlmacenMalo"
+            local:MvxBind="Text UnidadAlmacenMalo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadDetalleMalo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadDetalleMalo"
+            local:MvxBind="Text UnidadDetalleMalo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Lote:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtLotes"
+            local:MvxBind="Text Lotes"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
+            style="@style/normalEditText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Saldo:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadAlmacenSaldo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadAlmacenSaldo"
+            local:MvxBind="Text UnidadAlmacenSaldo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+        <TextView
+            android:text="UND:"
+            local:MvxBind="Text LblUnidadDetalleSaldo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/normalText"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/txtUnidadDetalleSaldo"
+            local:MvxBind="Text UnidadDetalleSaldo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".175"
+            style="@style/numeralEditText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:id="@+id/btnNota"
+            local:MvxBind="Click ComandoNota"
+            android:src="@drawable/ic_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+        <ImageButton
+            android:id="@+id/btnAgregar"
+            local:MvxBind="Click ComandoAgregar"
+            android:src="@drawable/ic_agregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+        <ImageButton
+            android:id="@+id/btnRefrescar"
+            android:src="@drawable/ic_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+        <ImageButton
+            android:id="@+id/btnCancelar"
+            local:MvxBind="Click ComandoCancelar"
+            android:src="@drawable/ic_cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+        <ImageButton
+            android:id="@+id/btnAceptar"
+            local:MvxBind="Click ComandoAceptar"
+            android:src="@drawable/ic_aceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+    </LinearLayout>
+</LinearLayout>

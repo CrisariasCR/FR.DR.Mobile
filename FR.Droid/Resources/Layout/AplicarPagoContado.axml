@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        local:MvxBind="Visibility PrincipalVisible, Converter=BoolToCollapsed">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:text="Saldo Total:"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:gravity="center"
+                style="@style/normalBoldText"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip" />
+            <TextView
+                android:id="@+id/txtSaldoTotal"
+                android:text="SaldoTotal"
+                local:MvxBind="Text SaldoTotal,Converter=FormatoNumero,ConverterParameter='True'"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btnMonto"
+                android:text="Monto N/C"
+                local:MvxBind="Click ComandoNotasCredito; Enabled NotasCreditoEnabled"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:gravity="center"
+                style="@style/btnStyleDefault" />
+            <TextView
+                android:id="@+id/txtNotasCredito"
+                android:text="NotasCredito"
+                local:MvxBind="Text MontoNotas,Converter=FormatoNumero,ConverterParameter='True'"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btnCheques"
+                android:text="Cheques"
+                local:MvxBind="Click ComandoCheques"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:gravity="center"
+                style="@style/btnStyleDefault" />
+            <TextView
+                android:id="@+id/txtCheques"
+                android:text="Cheques"
+                local:MvxBind="Text Cheques,Converter=FormatoNumero,ConverterParameter='True'"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btnEfectivo"
+                android:text="Efectivo"
+                local:MvxBind="Click ComandoEfectivo"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:gravity="center"
+                style="@style/btnStyleDefault" />
+            <TextView
+                android:id="@+id/txtEfectivo"
+                android:text="Efectivo"
+                local:MvxBind="Text Efectivo,Converter=FormatoNumero,ConverterParameter='True'"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btnDescuento"
+                android:text="Descuento"
+                local:MvxBind="Click ComandoDescuento; Enabled DescuentoEnabled"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:gravity="center"
+                style="@style/btnStyleDefault" />
+            <TextView
+                android:id="@+id/txtDescuento"
+                android:text="Descuento"
+                local:MvxBind="Text Descuento,Converter=FormatoNumero,ConverterParameter='True'; Enabled DescuentoEnabled"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:text="Total Pagar:"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/normalBoldText"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip" />
+            <TextView
+                android:id="@+id/txtTotalPagar"
+                android:text="TotalPagar"
+                local:MvxBind="Text TotalPagar,Converter=FormatoNumero,ConverterParameter='True'"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:text="Saldo Pendiente:"
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/normalBoldText"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip" />
+            <TextView
+                android:id="@+id/txtSaldoPendiente"
+                android:text="SaldoPendiente"
+                local:MvxBind="Text SaldoPendiente,Converter=FormatoNumero,ConverterParameter='True'"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <RadioGroup
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/radioGroup2"
+                android:gravity="center">
+                <RadioButton
+                    android:id="@+id/rbLocal"
+                    android:text="Local"
+                    android:checked="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rbDolar"
+                    android:text="Dólar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:id="@+id/btnTipoCAmbio"
+                local:MvxBind="Click ComandoTipoCambio"
+                android:src="@android:drawable/ic_menu_view"
+                style="@style/btnStyleImage"
+                android:layout_width="64dip"
+                android:layout_height="64dip" />
+            <Button
+                android:id="@+id/btnFacturas"
+                android:text="Facturas"
+                local:MvxBind="Click ComandoFacturas; Enabled FacturasEnabled"
+                android:layout_height="64dip"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content" />
+            <ImageButton
+                android:id="@+id/btnCancelar"
+                local:MvxBind="Click ComandoCancelar"
+                android:src="@drawable/ic_cancelar"
+                style="@style/btnStyleImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:id="@+id/btnAceptar"
+                local:MvxBind="Click ComandoAceptar"
+                style="@style/btnStyleImage"
+                android:src="@drawable/ic_aceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        local:MvxBind="Visibility TomaEfectVisible, Converter=BoolToCollapsed">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight=".90">
+            <TextView
+                android:text="Moneda Efect:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <TextView
+                android:id="@+id/txtMoneda"
+                local:MvxBind="Text MonedaTomaEfect"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalText" />
+            <TextView
+                android:text="Total Pagar:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <TextView
+                android:id="@+id/txtTotalPagar"
+                local:MvxBind="Text TotPagar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalText" />
+            <TextView
+                android:text="Monto Efectivo:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:id="@+id/txtMontoEfect"
+                local:MvxBind="Text MontoEfect,Converter=FormatoMonto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/DecimalEditText" />
+            <TextView
+                android:text="Saldo Pendiente:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <TextView
+                android:id="@+id/txtSaldoPendiente"
+                local:MvxBind="Text SalPag"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/btnStyleImage"
+                local:MvxBind="Click ComandoAceptarTE"
+                android:layout_weight=".25" />
+            <ImageButton
+                android:src="@drawable/ic_cancelar"
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/btnStyleImage"
+                local:MvxBind="Click ComandoCancelarTE"
+                android:layout_weight=".25" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        local:MvxBind="Visibility NcVisible, Converter=BoolToCollapsed">
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:layout_weight=".60">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+                <Mvx.MvxBindableListView
+                    android:id="@+id/header"
+                    local:MvxItemTemplate="@layout/seleccionnotascreditoheader"
+                    local:MvxBind="ItemsSource Header"
+                    android:layout_width="800dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+                <Mvx.MvxBindableListView
+                    android:id="@+id/items"
+                    local:MvxItemTemplate="@layout/seleccionnotascreditoitem"
+                    local:MvxBind="ItemsSource Items; SelectedItem ItemActual;"
+                    android:layout_width="800dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </HorizontalScrollView>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Fecha Nota Crédito:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="right"
+                style="@style/normalBoldText" />
+            <TextView
+                android:text="Fecha"
+                local:MvxBind="Text FechaCreacionNC, Converter=ConvertidorFecha"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Monto Nota Crédito:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <TextView
+                android:text="MontoNC"
+                local:MvxBind="Text MontoNC, Converter=FormatoMonedaCobros"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                android:textColor="#606060"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Total Nota Crédito:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <TextView
+                android:text="TotalNotasCredito"
+                local:MvxBind="Text TotalNotasCredito, Converter=FormatoMonedaCobros"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Total Pagar:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <TextView
+                android:text="TotalSaldoFacturas"
+                local:MvxBind="Text TotalSaldoFacturas, Converter=FormatoMonedaCobros"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_refresh"
+                android:id="@+id/btnRefrescar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/btnStyleImage"
+                local:MvxBind="Click ComandoSeleccionarNC"
+                android:layout_weight=".25" />
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/btnStyleImage"
+                local:MvxBind="Click ComandoAceptarNC"
+                android:layout_weight=".25" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        local:MvxBind="Visibility NcConsultaVisible, Converter=BoolToCollapsed">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:orientation="vertical"
+            android:layout_weight=".60">
+            <Mvx.MvxBindableListView
+                android:id="@+id/header"
+                local:MvxItemTemplate="@layout/consultanotascreditoheader"
+                local:MvxBind="ItemsSource Header"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/items"
+                local:MvxItemTemplate="@layout/consultanotascreditoitem"
+                local:MvxBind="ItemsSource ItemsNCC;  SelectedItem ItemActualNCC"
+                android:layout_width="fill_parent"
+                android:choiceMode="singleChoice"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Fecha Nota Crédito:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <TextView
+                android:text="FechaCreacionNC"
+                local:MvxBind="Text FechaCreacionNCC, Converter=ConvertidorFecha"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Monto Nota Crédito:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <TextView
+                android:text="MontoNC"
+                local:MvxBind="Text MontoNCC, Converter=FormatoMonedaCobros"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Total Nota Crédito:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <TextView
+                android:text="TotalNotasCredito"
+                local:MvxBind="Text TotalNotasCreditoNCC, Converter=FormatoMonedaCobros"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Total Pagar:"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <TextView
+                android:text="TotalSaldoFacturas"
+                local:MvxBind="Text TotalSaldoFacturasNCC, Converter=FormatoMonedaCobros"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                style="@style/normalText"
+                android:gravity="right" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        local:MvxBind="Visibility ChqVisible, Converter=BoolToCollapsed">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            local:MvxBind="Visibility VerCheques, Converter=BoolToCollapsed">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout1"
+                android:layout_marginTop="2dp">
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbBancosapc"
+                    android:layout_width="0dip"
+                    android:layout_weight=".5"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:label="Bancos"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    local:MvxBind="ItemsSource Bancos; SelectedItem BancoActual; Clickable Bancos.Count, Converter=CountToEnabled" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout2"
+                android:layout_marginTop="2dp">
+                <TextView
+                    android:text="Número Cheque: "
+                    android:layout_width="0dip"
+                    android:layout_weight=".55"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    style="@style/normalBoldText"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp" />
+                <EditText
+                    local:MvxBind="Text Cheque"
+                    android:layout_width="0dip"
+                    android:layout_weight=".45"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/numeralEditText" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3"
+                android:layout_marginTop="2dp">
+                <TextView
+                    android:text="Número Cuenta: "
+                    android:layout_width="0dip"
+                    android:layout_weight=".55"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalBoldText" />
+                <EditText
+                    local:MvxBind="Text Cuenta"
+                    android:layout_width="0dip"
+                    android:layout_weight=".45"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalEditText" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3"
+                android:layout_marginTop="2dp">
+                <TextView
+                    android:text="Fecha: "
+                    android:layout_width="0dip"
+                    android:layout_weight=".55"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalBoldText" />
+                <EditText
+                    local:MvxBind="Text FechaCHQ,Converter=ConvertidorFecha"
+                    android:layout_width="0dip"
+                    android:layout_weight=".45"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalEditText"
+                    android:inputType="datetime" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout4"
+                android:layout_marginTop="2dp">
+                <TextView
+                    android:text="Monto: "
+                    android:layout_width="0dip"
+                    android:layout_weight=".55"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalBoldText" />
+                <EditText
+                    local:MvxBind="Text MontoCheque,Converter=FormatoMonto"
+                    android:layout_width="0dip"
+                    android:layout_weight=".45"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/DecimalEditText" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout5"
+                android:layout_marginTop="2dp">
+                <TextView
+                    android:text="Total Cheques: "
+                    android:layout_width="0dip"
+                    android:layout_weight=".55"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalBoldText" />
+                <TextView
+                    local:MvxBind="Text TotalCheques,Converter=FormatoMonto"
+                    android:layout_width="0dip"
+                    android:layout_weight=".45"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalText" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout6"
+                android:layout_marginTop="2dp">
+                <TextView
+                    android:text="Saldo Pendiente: "
+                    android:layout_width="0dip"
+                    android:layout_weight=".55"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalBoldText" />
+                <TextView
+                    local:MvxBind="Text SaldoCHQ,Converter=FormatoMonto"
+                    android:layout_width="0dip"
+                    android:layout_weight=".45"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:id="@+id/textView1"
+                    android:layout_marginBottom="0.0dp"
+                    style="@style/normalText" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_weight="0.1"
+                android:gravity="bottom">
+                <ImageButton
+                    android:src="@drawable/ic_search"
+                    android:id="@+id/btnVerchq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoVerChequesCHQ" />
+                <ImageButton
+                    android:src="@drawable/ic_agregar"
+                    android:id="@+id/btnAgregar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoAgregarCHQ" />
+                <ImageButton
+                    android:src="@drawable/ic_remover"
+                    android:id="@+id/btnRemover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoEliminarCHQ" />
+                <ImageButton
+                    android:src="@drawable/ic_cancelar"
+                    android:id="@+id/btnCancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoCancelarCHQ" />
+                <ImageButton
+                    android:src="@drawable/ic_aceptar"
+                    android:id="@+id/btnAceptar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoAceptarCHQ" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            local:MvxBind="Visibility VerCheques, Converter=BoolToCollapsed,ConverterParameter=True">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:orientation="vertical"
+                android:layout_weight=".80">
+                <Mvx.MvxBindableListView
+                    android:id="@+id/header"
+                    local:MvxItemTemplate="@layout/chequesheader"
+                    local:MvxBind="ItemsSource Header"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+                <Mvx.MvxBindableListView
+                    android:id="@+id/items"
+                    local:MvxItemTemplate="@layout/chequesitem"
+                    android:choiceMode="singleChoice"
+                    local:MvxBind="ItemsSource ChequesCHQ; SelectedItem ItemActualCHQ; ItemClick ComandoSeleccionarCHQ"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_weight="0.1"
+                android:gravity="bottom">
+                <ImageButton
+                    android:src="@drawable/ic_search"
+                    android:id="@+id/btnVerchq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoVerChequesCHQ" />
+                <ImageButton
+                    android:src="@drawable/ic_remover"
+                    android:id="@+id/btnRemover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoEliminarCHQ" />
+                <ImageButton
+                    android:src="@drawable/ic_cancelar"
+                    android:id="@+id/btnCancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoCancelarCHQ" />
+                <ImageButton
+                    android:src="@drawable/ic_aceptar"
+                    android:id="@+id/btnAceptar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/btnStyleImage"
+                    android:layout_weight=".25"
+                    local:MvxBind="Click ComandoAceptarCHQ" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

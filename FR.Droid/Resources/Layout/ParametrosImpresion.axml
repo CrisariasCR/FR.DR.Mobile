@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Impresora: "
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbImpresoras"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:label="Impresoras"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Impresoras; SelectedItem ImpresoraActual; Clickable Impresoras.Count, Converter=CountToEnabled"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout7"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Papel: "
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbPapeles"
+            android:layout_width="0dip"
+            android:layout_weight=".70"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:label="Papeles"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Papeles; SelectedItem PapelActual; Clickable Papeles.Count, Converter=CountToEnabled"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:text="Sugerir Impresion: "
+            android:layout_width="0dip"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/textView1"
+            android:layout_marginBottom="0.0dp"
+            style="@style/normalBoldText" />
+        <RadioGroup
+            android:orientation="horizontal"
+            android:layout_weight=".70"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup1"
+            android:gravity="center_horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Si"
+                android:id="@+id/rdSugerir" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/rdNoSugerir" />
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_cancelar"
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoCancelar" />
+        <ImageButton
+            android:src="@drawable/ic_refresh"
+            android:id="@+id/btnRefrescar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoRefrescar" />
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            local:MvxBind="Click ComandoAceptar" />
+    </LinearLayout>
+</LinearLayout>

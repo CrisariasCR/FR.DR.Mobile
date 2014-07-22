@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".9">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="800dp"
+                android:layout_height="0dip"
+                android:orientation="vertical"
+                android:layout_weight=".05"
+                local:MvxItemTemplate="@layout/consultabonydescheaderdesc"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaBonYDescs"
+                android:layout_width="800dp"
+                android:layout_height="0dip"
+                android:choiceMode="singleChoice"
+                android:orientation="vertical"
+                android:layout_weight=".85"
+                local:MvxItemTemplate="@layout/consultabonydescitemdesc"
+                local:MvxBind="ItemsSource Items" />
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

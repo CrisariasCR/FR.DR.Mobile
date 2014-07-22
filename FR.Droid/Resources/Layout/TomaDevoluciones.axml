@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        local:MvxBind="Visibility IngresandoDatosPrincipal, Converter=BoolToCollapsed"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5" />
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5">
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbCompaniastd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:orientation="vertical"
+            android:layout_weight=".50">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/tomadevolucionesheader"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaDevoluciones"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:choiceMode="singleChoice"
+                local:MvxItemTemplate="@layout/tomadevolucionesitem"
+                local:MvxBind="ItemsSource Articulos; SelectedItem ArticuloSeleccionado" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:background="#535a5c" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Mvx.MvxBindableSpinner
+                android:textSize="8dp"
+                android:id="@+id/cmbCriteriostd"
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource Criterios; SelectedItem CriterioActual"
+                android:layout_gravity="center_vertical" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:id="@+id/txtBusquedatd"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                local:MvxBind="Text TextoBusqueda"
+                android:layout_gravity="center_vertical" />
+            <ImageButton
+                android:src="@drawable/ic_refresh"
+                android:id="@+id/btnRefrescar"
+                android:layout_width="0dip"
+                android:layout_weight=".2"
+                android:layout_height="40dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:text="Estado:"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbEstadoArticulotd"
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource EstadosArticulo; SelectedItem EstadoSeleccionado" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:text="Almacén:"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                android:layout_height="wrap_content"
+                style="@style/numeralEditText"
+                local:MvxBind="Text CantidadAlmacen" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:text="Detalle:"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                android:layout_height="wrap_content"
+                style="@style/numeralEditText"
+                local:MvxBind="Text CantidadDetalle" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:text="Lote:"
+                style="@style/normalBoldText"
+                android:gravity="right" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                local:MvxBind="Text Lote; Enabled LoteEnabled" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_editar"
+                android:id="@+id/btnNotas"
+                android:layout_width="wrap_content"
+                android:layout_weight=".2"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoMostrarNotas" />
+            <ImageButton
+                android:src="@drawable/ic_search"
+                android:id="@+id/btnConsultar"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoConsultar" />
+            <ImageButton
+                android:src="@drawable/ic_agregar"
+                android:id="@+id/btnEliminar"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoAgregar" />
+            <ImageButton
+                android:src="@drawable/ic_remover"
+                android:id="@+id/btnConsultar"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoEliminar" />
+            <ImageButton
+                android:src="@drawable/ic_cancelar"
+                android:id="@+id/btnEliminar"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoCancelar" />
+            <ImageButton
+                android:src="@drawable/ic_continuar"
+                android:id="@+id/btnEliminar"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoContinuar" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        local:MvxBind="Visibility IngresandoDatos, Converter=BoolToCollapsed,ConverterParameter=True"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/radioCredito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Checked CreditoChecked"
+                android:text="Generar Nota de Crédito" />
+            <RadioButton
+                android:id="@+id/radioEfectivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelación en Efectivo" />
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                local:MvxBind="Click ComandoGuardar" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        local:MvxBind="Visibility IngresandoNota, Converter=BoolToCollapsed,ConverterParameter=True">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight=".1"
+            android:layout_height="wrap_content"
+            android:text="Notas:"
+            style="@style/normalBoldText"
+            android:gravity="left" />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_weight=".8"
+            android:layout_height="wrap_content"
+            android:lines="8"
+            android:maxLength="80"
+            style="@style/normalEditText"
+            local:MvxBind="Text Notas" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoAceptarNotas" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

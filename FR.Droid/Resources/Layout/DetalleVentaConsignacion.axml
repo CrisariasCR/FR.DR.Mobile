@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Compañía"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCompaniasdvc"
+            android:label="Compañias"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5" />
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".80">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/header"
+                local:MvxItemTemplate="@layout/detalleventaconsignacionheaderdescripcion"
+                local:MvxBind="ItemsSource Header"
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/items"
+                local:MvxItemTemplate="@layout/detalleventaconsignacionitemdescripcion"
+                local:MvxBind="ItemsSource Items;SelectedItem ItemActual"
+                android:layout_width="1000dp"
+                android:choiceMode="singleChoice"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Total Líneas:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="Items.Count"
+            local:MvxBind="Text Items.Count"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Total Artículos(Detalle):"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="TotalArticulos"
+            local:MvxBind="Text TotalArticulos"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Mvx.MvxBindableSpinner
+            android:id="@+id/cmbCriteriosdvc"
+            android:label="Criterios"
+            local:MvxItemTemplate="@layout/opcioncomboenum"
+            local:MvxBind="ItemsSource Criterios; SelectedItem CriterioActual"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55"
+            android:divider="#FFCC00"
+            android:dividerHeight="4dp" />
+        <EditText
+            android:id="@+id/txtBusqueda"
+            android:text="TextoBusqueda"
+            local:MvxBind="Text TextoBusqueda"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalEditText"
+            android:layout_weight=".45"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:id="@+id/btnConsultar"
+            local:MvxBind="Click ComandoConsultaArticulo; Visibility ConsultarVisible,Converter=BoolToCollapsed"
+            android:src="@drawable/ic_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+        <ImageButton
+            android:id="@+id/btnRetirar"
+            local:MvxBind="Click ComandoRetirarDetalle; Visibility EliminarVisible,Converter=BoolToCollapsed"
+            android:src="@drawable/ic_remover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+        <ImageButton
+            android:id="@+id/btnRefrescar"
+            android:src="@drawable/ic_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+        <ImageButton
+            android:id="@+id/btnContinuar"
+            local:MvxBind="Click ComandoContinuar; Visibility ContinuarVisible,Converter=BoolToCollapsed"
+            android:src="@drawable/ic_continuar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".10" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5" />
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbCompaniascdcc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"
+        android:layout_weight=".60">
+        <Mvx.MvxBindableListView
+            android:id="@+id/HeaderLista"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            local:MvxItemTemplate="@layout/consultadocumentosccheader"
+            local:MvxBind="ItemsSource Header" />
+        <Mvx.MvxBindableListView
+            android:id="@+id/ListaDocumentos"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:choiceMode="singleChoice"
+            local:MvxItemTemplate="@layout/consultadocumentosccitemlocal"
+            local:MvxBind="ItemsSource Documentos" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radioLocal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Local" />
+        <RadioButton
+            android:id="@+id/radioDolar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dólar" />
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Monto Total:"
+            style="@style/normalBoldText" />
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:id="@+id/linearLayout_dummy1"
+            android:layout_weight=".5">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                local:MvxBind="Text MontoLocal,Converter=FormatoNumero; Visibility TipoMoneda,Converter=TipoMonedaToVisibility,ConverterParameter='False'"
+                style="@style/normalText" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                style="@style/normalText"
+                local:MvxBind="Text MontoDolar,Converter=FormatoNumero; Visibility TipoMoneda,Converter=TipoMonedaToVisibility,ConverterParameter='True'" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Saldo Total:"
+            style="@style/normalBoldText" />
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:id="@+id/linearLayout_dummy1"
+            android:layout_weight=".5">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                local:MvxBind="Text SaldoLocal,Converter=FormatoNumero; Visibility TipoMoneda,Converter=TipoMonedaToVisibility,ConverterParameter='False'"
+                style="@style/normalText" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                local:MvxBind="Text SaldoDolar,Converter=FormatoNumero; Visibility TipoMoneda,Converter=TipoMonedaToVisibility,ConverterParameter='True'"
+                style="@style/normalText" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

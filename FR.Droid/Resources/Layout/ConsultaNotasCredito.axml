@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"
+        android:layout_weight=".60">
+        <Mvx.MvxBindableListView
+            android:id="@+id/header"
+            local:MvxItemTemplate="@layout/consultanotascreditoheader"
+            local:MvxBind="ItemsSource Header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <Mvx.MvxBindableListView
+            android:id="@+id/items"
+            local:MvxItemTemplate="@layout/consultanotascreditoitem"
+            local:MvxBind="ItemsSource Items;  SelectedItem ItemActual"
+            android:layout_width="fill_parent"
+            android:choiceMode="singleChoice"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#535a5c" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Fecha Nota Crédito:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="FechaCreacionNC"
+            local:MvxBind="Text FechaCreacionNC, Converter=ConvertidorFecha"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Monto Nota Crédito:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="MontoNC"
+            local:MvxBind="Text MontoNC, Converter=FormatoMonedaCobros"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Total Nota Crédito:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="TotalNotasCredito"
+            local:MvxBind="Text TotalNotasCredito, Converter=FormatoMonedaCobros"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Total Pagar:"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            style="@style/normalBoldText"
+            android:gravity="right" />
+        <TextView
+            android:text="TotalSaldoFacturas"
+            local:MvxBind="Text TotalSaldoFacturas, Converter=FormatoMonedaCobros"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            style="@style/normalText"
+            android:gravity="right" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5">
+                <TextView
+                    android:text="Compañia:"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5">
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbCompaniasps"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    android:label="Compañias"
+                    local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5">
+                <TextView
+                    android:text="Ruta:"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/normalBoldText" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5">
+                <Mvx.MvxBindableSpinner
+                    android:id="@+id/cmbRutasps"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    local:MvxItemTemplate="@layout/opcioncomboenum"
+                    android:label="Rutas"
+                    local:MvxBind="ItemsSource Rutas; SelectedItem RutaActual; Clickable Rutas.Count, Converter=CountToEnabled" />
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:text="# Pedido:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Pedido"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="# Pedido Desc:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text PedidoDesc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="# Recibo:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Recibo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="# Inventario:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Inventario"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="# Devolución:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Devolucion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="# Factura:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text Factura"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+        <TextView
+            android:text="# Nota Crédito:"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/mediumBoldText" />
+        <TextView
+            local:MvxBind="Text NotaCredito"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/normalIdentText" />
+    </LinearLayout>
+</ScrollView>

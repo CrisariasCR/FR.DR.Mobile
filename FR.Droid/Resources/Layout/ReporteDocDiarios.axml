@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <ScrollView
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_weight=".85"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <Mvx.MvxBindableSpinner
+                            android:id="@+id/cmbRutasrdd"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            local:MvxItemTemplate="@layout/opcioncomboenum"
+                            android:gravity="right"
+                            local:MvxBind="ItemsSource Rutas; SelectedItem RutaActuals; Clickable Rutas.Count, Converter=CountToEnabled" />
+                        <Mvx.MvxBindableSpinner
+                            android:id="@+id/cmbTiposrdd"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:gravity="right"
+                            local:MvxItemTemplate="@layout/opcioncomboenum"
+                            local:MvxBind="ItemsSource TipoDoc; SelectedItem TipoActual; Clickable TipoDoc.Count, Converter=CountToEnabled" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Tipo" />
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".3"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Cantidad   " />
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".3"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Monto   " />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Pedido:" />
+                        <TextView
+                            android:id="@+id/txtPedCantidad"
+                            local:MvxBind="Text PedCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtPedTotal"
+                            local:MvxBind="Text PedTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Facturas:" />
+                        <TextView
+                            android:id="@+id/txtFacCantidad"
+                            local:MvxBind="Text FacCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtFacTotal"
+                            local:MvxBind="Text FacTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Fact. Toma Física:" />
+                        <TextView
+                            android:id="@+id/txtFacTFCantidad"
+                            local:MvxBind="Text FacFisCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtFacTotal"
+                            local:MvxBind="Text FacFisTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Devolución:" />
+                        <TextView
+                            android:id="@+id/txtDevCantidad"
+                            local:MvxBind="Text DevCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtDevTotal"
+                            local:MvxBind="Text DevTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Dev.Efectivo:" />
+                        <TextView
+                            android:id="@+id/txtDevEfecCantidad"
+                            local:MvxBind="Text DevEfecCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtDevEfecTotal"
+                            local:MvxBind="Text DevEfecTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Recibos:" />
+                        <TextView
+                            android:id="@+id/txtRecCantidad"
+                            local:MvxBind="Text RecCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtRecTotal"
+                            local:MvxBind="Text RecTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Depósitos:" />
+                        <TextView
+                            android:id="@+id/txtDepCantidad"
+                            local:MvxBind="Text DepCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtDepTotal"
+                            local:MvxBind="Text DepTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="left"
+                            android:text="Garantía:" />
+                        <TextView
+                            android:id="@+id/txtGarCantidad"
+                            local:MvxBind="Text GarCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtGarTotal"
+                            local:MvxBind="Text GarTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Efectivo:" />
+                        <TextView
+                            android:id="@+id/txtEfecCantidad"
+                            local:MvxBind="Text EfecCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtEfecTotal"
+                            local:MvxBind="Text EfecTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Cheques:" />
+                        <TextView
+                            android:id="@+id/txtChequesCantidad"
+                            local:MvxBind="Text ChequesCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtChequesTotal"
+                            local:MvxBind="Text ChequesTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="N/C:" />
+                        <TextView
+                            android:id="@+id/txtNcCantidad"
+                            local:MvxBind="Text NcCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtNcTotal"
+                            local:MvxBind="Text NcTotal"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_weight=".32"
+                            android:layout_height="wrap_content"
+                            style="@style/normalBoldText"
+                            android:gravity="right"
+                            android:text="Total:" />
+                        <TextView
+                            android:id="@+id/txtTotCantidad"
+                            local:MvxBind="Text TotCantidad"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalBoldText"
+                            android:gravity="right" />
+                        <TextView
+                            android:id="@+id/txtTotal"
+                            local:MvxBind="Text Total"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            style="@style/normalBoldText"
+                            android:gravity="right" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.15"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_imprimir"
+            android:id="@+id/btnPrint"
+            android:layout_width="wrap_content"
+            android:layout_weight=".25"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoImprimir" />
+    </LinearLayout>
+</LinearLayout>

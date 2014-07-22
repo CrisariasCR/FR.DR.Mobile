@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        local:MvxBind="Text NombreCliente"
+        style="@style/normalBoldText"
+        android:layout_weight=".05" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight=".95"
+        android:background="#FFFFFF">
+        <Mvx.MvxBindableListView
+            android:id="@+id/listaOpciones"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            local:MvxItemTemplate="@layout/opcionmenuitem"
+            local:MvxBind="ItemsSource Opciones; ItemClick ComandoConsultar" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Codigo"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".3"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        local:MvxBind="Text Descripcion"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".12"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:MvxBind="Text UnidadEmpaque,Converter=FormatoMonto"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        local:MvxBind="Text Precio.Maximo,Converter=FormatoNumero"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".15"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        local:MvxBind="Text Precio.Minimo,Converter=FormatoNumero"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:MvxBind="Text CantidadDetalle,Converter=FormatoMonto"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_weight=".12"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        local:MvxBind="Text CantidadAlmacen,Converter=FormatoMonto"
+        style="@style/ListItemText" />
+</LinearLayout>

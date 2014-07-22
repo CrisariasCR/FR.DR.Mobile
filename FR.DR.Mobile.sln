@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FR.DR.Core", "FR.DR.Core\FR.DR.Core.csproj", "{E600623B-3663-4283-89B5-F2514A5EF9FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FR.DR.EMF", "FR.DR.EMF\FR.DR.EMF.csproj", "{35FEFF11-618B-4108-B8D2-FD2A16D380B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FR.Droid", "FR.Droid\FR.Droid.csproj", "{D64FB787-5F4D-420E-B4A9-369E23B88902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMM.DR.Client", "EMM.DR.Client\EMM.DR.Client.csproj", "{10C32B8D-308D-4EB9-8C14-ABE4DA9AA04E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintingLib", "PrintingLib\PrintingLib.csproj", "{E73FCB11-9296-4630-BD7A-E536170993BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E600623B-3663-4283-89B5-F2514A5EF9FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E600623B-3663-4283-89B5-F2514A5EF9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E600623B-3663-4283-89B5-F2514A5EF9FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E600623B-3663-4283-89B5-F2514A5EF9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E600623B-3663-4283-89B5-F2514A5EF9FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FEFF11-618B-4108-B8D2-FD2A16D380B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FEFF11-618B-4108-B8D2-FD2A16D380B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FEFF11-618B-4108-B8D2-FD2A16D380B7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{35FEFF11-618B-4108-B8D2-FD2A16D380B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FEFF11-618B-4108-B8D2-FD2A16D380B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64FB787-5F4D-420E-B4A9-369E23B88902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64FB787-5F4D-420E-B4A9-369E23B88902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64FB787-5F4D-420E-B4A9-369E23B88902}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D64FB787-5F4D-420E-B4A9-369E23B88902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64FB787-5F4D-420E-B4A9-369E23B88902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64FB787-5F4D-420E-B4A9-369E23B88902}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{10C32B8D-308D-4EB9-8C14-ABE4DA9AA04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C32B8D-308D-4EB9-8C14-ABE4DA9AA04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C32B8D-308D-4EB9-8C14-ABE4DA9AA04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C32B8D-308D-4EB9-8C14-ABE4DA9AA04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E73FCB11-9296-4630-BD7A-E536170993BA}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E73FCB11-9296-4630-BD7A-E536170993BA}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{E73FCB11-9296-4630-BD7A-E536170993BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E73FCB11-9296-4630-BD7A-E536170993BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = FR.Droid\FR.Droid.csproj
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = None
+		$1.ResourceNamePolicy = FileFormatDefault
+	EndGlobalSection
+EndGlobal

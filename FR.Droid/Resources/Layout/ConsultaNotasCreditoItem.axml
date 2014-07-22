@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:id="@+id/text1"
+        android:text="NotaCredito"
+        local:MvxBind="Text Numero"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".25"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Saldo"
+        local:MvxBind="Text SaldoDocLocal,Converter=FormatoNumero; Visibility Moneda,Converter=MonedaCobrosToVisibility,ConverterParameter='False'"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".28"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:id="@+id/text3"
+        android:text="Saldo"
+        local:MvxBind="Text SaldoDocDolar,Converter=FormatoNumero,ConverterParameter='True'; Visibility Moneda,Converter=MonedaCobrosToVisibility,ConverterParameter='True'"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".28"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:id="@+id/text4"
+        android:text="Moneda"
+        local:MvxBind="Text Moneda, Converter=EnumDescription"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".25"
+        style="@style/ListItemText"
+        android:gravity="center" />
+</LinearLayout>

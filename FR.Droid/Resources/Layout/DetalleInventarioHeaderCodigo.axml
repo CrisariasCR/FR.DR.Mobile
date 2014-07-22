@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/Contactos.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="#606060">
+    <TextView
+        android:id="@+id/text1"
+        android:text="Cód.Art"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".24"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text2"
+        android:text="Descripción"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".40"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text3"
+        android:text="Almacén"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".175"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="0.2dip"
+        android:layout_height="wrap_content"
+        android:background="#000000" />
+    <TextView
+        android:id="@+id/text4"
+        android:text="Detalle"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".175"
+        style="@style/ListHeaderText"
+        android:gravity="center" />
+</LinearLayout>

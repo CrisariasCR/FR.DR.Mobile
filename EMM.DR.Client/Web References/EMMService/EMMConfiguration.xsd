@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/Configuration.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/Configuration.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/Configuration.xsd" id="EMMConfiguration" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" name="EMMConfiguration">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="license">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="key" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="device">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="id" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="datasource">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="company" type="xs:string" />
+              <xs:element minOccurs="0" name="server" type="xs:string" />
+              <xs:element minOccurs="0" name="databasename" type="xs:string" />
+              <xs:element minOccurs="0" name="username" type="xs:string" />
+              <xs:element minOccurs="0" name="password" type="xs:string" />
+              <xs:element minOccurs="0" name="provider" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="database">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="name" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="table">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="name" type="xs:string" />
+                    <xs:element minOccurs="0" name="indexes" type="xs:string" />
+                    <xs:element minOccurs="0" name="schema" type="xs:string" />
+                    <xs:element minOccurs="0" name="createdfield" type="xs:boolean" />
+                    <xs:element minOccurs="0" name="updatedfield" type="xs:boolean" />
+                    <xs:element minOccurs="0" name="indextype" type="xs:int" />
+                    <xs:element minOccurs="0" default="false" name="indexunique" type="xs:boolean" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="field">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="name" type="xs:string" />
+                          <xs:element minOccurs="0" name="type" type="xs:int" />
+                          <xs:element minOccurs="0" name="size" type="xs:int" />
+                          <xs:element minOccurs="0" name="precision" type="xs:int" />
+                          <xs:element minOccurs="0" name="primarykey" type="xs:boolean" />
+                          <xs:element minOccurs="0" name="allownulls" type="xs:boolean" />
+                          <xs:element minOccurs="0" name="defaultvalue" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="application">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="name" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="conduit">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="name" type="xs:string" />
+                    <xs:element minOccurs="0" name="id" type="xs:string" />
+                    <xs:element minOccurs="0" name="description" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="parameters">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="description" type="xs:string" />
+                          <xs:element minOccurs="0" name="type" type="xs:int" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="action">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="type" type="xs:int" />
+                          <xs:element minOccurs="0" name="query" type="xs:string" />
+                          <xs:element minOccurs="0" name="databaseid" type="xs:string" />
+                          <xs:element minOccurs="0" name="tableid" type="xs:string" />
+                          <xs:element minOccurs="0" name="datasourceid" type="xs:string" />
+                          <xs:element minOccurs="0" name="assemblyname" type="xs:string" />
+                          <xs:element minOccurs="0" name="allowclientinserts" type="xs:boolean" />
+                          <xs:element minOccurs="0" name="allowclientupdates" type="xs:boolean" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

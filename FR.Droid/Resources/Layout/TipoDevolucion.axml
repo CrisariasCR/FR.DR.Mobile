@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        local:MvxBind="Visibility IngresandoDatos, Converter=BoolToCollapsed"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/rdSinDoc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Devolución sin Documento" />
+            <RadioButton
+                android:id="@+id/rdConDoc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Devolución con Documento" />
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:text="Compañía:"
+                android:gravity="right"
+                style="@style/normalBoldText" />
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbCompaniastd"
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                android:layout_height="wrap_content"
+                local:MvxBind="ItemsSource Companias; SelectedItem CompaniaActual; Clickable Companias.Count, Converter=CountToEnabled" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:text="Tipo:"
+                style="@style/normalBoldText"
+                android:gravity="right"
+                local:MvxBind="Visibility TipoDevolucionVisible, Converter=BoolToVisibility" />
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbTipotd"
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                android:layout_height="wrap_content"
+                local:MvxBind="ItemsSource TiposDevolucion; SelectedItem TipoDevolucionSeleccionado; Clickable TipoDevolucionEnabled; Visibility TipoDevolucionVisible, Converter=BoolToVisibility" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:orientation="vertical"
+            android:layout_weight=".50">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/tipodevolucionheader"
+                local:MvxBind="ItemsSource Header; Enabled ListaEnabled" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaDevoluciones"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:choiceMode="singleChoice"
+                local:MvxItemTemplate="@layout/tipodevolucionitem"
+                local:MvxBind="ItemsSource HistoricoFacturas; SelectedItem HistoricoSeleccionado;Enabled ListaEnabled" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:background="#535a5c" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_devolucion"
+                android:id="@+id/btnDevolver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1"
+                local:MvxBind="Click ComandoDevolver;Visibility DevolverVisible, Converter=BoolToCollapsed; Clickable DevolverEnabled" />
+            <ImageButton
+                android:src="@drawable/ic_direccion"
+                android:id="@+id/btndirA"
+                local:MvxBind="Click ComandoDireccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1" />
+            <ImageButton
+                android:src="@drawable/ic_cancelar"
+                android:id="@+id/btnCancelar"
+                local:MvxBind="Click ComandoCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1" />
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnContinuar"
+                local:MvxBind="Click ComandoContinuar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        local:MvxBind="Visibility PanelPagoVisible, Converter=BoolToCollapsed,ConverterParameter=True"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/radioCredito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Generar Nota de Crédito" />
+            <RadioButton
+                android:id="@+id/radioEfectivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelación en Efectivo" />
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
+            android:gravity="bottom">
+            <ImageButton
+                android:src="@drawable/ic_aceptar"
+                android:id="@+id/btnAceptar"
+                android:layout_weight="0.25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                local:MvxBind="Click ComandoGuardar" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        local:MvxBind="Visibility PanelUbicacionVisible, Converter=BoolToCollapsed"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:text="País:"
+                android:gravity="right"
+                style="@style/normalBoldText" />
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbPaiscd"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                android:layout_height="wrap_content"
+                local:MvxBind="ItemsSource Paises; SelectedItem PaisActual; Clickable ComboPaisEnabled" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                style="@style/normalBoldText"
+                local:MvxBind="Text LabelDiv1" />
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbDiv1cd"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                android:layout_height="wrap_content"
+                local:MvxBind="ItemsSource Divisiones1; SelectedItem Div1Actual; Clickable ComboDiv1Enabled" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                style="@style/normalBoldText"
+                local:MvxBind="Text LabelDiv2" />
+            <Mvx.MvxBindableSpinner
+                android:id="@+id/cmbDiv2cd"
+                local:MvxItemTemplate="@layout/opcioncomboenum"
+                android:layout_width="0dip"
+                android:layout_weight=".6"
+                android:layout_height="wrap_content"
+                local:MvxBind="ItemsSource Divisiones2; SelectedItem Div2Actual; Clickable ComboDiv2Enabled" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

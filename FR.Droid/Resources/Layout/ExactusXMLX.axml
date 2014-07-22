@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.7">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Servidor:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText"
+                android:id="@+id/txtServer" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Dominio:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.7"
+                android:id="@+id/txtDominio"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="HandHeld:"
+                android:gravity="right"
+                android:layout_width="0dip"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                style="@style/normalBoldText" />
+            <EditText
+                android:layout_width="0dip"
+                android:layout_weight="0.7"
+                android:id="@+id/txtHandHeld"
+                android:layout_height="wrap_content"
+                style="@style/normalEditText" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_marginTop="2dp">
+            <TextView
+                android:text="Guardar BD en SD: "
+                android:layout_width="0dip"
+                android:layout_weight=".30"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:id="@+id/textView1"
+                android:layout_marginBottom="0.0dp"
+                style="@style/normalBoldText" />
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_weight=".70"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroup1"
+                android:gravity="center_horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Si"
+                    android:id="@+id/rdSi" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="No"
+                    android:id="@+id/rdNo" />
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
+        android:gravity="bottom">
+        <ImageButton
+            android:src="@drawable/ic_aceptar"
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

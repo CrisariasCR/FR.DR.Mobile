@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5px"
+    android:layout_marginRight="5px"
+    android:orientation="horizontal"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        local:MvxBind="Text conCodigo"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        local:MvxBind="Text conDescripcion"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        local:MvxBind="Text conMonto,Converter=FormatoNumero"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        local:MvxBind="Text conReferencia"
+        android:gravity="left"
+        style="@style/ListItemText" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        local:MvxBind="Text conBase,Converter=FormatoNumero"
+        style="@style/ListItemText"
+        android:gravity="right" />
+    <TextView
+        android:layout_width="0.1dip"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:id="@+id/text6"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight=".12"
+        local:MvxBind="Text conRetenedora"
+        style="@style/ListItemText"
+        android:gravity="right" />
+</LinearLayout>
