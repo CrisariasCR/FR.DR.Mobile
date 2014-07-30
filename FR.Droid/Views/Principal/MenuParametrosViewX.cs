@@ -12,7 +12,7 @@ using FR.Droid.CustomViews;
 
 namespace FR.Droid.Views.Principal
 {
-    [Activity(Label = "FR - Parámetros", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, ConfigurationChanges = Android.Content.PM.ConfigChanges.KeyboardHidden | Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+    [Activity(Label = "FR - Par¨¢metros", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, ConfigurationChanges = Android.Content.PM.ConfigChanges.KeyboardHidden | Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class MenuParametrosViewX : Activity
     {
         ListView listaOpciones;
@@ -64,7 +64,7 @@ namespace FR.Droid.Views.Principal
                     }
                 
                 default:
-                    ShowMessage sm = new ShowMessage(this, "Opción inválida.",false);
+                    ShowMessage sm = new ShowMessage(this, "Opci¨®n inv¨¢lida.",false);
                     RunOnUiThread(() => sm.Mostrar());       
                     break;
             }
