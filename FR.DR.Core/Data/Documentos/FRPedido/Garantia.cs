@@ -35,6 +35,76 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             get { return detalles; }
             set { detalles = value; }
         }
+
+        private decimal montoAPagarDocLocal = 0;
+        /// <summary>
+        /// monto a pagar por el documento
+        /// </summary>
+        public decimal MontoAPagarDocLocal
+        {
+            get { return montoAPagarDocLocal; }
+            set { montoAPagarDocLocal = value; }
+        }
+
+        private decimal montoAPagarDocDolar = 0;
+        /// <summary>
+        /// Monto a pagar por el documento
+        /// </summary>
+        public decimal MontoAPagarDocDolar
+        {
+            get { return montoAPagarDocDolar; }
+            set { montoAPagarDocDolar = value; }
+        }
+
+        private decimal saldoDocLocal = 0;
+        /// <summary>
+        /// monto del saldo
+        /// </summary>
+        public decimal SaldoDocLocal
+        {
+            get { return saldoDocLocal; }
+            set { saldoDocLocal = value; }
+        }
+
+        private decimal saldoDocDolar = 0;
+        /// <summary>
+        /// monto del saldo
+        /// </summary>
+        public decimal SaldoDocDolar
+        {
+            get { return saldoDocDolar; }
+            set { saldoDocDolar = value; }
+        }
+
+        private List<NotaCredito> notasCreditoAplicadas = new List<NotaCredito>();
+        /// <summary>
+        /// Notas de credito aplicadas a la factura
+        /// </summary>
+        public List<NotaCredito> NotasCreditoAplicadas
+        {
+            get { return notasCreditoAplicadas; }
+            set { notasCreditoAplicadas = value; }
+        }
+        /// <summary>
+        /// Retorna el total de notas aplicadas a la factura. El valor devuelto esta en la moneda de la factura.
+        /// </summary>
+        public decimal TotalNotasCredito
+        {
+
+            get
+            {
+                decimal total_notas = 0;
+
+                foreach (NotaCredito nota in this.NotasCreditoAplicadas)
+                {
+                    if (this.Moneda == TipoMoneda.LOCAL.ToString())
+                        total_notas += nota.MontoDocLocal;
+                    else
+                        total_notas += nota.MontoDocDolar;
+                }
+                return total_notas;
+            }
+        }
         
         #region Fechas
 
@@ -282,41 +352,33 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
         /// <param name="zona"></param>
         public Garantia(Articulo articulo, string zona, ConfigDocCia configuracion)
         {
-                this.Compania = articulo.Compania;
-                this.Zona = zona;
-                this.Configuracion = configuracion;
-                this.Cliente = this.Configuracion.ClienteCia.Codigo;
-                this.DescuentoCascada = this.Configuracion.Compania.DescuentoCascada;
-                this.Bodega = articulo.Bodega.Codigo;
-                this.DireccionEntrega = this.Configuracion.ClienteCia.DireccionEntregaDefault;
-                this.PorcentajeDescuento1 = this.Configuracion.ClienteCia.Descuento;
-                this.NivelPrecio = this.Configuracion.Nivel.Codigo;
-                this.HoraInicio = DateTime.Now;
-                this.FechaRealizacion = DateTime.Now;
-                this.HoraFin = DateTime.Now;
-                if (Garantias.FacturarGarantia)
-                {
-                    this.Estado = EstadoPedido.Facturado;
-                    this.Tipo = TipoPedido.Factura;
-                    this.FechaEntrega = this.FechaRealizacion; 
-                    
-                    this.Configuracion.Compania.Cargar();
-                    //if (this.Configuracion.Compania.UsaNCF && this.Configuracion.ClienteCia.TipoContribuyente != string.Empty)
-                    //{
-                    //    NCFUtilitario.obtenerNCF(this.Compania, NCFUtilitario.FACTURA, this.Configuracion.ClienteCia.TipoContribuyente);
-                    //    this.NCF = NCFUtilitario.consecutivoNCF;
-                    //}
-                }
-                else
-                {
-                    this.Estado = EstadoPedido.Normal;
-                    this.Tipo = TipoPedido.Prefactura;
-                    this.FechaEntrega = DateTime.Now.AddDays(1);
-                }
+            this.Compania = articulo.Compania;
+            this.Zona = zona;
+            this.Configuracion = configuracion;
+            this.Cliente = this.Configuracion.ClienteCia.Codigo;
+            this.DescuentoCascada = this.Configuracion.Compania.DescuentoCascada;
+            this.Bodega = articulo.Bodega.Codigo;
+            this.DireccionEntrega = this.Configuracion.ClienteCia.DireccionEntregaDefault;
+            this.PorcentajeDescuento1 = this.Configuracion.ClienteCia.Descuento;
+            this.NivelPrecio = this.Configuracion.Nivel.Codigo;
+            this.HoraInicio = DateTime.Now;
+            this.FechaRealizacion = DateTime.Now;
+            this.HoraFin = DateTime.Now;
+            this.Estado = EstadoPedido.Facturado;
+            this.Tipo = TipoPedido.Factura;
+            this.FechaEntrega = this.FechaRealizacion;
 
-                //KFC Sincronización listas de Precios
-                this.NivelPrecioCod = this.Configuracion.Nivel.Nivel;
-                this.Moneda = this.Configuracion.Nivel.Moneda.Equals(TipoMoneda.LOCAL) ? "L" : "D";
+            this.Configuracion.Compania.Cargar();
+            //if (this.Configuracion.Compania.UsaNCF && this.Configuracion.ClienteCia.TipoContribuyente != string.Empty)
+            //{
+            //    NCFUtilitario.obtenerNCF(this.Compania, NCFUtilitario.FACTURA, this.Configuracion.ClienteCia.TipoContribuyente);
+            //    this.NCF = NCFUtilitario.consecutivoNCF;
+            //}
+
+
+            //KFC Sincronización listas de Precios
+            this.NivelPrecioCod = this.Configuracion.Nivel.Nivel;
+            this.Moneda = this.Configuracion.Nivel.Moneda.Equals(TipoMoneda.LOCAL) ? "L" : "D";
         }
         /// <summary>
         /// Retornar un Pedido en Consignacion
@@ -664,29 +726,20 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                   //  NCF.IncrementarConsecutivoNCF();
 
                 DBGuardar(pedido);
-                //Se guarda el cobro con un recibo de contado
-                Recibo recibo=Cobros.AplicarPagoContadoGarantia(this, Compania, GlobalUI.ClienteActual);
-                GuardarRecibo(recibo);
-				try
-				{
-					if (!Cobros.CambiarNumeroRecibo)
-						ParametroSistema.IncrementarRecibo(this.Compania, this.Zona);
-				}
-				catch (Exception ex)
-				{
-					throw new Exception("Error actualizando consecutivos. " + ex.Message);
-				}
+                ////Se guarda el cobro con un recibo de contado
+                //Recibo recibo=Cobros.AplicarPagoContadoGarantia(this, Compania, GlobalUI.ClienteActual);
+                //GuardarRecibo(recibo);
+                //try
+                //{
+                //    if (!Cobros.CambiarNumeroRecibo)
+                //        ParametroSistema.IncrementarRecibo(this.Compania, this.Zona);
+                //}
+                //catch (Exception ex)
+                //{
+                //    throw new Exception("Error actualizando consecutivos. " + ex.Message);
+                //}
 
-                if (this.Tipo == TipoPedido.Factura)
-                    ParametroSistema.IncrementarGarantia(Compania, Zona);
-
-                else
-                {
-                    if (this.UsuarioCambioDescuentos())
-                        ParametroSistema.IncrementarPedidoDesc(Compania, Zona);
-                    else
-                        ParametroSistema.IncrementarPedido(Compania, Zona);
-                }
+                ParametroSistema.IncrementarGarantia(Compania, Zona);
 
                 if (commit)
                     GestorDatos.CommitTransaction();
@@ -695,7 +748,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             {
                 if (commit)
                     GestorDatos.RollbackTransaction();
-                throw new Exception("Error al guardar " + (this.Tipo == TipoPedido.Factura ? "Factura. " : "Pedido. ") + ex.Message);
+                throw new Exception("Error al guardar " + (this.Tipo == TipoPedido.Factura ? "Garantía. " : "Pedido. ") + ex.Message);
             }
         }
 
@@ -740,7 +793,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             {
                 if (commit)
                     GestorDatos.RollbackTransaction();
-                throw new Exception("Error al Anular " + (this.Tipo == TipoPedido.Factura ? "Factura. " : "Pedido. ") + ex.Message);
+                throw new Exception("Error al Anular " + (this.Tipo == TipoPedido.Factura ? "Garantía. " : "Pedido. ") + ex.Message);
             }
         }
          
@@ -877,87 +930,60 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
 
         #region Acceso Datos
 
-        public static List<Pedido> ObtenerVentas(Cliente cliente, string zona, EstadoPedido estado, TipoPedido tipo)
+        public static List<Garantia> ObtenerVentas(Cliente cliente, string zona)
         {
-            List<Pedido> ventas = new List<Pedido>();
+            List<Garantia> ventas = new List<Garantia>();
             ventas.Clear();
 
             string sentencia =
-                " SELECT COD_CIA,NUM_PED,MON_SIV,MON_DSC,MON_IMP_VT,MON_IMP_CS,LST_PRE,"+
-                "        FEC_PED,FEC_DES,HOR_INI,HOR_FIN,DESC1,DESC2,MONT_DESC1,MONT_DESC2,DIR_ENT,"+
-                "        COD_PAIS,CLASE,COD_CND,COD_BOD,OBS_PED,DESCUENTO_CASCADA,IMPRESO,CONSIGNACION, NCF_PREFIJO, NCF, NIVEL_PRECIO, MONEDA " +
-                " FROM " + Table.ERPADMIN_alFAC_ENC_PED  + 
+                " SELECT COD_CIA,NUM_GAR,NUM_PED,COD_CLT,TIP_DOC,MON_TOT,FEC_GAR,COD_ZON,"+
+                " NUM_ITM,MONEDA,LST_PRE,OBS_GAR,COD_BOD,COD_PAIS,IMPRESO,NIVEL_PRECIO,COD_CND"+
+                " FROM " + Table.ERPADMIN_alFAC_ENC_GARANTIA  + 
                 " WHERE COD_CLT = @CLIENTE" +
                 " AND   COD_ZON = @ZONA" +
-                " AND   TIP_DOC = @TIPO" +
-                " AND   ESTADO = @ESTADO" +
                 " AND   DOC_PRO IS NULL ";
 
             SQLiteDataReader reader = null;
             SQLiteParameterList parametros = new SQLiteParameterList( new SQLiteParameter[] { 
                       new SQLiteParameter("@CLIENTE", cliente.Codigo),
-                      new SQLiteParameter("@ZONA", zona),
-                      new SQLiteParameter("@TIPO", ((char)tipo).ToString()),
-                      new SQLiteParameter("@ESTADO", ((char)estado).ToString())}); 
+                      new SQLiteParameter("@ZONA", zona)}); 
             try
             {
                 reader = GestorDatos.EjecutarConsulta(sentencia,parametros);
 
                 while (reader.Read())
                 {
-                    Pedido pedido = new Pedido();
-                    pedido.Cliente = cliente.Codigo;
-                    pedido.Estado = estado;
-                    pedido.Tipo = tipo;
-                    pedido.Zona = zona;
-                    pedido.Compania = reader.GetString(0);
-                    pedido.Numero = reader.GetString(1);
-                    pedido.MontoBruto = reader.GetDecimal(2);
-                    pedido.MontoDescuentoLineas = reader.GetDecimal(3);
-                    pedido.Impuesto = new Impuesto(reader.GetDecimal(4), reader.GetDecimal(5));
-                    pedido.NivelPrecio = reader.GetInt32(6);
-                    pedido.FechaRealizacion = reader.GetDateTime(7);
-                    pedido.FechaEntrega = reader.GetDateTime(8);
-                    pedido.HoraInicio = reader.GetDateTime(9);
-                    pedido.HoraFin = reader.GetDateTime(10);
-                    pedido.PorcentajeDescuento1 = reader.GetDecimal(11);
-                    pedido.PorcentajeDescuento2 = reader.GetDecimal(12);
-                    pedido.MontoDescuento1 = reader.GetDecimal(13);
-                    pedido.MontoDescuento2 = reader.GetDecimal(14);
-                    pedido.DireccionEntrega = reader.GetString(15);
-                    pedido.Configuracion = new ConfigDocCia();
-                    pedido.Configuracion.Compania.Codigo = pedido.Compania;
-                    pedido.Configuracion.Pais.Codigo = reader.GetString(16);
-                    pedido.Configuracion.Clase = (ClaseDoc)Convert.ToChar(reader.GetString(17));
-                    pedido.Configuracion.CondicionPago.Codigo = reader.GetString(18);
-                    pedido.Configuracion.Nivel.Codigo = pedido.NivelPrecio;
-                    pedido.Configuracion.ClienteCia = cliente.ObtenerClienteCia(pedido.Compania);
+                    Garantia garantia = new Garantia();
+                    garantia.Cliente = cliente.Codigo;
+                    garantia.Zona = zona;
+                    garantia.Compania = reader.GetString(0);
+                    garantia.Numero = reader.GetString(1);
+                    if(reader.GetValue(2) != DBNull.Value)
+                        garantia.PedidoGarantia = reader.GetString(2);
+                    garantia.MontoBruto = reader.GetDecimal(5);
+                    garantia.NivelPrecio = reader.GetInt32(10);
+                    garantia.FechaRealizacion = reader.GetDateTime(6);
+                    garantia.Configuracion = new ConfigDocCia();
+                    garantia.Configuracion.Compania.Codigo = garantia.Compania;
+                    garantia.Configuracion.Pais.Codigo = reader.GetString(13);
+                    garantia.Configuracion.CondicionPago.Codigo = reader.GetString(16);
+                    garantia.Configuracion.Nivel.Codigo = garantia.NivelPrecio;
+                    garantia.Configuracion.ClienteCia = cliente.ObtenerClienteCia(garantia.Compania);
 
-                    pedido.Bodega = reader.GetString(19);
-                    if (!reader.IsDBNull(20))
-                        pedido.Notas = reader.GetString(20);
-                    pedido.DescuentoCascada = reader.GetString(21).Equals("S");				
-                    pedido.Impreso = reader.GetString(22).Equals("S");
-                    pedido.EsConsignacion = reader.GetString(23).Equals("S");
-                    //if (!reader.IsDBNull(21))
-                    //    pedido.NumRef = reader.GetString(20);
+                    garantia.Bodega = reader.GetString(12);
+                    if (!reader.IsDBNull(11))
+                        garantia.Notas = reader.GetString(11);
+                    garantia.Impreso = reader.GetString(14).Equals("S");
 
-                    if (!reader.IsDBNull(24) && !reader.IsDBNull(25))
-                    {
-                        pedido.NCF = new NCFBase();
-                        pedido.NCF.Prefijo = reader.GetString(24);
-                        pedido.NCF.UltimoValor = reader.GetString(25);
-                    }
+                    garantia.Configuracion.Cargar();
 
-                    pedido.Configuracion.Cargar();
-
-                    ventas.Add(pedido);
+                    ventas.Add(garantia);
                 }
                 return ventas;
             }
             catch (SQLiteException ex)
             {
-                throw new Exception("Error cargando " + ((tipo == TipoPedido.Factura) ? "facturas" : "Garantias") +"  del cliente. " + ex.Message);
+                throw new Exception("Error cargando Garantias del cliente. " + ex.Message);
             }
             finally
             {
@@ -965,6 +991,49 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                     reader.Close();
             }
         }
+
+        #region Insert de las aplicaciones de las notas a las facturas en la BD
+
+        /// <summary>
+        /// Guarda en la base de datos la informacion que se genero de 
+        /// las facturas que se vieron afectadas por las notas de credito (movimientos de notas)
+        /// </summary>
+        public void GuardarAfectadaNC(string recibo)
+        {
+            if (NotasCreditoAplicadas.Count > 0)
+            {
+                foreach (NotaCredito notaAplicada in NotasCreditoAplicadas)
+                {
+                    string sentencia =
+                        " INSERT INTO " + Table.ERPADMIN_alCXC_MOV_DIR +
+                        "       ( COD_CIA, COD_TIP_DC, COD_ZON, NUM_REC, NUM_DOC, COD_TIP_DA, NUM_DOC_AF, COD_CLT, IND_ANL, FEC_DOC, FEC_PRO,    MON_MOV_LOCAL, MON_SAL_LOC, MON_MOV_DOL, MON_SAL_DOL) " +
+                        " VALUES(@COD_CIA,@COD_TIP_DC,@COD_ZON,@NUM_REC,@NUM_DOC,@COD_TIP_DA,@NUM_DOC_AF,@COD_CLT,@IND_ANL,@FEC_DOC,date('now','localtime'),@MON_MOV_LOCAL,@MON_SAL_LOC,@MON_MOV_DOL,@MON_SAL_DOL) ";
+
+                    SQLiteParameterList parametros = new SQLiteParameterList(new SQLiteParameter[] {
+                    GestorDatos.SQLiteParameter("@COD_CIA",SqlDbType.NVarChar, Compania),
+                    GestorDatos.SQLiteParameter("@COD_TIP_DC",SqlDbType.NVarChar, ((int)notaAplicada.Tipo).ToString()),
+                    GestorDatos.SQLiteParameter("@COD_ZON",SqlDbType.NVarChar, Zona),
+                    GestorDatos.SQLiteParameter("@NUM_REC",SqlDbType.NVarChar, recibo),
+                    GestorDatos.SQLiteParameter("@NUM_DOC",SqlDbType.NVarChar, notaAplicada.Numero),
+                    GestorDatos.SQLiteParameter("@COD_TIP_DA",SqlDbType.NVarChar, ((int)this.Tipo).ToString()),
+                    GestorDatos.SQLiteParameter("@NUM_DOC_AF",SqlDbType.NVarChar, Numero),
+                    GestorDatos.SQLiteParameter("@COD_CLT",SqlDbType.NVarChar, Cliente),
+                    GestorDatos.SQLiteParameter("@IND_ANL",SqlDbType.NVarChar, ((char)this.Estado).ToString()),
+                    GestorDatos.SQLiteParameter("@FEC_DOC",SqlDbType.DateTime, FechaRealizacion),                
+                    // mvega: se usa la funcion date('now','localtime') de SQLite
+                    //GestorDatos.SQLiteParameter("@FEC_PRO",SqlDbType.DateTime, DateTime.Now.Date),
+                    //LDS 03/07/2007 realiza el redondea a 2 decimales por problema de sincronización con montos muy pequeños.
+                    GestorDatos.SQLiteParameter("@MON_MOV_LOCAL",SqlDbType.Decimal,Decimal.Round(notaAplicada.MontoDocLocal,2)),
+                    GestorDatos.SQLiteParameter("@MON_MOV_DOL",SqlDbType.Decimal,Decimal.Round(notaAplicada.MontoDocDolar,2)),
+                    GestorDatos.SQLiteParameter("@MON_SAL_LOC",SqlDbType.Decimal,Decimal.Round(notaAplicada.SaldoDocLocal,2)),
+                    GestorDatos.SQLiteParameter("@MON_SAL_DOL",SqlDbType.Decimal,Decimal.Round(notaAplicada.SaldoDocDolar,2))});
+
+                    GestorDatos.EjecutarComando(sentencia, parametros);
+                }
+
+            }
+        }
+        #endregion
 
         private void DBGuardar(string pedido)
         {
@@ -977,8 +1046,8 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             //Se procede a guardar el encabezado
             string sentencia =
                 " INSERT INTO " + Table.ERPADMIN_alFAC_ENC_GARANTIA +
-                "        ( COD_CIA,  COD_ZON,  COD_CLT,NUM_GAR,NUM_PED,FEC_GAR,NUM_ITM,COD_BOD,LST_PRE, MON_TOT, IMPRESO, OBS_GAR,COD_PAIS, NIVEL_PRECIO, MONEDA) " +
-                " VALUES (@COD_CIA, @COD_ZON, @COD_CLT,@NUM_GAR, @NUM_PED,@FEC_GAR,@NUM_ITM, @COD_BOD,@NVL_PRE,@MON_TOT, @IMPRESO,@OBS_GAR,@COD_PAIS,@NVL_PRE_COD, @MONEDA)";  //DOC_PRO 
+                "        ( COD_CIA,  COD_ZON,  COD_CLT,NUM_GAR,NUM_PED,FEC_GAR,NUM_ITM,COD_BOD,LST_PRE, MON_TOT, IMPRESO, OBS_GAR,COD_PAIS, NIVEL_PRECIO, MONEDA,TIP_DOC,COD_CND) " +
+                " VALUES (@COD_CIA, @COD_ZON, @COD_CLT,@NUM_GAR, @NUM_PED,@FEC_GAR,@NUM_ITM, @COD_BOD,@NVL_PRE,@MON_TOT, @IMPRESO,@OBS_GAR,@COD_PAIS,@NVL_PRE_COD, @MONEDA,@TIPDOC,@COD_CND)";  //DOC_PRO 
 
             SQLiteParameterList parametros = new SQLiteParameterList(new SQLiteParameter[] {
                 GestorDatos.SQLiteParameter("@COD_CIA",SqlDbType.NVarChar, Compania),
@@ -997,7 +1066,9 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
 
                 //KFC Sincronización Listas de precio
                 GestorDatos.SQLiteParameter("@NVL_PRE_COD",SqlDbType.NVarChar, NivelPrecioCod),
-                GestorDatos.SQLiteParameter("@MONEDA",SqlDbType.NVarChar, Moneda)});
+                GestorDatos.SQLiteParameter("@MONEDA",SqlDbType.NVarChar, Moneda),
+                GestorDatos.SQLiteParameter("@TIPDOC",SqlDbType.NVarChar, (string.IsNullOrEmpty(pedido)? "C" : "E")),
+                GestorDatos.SQLiteParameter("@COD_CND", SqlDbType.NVarChar, Configuracion.CondicionPago.Codigo)});
 
                 //GestorDatos.SQLiteParameter("@NUM_REF",SqlDbType.NVarChar, numRef),
             int encabezado = GestorDatos.EjecutarComando(sentencia, parametros);
@@ -1757,6 +1828,144 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             {
                 GestorDatos.RollbackTransaction();
                 viewModel.mostrarAlerta("Error al actualizar datos. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Aplica la nota de credito a la factura
+        /// </summary>
+        /// <param name="notaCredito"></param>
+        public void AplicaNotaLocal(NotaCredito notaCredito)
+        {
+            decimal calculo = this.MontoAPagarDocLocal - notaCredito.SaldoDocLocal;
+
+            if (calculo <= 0)//verifica que el monto del calculo sea menor o igual a 0
+            {
+                //Cobros.MontoNotasCreditoSeleccion += this.MontoAPagarDocLocal;//se le suma a el monto al monto de notas de credito el monto a pagar por la factura
+                Cobros.MontoNotasCreditoSeleccion += this.MontoAPagarDocLocal;//se le suma a el monto al monto de notas de credito el monto a pagar por la factura
+
+                //el saldo de la nota se le asigna el monto que dio la resta de los montos
+                //pero se niega el calculo ya que este es negativo
+                notaCredito.SaldoDocLocal -= this.MontoAPagarDocLocal;
+                notaCredito.SaldoDocDolar -= this.MontoAPagarDocDolar;
+
+                notaCredito.MontoMovimientoLocal += this.MontoAPagarDocLocal;//al monto movimineto de la nota se le suma el monto a pagar por la factura
+                notaCredito.MontoMovimientoDolar += this.MontoAPagarDocDolar;
+
+                this.SaldoDocLocal -= this.MontoAPagarDocLocal;//el saldo de la factura se le resta el monto a pagar de la misma
+                this.SaldoDocDolar -= this.MontoAPagarDocDolar;
+
+                //se guarda el numero de nota y el monto aplicado en un arreglo asi como el saldo de la factura
+                NotaCredito notaAplicada = new NotaCredito();
+                notaAplicada.Numero = notaCredito.Numero;
+                notaAplicada.Tipo = notaCredito.Tipo;
+                notaAplicada.MontoDocLocal = this.MontoAPagarDocLocal;
+                notaAplicada.MontoDocDolar = this.MontoAPagarDocDolar;
+                notaAplicada.SaldoDocLocal = this.SaldoDocLocal;
+                notaAplicada.SaldoDocDolar = this.SaldoDocDolar;
+
+                this.MontoAPagarDocLocal = 0;//el total a pagar de la factura se iguala a 0
+                this.MontoAPagarDocDolar = 0;
+                this.NotasCreditoAplicadas.Add(notaAplicada);// se agrega el arreglo de la nota y el monto aplicado en un arreglo de notas aplicadas a la factura
+                //this.tieneNotas = true;                
+
+            }
+            else
+            {
+                this.MontoAPagarDocLocal = calculo;//el monto a pagar es igual al calculo
+                //KFC - se agrega la actualizacion al monto en dolares
+                this.MontoAPagarDocDolar = calculo / Cobros.TipoCambio;
+
+                Cobros.MontoNotasCreditoSeleccion += notaCredito.SaldoDocLocal;//se le suma  al monto de notas de credito el saldo de la nota de credito
+
+                notaCredito.MontoMovimientoLocal += notaCredito.SaldoDocLocal;//monto del movimiento de la nota se le suma el saldo de la nota
+                notaCredito.MontoMovimientoDolar += notaCredito.SaldoDocDolar;
+
+                this.SaldoDocLocal -= notaCredito.SaldoDocLocal;//al saldo de la factura se le resta el saldo de la nota
+                this.SaldoDocDolar -= notaCredito.SaldoDocDolar;
+
+                NotaCredito notaAplicada = new NotaCredito();
+
+                notaAplicada.Numero = notaCredito.Numero;
+                notaAplicada.Tipo = notaCredito.Tipo;
+                notaAplicada.MontoDocLocal = notaCredito.SaldoDocLocal;
+                notaAplicada.MontoDocDolar = notaCredito.SaldoDocDolar;
+                notaAplicada.SaldoDocLocal = this.SaldoDocLocal;
+                notaAplicada.SaldoDocDolar = this.SaldoDocDolar;
+
+                notaCredito.SaldoDocLocal = 0;//se iguala saldo de la nota a 0
+                notaCredito.SaldoDocDolar = 0;
+                this.NotasCreditoAplicadas.Add(notaAplicada);// se agrega el arreglo de la nota y el monto aplicado en un arreglo de notas aplicadas a la factura
+                //this.tieneNotas = true;
+            }
+            //notaCredito.indProcesado = true;//se cambia el indice de procesamineto de la nota
+            //this.indProcesado = true;//se cambia el indice de procesamineto de la factura
+        }
+
+        /// <summary>
+        /// Aplica la nota de credito a la factura
+        /// </summary>
+        /// <param name="notaCredito">nota de credito a aplicar</param>
+        /// <returns>retorna un objeto de tipo documento</returns>
+        public void AplicaNotaDolar(NotaCredito notaCredito)
+        {
+            decimal calculo = this.MontoAPagarDocDolar - notaCredito.SaldoDocDolar;
+
+            if (calculo <= 0)//verifica que el monto del calculo sea menor o igual a 0
+            {
+                Cobros.MontoNotasCreditoSeleccion += this.MontoAPagarDocDolar;//se le suma a el monto al monto de notas de credito el monto a pagar por la factura
+
+                //el saldo de la nota se le asigna el monto que dio la resta de los montos
+                //pero se niega el calculo ya que este es negativo
+                notaCredito.SaldoDocDolar = -calculo;
+                notaCredito.SaldoDocLocal = notaCredito.SaldoDocDolar * Cobros.TipoCambio;
+
+                notaCredito.MontoMovimientoDolar += this.MontoAPagarDocDolar;//al monto movimineto de la nota se le suma el monto a pagar por la factura
+                notaCredito.MontoMovimientoLocal += this.MontoAPagarDocLocal;
+
+                this.SaldoDocDolar -= notaCredito.SaldoDocDolar;//el saldo de la factura se le resta el monto a pagar de la misma
+                this.SaldoDocLocal -= notaCredito.SaldoDocLocal;
+
+                NotaCredito notaAplicada = new NotaCredito();
+
+                notaAplicada.Numero = notaCredito.Numero;
+                notaAplicada.Tipo = notaCredito.Tipo;
+                notaAplicada.MontoDocLocal = this.MontoAPagarDocLocal;
+                notaAplicada.MontoDocDolar = this.MontoAPagarDocDolar;
+                notaAplicada.SaldoDocLocal = this.SaldoDocLocal;
+                notaAplicada.SaldoDocDolar = this.SaldoDocDolar;
+
+                this.MontoAPagarDocDolar = 0;//el total a pagar de la factura se iguala a 0
+                this.MontoAPagarDocLocal = 0;
+                this.NotasCreditoAplicadas.Add(notaAplicada);// se agrega el arreglo de la nota y el monto aplicado en un arreglo de notas aplicadas a la factura
+                //this.tieneNotas = true;
+            }
+            else
+            {
+                Cobros.MontoNotasCreditoSeleccion += notaCredito.SaldoDocDolar;//se le suma  al monto de notas de credito el saldo de la nota de credito
+
+                notaCredito.MontoMovimientoDolar += notaCredito.SaldoDocDolar;//monto del movimiento de la nota se le suma el saldo de la nota
+                notaCredito.MontoMovimientoLocal += notaCredito.SaldoDocLocal;
+
+                this.MontoAPagarDocDolar -= notaCredito.SaldoDocDolar;//al saldo de la factura se le resta el saldo de la nota
+                this.MontoAPagarDocLocal -= notaCredito.SaldoDocLocal;
+
+                this.SaldoDocDolar -= notaCredito.SaldoDocDolar;
+                this.SaldoDocLocal -= notaCredito.SaldoDocLocal;//al saldo de la factura se le resta el saldo de la nota
+
+                NotaCredito notaAplicada = new NotaCredito();
+
+                notaAplicada.Numero = notaCredito.Numero;
+                notaAplicada.Tipo = notaCredito.Tipo;
+                notaAplicada.MontoDocLocal = notaCredito.SaldoDocLocal;
+                notaAplicada.MontoDocDolar = notaCredito.SaldoDocDolar;
+                notaAplicada.SaldoDocLocal = this.SaldoDocLocal;
+                notaAplicada.SaldoDocDolar = this.SaldoDocDolar;
+
+                notaCredito.SaldoDocDolar = 0;//se iguala saldo de la nota a 0
+                notaCredito.SaldoDocLocal = 0;
+                this.NotasCreditoAplicadas.Add(notaAplicada);// se agrega el arreglo de la nota y el monto aplicado en un arreglo de notas aplicadas a la factura
+                //this.tieneNotas = true;
             }
         }
 

@@ -152,7 +152,13 @@ namespace Softland.ERP.FR.Mobile.Cls
 
         //Proyecto Gas Z
 
-        Garantia = 16,
+        Garantia = 15,
+        NotaCreditoNuevaGarantia = 17,
+
+        /// <summary>
+        /// ReciboSinAplicacion = 18
+        /// </summary>
+        ReciboSinAplicacion = 18
     }
 
     public enum Impuesto1Incluido
@@ -408,6 +414,8 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
     {
         [Description("Selección Documentos")]
         SeleccionFacturas,
+        [Description("Recibo Sin Aplicación")]
+        Recibo,
         [Description("Monto Total")]
         MontoTotal,
         FacturaActual, // Agregado KFC Facturas Contado
@@ -636,6 +644,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Reporte
         ReporteInventario,
         ReporteDevoluciones,
         ReporteJornada,
+        ReporteCierreCaja,
         ReporteLiquidacionInventario,
         ReporteInventarioTomaFisica
     }

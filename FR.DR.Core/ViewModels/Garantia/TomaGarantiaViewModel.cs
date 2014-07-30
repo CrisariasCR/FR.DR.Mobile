@@ -439,11 +439,8 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 List<FiltroArticulo> filtros = new List<FiltroArticulo>();
                 filtros.Add(FiltroArticulo.GrupoArticulo);
 
-                if (Pedidos.FacturarPedido)
-                {
-                    filtros.Add(FiltroArticulo.NivelPrecio);
-                    filtros.Add(FiltroArticulo.Existencia);
-                }
+                filtros.Add(FiltroArticulo.NivelPrecio);
+                filtros.Add(FiltroArticulo.Existencia);
 
                 List<Articulo> resultadoBusqueda = new List<Articulo>();
 
@@ -455,7 +452,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                                 new CriterioBusquedaArticulo(CriterioActual, variableBusqueda, agil),
                                 CompaniaActual,
                                 GlobalUI.RutaActual.GrupoArticulo,
-                                Gestor.Pedidos.ObtenerConfiguracionVenta(CompaniaActual).Nivel.Nivel);
+                                Gestor.Garantias.ObtenerConfiguracionVenta(CompaniaActual).Nivel.Nivel);
                 }
                 else
                 {
@@ -465,7 +462,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                                  new CriterioBusquedaArticulo(CriterioActual, variableBusqueda, agil),
                                  CompaniaActual,
                                  GlobalUI.RutaActual.GrupoArticulo,
-                                 Gestor.Pedidos.ObtenerConfiguracionVenta(CompaniaActual).Nivel.Nivel);
+                                 Gestor.Garantias.ObtenerConfiguracionVenta(CompaniaActual).Nivel.Nivel);
                 }
 
 
@@ -520,7 +517,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
         private void CargarPreciosArticuloContinuacion(Articulo articulo)
         {
-            ConfigDocCia config = Gestor.Pedidos.ObtenerConfiguracionVenta(articulo.Compania);
+            ConfigDocCia config = Gestor.Garantias.ObtenerConfiguracionVenta(articulo.Compania);
 
             try
             {
@@ -906,40 +903,24 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             //this.FormatTextBox();
             cargando = false;
 
-            Criterios.Add(Pedidos.FacturarPedido ? CriterioArticulo.FacturaActual : CriterioArticulo.PedidoActual);
+            Criterios.Add(CriterioArticulo.FacturaActual);
 
             ExistenciaVisible = true;
-            if (!Pedidos.FacturarPedido && !Pedidos.MostrarRefExistencias)
-                ExistenciaVisible = false;
-            //Gestor.Pedidos.SacarMontosTotales();
 
-            //if (Pedidos.CalcularImpuestos)
-            //    Total = Gestor.Garantias.TotalNeto;
-            //else
-                Total = Gestor.Garantias.TotalNetoSinImpuesto;
+            Total = Gestor.Garantias.TotalNetoSinImpuesto;
 
-            if (Pedidos.FacturarPedido)
-            {
-                Gestor.Garantias.SacarMontosTotales();
-            }
+            Gestor.Garantias.SacarMontosTotales();
 
             LlenarCompanias();
 
-            if (this.ConsultarPedidoActual)
-                CriterioActual = Pedidos.FacturarPedido ? CriterioArticulo.FacturaActual : CriterioArticulo.PedidoActual;
-            else
-                CriterioActual = Pedidos.CriterioBusquedaDefaultBD;
+            CriterioActual = Pedidos.CriterioBusquedaDefaultBD;
 
-            //CambiarPrecioVisible = Pedidos.CambiarPrecio;
             CambiarPrecioVisible = false;
-            //DescuentoEnabled = Pedidos.CambiarDescuento || Pedidos.ManejaTopes;
             DescuentoEnabled = false;
-            //CambiarDescuentoVisible = Pedidos.CambiarDescuento;
             CambiarDescuentoVisible = false;
 
-            //CambiarBonificacionEnabled = Pedidos.CambiarBonificacion;
             CambiarBonificacionEnabled = false;
-            //AdicionalEnabled = Pedidos.BonificacionAdicional && !Pedidos.FacturarPedido;
+            
             AdicionalEnabled = false;
 
             ClienteCia cliente = GlobalUI.ClienteActual.ObtenerClienteCia(CompaniaActual);
@@ -952,17 +933,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         #endregion
 
         #region Comandos
-
-        public ICommand ComandoCambiarPrecio
-        {
-            get { return new MvxRelayCommand(CambiarPrecio); }
-        }
-
-        public ICommand ComandoConsultar
-        {
-            get { return new MvxRelayCommand(ConsultarPedido); }
-        }
-
+        
         public ICommand ComandoAgregar
         {
             get { return new MvxRelayCommand(AgregarDetalle); }
@@ -1007,249 +978,167 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
         }
 
-        private void ConsultarPedido()
+        private void AgregarDetalle()
         {
-            if (Gestor.Pedidos.ExistenArticulosGestionados())
+
+
+            bool agil = false;
+            decimal unidadesAlm = decimal.Zero;
+            decimal unidadesDet = decimal.Zero;
+            decimal unidadesAlmGarantia = decimal.Zero;
+            decimal unidadesDetGarantia = decimal.Zero;
+            decimal unidadesAlmAdicional = decimal.Zero;
+            decimal unidadesDetAdicional = decimal.Zero;
+            decimal unidadesAlmBonif = decimal.Zero;
+            decimal unidadesDetBonif = decimal.Zero;
+            decimal totalAlmBonificado = decimal.Zero;
+
+            if (ArticuloSeleccionado != null)
             {
-                Dictionary<string, object> Parametros = new Dictionary<string, object>();
-                Parametros.Add("invocadesde", Formulario.TomaPedido.ToString());
-                Parametros.Add("mostrarControles", "S");
-                if(Pedidos.FacturarPedido)
+
+                unidadesAlm = CantidadAlmacen;
+                unidadesDet = CantidadDetalle;
+                unidadesAlmGarantia = CantidadAlmacenGarantia;
+                unidadesDetGarantia = CantidadDetalleGarantia;
+
+                unidadesAlmBonif = CantBonifAlmacen;
+                unidadesDetBonif = CantBonifDetalle;
+                totalAlmBonificado = unidadesAlmBonif + (unidadesDetBonif / ArticuloSeleccionado.UnidadEmpaque);
+
+            }
+
+
+            if (ArticuloSeleccionado == null)
+            {
+                if (TextoBusqueda != string.Empty && (unidadesAlm > 0 || unidadesDet > 0))
                 {
-                    Parametros.Add("esFactura", "S");
+                    this.RealizarBusqueda(true);
+                    if (Articulos.Count == 1)
+                    {
+                        ArticuloSeleccionado = Articulos[0];
+                        CargarPrecioArticulo(ArticuloSeleccionado);
+
+                        CalculaSubTotal();
+
+                        unidadesAlm = CantidadAlmacen;
+                        unidadesDet = CantidadDetalle;
+
+                        this.CargarExistenciasArticulo();
+
+                        agil = true;
+                    }
+
+                    else
+                        return;
                 }
                 else
                 {
-                    Parametros.Add("esFactura", "N");
+                    this.mostrarAlerta("Debe seleccionar un articulo.");
+                    return;
                 }
-                this.RequestNavigate<DetallePedidoViewModel>(Parametros);
-
-                //this.RequestDialogNavigate<DetallePedidoViewModel, DialogResult>(Parametros, result =>
-                //    {
-                //        Gestor.Pedidos.SacarMontosTotales();
-
-                //        if (Pedidos.CalcularImpuestos)
-                //            Total = Gestor.Pedidos.TotalNeto;
-                //        else
-                //            Total = Gestor.Pedidos.TotalNetoSinImpuesto;
-                //    });
             }
-            else
-                this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay detalles incluídos");
 
-        }
 
-        private void AgregarDetalle()
-        {
-            
-            
-                bool agil = false;
-                decimal unidadesAlm = decimal.Zero; 
-                decimal unidadesDet = decimal.Zero;
-                decimal unidadesAlmGarantia = decimal.Zero;
-                decimal unidadesDetGarantia = decimal.Zero;
-                decimal unidadesAlmAdicional = decimal.Zero; 
-                decimal unidadesDetAdicional = decimal.Zero; 
-                decimal unidadesAlmBonif = decimal.Zero; 
-                decimal unidadesDetBonif = decimal.Zero; 
-                decimal totalAlmBonificado = decimal.Zero; 
 
-                if (ArticuloSeleccionado != null)
+            if (ArticuloSeleccionado.Precio.Maximo == decimal.Zero &&
+                ArticuloSeleccionado.Precio.Minimo == decimal.Zero)
+            {
+                this.mostrarMensaje(Mensaje.Accion.Informacion, "No se puede agregar el artículo porque no se encuentra en el Nivel de Precios seleccionado.");
+                return;
+            }
+            try
+            {
+                if (unidadesAlm > 0 || unidadesDet > 0)
                 {
+                    decimal existencias = Existencias;
+                    decimal existenciasEnvase = ExistenciasEnvase;
 
-                    unidadesAlm = CantidadAlmacen;
-                    unidadesDet = CantidadDetalle;
-                    unidadesAlmGarantia = CantidadAlmacenGarantia;
-                    unidadesDetGarantia = CantidadDetalleGarantia;
-
-                    unidadesAlmBonif = CantBonifAlmacen;
-                    unidadesDetBonif = CantBonifDetalle;
-                    totalAlmBonificado = unidadesAlmBonif + (unidadesDetBonif / ArticuloSeleccionado.UnidadEmpaque);
-
-                    if (Pedidos.BonificacionAdicional && !Pedidos.FacturarPedido)
+                    if ((Gestor.Garantias.Gestionados.Count > 0) && (Gestor.Garantias.Gestionados[0].Detalles.Lista.Count > 0))
                     {
-                        unidadesAlmAdicional = AdicionalesAlmacen;
-                        unidadesDetAdicional = AdicionalesDetalle;
-                    }
-                }
-                
-
-                if (ArticuloSeleccionado == null)
-                {
-                    if (TextoBusqueda != string.Empty && (unidadesAlm > 0 || unidadesDet > 0))
-                    {
-                        this.RealizarBusqueda(true);
-                        if (Articulos.Count == 1)
+                        foreach (DetalleGarantia detalle in Gestor.Garantias.Gestionados[0].Detalles.Lista)
                         {
-                            ArticuloSeleccionado = Articulos[0];
-                            CargarPrecioArticulo(ArticuloSeleccionado);
-
-                            CalculaSubTotal();
-
-                            unidadesAlm = CantidadAlmacen;
-                            unidadesDet = CantidadDetalle;
-
-                            this.CargarExistenciasArticulo();
-
-                            agil = true;
+                            if ((detalle.LineaBonificada != null) && (detalle.LineaBonificada.Articulo.Codigo == ArticuloSeleccionado.Codigo))
+                            {
+                                existencias -= detalle.TotalBonificado;
+                            }
                         }
-
-                        else
-                            return;
                     }
-                    else
+
+                    decimal cantidadPedida = unidadesAlm + (unidadesDet / ArticuloSeleccionado.UnidadEmpaque);
+                    if (existencias < cantidadPedida)
                     {
-                        this.mostrarAlerta("Debe seleccionar un articulo.");
+                        this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay suficientes existencias.");
                         return;
                     }
-                }
 
-
-
-                if (ArticuloSeleccionado.Precio.Maximo == decimal.Zero &&
-                    ArticuloSeleccionado.Precio.Minimo == decimal.Zero)
-                {
-                    if (Pedidos.FacturarPedido)
+                    if ((this.articuloBonificado == null) || (ArticuloSeleccionado.Codigo == this.articuloBonificado.Codigo))
                     {
-                        this.mostrarMensaje(Mensaje.Accion.Informacion, "No se puede agregar el artículo porque no se encuentra en el Nivel de Precios seleccionado.");
-                        return;
-                    }
-                    else
-                    {
-                        if (Pedidos.ArtFueraNivPrecio)
+                        cantidadPedida += totalAlmBonificado;
+                        if (existencias < cantidadPedida)
                         {
-                            this.mostrarMensaje(Mensaje.Accion.Decision, "Desea agregar un artículo fuera del nivel de precios",
-                                result =>
-                                {
-                                    if (result == DialogResult.Yes)
-                                    {
-                                        this.mostrarMensaje(Mensaje.Accion.Informacion, "El artículo se agregará sin precio, por no estar definido en el Nivel de Precios seleccionado.");
-                                    }
-                                    else
-                                    {
-                                        this.mostrarMensaje(Mensaje.Accion.Informacion, "No se agregó el artículo!");
-                                        return;
-                                    }
-                                });
-                        }
-                        else
-                        {
-                            this.mostrarMensaje(Mensaje.Accion.Informacion, "No se puede agregar el artículo porque no se encuentra en el Nivel de Precios seleccionado.");
+                            this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay suficientes existencias.");
                             return;
                         }
                     }
-                }
-                try
-                {
-                    if (unidadesAlm > 0 || unidadesDet > 0)
-                    {
-                        if (Pedidos.FacturarPedido)
-                        {
-                            decimal existencias = Existencias;
-                            decimal existenciasEnvase = ExistenciasEnvase;
-
-                            if ((Gestor.Garantias.Gestionados.Count > 0) && (Gestor.Garantias.Gestionados[0].Detalles.Lista.Count > 0))
-                            {
-                                foreach (DetalleGarantia detalle in Gestor.Garantias.Gestionados[0].Detalles.Lista)
-                                {
-                                    if ((detalle.LineaBonificada != null) && (detalle.LineaBonificada.Articulo.Codigo == ArticuloSeleccionado.Codigo))
-                                    {
-                                        existencias -= detalle.TotalBonificado;
-                                    }
-                                }
-                            }
-
-                            decimal cantidadPedida = unidadesAlm + (unidadesDet / ArticuloSeleccionado.UnidadEmpaque);
-                            if (existencias < cantidadPedida)
-                            {
-                                this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay suficientes existencias.");
-                                return;
-                            }
-
-                            if ((this.articuloBonificado == null) || (ArticuloSeleccionado.Codigo == this.articuloBonificado.Codigo))
-                            {
-                                cantidadPedida += totalAlmBonificado;
-                                if (existencias < cantidadPedida)
-                                {
-                                    this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay suficientes existencias.");
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                this.articuloBonificado.CargarExistenciaPedido(GlobalUI.RutaActual.Bodega);
-                                existencias = this.articuloBonificado.Bodega.Existencia;
-
-                                if ((Gestor.Garantias.Gestionados.Count > 0) && (Gestor.Garantias.Gestionados[0].Detalles.Lista.Count > 0))
-                                {
-                                    foreach (DetalleGarantia detalle in Gestor.Garantias.Gestionados[0].Detalles.Lista)
-                                    {
-                                        if ((detalle.Articulo != null) && (detalle.Articulo.Codigo == this.articuloBonificado.Codigo))
-                                        {
-                                            existencias -= detalle.TotalAlmacen;
-                                        }
-                                    }
-                                }
-
-                                if (existencias < totalAlmBonificado)
-                                {
-                                    this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay suficientes existencias del artículo a bonificar.");
-                                    return;
-                                }
-                            }
-                        }
-
-                        decimal precioMax = PrecioAlmacen;
-                        decimal precioMin = PrecioDetalle;
-
-                        try
-                        {
-                            Gestor.Garantias.Gestionar(ArticuloSeleccionado, GlobalUI.RutaActual.Codigo, new Precio(precioMax, precioMin), unidadesAlm, unidadesDet, unidadesAlmAdicional, unidadesDetAdicional, true, this.detalleTope);                            
-
-                            #region Cambios Descuentos Regalias - KFC
-                            /* LAS. Aplica los descuentos y bonificaciones de forma normal, cuando no utiliza el esqeuma de paquetes y reglas.
-                            if (FRdConfig.EsquemaDescuento != EsquemaDescuento.PaquetesReglas)
-                            {
-                                this.cambiosBonificacionDescuento();
-                            }*/
-
-                            #endregion
-
-                            
-
-                           // this.CambiosBonificacionDescuento();                            
-
-                            //if (ArticuloSeleccionado != null)
-                            //    this.MostarCantidad(this.lstArticulos.SelectedIndices[0], unidadesAlm, unidadesDet);
-                        }
-                        catch (Exception ex)
-                        {
-                            this.mostrarAlerta(ex.Message);
-                        }
-
-                        if (Pedidos.CalcularImpuestos)
-                            Total = Gestor.Garantias.TotalNeto;
-                        else
-                            Total = Gestor.Garantias.TotalNetoSinImpuesto;
-                    }
                     else
                     {
-                        this.mostrarAlerta("Ambas cantidades no pueden ser cero.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    this.mostrarAlerta("Error al agregar línea. " + ex.Message);
-                }
+                        this.articuloBonificado.CargarExistenciaPedido(GlobalUI.RutaActual.Bodega);
+                        existencias = this.articuloBonificado.Bodega.Existencia;
 
-                if (agil)
-                {
-                    ArticuloSeleccionado = null;
-                    agil = false;
+                        if ((Gestor.Garantias.Gestionados.Count > 0) && (Gestor.Garantias.Gestionados[0].Detalles.Lista.Count > 0))
+                        {
+                            foreach (DetalleGarantia detalle in Gestor.Garantias.Gestionados[0].Detalles.Lista)
+                            {
+                                if ((detalle.Articulo != null) && (detalle.Articulo.Codigo == this.articuloBonificado.Codigo))
+                                {
+                                    existencias -= detalle.TotalAlmacen;
+                                }
+                            }
+                        }
+
+                        if (existencias < totalAlmBonificado)
+                        {
+                            this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay suficientes existencias del artículo a bonificar.");
+                            return;
+                        }
+                    }
+
+
+                    decimal precioMax = PrecioAlmacen;
+                    decimal precioMin = PrecioDetalle;
+
+                    try
+                    {
+                        Gestor.Garantias.Gestionar(ArticuloSeleccionado, GlobalUI.RutaActual.Codigo, new Precio(precioMax, precioMin), unidadesAlm, unidadesDet, unidadesAlmAdicional, unidadesDetAdicional, true, this.detalleTope);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.mostrarAlerta(ex.Message);
+                    }
+
+                    if (Pedidos.CalcularImpuestos)
+                        Total = Gestor.Garantias.TotalNeto;
+                    else
+                        Total = Gestor.Garantias.TotalNetoSinImpuesto;
                 }
-                ArticuloSeleccionado.CantidadAlmacen = unidadesAlm;
-                ArticuloSeleccionado.CantidadDetalle = unidadesDet;
-                RaisePropertyChanged("Articulos");
+                else
+                {
+                    this.mostrarAlerta("Ambas cantidades no pueden ser cero.");
+                }
+            }
+            catch (Exception ex)
+            {
+                this.mostrarAlerta("Error al agregar línea. " + ex.Message);
+            }
+
+            if (agil)
+            {
+                ArticuloSeleccionado = null;
+                agil = false;
+            }
+            ArticuloSeleccionado.CantidadAlmacen = unidadesAlm;
+            ArticuloSeleccionado.CantidadDetalle = unidadesDet;
+            RaisePropertyChanged("Articulos");
         }
 
         private void RetirarDetalle()
@@ -1301,42 +1190,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                         Refrescar();
                     }
                 });
-        }
-
-        private void CambiarPrecio()
-        {
-            if (ArticuloSeleccionado != null)
-            {
-                ConfigDocCia config = Gestor.Garantias.ObtenerConfiguracionVenta(ArticuloSeleccionado.Compania);
-                DetalleGarantia detalle = Gestor.Garantias.BuscarDetalle(ArticuloSeleccionado);
-
-                if (detalle == null)
-                {
-                    detalle = new DetalleGarantia();
-                    detalle.Articulo = ArticuloSeleccionado;
-                    detalle.Precio = ArticuloSeleccionado.Precio;
-                }
-                CambioPrecioViewModel.Detalle = detalle;
-                CambioPrecioViewModel.Lista = config.Nivel;
-                //frmCambioPrecio cambiarprecio = new frmCambioPrecio(detalle, config.Nivel);                
-                this.RequestDialogNavigate<CambioPrecioViewModel, Dictionary<string, object>>(null, result =>
-                    {                        
-                        bool correcto = (bool)result["correcto"];
-                        if (correcto)
-                        {
-                            PrecioAlmacen = (decimal)result["precioAlmacen"];
-                            PrecioDetalle = (decimal)result["precioDetalle"];
-                            ArticuloSeleccionado.PrecioMaximo = PrecioAlmacen;
-                            ArticuloSeleccionado.PrecioMinimo = PrecioAlmacen;
-                        }
-                        CalculaSubTotal();
-                    });
-            }
-            else
-            {
-                this.mostrarAlerta("Debe seleccionar un artículo");
-            }
-        }
+        }        
 
         public void OnResume()
         {
@@ -1348,40 +1202,8 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         {
             if (Gestor.Garantias.Gestionados.Count > 0)
             {
-                ///* KFC Se deja de utilizar el parametro de Esquemas Descuento y se programa precedencia de aplicaciones
-
                 Garantia garantia = Gestor.Garantias.Buscar(CompaniaActual);
-                //GestionarPaquetesReglas(true);
-                //if (tieneBonificaiones)
-                //if (false)
-                //{
-                //   // //DetalleBonificacionesForm bonificaciones = new DetalleBonificacionesForm(pedido, nivelPrecio.Nivel, GlobalUI.RutaActual.Codigo);
-                //   // Dictionary<string, object> Parametros = new Dictionary<string, object>();
-                //   // Parametros.Add("nivelPrecio", NivelPrecio.Nivel);
-                //   // Parametros.Add("ruta", GlobalUI.RutaActual.Codigo);
-                //   // DetalleBonificacionesViewModel.Pedido = garantia;
-                //   // ventanaInactiva = true;
-                //   // this.RequestDialogNavigate<DetalleBonificacionesViewModel, Dictionary<string, object>>(Parametros, result =>
-                //   // {
-                //   //     bool continuar = (bool)result["Aplicar"];
-
-                //   //     if (continuar)
-                //   //     {
-                //   //         garantia = (Pedido)result["Pedido"]; //Revisar si tiene logica
-                //   //         this.RequestNavigate<AplicarPedidoViewModel>();
-                //   //     }
-                //   // }
-                //   //); 
-                //}
-                //else
-                //{
-                //    Navegar();
-                //    //this.RequestNavigate<AplicarPedidoViewModel>();
-                //}
                 Navegar();
-
-
-
             }
             else
                 this.mostrarMensaje(Mensaje.Accion.Informacion, "No hay garantías gestionadas aún.");
@@ -1429,7 +1251,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         private void CancelarToma()
         {
             
-                var mensaje = Pedidos.FacturarPedido ? "la toma de la garantía" : "la toma del pedido";
+                var mensaje = "la toma de la garantía";
 
 
                 this.mostrarMensaje(Mensaje.Accion.Cancelar, mensaje, result =>

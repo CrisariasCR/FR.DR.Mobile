@@ -205,6 +205,18 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             get { return cantVacios; }
             set { cantVacios = value; RaisePropertyChanged("CantVacios"); }
         }
+        private decimal cantEntradas;
+        public decimal CantEntradas
+        {
+            get { return cantEntradas; }
+            set { cantEntradas = value; RaisePropertyChanged("CantEntradas"); }
+        }
+        private decimal cantSalidas;
+        public decimal CantSalidas
+        {
+            get { return cantSalidas; }
+            set { cantSalidas = value; RaisePropertyChanged("CantSalidas"); }
+        }
         private decimal cantVaciosDet;
         public decimal CantVaciosDet
         {
@@ -297,7 +309,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 {
 
                         ReporteLiquidacionInventario reporte = null;
-                        reporte = new ReporteLiquidacionInventario(CantInicial, CantDisponible, CantGarantia,CantGarantiaDet, CantDevuelta,CantDevueltaDet, CantVacios, CantVendida,CantVendidaDet, BodegaActual,TextoBusqueda);
+                        reporte = new ReporteLiquidacionInventario(CantInicial, CantDisponible, CantGarantia,CantGarantiaDet, CantDevuelta,CantDevueltaDet, CantVacios, CantVendida,CantVendidaDet,CantEntradas,CantSalidas,BodegaActual,TextoBusqueda);
                         reporte.Imprime();
                    
                 }
@@ -369,6 +381,8 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     CantVendida = articuloDatos.CantVendidas;
                     CantVendidaDet = articuloDatos.CantVendidasDet;
                     CantVacios = articuloDatos.CantVacios;
+                    CantEntradas = articuloDatos.CantEntradas;
+                    CantSalidas = articuloDatos.CantSalidas;
 
                 }
                 else

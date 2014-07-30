@@ -26,6 +26,8 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         public const string DEPGARANTIAS = "DEPGARANTIAS";
         public const string DEPGARANTIASDET = "DEPGARANTIASDET";
         public const string VACIOS = "VACIOS";
+        public const string ENTRADAS = "ENTRADAS";
+        public const string SALIDAS = "SALIDAS";
 
         public const string SINCRONIZADO = "SINCRONIZADO";
 
@@ -116,11 +118,25 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
             set { vacias = value; }
         }
 
+        private decimal? entradas;
+        public decimal? Entradas
+        {
+            get { return entradas; }
+            set { entradas = value; }
+        }
+
+        private decimal? salidas;
+        public decimal? Salidas
+        {
+            get { return salidas; }
+            set { salidas = value; }
+        }
+
         #endregion
 
         #region Constructores
 
-        public ReporteLiquidacionInventario(decimal pInicial, decimal pDisponible, decimal pgarantia, decimal pgarantiaDet, decimal pdevueltos, decimal pdevueltosDet, decimal pvacios, decimal pVendidos, decimal pVendidosDet, string pBodega, string pArticulo)
+        public ReporteLiquidacionInventario(decimal pInicial, decimal pDisponible, decimal pgarantia, decimal pgarantiaDet, decimal pdevueltos, decimal pdevueltosDet, decimal pvacios, decimal pVendidos, decimal pVendidosDet,decimal pEntradas,decimal pSalidas,string pBodega, string pArticulo)
         {
             Inicial = pInicial;
             Disponible=pDisponible;
@@ -131,6 +147,8 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
             Vacias = pvacios;
             Vendidas = pVendidos;
             VendidasDet = pVendidosDet;
+            Entradas = pEntradas;
+            Salidas = pSalidas;
             Bodega = pBodega;
             Articulo = pArticulo;
         }
@@ -187,7 +205,9 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
                 case UNDVENDIDASDET: return vendidasDet ?? decimal.Zero;
                 case DEPGARANTIAS: return Garantias ?? decimal.Zero;
                 case DEPGARANTIASDET: return GarantiasDet ?? decimal.Zero;
-                case VACIOS: return Vacias ?? decimal.Zero;                
+                case VACIOS: return Vacias ?? decimal.Zero;
+                case ENTRADAS: return Entradas ?? decimal.Zero;
+                case SALIDAS: return Salidas ?? decimal.Zero;       
 
                 default: return null;
             }

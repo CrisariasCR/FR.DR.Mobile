@@ -135,7 +135,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
             ItemsConsultar = new SimpleObservableCollection<OpcionMenu>()
             {
-                new OpcionMenu("Cliente"),new OpcionMenu("Inventario"),new OpcionMenu("Cobros"),new OpcionMenu("Documentos"),new OpcionMenu("Notas de Crédito"),new OpcionMenu("Pedidos"),new OpcionMenu("Pedidos - Estado"),new OpcionMenu("Facturas"),new OpcionMenu("Devoluciones"),new OpcionMenu("Consignaciones"),new OpcionMenu("Artículos")
+                new OpcionMenu("Cliente"),new OpcionMenu("Inventario"),new OpcionMenu("Cobros"),new OpcionMenu("Documentos"),new OpcionMenu("Notas de Crédito"),new OpcionMenu("Pedidos"),new OpcionMenu("Pedidos - Estado"),new OpcionMenu("Facturas"),new OpcionMenu("Devoluciones"),new OpcionMenu("Consignaciones"),new OpcionMenu("Garantías"),new OpcionMenu("Artículos")
             };
 
 
@@ -614,6 +614,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 case "Documentos": ConsultarDocsCC(TipoDocumento.Factura); break;
                 case "Notas de Crédito": ConsultarDocsCC(TipoDocumento.NotaCredito); break;
                 case "Pedidos": ConsultaPedido(TipoPedido.Prefactura); break;
+                case "Garantías": ConsultaGarantia(); break;
                 case "Facturas": ConsultaPedido(TipoPedido.Factura); break;
                 case "Devoluciones": ConsultaDevolucion(); break;
                 case "Artículos": BusquedaArticulosViewModel.SeleccionCliente = false; this.RequestNavigate<BusquedaArticulosViewModel>(); this.DoClose(); break;
@@ -655,6 +656,15 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             ConsultaPedidosViewModel.SeleccionCliente = false;
             Parametros.Add("anular", false);
             this.RequestNavigate<ConsultaPedidosViewModel>(Parametros);
+
+            //Caso:32842 ABC 19/06/2008 Se deja de utiliza el dispose debido a que libera de memoria propiedas de los componentes
+            this.DoClose();
+        }
+
+        private void ConsultaGarantia()
+        {
+            ConsultaGarantiasViewModel.SeleccionCliente = false;
+            this.RequestNavigate<ConsultaGarantiasViewModel>();
 
             //Caso:32842 ABC 19/06/2008 Se deja de utiliza el dispose debido a que libera de memoria propiedas de los componentes
             this.DoClose();

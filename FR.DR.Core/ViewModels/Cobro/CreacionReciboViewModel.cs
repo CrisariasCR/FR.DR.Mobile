@@ -165,6 +165,8 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             {
                 NumReciboVisible = false;
             }
+            //Agregamos el Tipo Recibo para la aplicación de recibos sin aplicaciones
+            TipoPagos.Add(TipoCobro.Recibo);
             ////Solamente agregamos el tipo de pago por monto total cuando asi este configurado en Config.xml
             if (Cobros.HabilitarMontoTotal)
             {

@@ -42,7 +42,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 Opciones.Add(new OpcionMenu("Liquidación Inventario")); 
             }
 
-            Opciones.AddRange(new List<OpcionMenu>() {new OpcionMenu("Devolucion"),new OpcionMenu("Liquidación Jornada")});
+            Opciones.AddRange(new List<OpcionMenu>() {new OpcionMenu("Devolucion"),new OpcionMenu("Liquidación Jornada"),new OpcionMenu("Cierre Caja")});
             this.Opciones = new SimpleObservableCollection<OpcionMenu>(Opciones);
         }
 
@@ -67,6 +67,16 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     if (JornadaRuta.VerificarJornadaAbierta())
                     {
                         this.RequestNavigate<ReporteDocDiariosViewModel>(); break;
+                    }
+                    else
+                    {
+                        this.mostrarAlerta("No existe ningún registro de jornada actualmente.");
+                    }
+                    break;
+                case "Cierre Caja":
+                    if (JornadaRuta.VerificarJornadaAbierta())
+                    {
+                        this.RequestNavigate<ReporteCierreCajaViewModel>(); break;
                     }
                     else
                     {

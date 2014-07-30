@@ -81,6 +81,8 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             set { facturaVisible = value; RaisePropertyChanged("CheckFacturaPedidoVisible"); }
         }
 
+
+
         #endregion
 
         #region Combos
@@ -112,15 +114,22 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         {
             get { return paisActual; }
             set { paisActual = value; RaisePropertyChanged("PaisActual"); CambioPais(); }
-        }        
+        }
+
+        List<CondicionPago> listCondiciones = new List<CondicionPago>();
+        private IObservableCollection<string> condiciones;
+        public IObservableCollection<string> Condiciones
+        {
+            get { return condiciones; }
+            set { condiciones = value; RaisePropertyChanged("Condiciones"); }
+        }
 
         private string condicionActual;
         public string CondicionActual
         {
             get { return condicionActual; }
-            set { condicionActual = value; RaisePropertyChanged("CondicionActual");}
+            set { condicionActual = value; RaisePropertyChanged("CondicionActual"); CambioCondicion(); }
         }
-
         private List<NivelPrecio> ListNiveles = new List<NivelPrecio>();
 
         private IObservableCollection<string> nivelesPrecio;
@@ -167,9 +176,10 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     //Cargamos la compania seleccionada
                     string compania = CompaniaActual.Compania;
                     LlenarComboPaises(compania);
+                    LlenarComboCondPago(compania);
                     LlenarComboNivelesPrecio(compania);
 
-                    ConfigDocCia config = Gestor.Pedidos.ObtenerConfiguracionVenta(compania);
+                    ConfigDocCia config = Gestor.Garantias.ObtenerConfiguracionVenta(compania);
 
                     if (config != null)
                     {
@@ -187,7 +197,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         {
             if (CompaniaActual != null)
             {
-                ConfigDocCia config = Gestor.Pedidos.ObtenerConfiguracionVenta(CompaniaActual.Compania);
+                ConfigDocCia config = Gestor.Garantias.ObtenerConfiguracionVenta(CompaniaActual.Compania);
                 if (config != null)
                     config.Pais = this.listPaises.Find(x => x.Nombre == PaisActual);
             }
@@ -197,12 +207,25 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         {
             if (CompaniaActual != null)
             {
-                ConfigDocCia config = Gestor.Pedidos.ObtenerConfiguracionVenta(CompaniaActual.Compania);
+                ConfigDocCia config = Gestor.Garantias.ObtenerConfiguracionVenta(CompaniaActual.Compania);
 
                 if (config != null)
                 {
                     NivelPrecio lista = this.ListNiveles.Find(x => x.Nivel == NivelActual);
                     config.Nivel = lista;
+                }
+            }
+        }
+
+        private void CambioCondicion()
+        {
+            if (CompaniaActual != null)
+            {
+                ConfigDocCia config = Gestor.Garantias.ObtenerConfiguracionVenta(CompaniaActual.Compania);
+
+                if (config != null)
+                {
+                    config.CondicionPago = this.listCondiciones.Find(x => x.Descripcion == CondicionActual);                    
                 }
             }
         }
@@ -249,6 +272,25 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
         }
 
+        private void LlenarComboCondPago(string compania)
+        {
+            try
+            {
+                this.listCondiciones = CondicionPago.ObtenerCondicionesPago(compania);
+                Condiciones = new SimpleObservableCollection<string>(listCondiciones.ConvertAll(x => x.Descripcion));
+                if (Condiciones.Count > 0)
+                {
+                    //CondicionActual = Condiciones[0];
+                    ClienteCia cliente = GlobalUI.ClienteActual.ObtenerClienteCia(compania);
+                    CondicionActual = listCondiciones.Find(x => x.Codigo == cliente.CondicionPago).Descripcion;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.mostrarAlerta("Error cargando las condiciones de pago. " + ex.Message);
+            }
+        }
+
         public void LlenarComboCompanias()
         {
             Companias = new SimpleObservableCollection<ClienteCia>(Util.CargarCiasClienteActual());
@@ -260,7 +302,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 clt.ObtenerDireccionesEntrega();
                 config.ClienteCia = clt;
 
-                Gestor.Pedidos.CargarConfiguracionVenta(clt.Compania, config);
+                Gestor.Garantias.CargarConfiguracionVenta(clt.Compania, config);
             }
 
             if (Companias.Count > 0)
@@ -278,7 +320,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
         private ConfigDocCia CargarConfiguracionCliente(string compania)
         {
-            return Gestor.Pedidos.CargarConfiguracionCliente(GlobalUI.ClienteActual, compania);
+            return Gestor.Garantias.CargarConfiguracionCliente(GlobalUI.ClienteActual, compania);
         }
 
         private void Inicializar()
@@ -318,19 +360,11 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             string mensaje = null;
             if (this.ValidarDatos(ref mensaje))
             {
-                //Este check indica que los pedidos seran facturados
-                Pedidos.FacturarPedido = FacturaPedidoChecked;
-                Garantias.FacturarGarantia = FacturaPedidoChecked;
-                    //Caso 28087 LDS 28087
-                    //Nos vamos a la toma de pedido
-                    //Caso R0-102009-S00S LDA
                     TomaGarantiaViewModel.NivelPrecio = this.ListNiveles.Find(x => x.Nivel == NivelActual);
                     Dictionary<string, object> Parametros = new Dictionary<string, object>() { { "pedidoActual", false } };
                     this.RequestNavigate<TomaGarantiaViewModel>(Parametros);
 
-                    DoClose();
-                    //Caso:32842 ABC 19/06/2008 Se deja de utiliza el dispose debido a que libera de memoria propiedas de los componentes
-                
+                    DoClose();               
             }
             else if(!string.IsNullOrEmpty(mensaje))
             {

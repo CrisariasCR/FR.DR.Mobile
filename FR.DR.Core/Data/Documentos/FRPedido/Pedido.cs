@@ -805,6 +805,8 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
         {
             string colCantidad;
             string colMonto;
+            string colCantidadCondPago = "";
+            string colMontoCondPago = "";
             try
             {
                 GestorDatos.BeginTransaction();
@@ -830,11 +832,31 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                 {
                     colCantidad = JornadaRuta.FACTURASTF_LOCAL;
                     colMonto = JornadaRuta.MONTO_FACTURASTF_LOCAL;
+                    if (this.CondicionPago.DiasNeto == 0)
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_LOCAL_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_LOCAL_CONT;
+                    }
+                    else
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_LOCAL_CRE;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_LOCAL_CRE;
+                    }
                 }
                 else
                 {
                     colCantidad = JornadaRuta.FACTURASTF_DOLAR;
                     colMonto = JornadaRuta.MONTO_FACTURASTF_DOLAR;
+                    if (this.CondicionPago.DiasNeto == 0)
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_DOLAR_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_DOLAR_CONT;
+                    }
+                    else
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_DOLAR_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_DOLAR_CONT;
+                    }
                 }
                 try
                 {
@@ -842,6 +864,9 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
 
                     JornadaRuta.ActualizarRegistro(this.Zona, colCantidad, 1);
                     JornadaRuta.ActualizarRegistro(this.Zona,colMonto,this.MontoNeto);
+
+                    JornadaRuta.ActualizarRegistro(this.Zona, colCantidadCondPago, 1);
+                    JornadaRuta.ActualizarRegistro(this.Zona, colMontoCondPago, this.MontoNeto);
 
                     GestorDatos.CommitTransaction();
                 }
@@ -1112,7 +1137,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                 lnIndiceArticulo = 0;
                 while (((lnIndiceArticulo < this.detalles.Lista.Count) && bOk))
                 {
-                    lsArticulo = this.detalles.Lista[0].Articulo.Codigo;//  fciLineasDeDocumento[lnIndiceArticulo].sArticulo;
+                    lsArticulo = this.detalles.Lista[lnIndiceArticulo].Articulo.Codigo;//  fciLineasDeDocumento[lnIndiceArticulo].sArticulo;
                     // MRL Ajuste Colombia R5 --> Se valida el régimen del cliente, para determinar que retenciones se deben cargar
                     sSqlCmd = new StringBuilder();
                     sSqlCmd.AppendLine(string.Format(" SELECT ret.codigo_retencion, ret.descripcion FROM {0} ret,{1} art, ", Table.ERPADMIN_RETENCIONES, Table.ERPADMIN_ARTICULO));
@@ -1180,6 +1205,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                                     newReten.nMonto = lnMontoRetencion;
                                     newReten.nBaseGravada = lnBaseRetencion;
                                     newReten.sAutoretenedora = fciRetencion.sEsAutoretenedor;
+                                    newReten.sTipo = fciRetencion.sTipo;
                                     if (pbEsDevolucion)
                                     {
                                         newReten.sDocReferencia = ("RED-#" + (lnCantidad + 1).ToString());
@@ -1403,6 +1429,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                                     newReten.nMonto = lnMontoRetencion;
                                     newReten.nBaseGravada = lnBaseRetencion;
                                     newReten.sAutoretenedora = fciRetencion.sEsAutoretenedor;
+                                    newReten.sTipo = fciRetencion.sTipo;
                                     if (pbEsDevolucion)
                                     {
                                         newReten.sDocReferencia = ("RED-#" + (lnCantidad + 1).ToString());
@@ -1670,7 +1697,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             detalles.Guardar();
 
             //Guarda las retenciones
-            if (iArregloRetenciones.Count > 0)
+            if (iArregloRetenciones!=null && iArregloRetenciones.Count > 0)
             {
                 this.GuardarRetenciones();
             }

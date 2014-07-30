@@ -5,14 +5,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     style="@style/Fondo">
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_weight="0.9"
         android:layout_height="0dip">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             local:MvxBind="Visibility DireccionVisible, Converter=BoolToVisibility,ConverterParameter=True">
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -53,54 +53,6 @@
                 android:layout_width="fill_parent"
                 android:layout_weight=".1"
                 android:layout_height="0dip"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".35"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="right"
-                    android:text="Entrega:" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".4"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    style="@style/normalText"
-                    local:MvxBind="Text FechaEntrega, Converter=ConvertidorFecha; Enabled EntregaEnabled" />
-                <ImageButton
-                    android:src="@drawable/ic_calendario"
-                    android:id="@+id/btnCambiarFecha"
-                    android:layout_width="0dip"
-                    android:layout_weight=".2"
-                    android:gravity="center"
-                    android:layout_height="40dp" />
-            </LinearLayout>
-        <!-- <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_weight=".1"
-                android:layout_height="0dip"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".4"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="right"
-                    android:text="Total Bruto:" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".7"
-                    android:gravity="right"
-                    style="@style/normalText"
-                    local:MvxBind="Text TotalBruto,Converter=FormatoNumero"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>-->
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_weight=".1"
-                android:layout_height="0dip"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="0dip"
@@ -117,114 +69,6 @@
                     local:MvxBind="Text Descuento,Converter=FormatoNumero"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-        <!--<LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_weight=".1"
-                android:layout_height="0dip"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".4"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="right"
-                    android:text="Descuento 1:" />
-                <EditText
-                    android:layout_width="0dip"
-                    android:layout_weight=".2"
-                    android:id="@+id/txtDescuento1"
-                    local:MvxBind="Text PorcDescuento1;Enabled Desc1Enabled"
-                    style="@style/numeralEditText"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".05"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="center"
-                    android:text="%" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".45"
-                    android:gravity="right"
-                    style="@style/normalText"
-                    local:MvxBind="Text Descuento1,Converter=FormatoNumero"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>-->
-        <!--<LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_weight=".1"
-                android:layout_height="0dip"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".4"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="right"
-                    android:text="Descuento 2:" />
-                <EditText
-                    android:layout_width="0dip"
-                    android:layout_weight=".2"
-                    android:id="@+id/txtDescuento2"
-                    local:MvxBind="Text PorcDescuento2;Enabled Desc2Enabled"
-                    style="@style/numeralEditText"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".05"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="center"
-                    android:text="%" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".45"
-                    android:gravity="right"
-                    style="@style/normalText"
-                    local:MvxBind="Text Descuento2,Converter=FormatoNumero"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>-->
-        <!--<LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_weight=".1"
-                android:layout_height="0dip"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".4"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="right"
-                    local:MvxBind="Text LabelImpuesto1" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".7"
-                    android:gravity="right"
-                    style="@style/normalText"
-                    local:MvxBind="Text ImpuestoVentas,Converter=FormatoNumero"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>-->
-        <!--<LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_weight=".1"
-                android:layout_height="0dip"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".4"
-                    android:layout_height="wrap_content"
-                    style="@style/normalBoldText"
-                    android:gravity="right"
-                    local:MvxBind="Text LabelImpuesto2" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_weight=".7"
-                    android:gravity="right"
-                    style="@style/normalText"
-                    local:MvxBind="Text Consumo,Converter=FormatoNumero"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>-->
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_weight=".1"
@@ -299,7 +143,7 @@
                 android:layout_height="wrap_content"
                 local:MvxBind="Text DireccionSeleccionada.Descripcion" />
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -307,14 +151,6 @@
         android:layout_gravity="right"
         android:layout_weight="0.1"
         android:gravity="bottom">
-    <!--<ImageButton
-            android:src="@drawable/ic_search"
-            android:id="@+id/btnConsultar"
-            android:layout_width="0dip"
-            android:layout_weight=".25"
-            android:layout_height="wrap_content"
-            style="@style/btnStyleImage"
-            local:MvxBind="Click ComandoConsultar" />-->
         <ImageButton
             android:src="@drawable/ic_direccion"
             android:id="@+id/btnEntrega"
@@ -322,13 +158,6 @@
             android:layout_weight=".25"
             android:layout_height="wrap_content"
             local:MvxBind="Click ComandoDireccion" />
-    <!--<ImageButton
-            android:src="@drawable/ic_editar"
-            android:id="@+id/btnEditar"
-            android:layout_width="0dip"
-            android:layout_weight=".25"
-            android:layout_height="wrap_content"
-            local:MvxBind="Click ComandoEditar" />-->
         <ImageButton
             android:src="@drawable/ic_aceptar"
             android:id="@+id/btnAceptar"

@@ -290,17 +290,34 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
            // string condPagoPedido = string.Empty;
             string   numeroFac = this.Numero;
 
-            if (recibo.Pedido.Configuracion != null)
+            if (recibo.EsReciboGarantia && recibo.Garantia.Configuracion != null)
             {
-                diasCondPago = recibo.Pedido.Configuracion.CondicionPago.DiasNeto;
-                numeroFac = recibo.Pedido.Numero;
+                diasCondPago = recibo.Garantia.Configuracion.CondicionPago.DiasNeto;
+                numeroFac = recibo.Garantia.Numero;
             }
+            else
+            {
+                if (recibo.Pedido.Configuracion != null)
+                {
+                    diasCondPago = recibo.Pedido.Configuracion.CondicionPago.DiasNeto;
+                    numeroFac = recibo.Pedido.Numero;
+                }
+            }
+         
 
 
             if (diasCondPago == 0)
             {
-                tipoDoc = (int)TipoDocumento.NotaCreditoNueva;
-                tipoDocAsoc = (int)TipoDocumento.FacturaContado;
+                if (recibo.EsReciboGarantia)
+                {
+                    tipoDoc = (int)TipoDocumento.NotaCreditoNueva;
+                    tipoDocAsoc = (int)TipoDocumento.Garantia;
+                }
+                else
+                {
+                    tipoDoc = (int)TipoDocumento.NotaCreditoNueva;
+                    tipoDocAsoc = (int)TipoDocumento.FacturaContado;
+                }
             }
             else
             {

@@ -300,9 +300,9 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             SQLiteDataReader reader = null;
 
             string sentencia =
-                " SELECT D.COD_ART,D.CNT_GAR,D.MON_LNL,D.MON_PRC_MX,D.MON_PRC_MN " +// Articulo.CAMPOS_ARTICULO +
+                " SELECT D.COD_ART,D.CNT_MAX,D.MON_TOT,D.MON_PRC_MX,D.MON_PRC_MN,D.CNT_MIN " +// Articulo.CAMPOS_ARTICULO +
                 @" FROM " + Table.ERPADMIN_alFAC_DET_GARANTIA  + " D " + //Articulo.INNER_JOIN +
-                @" WHERE D.NUM_PED = @CONSECUTIVO " +
+                @" WHERE D.NUM_GAR = @CONSECUTIVO " +
                 @" AND   UPPER(D.COD_CIA) = @COMPANIA " +
                 @" ORDER BY NUM_LIN" ;
             
@@ -322,9 +322,9 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                     detalle.Articulo.Cargar();
                     detalle.Articulo.Bodega.Codigo = this.Bodega;
                     detalle.UnidadesAlmacen = reader.GetDecimal(1);
-                    //detalle.UnidadesDetalle = reader.GetDecimal(2);
+                    detalle.UnidadesDetalle = reader.GetDecimal(5);
                     detalle.MontoTotal = reader.GetDecimal(2);
-                    detalle.Precio = new Precio(reader.GetDecimal(7), reader.GetDecimal(8));
+                    detalle.Precio = new Precio(reader.GetDecimal(3), reader.GetDecimal(4));
 
                     if (detalle.EsBonificada && lista.Count > 0)
                         lista[lista.Count - 1].LineaBonificada = detalle;
@@ -474,41 +474,12 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                 detalle.NumeroLinea = ++contador;
                 Guardar(detalle);
 
-                //Guardamos la linea bonificada
-                //if (detalle.LineaBonificada != null)
-                //{
-                //    detalle.LineaBonificada.NumeroLinea = ++contador;
-                //    Guardar(detalle.LineaBonificada);
-
-                //    //Guarda los lotes asociados a al detalle de la factura.
-                //    if (Tipo == TipoPedido.Factura && Garantias.DesgloseLotesFactura)
-                //        GuardarLotesFactura(detalle.LineaBonificada, false);
-                //}
-
-                //Guardamos la linea bonificada
-                //if (detalle.LineaBonificadaAdicional != null)
-                //{
-                //    detalle.LineaBonificadaAdicional.NumeroLinea = ++contador;
-                //    Guardar(detalle.LineaBonificadaAdicional);
-
-                //    //Guarda los lotes asociados a la bofinicacion de detalle de la factura.
-                //    /*if (Tipo == TipoPedido.Factura && Garantias.DesgloseLotesFactura && Garantias.DesgloseLotesFacturaObliga)
-                //        GuardarLotesFactura(detalle, true);*/
-                //}
                 //Si es facturado
                 if (Tipo == TipoPedido.Factura)
                 {
                     if(this.Bodega!= string.Empty)
                         detalle.Articulo.Bodega.Codigo = this.Bodega;
                     detalle.DisminuirExistencia();
-
-                    //if (detalle.LineaBonificada != null)
-                    //{
-                    //    if (detalle.LineaBonificada.Articulo.Bodega.Codigo == string.Empty)
-                    //        detalle.LineaBonificada.Articulo.Bodega = detalle.Articulo.Bodega;
-
-                    //    detalle.LineaBonificada.DisminuirExistencia();
-                    //}
                 }
             }
         }

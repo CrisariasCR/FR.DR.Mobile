@@ -417,6 +417,16 @@ namespace Softland.ERP.FR.Mobile.Cls.FRArticulo
         {
             get { return cantVacios; }
         }
+        private decimal cantSalidas;
+        public decimal CantSalidas
+        {
+            get { return cantSalidas; }
+        }
+        private decimal cantEntradas;
+        public decimal CantEntradas
+        {
+            get { return cantEntradas; }
+        }
         private decimal cantVaciosDet;
         public decimal CantVaciosDet
         {
@@ -2132,6 +2142,62 @@ namespace Softland.ERP.FR.Mobile.Cls.FRArticulo
                 {
                     if (!string.IsNullOrEmpty(reader.GetString(0)))
                         this.cantVacios = reader.GetDecimal(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                throw new Exception("Error obteniendo Reporte Liquidación asociado al artículo. " + ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                reader = null;
+            }
+            //Se obtiene la cantidad Entrante.
+            sentencia =
+                " SELECT SUM(CANT_DIF) " +
+                " FROM " + Table.ERPADMIN_TRASIEGO + " ts " +
+                " WHERE UPPER(ts.[COMPANIA]) = '" + compania.ToUpper() + "' " +
+                " AND julianday(date(ts.[FECHA])) = julianday(date('now','localtime')) " +
+                " AND ts.[TIPO]='E' AND ts.[ARTICULO]='" + codigo + "'";
+            try
+            {
+                reader = GestorDatos.EjecutarConsulta(sentencia);
+
+                while (reader.Read())
+                {
+                    if (!string.IsNullOrEmpty(reader.GetString(0)))
+                        this.cantEntradas = reader.GetDecimal(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                throw new Exception("Error obteniendo Reporte Liquidación asociado al artículo. " + ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                reader = null;
+            }
+            //Se obtiene la cantidad Saliente.
+            sentencia =
+                " SELECT SUM(CANT_DIF) " +
+                " FROM " + Table.ERPADMIN_TRASIEGO + " ts " +
+                " WHERE UPPER(ts.[COMPANIA]) = '" + compania.ToUpper() + "' " +
+                " AND julianday(date(ts.[FECHA])) = julianday(date('now','localtime')) " +
+                " AND ts.[TIPO]='S' AND ts.[ARTICULO]='" + codigo + "'";
+            try
+            {
+                reader = GestorDatos.EjecutarConsulta(sentencia);
+
+                while (reader.Read())
+                {
+                    if (!string.IsNullOrEmpty(reader.GetString(0)))
+                        this.cantSalidas = reader.GetDecimal(0);
                 }
             }
             catch (Exception ex)

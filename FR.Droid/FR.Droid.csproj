@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D64FB787-5F4D-420E-B4A9-369E23B88902}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
@@ -29,7 +27,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <AndroidUseLatestPlatformSdk />
     <AndroidStoreUncompressedFileExtensions />
     <JavaMaximumHeapSize />
     <JavaOptions />
@@ -42,23 +39,17 @@
     <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <AndroidLinkSkip />
-    <AndroidLinkMode>None</AndroidLinkMode>
-    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cirrious.MvvmCross">
@@ -795,6 +786,9 @@
     <AndroidResource Include="Resources\Layout\ConsultaConsecNCFX.axml" />
     <None Include="SoftlandFR.keystore" />
     <None Include="Views\Lista Pantallas.xlsx" />
+    <AndroidAsset Include="Assets\ReporteCierreCaja.rdl" />
+    <AndroidAsset Include="Assets\ReporteCierreCaja_2.rdl" />
+    <AndroidAsset Include="Assets\ReporteCierreCaja_3.rdl" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Layout\MainMenu.axml">

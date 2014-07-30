@@ -254,7 +254,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
                     notaCredito.MontoMovimientoLocal = monto * Cobros.TipoCambio;
                     factura.AplicaNotaDolar(notaCredito);
                 }
-                notaCredito.Tipo = TipoDocumento.Factura;
+                notaCredito.Tipo = factura.Tipo;
                 notaCredito.SaldoDocDolar = notaCredito.SaldoDocLocal = 0;
                 notaCredito.GuardarPorDescuento(numeroRecibo,TipoDocumento.NotaCreditoCrear,factura.Numero);
                 ParametroSistema.IncrementarNotaCredito(factura.Compania, factura.Zona);

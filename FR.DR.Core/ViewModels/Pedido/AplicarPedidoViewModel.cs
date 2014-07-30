@@ -656,6 +656,10 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 try
                 {
                     Gestor.Pedidos.CargarConsecutivos();
+                    if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                    {
+                        Gestor.Garantias.CargarConsecutivos();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -792,8 +796,17 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     }
                     else
                     {
-                        this.GuardaDocumento();
-                        this.LimpiarCerrarFormulario();
+                        if (this.GuardaDocumento())
+                        {
+                            this.LimpiarCerrarFormulario();
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(AplicarPedidoViewModel.Error))
+                            {
+                                this.mostrarAlerta(AplicarPedidoViewModel.Error, res => { LimpiarCerrarFormulario(); });
+                            }
+                        }
                     }
 
                 });
@@ -802,8 +815,17 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             else
             {
 
-                this.GuardaDocumento();
-                this.LimpiarCerrarFormulario();
+                if (this.GuardaDocumento())
+                {
+                    this.LimpiarCerrarFormulario();
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(AplicarPedidoViewModel.Error))
+                    {
+                        this.mostrarAlerta(AplicarPedidoViewModel.Error, res => { LimpiarCerrarFormulario(); });
+                    }
+                }
 
             }
         }
@@ -825,9 +847,18 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 }
                 else
                 {
-                    this.GuardaDocumento();
-                    if(string.IsNullOrEmpty(AplicarPedidoViewModel.Error))
-                        this.LimpiarCerrarFormulario();
+                    if (this.GuardaDocumento())
+                    {
+                        if (string.IsNullOrEmpty(AplicarPedidoViewModel.Error))
+                            this.LimpiarCerrarFormulario();
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(AplicarPedidoViewModel.Error))
+                        {
+                            this.mostrarAlerta(AplicarPedidoViewModel.Error, res => { LimpiarCerrarFormulario(); });
+                        }
+                    }
                 }
 
 
@@ -836,8 +867,17 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             else
             {
 
-                this.GuardaDocumento();
-                this.LimpiarCerrarFormulario();
+                if(this.GuardaDocumento())
+                {
+                    this.LimpiarCerrarFormulario();
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(AplicarPedidoViewModel.Error))
+                    {
+                        this.mostrarAlerta(AplicarPedidoViewModel.Error, res => { LimpiarCerrarFormulario(); });
+                    }
+                }
 
             }
         }
@@ -865,8 +905,9 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
         }
 
-        private void GuardaDocumento()
+        private bool GuardaDocumento()
         {
+            bool result = true;
             if (FRmConfig.EnConsulta)
             {
                 Pedido pedido = null;
@@ -882,6 +923,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                         AplicarPedidoViewModel.Error="Error al actualizar factura. " + ex.Message;
                     else
                         AplicarPedidoViewModel.Error = "Error al actualizar pedido. " + ex.Message;
+                    result = false;
                 }
             }
             else
@@ -909,9 +951,11 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                         AplicarPedidoViewModel.Error = "Error al guardar factura. " + ex.Message;                        
                     else
                         AplicarPedidoViewModel.Error = "Error al guardar pedido. " + ex.Message;
+                    result = false;
                         
                 }
             }
+            return result;
         }
 
         private void ActualizarJornada(string ruta, decimal monto)
@@ -919,18 +963,40 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             TipoMoneda moneda = Gestor.Pedidos.Gestionados[0].Configuracion.Nivel.Moneda;
             string colCantidad = "";
             string colMonto = "";
+            string colCantidadCondPago = "";
+            string colMontoCondPago = "";
 
             if (Pedidos.FacturarPedido)
             {
                 if (moneda == TipoMoneda.LOCAL)
                 {
                     colCantidad = JornadaRuta.FACTURAS_LOCAL;
-                    colMonto = JornadaRuta.MONTO_FACTURAS_LOCAL;                    
+                    colMonto = JornadaRuta.MONTO_FACTURAS_LOCAL;
+                    if (this.Pedido.CondicionPago.DiasNeto == 0)
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_LOCAL_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_LOCAL_CONT;
+                    }
+                    else
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_LOCAL_CRE;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_LOCAL_CRE;
+                    }
                 }
                 else
                 {
                     colCantidad = JornadaRuta.FACTURAS_DOLAR;
                     colMonto = JornadaRuta.MONTO_FACTURAS_DOLAR;
+                    if (this.Pedido.CondicionPago.DiasNeto == 0)
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_DOLAR_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_DOLAR_CONT;
+                    }
+                    else
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_DOLAR_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_DOLAR_CONT;
+                    }
                 }
             }
             else
@@ -953,6 +1019,12 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
                 JornadaRuta.ActualizarRegistro(ruta, colCantidad, 1);
                 JornadaRuta.ActualizarRegistro(ruta, colMonto, monto);
+
+                if (Pedidos.FacturarPedido)
+                {
+                    JornadaRuta.ActualizarRegistro(ruta, colCantidadCondPago, 1);
+                    JornadaRuta.ActualizarRegistro(ruta, colMontoCondPago, monto);
+                }
 
                 GestorDatos.CommitTransaction();
             }
@@ -970,6 +1042,10 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             string colMonto = "";
             string colCantidadGar = "";
             string colMontoGar = "";
+            string colCantidadCondPago = "";
+            string colMontoCondPago = "";
+            string colCantidadCondPagoGar = "";
+            string colMontoCondPagoGar = "";
 
             if (Pedidos.FacturarPedido)
             {
@@ -979,6 +1055,20 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     colMonto = JornadaRuta.MONTO_FACTURAS_LOCAL;
                     colCantidadGar = JornadaRuta.GARANTIAS_LOCAL;
                     colMontoGar = JornadaRuta.MONTO_GARANTIAS_LOCAL;
+                    if (this.Pedido.CondicionPago.DiasNeto == 0)
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_LOCAL_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_LOCAL_CONT;
+                        colCantidadCondPagoGar = JornadaRuta.GARANTIAS_LOCAL_CONT;
+                        colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_LOCAL_CONT;
+                    }
+                    else
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_LOCAL_CRE;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_LOCAL_CRE;
+                        colCantidadCondPagoGar = JornadaRuta.GARANTIAS_LOCAL_CRE;
+                        colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_LOCAL_CRE;
+                    }
 
                 }
                 else
@@ -987,6 +1077,20 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     colMonto = JornadaRuta.MONTO_FACTURAS_DOLAR;
                     colCantidadGar = JornadaRuta.GARANTIAS_DOLAR;
                     colMontoGar = JornadaRuta.MONTO_GARANTIAS_DOLAR;
+                    if (this.Pedido.CondicionPago.DiasNeto == 0)
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_DOLAR_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_DOLAR_CONT;
+                        colCantidadCondPagoGar = JornadaRuta.GARANTIAS_DOLAR_CONT;
+                        colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_DOLAR_CONT;
+                    }
+                    else
+                    {
+                        colCantidadCondPago = JornadaRuta.FACTURAS_DOLAR_CONT;
+                        colMontoCondPago = JornadaRuta.MONTO_FACTURAS_DOLAR_CONT;
+                        colCantidadCondPagoGar = JornadaRuta.GARANTIAS_DOLAR_CONT;
+                        colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_DOLAR_CONT;
+                    }
                 }
             }
             else
@@ -1009,8 +1113,15 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
                 JornadaRuta.ActualizarRegistro(ruta, colCantidad, 1);
                 JornadaRuta.ActualizarRegistro(ruta, colMonto, monto);
-                JornadaRuta.ActualizarRegistro(ruta, colCantidadGar, 1);
-                JornadaRuta.ActualizarRegistro(ruta, colMontoGar, montoGarantias);
+                if (Pedidos.FacturarPedido)
+                {
+                    JornadaRuta.ActualizarRegistro(ruta, colCantidadGar, 1);
+                    JornadaRuta.ActualizarRegistro(ruta, colMontoGar, montoGarantias);                
+                    JornadaRuta.ActualizarRegistro(ruta, colCantidadCondPago, 1);
+                    JornadaRuta.ActualizarRegistro(ruta, colMontoCondPago, monto);
+                    JornadaRuta.ActualizarRegistro(ruta, colCantidadCondPagoGar, 1);
+                    JornadaRuta.ActualizarRegistro(ruta, colMontoCondPagoGar, montoGarantias);
+                }
 
                 GestorDatos.CommitTransaction();
             }
@@ -1270,11 +1381,20 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
             //Caso 32081 LDS 09/04/2008
             //Guardamos los pedidos o facturas gestionadas y luego limpiamos y regresamos al formulario que invocó el presente formulario.
-            this.GuardaDocumento();
-            //Caso 32081 LDS 09/04/2008
-            //Primero guardamos el pedido o factura y luego realizamos la impresión, ya que si ocurre un error con la impresión
-            //solo se debe imprimir el documento o no volver a cargar.
-            this.LimpiarCerrarFormulario();
+            if (this.GuardaDocumento())
+            {
+                //Caso 32081 LDS 09/04/2008
+                //Primero guardamos el pedido o factura y luego realizamos la impresión, ya que si ocurre un error con la impresión
+                //solo se debe imprimir el documento o no volver a cargar.
+                this.LimpiarCerrarFormulario();
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(AplicarPedidoViewModel.Error))
+                {
+                    this.mostrarAlerta(AplicarPedidoViewModel.Error, res => { LimpiarCerrarFormulario(); });
+                }
+            }
 
         }
 
@@ -1339,7 +1459,10 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
         private void ConsultarRetenciones()
         {
-            this.RequestNavigate<ConsultaRetencionesViewModel>();
+            if (Gestor.Pedidos.Gestionados[0].iArregloRetenciones != null && Gestor.Pedidos.Gestionados[0].iArregloRetenciones.Count > 0)
+                this.RequestNavigate<ConsultaRetencionesViewModel>();
+            else
+                this.mostrarAlerta("No hay retenciones gestionadas.");
         }
 
         private void MontosPedido()

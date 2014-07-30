@@ -49,6 +49,25 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
             //while (Mensaje.mostrarMensaje(Mensaje.Accion.Decision, "imprimir de nuevo") == System.Windows.Forms.DialogResult.Yes);
         }
 
+        public void ImprimeCierreCaja()
+        {
+            Report reporteJornada = new Report(ReportHelper.CrearRutaReporte(Rdl.ReporteCierreCaja), Impresora.ObtenerDriver());
+
+            reporteJornada.AddObject(this);
+            //do
+            {
+                reporteJornada.Print();
+                if (reporteJornada.ErrorLog != string.Empty)
+                {
+                    // TODO: hay que tener un ViewModel o View para poder desplegar mensajes
+                    //Mensaje.mostrarAlerta("Ocurrió un error durante la impresión del reporte: " + reporteJornada.ErrorLog);
+                }
+
+            }
+            // TODO: hay que tener un ViewModel o View para poder desplegar mensajes
+            //while (Mensaje.mostrarMensaje(Mensaje.Accion.Decision, "imprimir de nuevo") == System.Windows.Forms.DialogResult.Yes);
+        }
+
         #endregion Metodos de Clase
 
         #region IPrintable Members
@@ -105,6 +124,38 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
                 case JornadaRuta.GARANTIAS_DOLAR: return jornada.GarantiasDolar ?? decimal.Zero;
                 case JornadaRuta.MONTO_GARANTIAS_LOCAL: return jornada.MontoGarantiasLocal ?? decimal.Zero;
                 case JornadaRuta.MONTO_GARANTIAS_DOLAR: return jornada.MontoGarantiasDolar ?? decimal.Zero;
+
+                //Proyecto Gas Z - Cierre Caja
+
+                case JornadaRuta.MONTO_FACTURAS_LOCAL_CRE: return jornada.MontoFacturasLocalCre ?? decimal.Zero;
+                case JornadaRuta.MONTO_FACTURAS_DOLAR_CRE: return jornada.MontoFacturasDolarCre ?? decimal.Zero;
+                case JornadaRuta.MONTO_FACTURASTF_LOCAL_CRE: return jornada.MontoFacturasTomaFisicaLocalCre ?? decimal.Zero;
+                case JornadaRuta.MONTO_FACTURASTF_DOLAR_CRE: return jornada.MontoFacturasTomaFisicaDolarCre ?? decimal.Zero;
+                case JornadaRuta.MONTO_GARANTIAS_LOCAL_CRE: return jornada.MontoGarantiasLocalCre ?? decimal.Zero;
+                case JornadaRuta.MONTO_GARANTIAS_DOLAR_CRE: return jornada.MontoGarantiasDolarCre ?? decimal.Zero;
+
+                case JornadaRuta.MONTO_FACTURAS_LOCAL_CONT: return jornada.MontoFacturasLocalCont ?? decimal.Zero;
+                case JornadaRuta.MONTO_FACTURAS_DOLAR_CONT: return jornada.MontoFacturasDolarCont ?? decimal.Zero;
+                case JornadaRuta.MONTO_FACTURASTF_LOCAL_CONT: return jornada.MontoFacturasTomaFisicaLocalCont ?? decimal.Zero;
+                case JornadaRuta.MONTO_FACTURASTF_DOLAR_CONT: return jornada.MontoFacturasTomaFisicaDolarCont ?? decimal.Zero;
+                case JornadaRuta.MONTO_GARANTIAS_LOCAL_CONT: return jornada.MontoGarantiasLocalCont ?? decimal.Zero;
+                case JornadaRuta.MONTO_GARANTIAS_DOLAR_CONT: return jornada.MontoGarantiasDolarCont ?? decimal.Zero;
+
+                case JornadaRuta.MONTO_CONTADO_TOTAL_LOCAL: return jornada.MontoFacturasLocalCont + jornada.MontoFacturasTomaFisicaLocalCont + jornada.MontoGarantiasLocalCont ?? decimal.Zero;
+                case JornadaRuta.MONTO_CONTADO_TOTAL_DOLAR: return jornada.MontoFacturasDolarCont + jornada.MontoFacturasTomaFisicaDolarCont + jornada.MontoGarantiasDolarCont ?? decimal.Zero;
+
+                case JornadaRuta.MONTO_CREDITO_TOTAL_LOCAL: return jornada.MontoFacturasLocalCre + jornada.MontoFacturasTomaFisicaLocalCre + jornada.MontoGarantiasLocalCre ?? decimal.Zero;
+                case JornadaRuta.MONTO_CREDITO_TOTAL_DOLAR: return jornada.MontoFacturasDolarCre + jornada.MontoFacturasTomaFisicaDolarCre + jornada.MontoGarantiasDolarCre ?? decimal.Zero;
+
+                case JornadaRuta.MONTO_COBROS_TOTAL_LOCAL: return jornada.MontoCobrosLocal ?? decimal.Zero;
+                case JornadaRuta.MONTO_COBROS_TOTAL_DOLAR: return jornada.MontoCobrosDolar ?? decimal.Zero;
+
+                case JornadaRuta.MONTO_DIFERENCIA_TOTAL_LOCAL: return jornada.MontoCobrosLocal - (jornada.MontoFacturasLocalCont + jornada.MontoFacturasTomaFisicaLocalCont + jornada.MontoGarantiasLocalCont)-jornada.MontoDepositosLocal-jornada.MontoDevolucionesEfectivoLocal ?? decimal.Zero;
+                case JornadaRuta.MONTO_DIFERENCIA_TOTAL_DOLAR: return jornada.MontoCobrosDolar - (jornada.MontoFacturasDolarCont + jornada.MontoFacturasTomaFisicaDolarCont + jornada.MontoGarantiasDolarCont) - jornada.MontoDepositosDolar - jornada.MontoDevolucionesEfectivoDolar ?? decimal.Zero;
+
+
+
+
 
                 default: return null;
             }

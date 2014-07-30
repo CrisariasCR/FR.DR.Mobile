@@ -381,6 +381,41 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
                     }
 
                     break;
+                case TipoCobro.Recibo:
+
+                    //Cobros.montoTotalPagar = Cobros.montoSumaChequeEfectivo;//monto total le asignan la suma de cheques y efectivo // kf agrego las notas de credito seleccionadas
+                    Cobros.montoTotalPagar = Cobros.montoSumaChequeEfectivo + Cobros.MontoNotasCreditoSelLocal;
+
+                    //Sacamos el monto pendiente de acuerdo al tipo de moneda
+                    if (tipoMoneda == TipoMoneda.LOCAL)
+                    {
+                        //Facturas de contado y recibos en FR - KFC
+                        Cobros.montoPendiente = Cobros.montoFacturasLocal - Cobros.montoSumaChequeEfectivo;
+
+                        //Facturas de contado y recibos en FR - KFC
+                        //if (aplicarLasNotasCredito)
+                        if (aplicarLasNotasCredito == "A")
+                            Cobros.montoPendiente -= Cobros.montoNotasCreditoLocal;
+                        if (aplicarLasNotasCredito == "S")
+                            Cobros.montoPendiente -= Cobros.montoNotasCreditoSelLocal;
+                        if (aplicarDescuentosProntoPago)
+                            Cobros.montoPendiente -= Cobros.montoDescuentoProntoPagoLocal;
+                    }
+                    else
+                    {
+                        Cobros.montoPendiente = montoFacturasDolar - Cobros.montoSumaChequeEfectivo;
+
+                        //Facturas de contado y recibos en FR - KFC
+                        //if (aplicarLasNotasCredito)
+                        if (aplicarLasNotasCredito == "A")
+                            Cobros.montoPendiente -= montoNotasCreditoDolar;
+                        if (aplicarLasNotasCredito == "S")
+                            Cobros.montoPendiente -= montoNotasCreditoSelDolar;
+                        if (aplicarDescuentosProntoPago)
+                            Cobros.montoPendiente -= Cobros.montoDescuentoProntoPagoDolar;
+                    }
+
+                    break;
                 case TipoCobro.FacturaActual:
 
                     //Cobros.montoTotalPagar = Cobros.montoSumaChequeEfectivo;//monto total le asignan la suma de cheques y efectivo // kf agrego las notas de credito seleccionadas
@@ -442,6 +477,42 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
             switch (Cobros.tipoCobro)
             {
                 case TipoCobro.MontoTotal:
+
+                    //Cobros.montoTotalPagar = Cobros.montoSumaChequeEfectivo;//monto total le asignan la suma de cheques y efectivo // kf agrego las notas de credito seleccionadas
+                    Cobros.montoTotalPagarTemporal = (Cobros.montoSumaChequeEfectivo - montoEntradaEfectivo - montoEntradaCheque) + (Cobros.MontoNotasCreditoSelLocal - Cobros.montoEntradaNC);
+                    Cobros.montoTotalPagarTemporalDolar = Math.Round(Cobros.montoTotalPagarTemporal, 2);
+
+                    //Sacamos el monto pendiente de acuerdo al tipo de moneda
+                    if (tipoMoneda == TipoMoneda.LOCAL)
+                    {
+                        //Facturas de contado y recibos en FR - KFC
+                        Cobros.montoPendiente = Cobros.montoFacturasLocal - Cobros.montoSumaChequeEfectivo;
+
+                        //Facturas de contado y recibos en FR - KFC
+                        //if (aplicarLasNotasCredito)
+                        if (aplicarLasNotasCredito == "A")
+                            Cobros.montoPendiente -= Cobros.montoNotasCreditoLocal;
+                        if (aplicarLasNotasCredito == "S")
+                            Cobros.montoPendiente -= Cobros.montoNotasCreditoSelLocal;
+                        if (aplicarDescuentosProntoPago)
+                            Cobros.montoPendiente -= Cobros.montoDescuentoProntoPagoLocal;
+                    }
+                    else
+                    {
+                        Cobros.montoPendiente = montoFacturasDolar - Cobros.montoSumaChequeEfectivo;
+
+                        //Facturas de contado y recibos en FR - KFC
+                        //if (aplicarLasNotasCredito)
+                        if (aplicarLasNotasCredito == "A")
+                            Cobros.montoPendiente -= montoNotasCreditoDolar;
+                        if (aplicarLasNotasCredito == "S")
+                            Cobros.montoPendiente -= montoNotasCreditoSelDolar;
+                        if (aplicarDescuentosProntoPago)
+                            Cobros.montoPendiente -= Cobros.montoDescuentoProntoPagoDolar;
+                    }
+
+                    break;
+                case TipoCobro.Recibo:
 
                     //Cobros.montoTotalPagar = Cobros.montoSumaChequeEfectivo;//monto total le asignan la suma de cheques y efectivo // kf agrego las notas de credito seleccionadas
                     Cobros.montoTotalPagarTemporal = (Cobros.montoSumaChequeEfectivo - montoEntradaEfectivo - montoEntradaCheque) + (Cobros.MontoNotasCreditoSelLocal - Cobros.montoEntradaNC);
@@ -670,6 +741,171 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
             try
             {                
                 recibo.Guardar();                
+                notasSeleccionadas.Clear();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error guardando recibo. " + ex.Message);
+            }
+
+            return recibo;
+        }
+
+        /// <summary> 
+        /// Funcion que aplica el pago del recibo dependiendo del cobro de contado.
+        /// Facturas de contado y recibos en FR - KFC
+        /// </summary>
+        public static Recibo AplicarPagoContado(Pedido pedido,Garantia garantia)
+        {
+            if (!Cobros.CambiarNumeroRecibo)
+            {
+                //invoca la funcion que me trae el numero de recibo
+                recibo.Numero = ParametroSistema.ObtenerRecibo(recibo.Compania, recibo.Zona);
+
+                if (recibo.Numero == string.Empty)
+                    throw new Exception("No se encontró siguiente consecutivo disponible.");
+            }
+            else
+                recibo.Numero = NumeroReciboIndicado;
+
+            recibo.Moneda = tipoMoneda;
+            List<NotaCredito> notas = new List<NotaCredito>();
+
+
+
+            if (aplicarLasNotasCredito == "A")
+            {
+                notas = NotaCredito.ObtenerNotasCredito(recibo.Compania, recibo.Cliente, recibo.Zona);
+                // metodo sobrecargado 
+                AplicaNotasCredito(pedido,garantia, notas);
+            }
+            // si se aplican notas de credito seleccionadas
+            if (aplicarLasNotasCredito == "S")
+            {
+                notas = notasSeleccionadas;
+                AplicaNotasCredito(pedido,garantia ,notas);
+                //notasSeleccionadas.Clear();
+            }
+
+            //No se contemplan descuentos por pronto pago para la cancelacion de un documento de contado. - KFC
+
+            recibo.NotasCreditoAsociadas = notas;
+
+            if (tipoMoneda == TipoMoneda.LOCAL)
+            {
+                recibo.MontoChequesLocal = Cobros.montoCheques;
+                recibo.MontoChequesDolar = recibo.MontoChequesLocal / Cobros.TipoCambio;
+                recibo.MontoEfectivoLocal = Cobros.montoEfectivo;
+                recibo.MontoEfectivoDolar = recibo.MontoEfectivoLocal / Cobros.TipoCambio;
+                recibo.MontoDocLocal = recibo.MontoEfectivoLocal + recibo.MontoChequesLocal;
+                recibo.MontoDocDolar = recibo.MontoChequesDolar + recibo.MontoEfectivoDolar;
+            }
+            else
+            {
+                recibo.MontoChequesDolar = Cobros.montoCheques;
+                recibo.MontoChequesLocal = recibo.MontoChequesDolar * Cobros.TipoCambio;
+                recibo.MontoEfectivoDolar = Cobros.montoEfectivo;
+                recibo.MontoEfectivoLocal = recibo.MontoEfectivoDolar * Cobros.TipoCambio;
+                recibo.MontoDocLocal = recibo.MontoEfectivoLocal + recibo.MontoChequesLocal;
+                recibo.MontoDocDolar = recibo.MontoChequesDolar + recibo.MontoEfectivoDolar;
+            }
+
+            foreach (NotaCredito nota in notas)
+            {
+                if (nota.MontoMovimientoLocal != 0)
+                    recibo.AgregarDetalle(nota);
+            }
+
+            recibo.NumeroPedido = pedido.Numero;
+            recibo.Pedido = pedido;
+            recibo.Estado = EstadoDocumento.Contado;
+
+            try
+            {
+                recibo.Guardar();
+                notasSeleccionadas.Clear();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error guardando recibo. " + ex.Message);
+            }
+
+            return recibo;
+        }
+
+        /// <summary> 
+        /// Funcion que aplica el pago del recibo dependiendo del cobro de contado.
+        /// Garantías de contado
+        /// </summary>
+        public static Recibo AplicarPagoContado(Garantia garantia)
+        {
+            if (!Cobros.CambiarNumeroRecibo)
+            {
+                //invoca la funcion que me trae el numero de recibo
+                recibo.Numero = ParametroSistema.ObtenerRecibo(recibo.Compania, recibo.Zona);
+                recibo.EsReciboGarantia = true;
+
+                if (recibo.Numero == string.Empty)
+                    throw new Exception("No se encontró siguiente consecutivo disponible.");
+            }
+            else
+                recibo.Numero = NumeroReciboIndicado;
+
+            recibo.Moneda = tipoMoneda;
+            List<NotaCredito> notas = new List<NotaCredito>();
+
+
+
+            if (aplicarLasNotasCredito == "A")
+            {
+                notas = NotaCredito.ObtenerNotasCredito(recibo.Compania, recibo.Cliente, recibo.Zona);
+                // metodo sobrecargado 
+                AplicaNotasCredito(garantia, notas);
+            }
+            // si se aplican notas de credito seleccionadas
+            if (aplicarLasNotasCredito == "S")
+            {
+                notas = notasSeleccionadas;
+                AplicaNotasCredito(garantia, notas);
+                //notasSeleccionadas.Clear();
+            }
+
+            //No se contemplan descuentos por pronto pago para la cancelacion de un documento de contado. - KFC
+
+            recibo.NotasCreditoAsociadas = notas;
+
+            if (tipoMoneda == TipoMoneda.LOCAL)
+            {
+                recibo.MontoChequesLocal = Cobros.montoCheques;
+                recibo.MontoChequesDolar = recibo.MontoChequesLocal / Cobros.TipoCambio;
+                recibo.MontoEfectivoLocal = Cobros.montoEfectivo;
+                recibo.MontoEfectivoDolar = recibo.MontoEfectivoLocal / Cobros.TipoCambio;
+                recibo.MontoDocLocal = recibo.MontoEfectivoLocal + recibo.MontoChequesLocal;
+                recibo.MontoDocDolar = recibo.MontoChequesDolar + recibo.MontoEfectivoDolar;
+            }
+            else
+            {
+                recibo.MontoChequesDolar = Cobros.montoCheques;
+                recibo.MontoChequesLocal = recibo.MontoChequesDolar * Cobros.TipoCambio;
+                recibo.MontoEfectivoDolar = Cobros.montoEfectivo;
+                recibo.MontoEfectivoLocal = recibo.MontoEfectivoDolar * Cobros.TipoCambio;
+                recibo.MontoDocLocal = recibo.MontoEfectivoLocal + recibo.MontoChequesLocal;
+                recibo.MontoDocDolar = recibo.MontoChequesDolar + recibo.MontoEfectivoDolar;
+            }
+
+            foreach (NotaCredito nota in notas)
+            {
+                if (nota.MontoMovimientoLocal != 0)
+                    recibo.AgregarDetalle(nota);
+            }
+
+            recibo.NumeroPedido = garantia.Numero;
+            recibo.Garantia = garantia;
+            recibo.Estado = EstadoDocumento.Contado;
+
+            try
+            {
+                recibo.Guardar();
                 notasSeleccionadas.Clear();
             }
             catch (Exception ex)
@@ -1010,6 +1246,74 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
             }
         }
 
+        /// <summary>
+        /// Metodo para aplicar las notas de credito en una factura de contado        
+        /// </summary>
+        /// <param name="pedido"></param>
+        /// <param name="notasCredito"></param>
+        public static void AplicaNotasCredito(Pedido pedido,Garantia garantia, List<NotaCredito> notasCredito)
+        {
+            Factura factura = new Factura();
+
+            //le asigna al monto a pagar por factura el saldo
+            factura.MontoAPagarDocLocal = pedido.MontoNeto+garantia.MontoNeto;
+            factura.MontoAPagarDocDolar = Math.Round((pedido.MontoNeto + garantia.MontoNeto) / Cobros.TipoCambio, 2);
+
+            // KFC - Se restan los montos en efectivo por si el monto de notas de credito es superior
+            //       al monto a cancelar, se apliquen las notas desde la mas antigua dejando el saldo en la ultima nota utilizada
+            factura.MontoAPagarDocLocal -= Cobros.MontoSumaChequeEfectivo;
+            factura.MontoAPagarDocDolar -= Math.Round(Cobros.MontoSumaChequeEfectivo / Cobros.TipoCambio, 2);
+
+            foreach (NotaCredito nota in notasCredito)
+            {
+                if (nota.SaldoDocLocal != 0)//valida que el saldo de la nota sea diferente a 0
+                {
+                    //valida que el monto a pagar por documento sea distinto a 0
+                    //Si es cero salimos ya que no hay mas que cancelar a la factura
+                    if (factura.MontoAPagarDocLocal == 0) break;
+
+                    if (TipoMoneda.LOCAL == tipoMoneda)
+                        factura.AplicaNotaLocal(nota);//invoca al metodo que le aplica la nota de credito a la factura
+                    else
+                        factura.AplicaNotaDolar(nota);//invoca al metodo que le aplica la nota de credito a la factura
+                }
+            }
+        }
+
+        /// <summary>
+        /// Metodo para aplicar las notas de credito en una garantia de contado        
+        /// </summary>
+        /// <param name="pedido"></param>
+        /// <param name="notasCredito"></param>
+        public static void AplicaNotasCredito(Garantia garantia, List<NotaCredito> notasCredito)
+        {
+            Garantia factura = new Garantia();              
+
+            //le asigna al monto a pagar por factura el saldo
+            factura.MontoAPagarDocLocal = garantia.MontoNeto;
+            factura.MontoAPagarDocDolar = Math.Round(garantia.MontoNeto / Cobros.TipoCambio, 2);
+
+            // KFC - Se restan los montos en efectivo por si el monto de notas de credito es superior
+            //       al monto a cancelar, se apliquen las notas desde la mas antigua dejando el saldo en la ultima nota utilizada
+            factura.MontoAPagarDocLocal -= Cobros.MontoSumaChequeEfectivo;
+            factura.MontoAPagarDocDolar -= Math.Round(Cobros.MontoSumaChequeEfectivo / Cobros.TipoCambio, 2);
+
+            foreach (NotaCredito nota in notasCredito)
+            {
+                if (nota.SaldoDocLocal != 0)//valida que el saldo de la nota sea diferente a 0
+                {
+                    //valida que el monto a pagar por documento sea distinto a 0
+                    //Si es cero salimos ya que no hay mas que cancelar a la factura
+                    if (factura.MontoAPagarDocLocal == 0) break;
+
+                    if (TipoMoneda.LOCAL == tipoMoneda)
+                        factura.AplicaNotaLocal(nota);//invoca al metodo que le aplica la nota de credito a la factura
+                    else
+                        factura.AplicaNotaDolar(nota);//invoca al metodo que le aplica la nota de credito a la factura
+                }
+            }
+        }
+
         #endregion
 
 
@@ -1075,6 +1379,60 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
                 notaCredito.MontoChequesDolar = notaCredito.MontoChequesLocal / TipoCambio;
 
                 notaCredito.MontoDocLocal = notaCredito.MontoEfectivoLocal+ notaCredito.MontoChequesLocal;
+                notaCredito.MontoDocDolar = notaCredito.MontoEfectivoDolar + notaCredito.MontoChequesDolar;
+            }
+            else
+            {
+                notaCredito.MontoEfectivoDolar = MontoEfectivo;
+                notaCredito.MontoEfectivoLocal = notaCredito.MontoEfectivoDolar * TipoCambio;
+
+                notaCredito.MontoChequesDolar = MontoCheques;
+                notaCredito.MontoChequesLocal = notaCredito.MontoChequesDolar * TipoCambio;
+
+                notaCredito.MontoDocLocal = notaCredito.MontoEfectivoLocal + notaCredito.MontoChequesLocal;
+                notaCredito.MontoDocDolar = notaCredito.MontoEfectivoDolar + notaCredito.MontoChequesDolar;
+            }
+
+            try
+            {
+                notaCredito.Guardar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error guardando el abono. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Guarda el cobro como un abono a la cuenta del cliente.
+        /// </summary>
+        public static void CrearReciboSinAplicacion()
+        {
+            //ABC 35771
+            if (!Cobros.CambiarNumeroRecibo)
+            {
+                //invoca la funcion que me trae el numero de recibo o Nota de credito
+                recibo.Numero = ParametroSistema.ObtenerRecibo(recibo.Compania, recibo.Zona);
+
+                if (recibo.Numero == string.Empty)
+                    throw new Exception("No se encontró siguiente consecutivo disponible.");
+            }
+            else
+                recibo.Numero = NumeroReciboIndicado;
+
+
+            NotaCredito notaCredito = new NotaCredito(recibo.Numero, tipoMoneda, recibo.Compania, recibo.Zona, recibo.Cliente);
+            notaCredito.Tipo = TipoDocumento.ReciboSinAplicacion;
+
+            if (tipoMoneda == TipoMoneda.LOCAL)
+            {
+                notaCredito.MontoEfectivoLocal = MontoEfectivo;
+                notaCredito.MontoEfectivoDolar = notaCredito.MontoEfectivoLocal / TipoCambio;
+
+                notaCredito.MontoChequesLocal = MontoCheques;
+                notaCredito.MontoChequesDolar = notaCredito.MontoChequesLocal / TipoCambio;
+
+                notaCredito.MontoDocLocal = notaCredito.MontoEfectivoLocal + notaCredito.MontoChequesLocal;
                 notaCredito.MontoDocDolar = notaCredito.MontoEfectivoDolar + notaCredito.MontoChequesDolar;
             }
             else

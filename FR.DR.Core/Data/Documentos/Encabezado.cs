@@ -23,6 +23,16 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos
             set { numero = value; RaisePropertyChanged("Numero"); }
         }
 
+        private string pedidoGarantia = string.Empty;
+        /// <summary>
+        /// Variable que indica el numero de documento de FR asociado a la garantía 
+        /// </summary>
+        public string PedidoGarantia
+        {
+            get { return pedidoGarantia; }
+            set { pedidoGarantia = value; RaisePropertyChanged("Numero"); }
+        }
+
         private string compania = string.Empty;
         /// <summary>
         /// Variable de asociacion con la clase compania

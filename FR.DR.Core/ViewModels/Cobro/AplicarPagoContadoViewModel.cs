@@ -133,6 +133,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         private Recibo recibo;
         
         private Pedido pedido;
+        private Garantia garantia;
         /// <summary>
         /// Lista de desucentos por pronto pago.
         /// </summary>
@@ -222,6 +223,10 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         {            
                 this.esFacturaContado = true;
                 this.pedido = Gestor.Pedidos.Gestionados[0];
+                if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                {
+                    this.garantia = Gestor.Garantias.Gestionados[0];
+                }
 
                 //Inicializar el cobro
                 Cobros.IniciarCobro(GlobalUI.ClienteActual, pedido.Compania);
@@ -233,7 +238,14 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 if (AplicarPagoContadoViewModel.genCobro)
                 {
                     //Si la parametrizacion indica que no se hara desglose del pago se genera un recibo en efectivo
-                    Cobros.MontoEfectivo = pedido.MontoNeto;
+                    if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                    {
+                        Cobros.MontoEfectivo = pedido.MontoNeto+garantia.MontoNeto;
+                    }
+                    else
+                    {
+                        Cobros.MontoEfectivo = pedido.MontoNeto;
+                    }
                     GenerarReciboEfectivo();
                 }
             
@@ -315,11 +327,25 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             {
                 if (Cobros.TipoMoneda == TipoMoneda.LOCAL)
                 {
-                    Cobros.MontoFacturasLocal = pedido.MontoNeto;
+                    if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                    {
+                        Cobros.MontoFacturasLocal = pedido.MontoNeto+garantia.MontoNeto;
+                    }
+                    else
+                    {
+                        Cobros.MontoFacturasLocal = pedido.MontoNeto;
+                    }
                 }
                 else
                 {
-                    Cobros.MontoFacturasDolar = pedido.MontoNeto;
+                    if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                    {
+                        Cobros.MontoFacturasDolar = pedido.MontoNeto+garantia.MontoNeto;
+                    }
+                    else
+                    {
+                        Cobros.MontoFacturasDolar = pedido.MontoNeto;
+                    }
                 }
             }
             else
@@ -450,14 +476,28 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
             if (Cobros.TipoMoneda == TipoMoneda.LOCAL)
             {
-                saldo = pedido.MontoNeto;
+                if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                {
+                    saldo = pedido.MontoNeto + garantia.MontoNeto;
+                }
+                else
+                {
+                    saldo = pedido.MontoNeto;
+                }
                 saldo -= Cobros.AplicarDescuentosProntoPago ? Cobros.MontoDescuentoProntoPagoLocal : 0;
                 saldo -= Cobros.MontoEfectivo;
             }
 
             else // Dolar
             {
-                saldo = pedido.MontoNeto;
+                if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                {
+                    saldo = pedido.MontoNeto + garantia.MontoNeto;
+                }
+                else
+                {
+                    saldo = pedido.MontoNeto;
+                }
                 saldo -= Cobros.AplicarDescuentosProntoPago ? Cobros.MontoDescuentoProntoPagoDolar : 0;
                 saldo = (saldo * Cobros.TipoCambio) - (Cobros.MontoEfectivo * Cobros.TipoCambio);
             }
@@ -892,7 +932,14 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
                         if (Cobros.TipoMoneda == TipoMoneda.LOCAL)
                         {
-                            saldo = pedido.MontoNeto;
+                            if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                            {
+                                saldo = pedido.MontoNeto+garantia.MontoNeto;
+                            }
+                            else
+                            {
+                                saldo = pedido.MontoNeto;
+                            }
 
                             //saldo -= Cobros.AplicarLasNotasCredito == "A" ? Cobros.MontoNotasCreditoLocal : 0;
                             if (Cobros.AplicarLasNotasCredito == FRmConfig.AplicacionAutomatica)
@@ -907,7 +954,14 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                         }
                         else
                         {
-                            saldo = pedido.MontoNeto;
+                            if (FRdConfig.UsaEnvases && Gestor.Garantias.Gestionados.Count > 0)
+                            {
+                                saldo = pedido.MontoNeto+garantia.MontoNeto;
+                            }
+                            else
+                            {
+                                saldo = pedido.MontoNeto;
+                            }
 
                             //saldo -= Cobros.AplicarLasNotasCredito == "A" ? Cobros.MontoNotasCreditoDolar : 0;
                             if (Cobros.AplicarLasNotasCredito == FRmConfig.AplicacionAutomatica)
@@ -953,7 +1007,10 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                                 //Facturas de contado y recibos en FR - KFC
                                 if (esFacturaContado)
                                 {
-                                    this.recibo = Cobros.AplicarPagoContado(this.pedido);
+                                    if(garantia==null)
+                                        this.recibo = Cobros.AplicarPagoContado(this.pedido);
+                                    else
+                                        this.recibo = Cobros.AplicarPagoContado(this.pedido,this.garantia);
                                 }
                                 else
                                 {
@@ -1269,15 +1326,6 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             this.Efectivo = efectivo;
             this.SaldoPendiente = saldoPend;
             Descuento = descuentos;
-
-            //Se asignan los valores a los controles visuales
-            //this.SaldoTotal = saldoTotal;
-            //this.MontoNotas = notas;
-            //this.TotalPagar = total;
-            //this.Cheques = cheques;
-            //this.Efectivo = efectivo;
-            //this.SaldoPendiente = saldoPend;
-            //Descuento = descuentos;
         }
 
         /// <summary>
@@ -1308,20 +1356,6 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
 
         }
-
-		//Caso 25452 LDS 30/10/2007
-		/// <summary>
-		/// Relocaliza los controles para la impresión de los recibos.
-		/// </summary>
-        //private void RelocalizarImpresion()
-        //{
-        //    this.pnlImpresion.Show();
-        //    this.pnlImpresion.BringToFront();
-        //    this.chkOriginal.Show();
-        //    this.chkOriginal.Checked = true;
-			
-        //    this.txtCantidadCopias.Text = Impresora.CantidadCopias.ToString();			
-        //}
 
 		//Caso 25452 LDS 30/10/2007
 		/// <summary>
@@ -1361,47 +1395,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             Cobros.FinalizarCobro();
             this.recibo = null;
             Result(true);
-        }        
-
-		
-
-        //private void imgbtnCancela_Click(object sender, EventArgs e)
-        //{
-        //    this.Cancelar();
-        //}
-
-
-        //private void picLogo_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    this.lblNomClt.Show();
-        //    this.lblNomClt.BringToFront();
-        //}
-
-        //private void picLogo_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    this.lblNomClt.SendToBack();
-        //    this.lblNomClt.Hide();
-        //}
-
-        //private void btnExWarning_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        //{
-        //    this.noAplicaNClbl.Show();
-        //    this.noAplicaNClbl.BringToFront();
-        //}
-
-        //private void btnExWarning_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
-        //{
-        //    this.noAplicaNClbl.SendToBack();
-        //    this.noAplicaNClbl.Hide();
-        //}
-
-        
-
-        ////Caso 25452 LDS 30/10/2007
-        //private void ibtContinuar_Click(object sender, System.EventArgs e)
-        //{
-        //    this.ImprimirDocumento();
-        //}
+        } 
 
         #endregion
 

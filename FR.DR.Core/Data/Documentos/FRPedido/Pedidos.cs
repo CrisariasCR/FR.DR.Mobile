@@ -148,6 +148,13 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
             set { Pedidos.cambiarPrecio = value; }
         }
 
+        private static bool permiteGarantia;
+        public static bool PermiteGarantia
+        {
+            get { return Pedidos.permiteGarantia; }
+            set { Pedidos.permiteGarantia = value; }
+        }
+
         private static bool mostrarUtilidadDefinida;
         //LDS 30/02/2007
         /// <summary>

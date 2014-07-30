@@ -13,7 +13,7 @@ using Softland.ERP.FR.Mobile.Cls.FRArticulo;
 using Cirrious.MvvmCross.Binding.Droid.Views;
 using Softland.ERP.FR.Mobile.ViewModels;
 
-namespace FR.Droid.Views.Pedido
+namespace FR.Droid.Views.Garantia
 {
     [Activity(Label = " Configuración de Garantía", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, ConfigurationChanges = Android.Content.PM.ConfigChanges.KeyboardHidden | Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class ConfiguracionGarantiaView : MvxBindingActivityView<ConfiguracionGarantiaViewModel> 

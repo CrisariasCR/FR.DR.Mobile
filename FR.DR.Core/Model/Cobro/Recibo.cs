@@ -46,6 +46,8 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
         #region Variables y Propiedades de instancia
 
         private ClienteBase clienteDatos;
+
+        public bool EsReciboGarantia = false;
         /// <summary>
         /// Conserva los datos basicos del cliente para los reportes
         /// </summary>
@@ -160,6 +162,16 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
             set { facturasAsociadas = value; }
         }
 
+        private List<Garantia> garantiasAsociadas = new List<Garantia>();
+        /// <summary>
+        /// Garantias asociadas al recibo
+        /// </summary>
+        public List<Garantia> GarantiasAsociadas
+        {
+            get { return garantiasAsociadas; }
+            set { garantiasAsociadas = value; }
+        }
+
         /// <summary>
         /// Se usa para saber si el checkbox asociado está o no seleccionado
         /// </summary>
@@ -185,6 +197,16 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
         {
             get { return pedido; }
             set { pedido = value; }
+        }
+
+        private Garantia garantia = new Garantia();
+        /// <summary>
+        /// Es el numero de garantía en caso de ser una factura de contado
+        /// </summary>
+        public Garantia Garantia
+        {
+            get { return garantia; }
+            set { garantia = value; }
         }
 
         #endregion
@@ -319,16 +341,6 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
             {
                 this.DBGuardar();
 
-                /*try
-                {
-                    if (Cobros.AplicarDescuentosProntoPago)
-                        this.GuardarNotasCreditoPorDescuento();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error guardando movimientos de notas de crédito por descuentos por pronto pago. " + ex.Message);
-                }
-                */
                 try
                 {
                     this.GuardaNotasCredito();
@@ -573,9 +585,19 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
 		/// </summary>
         private void GuardaFacturasAfectadasNC()
         {
-            foreach (Factura factura in this.FacturasAsociadas)
+            if (EsReciboGarantia)
             {
-                factura.GuardarAfectadaNC(this.Numero);
+                foreach (Garantia garantias in this.GarantiasAsociadas)
+                {
+                    garantias.GuardarAfectadaNC(this.Numero);
+                }
+            }
+            else
+            {
+                foreach (Factura factura in this.FacturasAsociadas)
+                {
+                    factura.GuardarAfectadaNC(this.Numero);
+                }
             }
         }
 
@@ -797,7 +819,10 @@ namespace Softland.ERP.FR.Mobile.Cls.Cobro
         {
             if (this.NumeroPedido != string.Empty)
             {
-                pedido.GuardarRecibo(this);                
+                if (!EsReciboGarantia)
+                    pedido.GuardarRecibo(this);
+                else
+                    garantia.GuardarRecibo(this);
             }
             else
             {

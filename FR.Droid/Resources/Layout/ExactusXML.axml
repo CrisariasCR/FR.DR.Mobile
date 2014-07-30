@@ -25,7 +25,6 @@
                 android:layout_weight="0.7"
                 android:layout_height="wrap_content"
                 style="@style/normalEditText"
-                android:id="@+id/txtServer"
                 local:MvxBind="Text NombreServer" />
         </LinearLayout>
         <LinearLayout
@@ -41,7 +40,6 @@
             <EditText
                 android:layout_width="0dip"
                 android:layout_weight="0.7"
-                android:id="@+id/txtDominio"
                 android:layout_height="wrap_content"
                 style="@style/normalEditText"
                 local:MvxBind="Text Dominio" />
@@ -59,7 +57,6 @@
             <EditText
                 android:layout_width="0dip"
                 android:layout_weight="0.7"
-                android:id="@+id/txtHandHeld"
                 android:layout_height="wrap_content"
                 style="@style/normalEditText"
                 local:MvxBind="Text NombreHandHeld" />

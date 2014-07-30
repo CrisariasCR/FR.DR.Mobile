@@ -1282,7 +1282,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             else
                 Total = Gestor.Pedidos.TotalNetoSinImpuesto;
 
-            if (FRdConfig.UsaEnvases && Pedidos.FacturarPedido)
+            if (FRdConfig.UsaEnvases && Pedidos.FacturarPedido && Pedidos.PermiteGarantia)
             {
                 Gestor.Garantias.SacarMontosTotales();
                 MontosGarantiaVisible = true;
@@ -1305,14 +1305,6 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
             CambiarBonificacionEnabled = Pedidos.CambiarBonificacion;
             AdicionalEnabled = Pedidos.BonificacionAdicional && !Pedidos.FacturarPedido;
-
-            //if (Pedidos.TomaAutomatica)
-            //    this.cargarEMFTextBox();
-            //else
-            //{
-            //    this.ZAutomatizarTextBox = false;
-            //    deshabilitarAutomatico(Pedidos.TomaAutomatica);
-            //}
 
             ClienteCia cliente = GlobalUI.ClienteActual.ObtenerClienteCia(CompaniaActual);
             EsDolar = cliente.Moneda == TipoMoneda.DOLAR;

@@ -737,7 +737,10 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                             bool ok = true;
                             try
                             {
-                                Cobros.CrearNotaCredito();
+                                if (Cobros.TipoCobro != TipoCobro.Recibo)
+                                    Cobros.CrearNotaCredito();
+                                else
+                                    Cobros.CrearReciboSinAplicacion();
                             }
                             catch (Exception e)
                             {
@@ -1278,7 +1281,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         public void CargaInfoCobro()
         {
             //Calcula descuentos solamente si no es una factura de contado
-            if (Cobros.TipoCobro == TipoCobro.MontoTotal)
+            if (Cobros.TipoCobro == TipoCobro.MontoTotal || Cobros.TipoCobro == TipoCobro.Recibo)
             {
                 Cobros.SacarCuentasMontoTotales();
                 CalcularDescuentosMontoTotal();

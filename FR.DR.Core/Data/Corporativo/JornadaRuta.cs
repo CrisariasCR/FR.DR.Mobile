@@ -10,13 +10,6 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
     public class JornadaRuta
     {
         #region Constantes
-        /*
-         * RUTA,FECHA,FECHA_HORA_INICIO,FECHA_HORA_FIN,PEDIDOS_LOCAL,MONTO_PEDIDOS_LOCAL,FACTURAS_LOCAL,MONTO_FACTURAS_LOCAL,
-            DEVOLUCIONES_LOCAL,MONTO_DEVOLUCIONES_LOCAL,COBROS_LOCAL,MONTO_COBROS_LOCAL,MONTO_COBROS_CHQ_LOCAL,MONTO_COBROS_EFC_LOCAL,
-            MONTO_COBROS_NC_LOCAL,DEPOSITOS_LOCAL,MONTO_DEPOSITOS_LOCAL,PEDIDOS_DOLAR,MONTO_PEDIDOS_DOLAR,FACTURAS_DOLAR,MONTO_FACTURAS_DOLAR,
-            DEVOLUCIONES_DOLAR,MONTO_DEVOLUCIONES_DOLAR,COBROS_DOLAR,MONTO_COBROS_DOLAR,MONTO_COBROS_CHQ_DOLAR,MONTO_COBROS_EFC_DOLAR,
-            MONTO_COBROS_NC_DOLAR,DEPOSITOS_DOLAR,MONTO_DEPOSITOS_DOLAR
-         */
         public const string RUTA = "RUTA";
         public const string FECHA = "FECHA";
         public const string FECHA_INICIO = "FECHA_HORA_INICIO";
@@ -26,17 +19,41 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         public const string MONTO_PEDIDOS_LOCAL = "MONTO_PEDIDOS_LOCAL";
         public const string MONTO_PEDIDOS_DOLAR = "MONTO_PEDIDOS_DOLAR";
         public const string FACTURAS_LOCAL = "FACTURAS_LOCAL";
+        public const string FACTURAS_LOCAL_CRE = "FACTURAS_LOCAL_CRE";
+        public const string FACTURAS_LOCAL_CONT = "FACTURAS_LOCAL_CRE";
         public const string GARANTIAS_LOCAL = "GARANTIAS_LOCAL";
+        public const string GARANTIAS_LOCAL_CRE = "GARANTIAS_LOCAL_CRE";
+        public const string GARANTIAS_LOCAL_CONT = "GARANTIAS_LOCAL_CRE";
         public const string FACTURAS_DOLAR = "FACTURAS_DOLAR";
+        public const string FACTURAS_DOLAR_CRE = "FACTURAS_DOLAR_CRE";
+        public const string FACTURAS_DOLAR_CONT = "FACTURAS_DOLAR_CRE";
         public const string GARANTIAS_DOLAR = "GARANTIAS_DOLAR";
+        public const string GARANTIAS_DOLAR_CRE = "GARANTIAS_DOLAR_CRE";
+        public const string GARANTIAS_DOLAR_CONT = "GARANTIAS_DOLAR_CRE";
         public const string MONTO_FACTURAS_LOCAL = "MONTO_FACTURAS_LOCAL";
+        public const string MONTO_FACTURAS_LOCAL_CRE = "MONTO_FACTURAS_LOCAL_CRE";
+        public const string MONTO_FACTURAS_LOCAL_CONT = "MONTO_FACTURAS_LOCAL_CONT";
         public const string MONTO_GARANTIAS_LOCAL = "MONTO_GARANTIAS_LOCAL";
+        public const string MONTO_GARANTIAS_LOCAL_CRE = "MONTO_GARANTIAS_LOCAL_CRE";
+        public const string MONTO_GARANTIAS_LOCAL_CONT = "MONTO_GARANTIAS_LOCAL_CONT";
         public const string MONTO_FACTURAS_DOLAR = "MONTO_FACTURAS_DOLAR";
+        public const string MONTO_FACTURAS_DOLAR_CRE = "MONTO_FACTURAS_DOLAR_CRE";
+        public const string MONTO_FACTURAS_DOLAR_CONT = "MONTO_FACTURAS_DOLAR_CONT";
         public const string MONTO_GARANTIAS_DOLAR = "MONTO_GARANTIAS_DOLAR";
+        public const string MONTO_GARANTIAS_DOLAR_CRE = "MONTO_GARANTIAS_DOLAR_CRE";
+        public const string MONTO_GARANTIAS_DOLAR_CONT = "MONTO_GARANTIAS_DOLAR_CONT";
         public const string FACTURASTF_LOCAL = "FACTURASTF_LOCAL";
+        public const string FACTURASTF_LOCAL_CRE = "FACTURASTF_LOCAL_CRE";
+        public const string FACTURASTF_LOCAL_CONT = "FACTURASTF_LOCAL_CRE";
         public const string FACTURASTF_DOLAR = "FACTURASTF_DOLAR";
+        public const string FACTURASTF_DOLAR_CRE = "FACTURASTF_DOLAR_CRE";
+        public const string FACTURASTF_DOLAR_CONT = "FACTURASTF_DOLAR_CONT";
         public const string MONTO_FACTURASTF_LOCAL = "MONTO_FACTURASTF_LOCAL";
+        public const string MONTO_FACTURASTF_LOCAL_CRE = "MONTO_FACTURASTF_LOCAL_CRE";
+        public const string MONTO_FACTURASTF_LOCAL_CONT = "MONTO_FACTURASTF_LOCAL_CONT";
         public const string MONTO_FACTURASTF_DOLAR = "MONTO_FACTURASTF_DOLAR";
+        public const string MONTO_FACTURASTF_DOLAR_CRE = "MONTO_FACTURASTF_DOLAR_CRE";
+        public const string MONTO_FACTURASTF_DOLAR_CONT = "MONTO_FACTURASTF_DOLAR_CONT";
         public const string DEVOLUCIONES_LOCAL = "DEVOLUCIONES_LOCAL";
         public const string DEVOLUCIONES_DOLAR = "DEVOLUCIONES_DOLAR";
         public const string MONTO_DEVOLUCIONES_LOCAL = "MONTO_DEVOLUCIONES_LOCAL";
@@ -55,8 +72,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         public const string DEPOSITOS_DOLAR = "DEPOSITOS_DOLAR";
         public const string MONTO_DEPOSITOS_LOCAL = "MONTO_DEPOSITOS_LOCAL";
         public const string MONTO_DEPOSITOS_DOLAR = "MONTO_DEPOSITOS_DOLAR";
-
-        #region  Facturas de contado y recibos en FR - KFC
+        
 
         public const string DEVOLUCIONES_EFC_LOCAL = "DEVOLUCIONES_EFC_LOCAL";
         public const string DEVOLUCIONES_EFC_DOLAR = "DEVOLUCIONES_EFC_DOLAR";
@@ -64,7 +80,16 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         public const string MONTO_DEVOLUCION_EFC_LOCAL = "MONTO_DEVOLUCION_EFC_LOCAL";
         public const string MONTO_DEVOLUCION_EFC_DOLAR = "MONTO_DEVOLUCION_EFC_DOLAR";
 
-        #endregion
+        public const string MONTO_COBROS_TOTAL_LOCAL = "MONTO_COBROS_TOTAL_LOCAL";
+        public const string MONTO_CONTADO_TOTAL_LOCAL = "MONTO_CONTADO_TOTAL_LOCAL";
+        public const string MONTO_CREDITO_TOTAL_LOCAL = "MONTO_CREDITO_TOTAL_LOCAL";
+
+        public const string MONTO_COBROS_TOTAL_DOLAR = "MONTO_COBROS_TOTAL_DOLAR";
+        public const string MONTO_CONTADO_TOTAL_DOLAR = "MONTO_CONTADO_TOTAL_DOLAR";
+        public const string MONTO_CREDITO_TOTAL_DOLAR = "MONTO_CREDITO_TOTAL_DOLAR";
+
+        public const string MONTO_DIFERENCIA_TOTAL_LOCAL = "MONTO_DIFERENCIA_TOTAL_LOCAL";
+        public const string MONTO_DIFERENCIA_TOTAL_DOLAR = "MONTO_DIFERENCIA_TOTAL_DOLAR";
 
         public const string SINCRONIZADO = "SINCRONIZADO";
 
@@ -84,11 +109,23 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         private decimal? pedidosLocal;
         private decimal? montoPedidosLocal;
         private decimal? facturasLocal;
+        private decimal? facturasLocalCre;
+        private decimal? facturasLocalCont;
         private decimal? garantiasLocal;
+        private decimal? garantiasLocalCre;
+        private decimal? garantiasLocalCont;
         private decimal? facturasTomaFisicaLocal;
+        private decimal? facturasTomaFisicaLocalCre;
+        private decimal? facturasTomaFisicaLocalCont;
         private decimal? montoFacturasLocal;
+        private decimal? montoFacturasLocalCre;
+        private decimal? montoFacturasLocalCont;
         private decimal? montoGarantiasLocal;
+        private decimal? montoGarantiasLocalCre;
+        private decimal? montoGarantiasLocalCont;
         private decimal? montoFacturasTomaFisicaLocal;
+        private decimal? montoFacturasTomaFisicaLocalCre;
+        private decimal? montoFacturasTomaFisicaLocalCont;
         private decimal? devolucionesLocal;
         private decimal? montoDevolucionesLocal;
         private decimal? cobrosLocal;
@@ -101,11 +138,23 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         private decimal? pedidosDolar;
         private decimal? montoPedidosDolar;
         private decimal? facturasDolar;
+        private decimal? facturasDolarCre;
+        private decimal? facturasDolarCont;
         private decimal? garantiasDolar;
+        private decimal? garantiasDolarCre;
+        private decimal? garantiasDolarCont;
         private decimal? facturasTomaFisicaDolar;
+        private decimal? facturasTomaFisicaDolarCre;
+        private decimal? facturasTomaFisicaDolarCont;
         private decimal? montoFacturasDolar;
+        private decimal? montoFacturasDolarCre;
+        private decimal? montoFacturasDolarCont;
         private decimal? montoGarantiasDolar;
+        private decimal? montoGarantiasDolarCre;
+        private decimal? montoGarantiasDolarCont;
         private decimal? montoFacturasTomaFisicaDolar;
+        private decimal? montoFacturasTomaFisicaDolarCre;
+        private decimal? montoFacturasTomaFisicaDolarCont;
         private decimal? devolucionesDolar;
         private decimal? montoDevolucionesDolar;
         private decimal? cobrosDolar;
@@ -145,7 +194,13 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
             , MONTO_DEPOSITOS_DOLAR
             , MONTO_DEVOLUCION_EFC_DOLAR, MONTO_DEVOLUCION_EFC_LOCAL
             , DEVOLUCIONES_EFC_DOLAR, DEVOLUCIONES_EFC_LOCAL,GARANTIAS_LOCAL,MONTO_GARANTIAS_LOCAL,GARANTIAS_DOLAR,MONTO_GARANTIAS_DOLAR,
-            FACTURASTF_LOCAL,MONTO_FACTURASTF_LOCAL,FACTURASTF_DOLAR,MONTO_FACTURASTF_DOLAR
+            FACTURASTF_LOCAL,MONTO_FACTURASTF_LOCAL,FACTURASTF_DOLAR,MONTO_FACTURASTF_DOLAR,
+            FACTURAS_LOCAL_CRE,MONTO_FACTURAS_LOCAL_CRE,FACTURAS_DOLAR_CRE,MONTO_FACTURAS_DOLAR_CRE,
+            GARANTIAS_LOCAL_CRE,MONTO_GARANTIAS_LOCAL_CRE,GARANTIAS_DOLAR_CRE,MONTO_GARANTIAS_DOLAR_CRE,
+            FACTURASTF_LOCAL_CRE,MONTO_FACTURASTF_LOCAL_CRE,FACTURASTF_DOLAR_CRE,MONTO_FACTURASTF_DOLAR_CRE,
+            FACTURAS_LOCAL_CONT,MONTO_FACTURAS_LOCAL_CONT,FACTURAS_DOLAR_CONT,MONTO_FACTURAS_DOLAR_CONT,
+            GARANTIAS_LOCAL_CONT,MONTO_GARANTIAS_LOCAL_CONT,GARANTIAS_DOLAR_CONT,MONTO_GARANTIAS_DOLAR_CONT,
+            FACTURASTF_LOCAL_CONT,MONTO_FACTURASTF_LOCAL_CONT,FACTURASTF_DOLAR_CONT,MONTO_FACTURASTF_DOLAR_CONT
         };
         #endregion
         #region Propiedades
@@ -209,6 +264,66 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         {
             get { return montoGarantiasLocal; }
             set { montoGarantiasLocal = value; }
+        }
+        public decimal? FacturasLocalCre
+        {
+            get { return facturasLocalCre; }
+            set { facturasLocalCre = value; }
+        }
+        public decimal? FacturasTomaFisicaLocalCre
+        {
+            get { return facturasTomaFisicaLocalCre; }
+            set { facturasTomaFisicaLocalCre = value; }
+        }
+        public decimal? GarantiasLocalCre
+        {
+            get { return garantiasLocalCre; }
+            set { garantiasLocalCre = value; }
+        }
+        public decimal? MontoFacturasLocalCre
+        {
+            get { return montoFacturasLocalCre; }
+            set { montoFacturasLocalCre = value; }
+        }
+        public decimal? MontoFacturasTomaFisicaLocalCre
+        {
+            get { return montoFacturasTomaFisicaLocalCre; }
+            set { montoFacturasTomaFisicaLocalCre = value; }
+        }
+        public decimal? MontoGarantiasLocalCre
+        {
+            get { return montoGarantiasLocalCre; }
+            set { montoGarantiasLocalCre = value; }
+        }
+        public decimal? FacturasLocalCont
+        {
+            get { return facturasLocalCont; }
+            set { facturasLocalCont = value; }
+        }
+        public decimal? FacturasTomaFisicaLocalCont
+        {
+            get { return facturasTomaFisicaLocalCont; }
+            set { facturasTomaFisicaLocalCont = value; }
+        }
+        public decimal? GarantiasLocalCont
+        {
+            get { return garantiasLocalCont; }
+            set { garantiasLocalCont = value; }
+        }
+        public decimal? MontoFacturasLocalCont
+        {
+            get { return montoFacturasLocalCont; }
+            set { montoFacturasLocalCont = value; }
+        }
+        public decimal? MontoFacturasTomaFisicaLocalCont
+        {
+            get { return montoFacturasTomaFisicaLocalCont; }
+            set { montoFacturasTomaFisicaLocalCont = value; }
+        }
+        public decimal? MontoGarantiasLocalCont
+        {
+            get { return montoGarantiasLocalCont; }
+            set { montoGarantiasLocalCont = value; }
         }
         public decimal? DevolucionesLocal
         {
@@ -296,6 +411,66 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
         {
             get { return montoGarantiasDolar; }
             set { montoGarantiasDolar = value; }
+        }
+        public decimal? FacturasDolarCre
+        {
+            get { return facturasDolarCre; }
+            set { facturasDolarCre = value; }
+        }
+        public decimal? FacturasTomaFisicaDolarCre
+        {
+            get { return facturasTomaFisicaDolarCre; }
+            set { facturasTomaFisicaDolarCre = value; }
+        }
+        public decimal? GarantiasDolarCre
+        {
+            get { return garantiasDolarCre; }
+            set { garantiasDolarCre = value; }
+        }
+        public decimal? MontoFacturasDolarCre
+        {
+            get { return montoFacturasDolarCre; }
+            set { montoFacturasDolarCre = value; }
+        }
+        public decimal? MontoFacturasTomaFisicaDolarCre
+        {
+            get { return montoFacturasTomaFisicaDolarCre; }
+            set { montoFacturasTomaFisicaDolarCre = value; }
+        }
+        public decimal? MontoGarantiasDolarCre
+        {
+            get { return montoGarantiasDolarCre; }
+            set { montoGarantiasDolarCre = value; }
+        }
+        public decimal? FacturasDolarCont
+        {
+            get { return facturasDolarCont; }
+            set { facturasDolarCont = value; }
+        }
+        public decimal? FacturasTomaFisicaDolarCont
+        {
+            get { return facturasTomaFisicaDolarCont; }
+            set { facturasTomaFisicaDolarCont = value; }
+        }
+        public decimal? GarantiasDolarCont
+        {
+            get { return garantiasDolarCont; }
+            set { garantiasDolarCont = value; }
+        }
+        public decimal? MontoFacturasDolarCont
+        {
+            get { return montoFacturasDolarCont; }
+            set { montoFacturasDolarCont = value; }
+        }
+        public decimal? MontoFacturasTomaFisicaDolarCont
+        {
+            get { return montoFacturasTomaFisicaDolarCont; }
+            set { montoFacturasTomaFisicaDolarCont = value; }
+        }
+        public decimal? MontoGarantiasDolarCont
+        {
+            get { return montoGarantiasDolarCont; }
+            set { montoGarantiasDolarCont = value; }
         }
         public decimal? DevolucionesDolar
         {
@@ -600,6 +775,12 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
             sentencia.AppendLine(" , SINCRONIZADO ");
             sentencia.AppendLine(" , MONTO_DEVOLUCION_EFC_LOCAL, MONTO_DEVOLUCION_EFC_DOLAR, DEVOLUCIONES_EFC_LOCAL, DEVOLUCIONES_EFC_DOLAR ");
             sentencia.AppendLine(" , FACTURASTF_LOCAL, FACTURASTF_DOLAR, MONTO_FACTURASTF_LOCAL,MONTO_FACTURASTF_DOLAR,GARANTIAS_LOCAL,GARANTIAS_DOLAR,MONTO_GARANTIAS_LOCAL,MONTO_GARANTIAS_DOLAR ");
+            sentencia.AppendLine(" , FACTURAS_LOCAL_CRE,MONTO_FACTURAS_LOCAL_CRE,FACTURAS_DOLAR_CRE,MONTO_FACTURAS_DOLAR_CRE");
+            sentencia.AppendLine(" , GARANTIAS_LOCAL_CRE,MONTO_GARANTIAS_LOCAL_CRE,GARANTIAS_DOLAR_CRE,MONTO_GARANTIAS_DOLAR_CRE");
+            sentencia.AppendLine(" , FACTURASTF_LOCAL_CRE,MONTO_FACTURASTF_LOCAL_CRE,FACTURASTF_DOLAR_CRE,MONTO_FACTURASTF_DOLAR_CRE");
+            sentencia.AppendLine(" , FACTURAS_LOCAL_CONT,MONTO_FACTURAS_LOCAL_CONT,FACTURAS_DOLAR_CONT,MONTO_FACTURAS_DOLAR_CONT");
+            sentencia.AppendLine(" , GARANTIAS_LOCAL_CONT,MONTO_GARANTIAS_LOCAL_CONT,GARANTIAS_DOLAR_CONT,MONTO_GARANTIAS_DOLAR_CONT");
+            sentencia.AppendLine(" , FACTURASTF_LOCAL_CONT,MONTO_FACTURASTF_LOCAL_CONT,FACTURASTF_DOLAR_CONT,MONTO_FACTURASTF_DOLAR_CONT");
             sentencia.AppendLine(String.Format(" FROM {0}", Table.ERPADMIN_JORNADA_RUTAS));
             sentencia.AppendLine(" WHERE RUTA = @RUTA AND julianday(date(FECHA)) = julianday(date('now','localtime'))");
 
@@ -690,7 +871,37 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
             resultado.MontoGarantiasLocal = GetNullableDecimal(reader, 41);
             resultado.MontoGarantiasDolar = GetNullableDecimal(reader, 42);
 
+            //Proyecto Gas Z separación de Crédito y Contado
 
+            resultado.FacturasLocalCre = GetNullableDecimal(reader, 43);
+            resultado.MontoFacturasLocalCre = GetNullableDecimal(reader, 44);
+            resultado.FacturasDolarCre = GetNullableDecimal(reader, 45);
+            resultado.MontoFacturasDolarCre = GetNullableDecimal(reader, 46);
+
+            resultado.GarantiasLocalCre = GetNullableDecimal(reader, 47);
+            resultado.MontoGarantiasLocalCre = GetNullableDecimal(reader, 48);
+            resultado.GarantiasDolarCre = GetNullableDecimal(reader, 49);
+            resultado.MontoGarantiasDolarCre = GetNullableDecimal(reader, 50);
+
+            resultado.FacturasTomaFisicaLocalCre = GetNullableDecimal(reader, 51);
+            resultado.MontoFacturasTomaFisicaLocalCre = GetNullableDecimal(reader, 52);
+            resultado.FacturasTomaFisicaDolarCre = GetNullableDecimal(reader, 53);
+            resultado.MontoFacturasTomaFisicaDolarCre = GetNullableDecimal(reader, 54);
+
+            resultado.FacturasLocalCont = GetNullableDecimal(reader, 55);
+            resultado.MontoFacturasLocalCont = GetNullableDecimal(reader, 56);
+            resultado.FacturasDolarCont = GetNullableDecimal(reader, 57);
+            resultado.MontoFacturasDolarCont = GetNullableDecimal(reader, 58);
+
+            resultado.GarantiasLocalCont = GetNullableDecimal(reader, 59);
+            resultado.MontoGarantiasLocalCont = GetNullableDecimal(reader, 60);
+            resultado.GarantiasDolarCont = GetNullableDecimal(reader, 61);
+            resultado.MontoGarantiasDolarCont = GetNullableDecimal(reader, 62);
+
+            resultado.FacturasTomaFisicaLocalCont = GetNullableDecimal(reader, 63);
+            resultado.MontoFacturasTomaFisicaLocalCont = GetNullableDecimal(reader, 64);
+            resultado.FacturasTomaFisicaDolarCont = GetNullableDecimal(reader, 65);
+            resultado.MontoFacturasTomaFisicaDolarCont = GetNullableDecimal(reader, 66);
 
             return resultado;
         }
@@ -891,14 +1102,26 @@ namespace Softland.ERP.FR.Mobile.Cls.Corporativo
                             , jornada.cobrosDolar, jornada.montoCobrosDolar
                             , jornada.montoCobrosChequeDolar, jornada.montoCobrosEfectivoDolar, jornada.montoCobrosNotaCreditoDolar
                             , jornada.depositosDolar, jornada.montoDepositosDolar
-                            //kfc nuevo
                             , jornada.montoDevolucionesEfectivoDolar, jornada.montoDevolucionesEfectivoLocal
                             , jornada.devolucionesEfectivoDolar,jornada.devolucionesEfectivoLocal
                             , jornada.garantiasLocal,jornada.montoGarantiasLocal
                             ,jornada.garantiasDolar,jornada.montoGarantiasDolar
                             ,jornada.facturasTomaFisicaLocal,jornada.montoFacturasTomaFisicaLocal
-                            , jornada.facturasTomaFisicaDolar, jornada.montoFacturasTomaFisicaDolar
+                            , jornada.facturasTomaFisicaDolar, jornada.montoFacturasTomaFisicaDolar,
+                            //Proyecto Gas Z
+                            jornada.facturasLocalCre,jornada.montoFacturasLocalCre,
+                            jornada.facturasDolarCre,jornada.montoFacturasLocalCre,
+                            jornada.garantiasLocalCre,jornada.montoGarantiasLocalCre,
+                            jornada.garantiasDolarCre, jornada.montoGarantiasDolarCre,
+                            jornada.FacturasTomaFisicaLocalCre,jornada.montoFacturasTomaFisicaLocalCre,
+                            jornada.FacturasTomaFisicaDolarCre,jornada.montoFacturasTomaFisicaDolarCre,
 
+                            jornada.facturasLocalCont,jornada.montoFacturasLocalCont,
+                            jornada.facturasDolarCont,jornada.montoFacturasLocalCont,
+                            jornada.garantiasLocalCont,jornada.montoGarantiasLocalCont,
+                            jornada.garantiasDolarCont, jornada.montoGarantiasDolarCont,
+                            jornada.FacturasTomaFisicaLocalCont,jornada.montoFacturasTomaFisicaLocalCont,
+                            jornada.FacturasTomaFisicaDolarCont,jornada.montoFacturasTomaFisicaDolarCont
                             );                       
                     }                    
                 }

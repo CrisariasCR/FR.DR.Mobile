@@ -246,10 +246,7 @@ namespace FR.Droid
 			public const int text_color_selector = 2130837565;
 			
 			// aapt resource value: 0x7f02003e
-			public const int toast = 2130837566;
-			
-			// aapt resource value: 0x7f02003f
-			public const int UserTxt = 2130837567;
+			public const int UserTxt = 2130837566;
 			
 			static Drawable()
 			{
@@ -297,8 +294,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04006c
 			public const int ListaRetenciones = 2130968684;
 			
-			// aapt resource value: 0x7f04011c
-			public const int ListaSugerencias = 2130968860;
+			// aapt resource value: 0x7f040114
+			public const int ListaSugerencias = 2130968852;
 			
 			// aapt resource value: 0x7f040001
 			public const int MvxBindableListItemTagUnique = 2130968577;
@@ -315,8 +312,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040004
 			public const int btnAceptar = 2130968580;
 			
-			// aapt resource value: 0x7f0400b7
-			public const int btnActualizar = 2130968759;
+			// aapt resource value: 0x7f0400b4
+			public const int btnActualizar = 2130968756;
 			
 			// aapt resource value: 0x7f040038
 			public const int btnAgregar = 2130968632;
@@ -333,26 +330,26 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04002f
 			public const int btnCancelar = 2130968623;
 			
-			// aapt resource value: 0x7f0400b3
-			public const int btnCarga = 2130968755;
+			// aapt resource value: 0x7f0400b0
+			public const int btnCarga = 2130968752;
 			
 			// aapt resource value: 0x7f040022
 			public const int btnCheques = 2130968610;
 			
-			// aapt resource value: 0x7f0400a1
-			public const int btnCierre = 2130968737;
+			// aapt resource value: 0x7f04009e
+			public const int btnCierre = 2130968734;
 			
-			// aapt resource value: 0x7f0400a5
-			public const int btnClientes = 2130968741;
+			// aapt resource value: 0x7f0400a2
+			public const int btnClientes = 2130968738;
+			
+			// aapt resource value: 0x7f0400aa
+			public const int btnCobro = 2130968746;
+			
+			// aapt resource value: 0x7f0400b3
+			public const int btnCobros = 2130968755;
 			
 			// aapt resource value: 0x7f0400ad
-			public const int btnCobro = 2130968749;
-			
-			// aapt resource value: 0x7f0400b6
-			public const int btnCobros = 2130968758;
-			
-			// aapt resource value: 0x7f0400b0
-			public const int btnConsignacion = 2130968752;
+			public const int btnConsignacion = 2130968749;
 			
 			// aapt resource value: 0x7f04001a
 			public const int btnConsultar = 2130968602;
@@ -360,23 +357,23 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040043
 			public const int btnContinuar = 2130968643;
 			
-			// aapt resource value: 0x7f0400a8
-			public const int btnDatos = 2130968744;
+			// aapt resource value: 0x7f0400a5
+			public const int btnDatos = 2130968741;
 			
-			// aapt resource value: 0x7f0400a6
-			public const int btnDepositos = 2130968742;
+			// aapt resource value: 0x7f0400a3
+			public const int btnDepositos = 2130968739;
 			
 			// aapt resource value: 0x7f040026
 			public const int btnDescuento = 2130968614;
 			
-			// aapt resource value: 0x7f040142
-			public const int btnDetalle = 2130968898;
+			// aapt resource value: 0x7f04013a
+			public const int btnDetalle = 2130968890;
 			
-			// aapt resource value: 0x7f0400af
-			public const int btnDevoluciones = 2130968751;
+			// aapt resource value: 0x7f0400ac
+			public const int btnDevoluciones = 2130968748;
 			
-			// aapt resource value: 0x7f040124
-			public const int btnDevolver = 2130968868;
+			// aapt resource value: 0x7f04011c
+			public const int btnDevolver = 2130968860;
 			
 			// aapt resource value: 0x7f04001c
 			public const int btnEditar = 2130968604;
@@ -390,14 +387,14 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04001b
 			public const int btnEntrega = 2130968603;
 			
-			// aapt resource value: 0x7f0400b4
-			public const int btnEnvio = 2130968756;
+			// aapt resource value: 0x7f0400b1
+			public const int btnEnvio = 2130968753;
 			
 			// aapt resource value: 0x7f04002e
 			public const int btnFacturas = 2130968622;
 			
-			// aapt resource value: 0x7f040111
-			public const int btnGPS = 2130968849;
+			// aapt resource value: 0x7f040109
+			public const int btnGPS = 2130968841;
 			
 			// aapt resource value: 0x7f040061
 			public const int btnImprimir = 2130968673;
@@ -405,26 +402,26 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040057
 			public const int btnInicializar = 2130968663;
 			
-			// aapt resource value: 0x7f04010f
-			public const int btnIniciar = 2130968847;
+			// aapt resource value: 0x7f040107
+			public const int btnIniciar = 2130968839;
 			
-			// aapt resource value: 0x7f0400a0
-			public const int btnInicio = 2130968736;
+			// aapt resource value: 0x7f04009d
+			public const int btnInicio = 2130968733;
 			
-			// aapt resource value: 0x7f0400ac
-			public const int btnInventario = 2130968748;
+			// aapt resource value: 0x7f0400a9
+			public const int btnInventario = 2130968745;
 			
-			// aapt resource value: 0x7f0400aa
-			public const int btnJornada = 2130968746;
+			// aapt resource value: 0x7f0400a7
+			public const int btnJornada = 2130968743;
 			
 			// aapt resource value: 0x7f040049
 			public const int btnLogin = 2130968649;
 			
-			// aapt resource value: 0x7f0400b1
-			public const int btnMenuAnular = 2130968753;
+			// aapt resource value: 0x7f0400ae
+			public const int btnMenuAnular = 2130968750;
 			
-			// aapt resource value: 0x7f0400b2
-			public const int btnMenuConsultar = 2130968754;
+			// aapt resource value: 0x7f0400af
+			public const int btnMenuConsultar = 2130968751;
 			
 			// aapt resource value: 0x7f040020
 			public const int btnMonto = 2130968608;
@@ -432,26 +429,26 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040083
 			public const int btnNota = 2130968707;
 			
-			// aapt resource value: 0x7f0400b9
-			public const int btnNotas = 2130968761;
+			// aapt resource value: 0x7f0400b6
+			public const int btnNotas = 2130968758;
 			
-			// aapt resource value: 0x7f040157
-			public const int btnObservaciones = 2130968919;
+			// aapt resource value: 0x7f04014f
+			public const int btnObservaciones = 2130968911;
 			
-			// aapt resource value: 0x7f0400a9
-			public const int btnParametros = 2130968745;
+			// aapt resource value: 0x7f0400a6
+			public const int btnParametros = 2130968742;
 			
-			// aapt resource value: 0x7f0400ae
-			public const int btnPedido = 2130968750;
+			// aapt resource value: 0x7f0400ab
+			public const int btnPedido = 2130968747;
 			
-			// aapt resource value: 0x7f040147
-			public const int btnPrecio = 2130968903;
+			// aapt resource value: 0x7f04013f
+			public const int btnPrecio = 2130968895;
 			
-			// aapt resource value: 0x7f0400de
-			public const int btnPrint = 2130968798;
+			// aapt resource value: 0x7f0400d5
+			public const int btnPrint = 2130968789;
 			
-			// aapt resource value: 0x7f0400b5
-			public const int btnPurga = 2130968757;
+			// aapt resource value: 0x7f0400b2
+			public const int btnPurga = 2130968754;
 			
 			// aapt resource value: 0x7f040032
 			public const int btnRefrescar = 2130968626;
@@ -459,20 +456,20 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040039
 			public const int btnRemover = 2130968633;
 			
-			// aapt resource value: 0x7f0400a7
-			public const int btnReportes = 2130968743;
+			// aapt resource value: 0x7f0400a4
+			public const int btnReportes = 2130968740;
 			
-			// aapt resource value: 0x7f04008d
-			public const int btnRetirar = 2130968717;
+			// aapt resource value: 0x7f040090
+			public const int btnRetirar = 2130968720;
 			
 			// aapt resource value: 0x7f040074
 			public const int btnSalir = 2130968692;
 			
-			// aapt resource value: 0x7f04011b
-			public const int btnSeleccionarNinguno = 2130968859;
+			// aapt resource value: 0x7f040113
+			public const int btnSeleccionarNinguno = 2130968851;
 			
-			// aapt resource value: 0x7f04011a
-			public const int btnSeleccionarTodos = 2130968858;
+			// aapt resource value: 0x7f040112
+			public const int btnSeleccionarTodos = 2130968850;
 			
 			// aapt resource value: 0x7f040014
 			public const int btnTerminar = 2130968596;
@@ -480,23 +477,23 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04002d
 			public const int btnTipoCAmbio = 2130968621;
 			
-			// aapt resource value: 0x7f0400e6
-			public const int btnTomaFisica = 2130968806;
+			// aapt resource value: 0x7f0400eb
+			public const int btnTomaFisica = 2130968811;
 			
-			// aapt resource value: 0x7f0400e5
-			public const int btnTrasiego = 2130968805;
+			// aapt resource value: 0x7f0400ea
+			public const int btnTrasiego = 2130968810;
 			
 			// aapt resource value: 0x7f040037
 			public const int btnVerchq = 2130968631;
 			
-			// aapt resource value: 0x7f040110
-			public const int btnVisitar = 2130968848;
+			// aapt resource value: 0x7f040108
+			public const int btnVisitar = 2130968840;
 			
-			// aapt resource value: 0x7f040125
-			public const int btndirA = 2130968869;
+			// aapt resource value: 0x7f04011d
+			public const int btndirA = 2130968861;
 			
-			// aapt resource value: 0x7f04015a
-			public const int buttonZxingFlash = 2130968922;
+			// aapt resource value: 0x7f040152
+			public const int buttonZxingFlash = 2130968914;
 			
 			// aapt resource value: 0x7f040033
 			public const int cmbBancosapc = 2130968627;
@@ -504,11 +501,11 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040044
 			public const int cmbBancoschq = 2130968644;
 			
-			// aapt resource value: 0x7f0400e7
-			public const int cmbBodegarli = 2130968807;
+			// aapt resource value: 0x7f0400ec
+			public const int cmbBodegarli = 2130968812;
 			
-			// aapt resource value: 0x7f04014a
-			public const int cmbClasett = 2130968906;
+			// aapt resource value: 0x7f040142
+			public const int cmbClasett = 2130968898;
 			
 			// aapt resource value: 0x7f04003e
 			public const int cmbCompanias = 2130968638;
@@ -534,8 +531,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04004a
 			public const int cmbCompaniascfp = 2130968650;
 			
-			// aapt resource value: 0x7f04008a
-			public const int cmbCompaniasci = 2130968714;
+			// aapt resource value: 0x7f04008d
+			public const int cmbCompaniasci = 2130968717;
 			
 			// aapt resource value: 0x7f040062
 			public const int cmbCompaniascncf = 2130968674;
@@ -546,8 +543,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040086
 			public const int cmbCompaniasdd = 2130968710;
 			
-			// aapt resource value: 0x7f04008e
-			public const int cmbCompaniasdp = 2130968718;
+			// aapt resource value: 0x7f04008a
+			public const int cmbCompaniasdp = 2130968714;
 			
 			// aapt resource value: 0x7f040075
 			public const int cmbCompaniasdsc = 2130968693;
@@ -555,44 +552,44 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040091
 			public const int cmbCompaniasdvc = 2130968721;
 			
-			// aapt resource value: 0x7f0400a2
-			public const int cmbCompaniaslfl = 2130968738;
+			// aapt resource value: 0x7f04009f
+			public const int cmbCompaniaslfl = 2130968735;
 			
-			// aapt resource value: 0x7f0400b8
-			public const int cmbCompaniasmcc = 2130968760;
+			// aapt resource value: 0x7f0400b5
+			public const int cmbCompaniasmcc = 2130968757;
 			
-			// aapt resource value: 0x7f0400ba
-			public const int cmbCompaniasmp = 2130968762;
+			// aapt resource value: 0x7f0400b7
+			public const int cmbCompaniasmp = 2130968759;
 			
-			// aapt resource value: 0x7f0400c2
-			public const int cmbCompaniasps = 2130968770;
+			// aapt resource value: 0x7f0400be
+			public const int cmbCompaniasps = 2130968766;
 			
-			// aapt resource value: 0x7f0400df
-			public const int cmbCompaniasri = 2130968799;
+			// aapt resource value: 0x7f0400e4
+			public const int cmbCompaniasri = 2130968804;
 			
-			// aapt resource value: 0x7f0400e8
-			public const int cmbCompaniasrli = 2130968808;
+			// aapt resource value: 0x7f0400ed
+			public const int cmbCompaniasrli = 2130968813;
 			
-			// aapt resource value: 0x7f040116
-			public const int cmbCompaniassr = 2130968854;
+			// aapt resource value: 0x7f04010e
+			public const int cmbCompaniassr = 2130968846;
 			
-			// aapt resource value: 0x7f04014d
-			public const int cmbCompaniastc = 2130968909;
+			// aapt resource value: 0x7f040145
+			public const int cmbCompaniastc = 2130968901;
 			
-			// aapt resource value: 0x7f040122
-			public const int cmbCompaniastd = 2130968866;
+			// aapt resource value: 0x7f04011a
+			public const int cmbCompaniastd = 2130968858;
 			
-			// aapt resource value: 0x7f04012e
-			public const int cmbCompaniastdd = 2130968878;
+			// aapt resource value: 0x7f040126
+			public const int cmbCompaniastdd = 2130968870;
 			
-			// aapt resource value: 0x7f04013d
-			public const int cmbCompaniasti = 2130968893;
+			// aapt resource value: 0x7f040135
+			public const int cmbCompaniasti = 2130968885;
 			
-			// aapt resource value: 0x7f040137
-			public const int cmbCompaniastp = 2130968887;
+			// aapt resource value: 0x7f04012f
+			public const int cmbCompaniastp = 2130968879;
 			
-			// aapt resource value: 0x7f04004f
-			public const int cmbCondicioncfp = 2130968655;
+			// aapt resource value: 0x7f04004d
+			public const int cmbCondicioncfp = 2130968653;
 			
 			// aapt resource value: 0x7f040054
 			public const int cmbCondicionescfc = 2130968660;
@@ -609,8 +606,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040064
 			public const int cmbCriterioscd = 2130968676;
 			
-			// aapt resource value: 0x7f04008b
-			public const int cmbCriteriosci = 2130968715;
+			// aapt resource value: 0x7f04008e
+			public const int cmbCriteriosci = 2130968718;
 			
 			// aapt resource value: 0x7f04006b
 			public const int cmbCriterioscp = 2130968683;
@@ -618,8 +615,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040087
 			public const int cmbCriteriosdd = 2130968711;
 			
-			// aapt resource value: 0x7f04008f
-			public const int cmbCriteriosdp = 2130968719;
+			// aapt resource value: 0x7f04008b
+			public const int cmbCriteriosdp = 2130968715;
 			
 			// aapt resource value: 0x7f040076
 			public const int cmbCriteriosdsc = 2130968694;
@@ -627,32 +624,32 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040092
 			public const int cmbCriteriosdvc = 2130968722;
 			
-			// aapt resource value: 0x7f0400e4
-			public const int cmbCriteriosri = 2130968804;
+			// aapt resource value: 0x7f0400e9
+			public const int cmbCriteriosri = 2130968809;
 			
-			// aapt resource value: 0x7f04010b
-			public const int cmbCriteriossc = 2130968843;
+			// aapt resource value: 0x7f040103
+			public const int cmbCriteriossc = 2130968835;
 			
-			// aapt resource value: 0x7f04014e
-			public const int cmbCriteriostc = 2130968910;
+			// aapt resource value: 0x7f040146
+			public const int cmbCriteriostc = 2130968902;
 			
-			// aapt resource value: 0x7f04012b
-			public const int cmbCriteriostd = 2130968875;
+			// aapt resource value: 0x7f040123
+			public const int cmbCriteriostd = 2130968867;
 			
-			// aapt resource value: 0x7f04012f
-			public const int cmbCriteriostdd = 2130968879;
+			// aapt resource value: 0x7f040127
+			public const int cmbCriteriostdd = 2130968871;
 			
-			// aapt resource value: 0x7f04013e
-			public const int cmbCriteriosti = 2130968894;
+			// aapt resource value: 0x7f040136
+			public const int cmbCriteriosti = 2130968886;
 			
-			// aapt resource value: 0x7f040138
-			public const int cmbCriteriostp = 2130968888;
+			// aapt resource value: 0x7f040130
+			public const int cmbCriteriostp = 2130968880;
 			
 			// aapt resource value: 0x7f04000c
 			public const int cmbCuentasad = 2130968588;
 			
-			// aapt resource value: 0x7f04010d
-			public const int cmbDiasc = 2130968845;
+			// aapt resource value: 0x7f040105
+			public const int cmbDiasc = 2130968837;
 			
 			// aapt resource value: 0x7f040019
 			public const int cmbDireccionesafc = 2130968601;
@@ -660,44 +657,44 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04001e
 			public const int cmbDireccionesap = 2130968606;
 			
-			// aapt resource value: 0x7f040129
-			public const int cmbDiv1cd = 2130968873;
-			
-			// aapt resource value: 0x7f04004d
-			public const int cmbDiv1cfp = 2130968653;
-			
-			// aapt resource value: 0x7f04012a
-			public const int cmbDiv2cd = 2130968874;
+			// aapt resource value: 0x7f040121
+			public const int cmbDiv1cd = 2130968865;
 			
 			// aapt resource value: 0x7f04004e
-			public const int cmbDiv2cfp = 2130968654;
+			public const int cmbDiv1cfp = 2130968654;
 			
-			// aapt resource value: 0x7f040119
-			public const int cmbEntidadessr = 2130968857;
+			// aapt resource value: 0x7f040122
+			public const int cmbDiv2cd = 2130968866;
 			
-			// aapt resource value: 0x7f04012d
-			public const int cmbEstadoArticulotd = 2130968877;
+			// aapt resource value: 0x7f04004f
+			public const int cmbDiv2cfp = 2130968655;
 			
-			// aapt resource value: 0x7f040131
-			public const int cmbEstadoArticulotdd = 2130968881;
+			// aapt resource value: 0x7f040111
+			public const int cmbEntidadessr = 2130968849;
 			
-			// aapt resource value: 0x7f04009d
-			public const int cmbEstadoshp = 2130968733;
+			// aapt resource value: 0x7f040125
+			public const int cmbEstadoArticulotd = 2130968869;
 			
-			// aapt resource value: 0x7f04013a
-			public const int cmbFamiliastp = 2130968890;
+			// aapt resource value: 0x7f040129
+			public const int cmbEstadoArticulotdd = 2130968873;
 			
-			// aapt resource value: 0x7f040145
-			public const int cmbFamiliastpB = 2130968901;
-			
-			// aapt resource value: 0x7f0400bd
-			public const int cmbImpresoras = 2130968765;
+			// aapt resource value: 0x7f04009a
+			public const int cmbEstadoshp = 2130968730;
 			
 			// aapt resource value: 0x7f040132
-			public const int cmbLotestf = 2130968882;
+			public const int cmbFamiliastp = 2130968882;
 			
-			// aapt resource value: 0x7f040148
-			public const int cmbLotestt = 2130968904;
+			// aapt resource value: 0x7f04013d
+			public const int cmbFamiliastpB = 2130968893;
+			
+			// aapt resource value: 0x7f0400b9
+			public const int cmbImpresoras = 2130968761;
+			
+			// aapt resource value: 0x7f04012a
+			public const int cmbLotestf = 2130968874;
+			
+			// aapt resource value: 0x7f040140
+			public const int cmbLotestt = 2130968896;
 			
 			// aapt resource value: 0x7f040071
 			public const int cmbMonedascr = 2130968689;
@@ -708,8 +705,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040055
 			public const int cmbNivelescfc = 2130968661;
 			
-			// aapt resource value: 0x7f040128
-			public const int cmbPaiscd = 2130968872;
+			// aapt resource value: 0x7f040120
+			public const int cmbPaiscd = 2130968864;
 			
 			// aapt resource value: 0x7f04004b
 			public const int cmbPaiscfp = 2130968651;
@@ -717,95 +714,80 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040053
 			public const int cmbPaisescfc = 2130968659;
 			
+			// aapt resource value: 0x7f0400bb
+			public const int cmbPapeles = 2130968763;
+			
+			// aapt resource value: 0x7f04014e
+			public const int cmbRazonVisita = 2130968910;
+			
+			// aapt resource value: 0x7f040104
+			public const int cmbRutasc = 2130968836;
+			
 			// aapt resource value: 0x7f0400bf
-			public const int cmbPapeles = 2130968767;
+			public const int cmbRutasps = 2130968767;
 			
-			// aapt resource value: 0x7f040156
-			public const int cmbRazonVisita = 2130968918;
+			// aapt resource value: 0x7f0400c2
+			public const int cmbRutasrdd = 2130968770;
 			
-			// aapt resource value: 0x7f04010c
-			public const int cmbRutasc = 2130968844;
-			
-			// aapt resource value: 0x7f0400c3
-			public const int cmbRutasps = 2130968771;
-			
-			// aapt resource value: 0x7f0400c6
-			public const int cmbRutasrdd = 2130968774;
-			
-			// aapt resource value: 0x7f040146
-			public const int cmbSubFamiliastp = 2130968902;
+			// aapt resource value: 0x7f04013e
+			public const int cmbSubFamiliastp = 2130968894;
 			
 			// aapt resource value: 0x7f040072
 			public const int cmbTipoPagoscr = 2130968690;
 			
-			// aapt resource value: 0x7f040155
-			public const int cmbTipoVisita = 2130968917;
+			// aapt resource value: 0x7f04014d
+			public const int cmbTipoVisita = 2130968909;
 			
-			// aapt resource value: 0x7f0400c7
-			public const int cmbTiposrdd = 2130968775;
+			// aapt resource value: 0x7f0400c3
+			public const int cmbTiposrdd = 2130968771;
 			
-			// aapt resource value: 0x7f040123
-			public const int cmbTipotd = 2130968867;
+			// aapt resource value: 0x7f04011b
+			public const int cmbTipotd = 2130968859;
 			
-			// aapt resource value: 0x7f040149
-			public const int cmbTipott = 2130968905;
+			// aapt resource value: 0x7f040141
+			public const int cmbTipott = 2130968897;
 			
-			// aapt resource value: 0x7f04010e
-			public const int cmbVisitadosc = 2130968846;
+			// aapt resource value: 0x7f040106
+			public const int cmbVisitadosc = 2130968838;
 			
-			// aapt resource value: 0x7f04015b
-			public const int contentFrame = 2130968923;
+			// aapt resource value: 0x7f040153
+			public const int contentFrame = 2130968915;
 			
 			// aapt resource value: 0x7f040031
 			public const int header = 2130968625;
 			
-			// aapt resource value: 0x7f040112
-			public const int headerSF = 2130968850;
+			// aapt resource value: 0x7f04010a
+			public const int headerSF = 2130968842;
 			
-			// aapt resource value: 0x7f040099
-			public const int headerfctf = 2130968729;
+			// aapt resource value: 0x7f040096
+			public const int headerfctf = 2130968726;
 			
 			// aapt resource value: 0x7f040003
 			public const int items = 2130968579;
 			
-			// aapt resource value: 0x7f04009a
-			public const int itemsfctf = 2130968730;
+			// aapt resource value: 0x7f040097
+			public const int itemsfctf = 2130968727;
 			
-			// aapt resource value: 0x7f0400f4
-			public const int lbMontoCobrado = 2130968820;
+			// aapt resource value: 0x7f0400fb
+			public const int lbMontoCobrado = 2130968827;
 			
-			// aapt resource value: 0x7f0400f8
-			public const int lbMontoFacturas = 2130968824;
-			
-			// aapt resource value: 0x7f0400f6
-			public const int lbMontoPreventa = 2130968822;
-			
-			// aapt resource value: 0x7f0400c4
-			public const int lbMontoTotal = 2130968772;
-			
-			// aapt resource value: 0x7f0400fa
-			public const int lbMontoVendido = 2130968826;
-			
-			// aapt resource value: 0x7f0400e0
-			public const int lbTotalArticulos = 2130968800;
-			
-			// aapt resource value: 0x7f0400e2
-			public const int lbTotalLineas = 2130968802;
-			
-			// aapt resource value: 0x7f040109
-			public const int lblCinco = 2130968841;
-			
-			// aapt resource value: 0x7f040106
-			public const int lblCuatro = 2130968838;
-			
-			// aapt resource value: 0x7f040100
-			public const int lblDos = 2130968832;
-			
-			// aapt resource value: 0x7f040103
-			public const int lblTres = 2130968835;
+			// aapt resource value: 0x7f0400ff
+			public const int lbMontoFacturas = 2130968831;
 			
 			// aapt resource value: 0x7f0400fd
-			public const int lblUno = 2130968829;
+			public const int lbMontoPreventa = 2130968829;
+			
+			// aapt resource value: 0x7f0400c0
+			public const int lbMontoTotal = 2130968768;
+			
+			// aapt resource value: 0x7f040101
+			public const int lbMontoVendido = 2130968833;
+			
+			// aapt resource value: 0x7f0400e5
+			public const int lbTotalArticulos = 2130968805;
+			
+			// aapt resource value: 0x7f0400e7
+			public const int lbTotalLineas = 2130968807;
 			
 			// aapt resource value: 0x7f040008
 			public const int linearLayout1 = 2130968584;
@@ -825,8 +807,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040036
 			public const int linearLayout6 = 2130968630;
 			
-			// aapt resource value: 0x7f0400be
-			public const int linearLayout7 = 2130968766;
+			// aapt resource value: 0x7f0400ba
+			public const int linearLayout7 = 2130968762;
 			
 			// aapt resource value: 0x7f040059
 			public const int linearLayout_dummy1 = 2130968665;
@@ -834,41 +816,26 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04003f
 			public const int listaArticulos = 2130968639;
 			
-			// aapt resource value: 0x7f0400ab
-			public const int listaOpciones = 2130968747;
+			// aapt resource value: 0x7f0400a8
+			public const int listaOpciones = 2130968744;
 			
 			// aapt resource value: 0x7f04005e
 			public const int listaclientes = 2130968670;
 			
-			// aapt resource value: 0x7f040108
-			public const int lyCinco = 2130968840;
+			// aapt resource value: 0x7f040154
+			public const int menucli = 2130968916;
 			
-			// aapt resource value: 0x7f040105
-			public const int lyCuatro = 2130968837;
-			
-			// aapt resource value: 0x7f0400ff
-			public const int lyDos = 2130968831;
-			
-			// aapt resource value: 0x7f040102
-			public const int lyTres = 2130968834;
-			
-			// aapt resource value: 0x7f0400fc
-			public const int lyUno = 2130968828;
-			
-			// aapt resource value: 0x7f04015d
-			public const int menucli = 2130968925;
-			
-			// aapt resource value: 0x7f040126
-			public const int radioCredito = 2130968870;
+			// aapt resource value: 0x7f04011e
+			public const int radioCredito = 2130968862;
 			
 			// aapt resource value: 0x7f040068
 			public const int radioDolar = 2130968680;
 			
-			// aapt resource value: 0x7f040127
-			public const int radioEfectivo = 2130968871;
+			// aapt resource value: 0x7f04011f
+			public const int radioEfectivo = 2130968863;
 			
-			// aapt resource value: 0x7f040096
-			public const int radioGroup1 = 2130968726;
+			// aapt resource value: 0x7f040093
+			public const int radioGroup1 = 2130968723;
 			
 			// aapt resource value: 0x7f04002a
 			public const int radioGroup2 = 2130968618;
@@ -882,44 +849,44 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04002b
 			public const int rbLocal = 2130968619;
 			
-			// aapt resource value: 0x7f04011d
-			public const int rdAnterior = 2130968861;
+			// aapt resource value: 0x7f040115
+			public const int rdAnterior = 2130968853;
 			
-			// aapt resource value: 0x7f040121
-			public const int rdConDoc = 2130968865;
+			// aapt resource value: 0x7f040119
+			public const int rdConDoc = 2130968857;
 			
 			// aapt resource value: 0x7f040051
 			public const int rdCredito = 2130968657;
 			
-			// aapt resource value: 0x7f040118
-			public const int rdDolar = 2130968856;
+			// aapt resource value: 0x7f040110
+			public const int rdDolar = 2130968848;
+			
+			// aapt resource value: 0x7f04010f
+			public const int rdLocal = 2130968847;
 			
 			// aapt resource value: 0x7f040117
-			public const int rdLocal = 2130968855;
+			public const int rdNinguno = 2130968855;
 			
-			// aapt resource value: 0x7f04011f
-			public const int rdNinguno = 2130968863;
+			// aapt resource value: 0x7f040095
+			public const int rdNo = 2130968725;
 			
-			// aapt resource value: 0x7f040098
-			public const int rdNo = 2130968728;
-			
-			// aapt resource value: 0x7f0400c1
-			public const int rdNoSugerir = 2130968769;
+			// aapt resource value: 0x7f0400bd
+			public const int rdNoSugerir = 2130968765;
 			
 			// aapt resource value: 0x7f040050
 			public const int rdNormal = 2130968656;
 			
-			// aapt resource value: 0x7f040097
-			public const int rdSi = 2130968727;
+			// aapt resource value: 0x7f040094
+			public const int rdSi = 2130968724;
 			
-			// aapt resource value: 0x7f040120
-			public const int rdSinDoc = 2130968864;
+			// aapt resource value: 0x7f040118
+			public const int rdSinDoc = 2130968856;
 			
-			// aapt resource value: 0x7f04011e
-			public const int rdSoloSaldo = 2130968862;
+			// aapt resource value: 0x7f040116
+			public const int rdSoloSaldo = 2130968854;
 			
-			// aapt resource value: 0x7f0400c0
-			public const int rdSugerir = 2130968768;
+			// aapt resource value: 0x7f0400bc
+			public const int rdSugerir = 2130968764;
 			
 			// aapt resource value: 0x7f040056
 			public const int rgClase = 2130968662;
@@ -948,32 +915,29 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04006d
 			public const int text6 = 2130968685;
 			
-			// aapt resource value: 0x7f040113
-			public const int text7 = 2130968851;
+			// aapt resource value: 0x7f04010b
+			public const int text7 = 2130968843;
 			
-			// aapt resource value: 0x7f040114
-			public const int text8 = 2130968852;
+			// aapt resource value: 0x7f04010c
+			public const int text8 = 2130968844;
 			
-			// aapt resource value: 0x7f040115
-			public const int text9 = 2130968853;
+			// aapt resource value: 0x7f04010d
+			public const int text9 = 2130968845;
 			
 			// aapt resource value: 0x7f040009
 			public const int textView1 = 2130968585;
 			
-			// aapt resource value: 0x7f040158
-			public const int textView2 = 2130968920;
+			// aapt resource value: 0x7f040150
+			public const int textView2 = 2130968912;
 			
-			// aapt resource value: 0x7f040159
-			public const int textView3 = 2130968921;
+			// aapt resource value: 0x7f040151
+			public const int textView3 = 2130968913;
 			
-			// aapt resource value: 0x7f04015c
-			public const int toastText = 2130968924;
+			// aapt resource value: 0x7f04012b
+			public const int txtAcumAlmacen = 2130968875;
 			
-			// aapt resource value: 0x7f040133
-			public const int txtAcumAlmacen = 2130968883;
-			
-			// aapt resource value: 0x7f040134
-			public const int txtAcumDetalle = 2130968884;
+			// aapt resource value: 0x7f04012c
+			public const int txtAcumDetalle = 2130968876;
 			
 			// aapt resource value: 0x7f040011
 			public const int txtBanco = 2130968593;
@@ -990,101 +954,107 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040088
 			public const int txtBusquedadd = 2130968712;
 			
+			// aapt resource value: 0x7f04008f
+			public const int txtBusquedadinv = 2130968719;
+			
 			// aapt resource value: 0x7f04008c
-			public const int txtBusquedadinv = 2130968716;
+			public const int txtBusquedadp = 2130968716;
 			
-			// aapt resource value: 0x7f040090
-			public const int txtBusquedadp = 2130968720;
+			// aapt resource value: 0x7f040124
+			public const int txtBusquedatd = 2130968868;
 			
-			// aapt resource value: 0x7f04012c
-			public const int txtBusquedatd = 2130968876;
+			// aapt resource value: 0x7f040128
+			public const int txtBusquedatdd = 2130968872;
 			
-			// aapt resource value: 0x7f040130
-			public const int txtBusquedatdd = 2130968880;
+			// aapt resource value: 0x7f040137
+			public const int txtBusquedatinv = 2130968887;
 			
-			// aapt resource value: 0x7f04013f
-			public const int txtBusquedatinv = 2130968895;
+			// aapt resource value: 0x7f040131
+			public const int txtBusquedatp = 2130968881;
 			
-			// aapt resource value: 0x7f040139
-			public const int txtBusquedatp = 2130968889;
+			// aapt resource value: 0x7f040133
+			public const int txtCantAlm = 2130968883;
 			
 			// aapt resource value: 0x7f04013b
-			public const int txtCantAlm = 2130968891;
+			public const int txtCantAlmGar = 2130968891;
 			
 			// aapt resource value: 0x7f040143
-			public const int txtCantAlmGar = 2130968899;
+			public const int txtCantAlmacen = 2130968899;
 			
-			// aapt resource value: 0x7f04014b
-			public const int txtCantAlmacen = 2130968907;
+			// aapt resource value: 0x7f040134
+			public const int txtCantDet = 2130968884;
 			
 			// aapt resource value: 0x7f04013c
-			public const int txtCantDet = 2130968892;
+			public const int txtCantDetGar = 2130968892;
 			
 			// aapt resource value: 0x7f040144
-			public const int txtCantDetGar = 2130968900;
-			
-			// aapt resource value: 0x7f04014c
-			public const int txtCantDetalle = 2130968908;
-			
-			// aapt resource value: 0x7f0400ed
-			public const int txtCantDevuelta = 2130968813;
-			
-			// aapt resource value: 0x7f0400ee
-			public const int txtCantDevueltaDet = 2130968814;
-			
-			// aapt resource value: 0x7f0400eb
-			public const int txtCantDisponible = 2130968811;
-			
-			// aapt resource value: 0x7f0400ec
-			public const int txtCantDisponibleDet = 2130968812;
-			
-			// aapt resource value: 0x7f04009b
-			public const int txtCantFacturar = 2130968731;
-			
-			// aapt resource value: 0x7f0400f1
-			public const int txtCantGarantia = 2130968817;
+			public const int txtCantDetalle = 2130968900;
 			
 			// aapt resource value: 0x7f0400f2
-			public const int txtCantGarantiaDet = 2130968818;
-			
-			// aapt resource value: 0x7f0400e9
-			public const int txtCantInicial = 2130968809;
-			
-			// aapt resource value: 0x7f0400ea
-			public const int txtCantInicialDet = 2130968810;
-			
-			// aapt resource value: 0x7f04009c
-			public const int txtCantNoFacturar = 2130968732;
+			public const int txtCantDevuelta = 2130968818;
 			
 			// aapt resource value: 0x7f0400f3
-			public const int txtCantVacios = 2130968819;
-			
-			// aapt resource value: 0x7f0400ef
-			public const int txtCantVendida = 2130968815;
+			public const int txtCantDevueltaDet = 2130968819;
 			
 			// aapt resource value: 0x7f0400f0
-			public const int txtCantVendidaDet = 2130968816;
+			public const int txtCantDisponible = 2130968816;
+			
+			// aapt resource value: 0x7f0400f1
+			public const int txtCantDisponibleDet = 2130968817;
+			
+			// aapt resource value: 0x7f0400f9
+			public const int txtCantEntradas = 2130968825;
+			
+			// aapt resource value: 0x7f040098
+			public const int txtCantFacturar = 2130968728;
+			
+			// aapt resource value: 0x7f0400f6
+			public const int txtCantGarantia = 2130968822;
+			
+			// aapt resource value: 0x7f0400f7
+			public const int txtCantGarantiaDet = 2130968823;
+			
+			// aapt resource value: 0x7f0400ee
+			public const int txtCantInicial = 2130968814;
+			
+			// aapt resource value: 0x7f0400ef
+			public const int txtCantInicialDet = 2130968815;
+			
+			// aapt resource value: 0x7f040099
+			public const int txtCantNoFacturar = 2130968729;
+			
+			// aapt resource value: 0x7f0400fa
+			public const int txtCantSalidas = 2130968826;
+			
+			// aapt resource value: 0x7f0400f8
+			public const int txtCantVacios = 2130968824;
+			
+			// aapt resource value: 0x7f0400f4
+			public const int txtCantVendida = 2130968820;
+			
+			// aapt resource value: 0x7f0400f5
+			public const int txtCantVendidaDet = 2130968821;
 			
 			// aapt resource value: 0x7f040023
 			public const int txtCheques = 2130968611;
 			
-			// aapt resource value: 0x7f0400d9
-			public const int txtChequesCantidad = 2130968793;
+			// aapt resource value: 0x7f0400e1
+			public const int txtChequesCantidad = 2130968801;
 			
-			// aapt resource value: 0x7f0400da
-			public const int txtChequesTotal = 2130968794;
-			
-			// aapt resource value: 0x7f04010a
-			public const int txtCinco = 2130968842;
+			// aapt resource value: 0x7f0400d0
+			public const int txtChequesTotal = 2130968784;
 			
 			// aapt resource value: 0x7f04000f
 			public const int txtCompania = 2130968591;
 			
-			// aapt resource value: 0x7f04009f
-			public const int txtCopias = 2130968735;
+			// aapt resource value: 0x7f0400c9
+			public const int txtConTotal = 2130968777;
 			
-			// aapt resource value: 0x7f040107
-			public const int txtCuatro = 2130968839;
+			// aapt resource value: 0x7f04009c
+			public const int txtCopias = 2130968732;
+			
+			// aapt resource value: 0x7f0400ca
+			public const int txtCreTotal = 2130968778;
 			
 			// aapt resource value: 0x7f0400d3
 			public const int txtDepCantidad = 2130968787;
@@ -1104,59 +1074,68 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040017
 			public const int txtDescuento2 = 2130968599;
 			
-			// aapt resource value: 0x7f0400cd
-			public const int txtDevCantidad = 2130968781;
+			// aapt resource value: 0x7f0400d8
+			public const int txtDevCantidad = 2130968792;
 			
-			// aapt resource value: 0x7f0400cf
-			public const int txtDevEfecCantidad = 2130968783;
+			// aapt resource value: 0x7f0400cb
+			public const int txtDevContado = 2130968779;
 			
-			// aapt resource value: 0x7f0400d0
-			public const int txtDevEfecTotal = 2130968784;
+			// aapt resource value: 0x7f0400cc
+			public const int txtDevCredito = 2130968780;
+			
+			// aapt resource value: 0x7f0400da
+			public const int txtDevEfecCantidad = 2130968794;
 			
 			// aapt resource value: 0x7f0400ce
-			public const int txtDevTotal = 2130968782;
+			public const int txtDevEfecContado = 2130968782;
 			
-			// aapt resource value: 0x7f040135
-			public const int txtDispAlmacen = 2130968885;
+			// aapt resource value: 0x7f0400cd
+			public const int txtDevEfecCredito = 2130968781;
 			
-			// aapt resource value: 0x7f040136
-			public const int txtDispDetalle = 2130968886;
+			// aapt resource value: 0x7f0400db
+			public const int txtDevEfecTotal = 2130968795;
 			
-			// aapt resource value: 0x7f040094
-			public const int txtDominio = 2130968724;
+			// aapt resource value: 0x7f0400d9
+			public const int txtDevTotal = 2130968793;
 			
-			// aapt resource value: 0x7f040101
-			public const int txtDos = 2130968833;
+			// aapt resource value: 0x7f04012d
+			public const int txtDispAlmacen = 2130968877;
 			
-			// aapt resource value: 0x7f0400d7
-			public const int txtEfecCantidad = 2130968791;
+			// aapt resource value: 0x7f04012e
+			public const int txtDispDetalle = 2130968878;
 			
-			// aapt resource value: 0x7f0400d8
-			public const int txtEfecTotal = 2130968792;
+			// aapt resource value: 0x7f0400e0
+			public const int txtEfecCantidad = 2130968800;
+			
+			// aapt resource value: 0x7f0400cf
+			public const int txtEfecTotal = 2130968783;
 			
 			// aapt resource value: 0x7f040025
 			public const int txtEfectivo = 2130968613;
 			
-			// aapt resource value: 0x7f0400ca
-			public const int txtFacCantidad = 2130968778;
+			// aapt resource value: 0x7f0400c4
+			public const int txtFacCantidad = 2130968772;
 			
-			// aapt resource value: 0x7f0400cc
-			public const int txtFacTFCantidad = 2130968780;
+			// aapt resource value: 0x7f0400c6
+			public const int txtFacTFCantidad = 2130968774;
 			
-			// aapt resource value: 0x7f0400cb
-			public const int txtFacTotal = 2130968779;
+			// aapt resource value: 0x7f0400c5
+			public const int txtFacTotal = 2130968773;
 			
 			// aapt resource value: 0x7f04000a
 			public const int txtFecha = 2130968586;
 			
-			// aapt resource value: 0x7f0400d5
-			public const int txtGarCantidad = 2130968789;
+			// aapt resource value: 0x7f0400de
+			public const int txtGarCantidad = 2130968798;
 			
-			// aapt resource value: 0x7f0400d6
-			public const int txtGarTotal = 2130968790;
+			// aapt resource value: 0x7f0400c7
+			public const int txtGarContado = 2130968775;
 			
-			// aapt resource value: 0x7f040095
-			public const int txtHandHeld = 2130968725;
+			// aapt resource value: 0x7f0400c8
+			public const int txtGarCredito = 2130968776;
+			
+			// aapt resource value: 0x7f0400df
+			public const int txtGarTotal = 2130968799;
 			
 			// aapt resource value: 0x7f040080
 			public const int txtLotes = 2130968704;
@@ -1167,35 +1146,35 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040013
 			public const int txtMonto = 2130968595;
 			
-			// aapt resource value: 0x7f0400f5
-			public const int txtMontoCobrado = 2130968821;
+			// aapt resource value: 0x7f0400fc
+			public const int txtMontoCobrado = 2130968828;
 			
 			// aapt resource value: 0x7f040030
 			public const int txtMontoEfect = 2130968624;
 			
-			// aapt resource value: 0x7f0400f9
-			public const int txtMontoFacturas = 2130968825;
+			// aapt resource value: 0x7f040100
+			public const int txtMontoFacturas = 2130968832;
 			
-			// aapt resource value: 0x7f0400f7
-			public const int txtMontoPreventa = 2130968823;
+			// aapt resource value: 0x7f0400fe
+			public const int txtMontoPreventa = 2130968830;
 			
-			// aapt resource value: 0x7f0400c5
-			public const int txtMontoTotal = 2130968773;
+			// aapt resource value: 0x7f0400c1
+			public const int txtMontoTotal = 2130968769;
 			
-			// aapt resource value: 0x7f0400fb
-			public const int txtMontoVendido = 2130968827;
+			// aapt resource value: 0x7f040102
+			public const int txtMontoVendido = 2130968834;
 			
-			// aapt resource value: 0x7f0400db
-			public const int txtNcCantidad = 2130968795;
+			// aapt resource value: 0x7f0400e2
+			public const int txtNcCantidad = 2130968802;
 			
-			// aapt resource value: 0x7f0400dc
-			public const int txtNcTotal = 2130968796;
+			// aapt resource value: 0x7f0400d1
+			public const int txtNcTotal = 2130968785;
 			
 			// aapt resource value: 0x7f040010
 			public const int txtNombre = 2130968592;
 			
-			// aapt resource value: 0x7f0400bb
-			public const int txtNotas = 2130968763;
+			// aapt resource value: 0x7f0400b8
+			public const int txtNotas = 2130968760;
 			
 			// aapt resource value: 0x7f040021
 			public const int txtNotasCredito = 2130968609;
@@ -1203,29 +1182,26 @@ namespace FR.Droid
 			// aapt resource value: 0x7f040073
 			public const int txtNumeroRecibo = 2130968691;
 			
-			// aapt resource value: 0x7f0400bc
-			public const int txtOpcionMenuParametro = 2130968764;
+			// aapt resource value: 0x7f0400a1
+			public const int txtPass = 2130968737;
 			
-			// aapt resource value: 0x7f0400a4
-			public const int txtPass = 2130968740;
+			// aapt resource value: 0x7f0400d6
+			public const int txtPedCantidad = 2130968790;
 			
-			// aapt resource value: 0x7f0400c8
-			public const int txtPedCantidad = 2130968776;
+			// aapt resource value: 0x7f0400d7
+			public const int txtPedTotal = 2130968791;
 			
-			// aapt resource value: 0x7f0400c9
-			public const int txtPedTotal = 2130968777;
+			// aapt resource value: 0x7f040147
+			public const int txtPrecioAlmacen = 2130968903;
 			
-			// aapt resource value: 0x7f04014f
-			public const int txtPrecioAlmacen = 2130968911;
+			// aapt resource value: 0x7f040148
+			public const int txtPrecioDetalle = 2130968904;
 			
-			// aapt resource value: 0x7f040150
-			public const int txtPrecioDetalle = 2130968912;
+			// aapt resource value: 0x7f0400dc
+			public const int txtRecCantidad = 2130968796;
 			
-			// aapt resource value: 0x7f0400d1
-			public const int txtRecCantidad = 2130968785;
-			
-			// aapt resource value: 0x7f0400d2
-			public const int txtRecTotal = 2130968786;
+			// aapt resource value: 0x7f0400dd
+			public const int txtRecTotal = 2130968797;
 			
 			// aapt resource value: 0x7f040029
 			public const int txtSaldoPendiente = 2130968617;
@@ -1233,41 +1209,38 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04001f
 			public const int txtSaldoTotal = 2130968607;
 			
-			// aapt resource value: 0x7f040093
-			public const int txtServer = 2130968723;
-			
-			// aapt resource value: 0x7f040152
-			public const int txtSubTotal = 2130968914;
+			// aapt resource value: 0x7f04014a
+			public const int txtSubTotal = 2130968906;
 			
 			// aapt resource value: 0x7f04006e
 			public const int txtTipoCambio = 2130968686;
 			
-			// aapt resource value: 0x7f04009e
-			public const int txtTitulo = 2130968734;
+			// aapt resource value: 0x7f04009b
+			public const int txtTitulo = 2130968731;
 			
-			// aapt resource value: 0x7f0400dd
-			public const int txtTotCantidad = 2130968797;
+			// aapt resource value: 0x7f0400e3
+			public const int txtTotCantidad = 2130968803;
 			
 			// aapt resource value: 0x7f04006f
 			public const int txtTotal = 2130968687;
 			
-			// aapt resource value: 0x7f0400e1
-			public const int txtTotalArticulos = 2130968801;
+			// aapt resource value: 0x7f0400e6
+			public const int txtTotalArticulos = 2130968806;
 			
-			// aapt resource value: 0x7f0400e3
-			public const int txtTotalLineas = 2130968803;
+			// aapt resource value: 0x7f0400d2
+			public const int txtTotalCobro = 2130968786;
+			
+			// aapt resource value: 0x7f0400e8
+			public const int txtTotalLineas = 2130968808;
 			
 			// aapt resource value: 0x7f040028
 			public const int txtTotalPagar = 2130968616;
 			
-			// aapt resource value: 0x7f040104
-			public const int txtTres = 2130968836;
+			// aapt resource value: 0x7f04014c
+			public const int txtUbicacion = 2130968908;
 			
-			// aapt resource value: 0x7f040154
-			public const int txtUbicacion = 2130968916;
-			
-			// aapt resource value: 0x7f040140
-			public const int txtUnidadAlmacen = 2130968896;
+			// aapt resource value: 0x7f040138
+			public const int txtUnidadAlmacen = 2130968888;
 			
 			// aapt resource value: 0x7f040078
 			public const int txtUnidadAlmacenBoleta = 2130968696;
@@ -1284,8 +1257,8 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04007a
 			public const int txtUnidadAlmacenVendido = 2130968698;
 			
-			// aapt resource value: 0x7f040141
-			public const int txtUnidadDetalle = 2130968897;
+			// aapt resource value: 0x7f040139
+			public const int txtUnidadDetalle = 2130968889;
 			
 			// aapt resource value: 0x7f040079
 			public const int txtUnidadDetalleBoleta = 2130968697;
@@ -1302,17 +1275,14 @@ namespace FR.Droid
 			// aapt resource value: 0x7f04007b
 			public const int txtUnidadDetalleVendido = 2130968699;
 			
-			// aapt resource value: 0x7f040151
-			public const int txtUnidadExistencia = 2130968913;
+			// aapt resource value: 0x7f040149
+			public const int txtUnidadExistencia = 2130968905;
 			
-			// aapt resource value: 0x7f040153
-			public const int txtUnidadInventario = 2130968915;
+			// aapt resource value: 0x7f04014b
+			public const int txtUnidadInventario = 2130968907;
 			
-			// aapt resource value: 0x7f0400fe
-			public const int txtUno = 2130968830;
-			
-			// aapt resource value: 0x7f0400a3
-			public const int txtUser = 2130968739;
+			// aapt resource value: 0x7f0400a0
+			public const int txtUser = 2130968736;
 			
 			static Id()
 			{
@@ -1505,577 +1475,598 @@ namespace FR.Droid
 			public const int ConsultaDocumentosCCItemLocal = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int ConsultaInventario = 2130903099;
+			public const int ConsultaGarantias = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int ConsultaInventarioHeader = 2130903100;
+			public const int ConsultaGarantiasHeader = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int ConsultaInventarioItem = 2130903101;
+			public const int ConsultaGarantiasItem = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int ConsultaInvFisico = 2130903102;
+			public const int ConsultaInventario = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int ConsultaInvFisicoHeader = 2130903103;
+			public const int ConsultaInventarioHeader = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int ConsultaInvFisicoItem = 2130903104;
+			public const int ConsultaInventarioItem = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int ConsultaLinTomaFisica = 2130903105;
+			public const int ConsultaInvFisico = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int ConsultaLinTomaFisicaHeader = 2130903106;
+			public const int ConsultaInvFisicoHeader = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int ConsultaLinTomaFisicaItem = 2130903107;
+			public const int ConsultaInvFisicoItem = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int ConsultaNotasCredito = 2130903108;
+			public const int ConsultaLinTomaFisica = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int ConsultaNotasCreditoHeader = 2130903109;
+			public const int ConsultaLinTomaFisicaHeader = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int ConsultaNotasCreditoItem = 2130903110;
+			public const int ConsultaLinTomaFisicaItem = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int ConsultaPedidos = 2130903111;
+			public const int ConsultaNotasCredito = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int ConsultaPedidosHeader = 2130903112;
+			public const int ConsultaNotasCreditoHeader = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int ConsultaPedidosItem = 2130903113;
+			public const int ConsultaNotasCreditoItem = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int ConsultarArticulo = 2130903114;
+			public const int ConsultaPedidos = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int ConsultarArticuloDos = 2130903115;
+			public const int ConsultaPedidosHeader = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
-			public const int ConsultaRetenciones = 2130903116;
+			public const int ConsultaPedidosItem = 2130903116;
 			
 			// aapt resource value: 0x7f03004d
-			public const int ConsultaRetencionesHeader = 2130903117;
+			public const int ConsultarArticulo = 2130903117;
 			
 			// aapt resource value: 0x7f03004e
-			public const int ConsultaRetencionesItem = 2130903118;
+			public const int ConsultarArticuloDos = 2130903118;
 			
 			// aapt resource value: 0x7f03004f
-			public const int ConsultaTipoCambio = 2130903119;
+			public const int ConsultaRetenciones = 2130903119;
 			
 			// aapt resource value: 0x7f030050
-			public const int CreacionRecibo = 2130903120;
+			public const int ConsultaRetencionesHeader = 2130903120;
 			
 			// aapt resource value: 0x7f030051
-			public const int DescuentoProntoPago = 2130903121;
+			public const int ConsultaRetencionesItem = 2130903121;
 			
 			// aapt resource value: 0x7f030052
-			public const int DescuentoProntoPagoHeader = 2130903122;
+			public const int ConsultaTipoCambio = 2130903122;
 			
 			// aapt resource value: 0x7f030053
-			public const int DescuentoProntoPagoItem = 2130903123;
+			public const int CreacionRecibo = 2130903123;
 			
 			// aapt resource value: 0x7f030054
-			public const int DesgloceVentaConsignacion = 2130903124;
+			public const int DescuentoProntoPago = 2130903124;
 			
 			// aapt resource value: 0x7f030055
-			public const int DesgloceVentaConsignacionHeader = 2130903125;
+			public const int DescuentoProntoPagoHeader = 2130903125;
 			
 			// aapt resource value: 0x7f030056
-			public const int DesgloceVentaConsignacionItem = 2130903126;
+			public const int DescuentoProntoPagoItem = 2130903126;
 			
 			// aapt resource value: 0x7f030057
-			public const int DetalleBonificaciones = 2130903127;
+			public const int DesgloceVentaConsignacion = 2130903127;
 			
 			// aapt resource value: 0x7f030058
-			public const int DetalleBonificacionesHeader = 2130903128;
+			public const int DesgloceVentaConsignacionHeader = 2130903128;
 			
 			// aapt resource value: 0x7f030059
-			public const int DetalleBonificacionesItem = 2130903129;
+			public const int DesgloceVentaConsignacionItem = 2130903129;
 			
 			// aapt resource value: 0x7f03005a
-			public const int DetalleCobro = 2130903130;
+			public const int DetalleBonificaciones = 2130903130;
 			
 			// aapt resource value: 0x7f03005b
-			public const int DetalleCobroHeader = 2130903131;
+			public const int DetalleBonificacionesHeader = 2130903131;
 			
 			// aapt resource value: 0x7f03005c
-			public const int DetalleCobroItem = 2130903132;
+			public const int DetalleBonificacionesItem = 2130903132;
 			
 			// aapt resource value: 0x7f03005d
-			public const int DetalleDevoluciones = 2130903133;
+			public const int DetalleCobro = 2130903133;
 			
 			// aapt resource value: 0x7f03005e
-			public const int DetalleDevolucionesHeaderBarras = 2130903134;
+			public const int DetalleCobroHeader = 2130903134;
 			
 			// aapt resource value: 0x7f03005f
-			public const int DetalleDevolucionesHeaderClase = 2130903135;
+			public const int DetalleCobroItem = 2130903135;
 			
 			// aapt resource value: 0x7f030060
-			public const int DetalleDevolucionesHeaderCodigo = 2130903136;
+			public const int DetalleDevoluciones = 2130903136;
 			
 			// aapt resource value: 0x7f030061
-			public const int DetalleDevolucionesHeaderDescripcion = 2130903137;
+			public const int DetalleDevolucionesHeaderBarras = 2130903137;
 			
 			// aapt resource value: 0x7f030062
-			public const int DetalleDevolucionesHeaderFamilia = 2130903138;
+			public const int DetalleDevolucionesHeaderClase = 2130903138;
 			
 			// aapt resource value: 0x7f030063
-			public const int DetalleDevolucionesItemBarras = 2130903139;
+			public const int DetalleDevolucionesHeaderCodigo = 2130903139;
 			
 			// aapt resource value: 0x7f030064
-			public const int DetalleDevolucionesItemClase = 2130903140;
+			public const int DetalleDevolucionesHeaderDescripcion = 2130903140;
 			
 			// aapt resource value: 0x7f030065
-			public const int DetalleDevolucionesItemCodigo = 2130903141;
+			public const int DetalleDevolucionesHeaderFamilia = 2130903141;
 			
 			// aapt resource value: 0x7f030066
-			public const int DetalleDevolucionesItemDescripcion = 2130903142;
+			public const int DetalleDevolucionesItemBarras = 2130903142;
 			
 			// aapt resource value: 0x7f030067
-			public const int DetalleDevolucionesItemFamilia = 2130903143;
+			public const int DetalleDevolucionesItemClase = 2130903143;
 			
 			// aapt resource value: 0x7f030068
-			public const int DetalleHistoricosPedido = 2130903144;
+			public const int DetalleDevolucionesItemCodigo = 2130903144;
 			
 			// aapt resource value: 0x7f030069
-			public const int DetalleHistoricosPedidosHeader = 2130903145;
+			public const int DetalleDevolucionesItemDescripcion = 2130903145;
 			
 			// aapt resource value: 0x7f03006a
-			public const int DetalleHistoricosPedidosItem = 2130903146;
+			public const int DetalleDevolucionesItemFamilia = 2130903146;
 			
 			// aapt resource value: 0x7f03006b
-			public const int DetalleInventario = 2130903147;
+			public const int DetalleGarantia = 2130903147;
 			
 			// aapt resource value: 0x7f03006c
-			public const int DetalleInventarioHeaderBarras = 2130903148;
+			public const int DetalleGarantiaHeaderBarras = 2130903148;
 			
 			// aapt resource value: 0x7f03006d
-			public const int DetalleInventarioHeaderClase = 2130903149;
+			public const int DetalleGarantiaHeaderClase = 2130903149;
 			
 			// aapt resource value: 0x7f03006e
-			public const int DetalleInventarioHeaderCodigo = 2130903150;
+			public const int DetalleGarantiaHeaderCodigo = 2130903150;
 			
 			// aapt resource value: 0x7f03006f
-			public const int DetalleInventarioHeaderDescripcion = 2130903151;
+			public const int DetalleGarantiaHeaderDescripcion = 2130903151;
 			
 			// aapt resource value: 0x7f030070
-			public const int DetalleInventarioHeaderFamilia = 2130903152;
+			public const int DetalleGarantiaHeaderFamilia = 2130903152;
 			
 			// aapt resource value: 0x7f030071
-			public const int DetalleInventarioItemBarras = 2130903153;
+			public const int DetalleGarantiaItemBarras = 2130903153;
 			
 			// aapt resource value: 0x7f030072
-			public const int DetalleInventarioItemClase = 2130903154;
+			public const int DetalleGarantiaItemClase = 2130903154;
 			
 			// aapt resource value: 0x7f030073
-			public const int DetalleInventarioItemCodigo = 2130903155;
+			public const int DetalleGarantiaItemCodigo = 2130903155;
 			
 			// aapt resource value: 0x7f030074
-			public const int DetalleInventarioItemDescripcion = 2130903156;
+			public const int DetalleGarantiaItemDescripcion = 2130903156;
 			
 			// aapt resource value: 0x7f030075
-			public const int DetalleInventarioItemFamilia = 2130903157;
+			public const int DetalleGarantiaItemFamilia = 2130903157;
 			
 			// aapt resource value: 0x7f030076
-			public const int DetallePedido = 2130903158;
+			public const int DetalleHistoricosPedido = 2130903158;
 			
 			// aapt resource value: 0x7f030077
-			public const int DetallePedidoHeaderBarras = 2130903159;
+			public const int DetalleHistoricosPedidosHeader = 2130903159;
 			
 			// aapt resource value: 0x7f030078
-			public const int DetallePedidoHeaderClase = 2130903160;
+			public const int DetalleHistoricosPedidosItem = 2130903160;
 			
 			// aapt resource value: 0x7f030079
-			public const int DetallePedidoHeaderCodigo = 2130903161;
+			public const int DetalleInventario = 2130903161;
 			
 			// aapt resource value: 0x7f03007a
-			public const int DetallePedidoHeaderDescripcion = 2130903162;
+			public const int DetalleInventarioHeaderBarras = 2130903162;
 			
 			// aapt resource value: 0x7f03007b
-			public const int DetallePedidoHeaderFamilia = 2130903163;
+			public const int DetalleInventarioHeaderClase = 2130903163;
 			
 			// aapt resource value: 0x7f03007c
-			public const int DetallePedidoItemBarras = 2130903164;
+			public const int DetalleInventarioHeaderCodigo = 2130903164;
 			
 			// aapt resource value: 0x7f03007d
-			public const int DetallePedidoItemClase = 2130903165;
+			public const int DetalleInventarioHeaderDescripcion = 2130903165;
 			
 			// aapt resource value: 0x7f03007e
-			public const int DetallePedidoItemCodigo = 2130903166;
+			public const int DetalleInventarioHeaderFamilia = 2130903166;
 			
 			// aapt resource value: 0x7f03007f
-			public const int DetallePedidoItemDescripcion = 2130903167;
+			public const int DetalleInventarioItemBarras = 2130903167;
 			
 			// aapt resource value: 0x7f030080
-			public const int DetallePedidoItemFamilia = 2130903168;
+			public const int DetalleInventarioItemClase = 2130903168;
 			
 			// aapt resource value: 0x7f030081
-			public const int DetalleVentaConsignacion = 2130903169;
+			public const int DetalleInventarioItemCodigo = 2130903169;
 			
 			// aapt resource value: 0x7f030082
-			public const int DetalleVentaConsignacionHeaderBarras = 2130903170;
+			public const int DetalleInventarioItemDescripcion = 2130903170;
 			
 			// aapt resource value: 0x7f030083
-			public const int DetalleVentaConsignacionHeaderClase = 2130903171;
+			public const int DetalleInventarioItemFamilia = 2130903171;
 			
 			// aapt resource value: 0x7f030084
-			public const int DetalleVentaConsignacionHeaderCodigo = 2130903172;
+			public const int DetallePedido = 2130903172;
 			
 			// aapt resource value: 0x7f030085
-			public const int DetalleVentaConsignacionHeaderDescripcion = 2130903173;
+			public const int DetallePedidoHeaderBarras = 2130903173;
 			
 			// aapt resource value: 0x7f030086
-			public const int DetalleVentaConsignacionItemBarras = 2130903174;
+			public const int DetallePedidoHeaderClase = 2130903174;
 			
 			// aapt resource value: 0x7f030087
-			public const int DetalleVentaConsignacionItemClase = 2130903175;
+			public const int DetallePedidoHeaderCodigo = 2130903175;
 			
 			// aapt resource value: 0x7f030088
-			public const int DetalleVentaConsignacionItemCodigo = 2130903176;
+			public const int DetallePedidoHeaderDescripcion = 2130903176;
 			
 			// aapt resource value: 0x7f030089
-			public const int DetalleVentaConsignacionItemDescripcion = 2130903177;
+			public const int DetallePedidoHeaderFamilia = 2130903177;
 			
 			// aapt resource value: 0x7f03008a
-			public const int ExactusXML = 2130903178;
+			public const int DetallePedidoItemBarras = 2130903178;
 			
 			// aapt resource value: 0x7f03008b
-			public const int ExactusXMLX = 2130903179;
+			public const int DetallePedidoItemClase = 2130903179;
 			
 			// aapt resource value: 0x7f03008c
-			public const int FactDiferenciasTF = 2130903180;
+			public const int DetallePedidoItemCodigo = 2130903180;
 			
 			// aapt resource value: 0x7f03008d
-			public const int FactDiferenciasTFHeader = 2130903181;
+			public const int DetallePedidoItemDescripcion = 2130903181;
 			
 			// aapt resource value: 0x7f03008e
-			public const int FactDiferenciasTFItems = 2130903182;
+			public const int DetallePedidoItemFamilia = 2130903182;
 			
 			// aapt resource value: 0x7f03008f
-			public const int HistoricosPedido = 2130903183;
+			public const int DetalleVentaConsignacion = 2130903183;
 			
 			// aapt resource value: 0x7f030090
-			public const int HistoricosPedidosHeader = 2130903184;
+			public const int DetalleVentaConsignacionHeaderBarras = 2130903184;
 			
 			// aapt resource value: 0x7f030091
-			public const int HistoricosPedidosHeaderTodos = 2130903185;
+			public const int DetalleVentaConsignacionHeaderClase = 2130903185;
 			
 			// aapt resource value: 0x7f030092
-			public const int HistoricosPedidosItem = 2130903186;
+			public const int DetalleVentaConsignacionHeaderCodigo = 2130903186;
 			
 			// aapt resource value: 0x7f030093
-			public const int HistoricosPedidosItemTodos = 2130903187;
+			public const int DetalleVentaConsignacionHeaderDescripcion = 2130903187;
 			
 			// aapt resource value: 0x7f030094
-			public const int Impresion = 2130903188;
+			public const int DetalleVentaConsignacionItemBarras = 2130903188;
 			
 			// aapt resource value: 0x7f030095
-			public const int JornadaLaboral = 2130903189;
+			public const int DetalleVentaConsignacionItemClase = 2130903189;
 			
 			// aapt resource value: 0x7f030096
-			public const int LineasFacturaLote = 2130903190;
+			public const int DetalleVentaConsignacionItemCodigo = 2130903190;
 			
 			// aapt resource value: 0x7f030097
-			public const int LineasFacturaLoteHeader = 2130903191;
+			public const int DetalleVentaConsignacionItemDescripcion = 2130903191;
 			
 			// aapt resource value: 0x7f030098
-			public const int LineasFacturaLoteItem = 2130903192;
+			public const int ExactusXML = 2130903192;
 			
 			// aapt resource value: 0x7f030099
-			public const int LoginHDPI = 2130903193;
+			public const int FactDiferenciasTF = 2130903193;
 			
 			// aapt resource value: 0x7f03009a
-			public const int LoginHDPIX = 2130903194;
+			public const int FactDiferenciasTFHeader = 2130903194;
 			
 			// aapt resource value: 0x7f03009b
-			public const int LoginT7 = 2130903195;
+			public const int FactDiferenciasTFItems = 2130903195;
 			
 			// aapt resource value: 0x7f03009c
-			public const int LoginT7X = 2130903196;
+			public const int HistoricosPedido = 2130903196;
 			
 			// aapt resource value: 0x7f03009d
-			public const int LoginXHDPI = 2130903197;
+			public const int HistoricosPedidosHeader = 2130903197;
 			
 			// aapt resource value: 0x7f03009e
-			public const int LoginXHDPIX = 2130903198;
+			public const int HistoricosPedidosHeaderTodos = 2130903198;
 			
 			// aapt resource value: 0x7f03009f
-			public const int MainMenu = 2130903199;
+			public const int HistoricosPedidosItem = 2130903199;
 			
 			// aapt resource value: 0x7f0300a0
-			public const int MainMenuX = 2130903200;
+			public const int HistoricosPedidosItemTodos = 2130903200;
 			
 			// aapt resource value: 0x7f0300a1
-			public const int MenuActualizador = 2130903201;
+			public const int Impresion = 2130903201;
 			
 			// aapt resource value: 0x7f0300a2
-			public const int MenuCliente = 2130903202;
+			public const int JornadaLaboral = 2130903202;
 			
 			// aapt resource value: 0x7f0300a3
-			public const int MenuDatos = 2130903203;
+			public const int LineasFacturaLote = 2130903203;
 			
 			// aapt resource value: 0x7f0300a4
-			public const int MenuParametros = 2130903204;
+			public const int LineasFacturaLoteHeader = 2130903204;
 			
 			// aapt resource value: 0x7f0300a5
-			public const int MenuParametrosX = 2130903205;
+			public const int LineasFacturaLoteItem = 2130903205;
 			
 			// aapt resource value: 0x7f0300a6
-			public const int MenuReportes = 2130903206;
+			public const int LoginHDPI = 2130903206;
 			
 			// aapt resource value: 0x7f0300a7
-			public const int MontosConsignacionCia = 2130903207;
+			public const int LoginT7 = 2130903207;
 			
 			// aapt resource value: 0x7f0300a8
-			public const int MontosPedido = 2130903208;
+			public const int LoginXHDPI = 2130903208;
 			
 			// aapt resource value: 0x7f0300a9
-			public const int NotaDetalleDesglose = 2130903209;
+			public const int MainMenu = 2130903209;
 			
 			// aapt resource value: 0x7f0300aa
-			public const int NotaVentaConsignacion = 2130903210;
+			public const int MenuActualizador = 2130903210;
 			
 			// aapt resource value: 0x7f0300ab
-			public const int OpcionComboEnum = 2130903211;
+			public const int MenuCliente = 2130903211;
 			
 			// aapt resource value: 0x7f0300ac
-			public const int OpcionDropDownEnum = 2130903212;
+			public const int MenuDatos = 2130903212;
 			
 			// aapt resource value: 0x7f0300ad
-			public const int OpcionesCliente = 2130903213;
+			public const int MenuParametros = 2130903213;
 			
 			// aapt resource value: 0x7f0300ae
-			public const int OpcionMenuItem = 2130903214;
+			public const int MenuReportes = 2130903214;
 			
 			// aapt resource value: 0x7f0300af
-			public const int OpcionMenuItemX = 2130903215;
+			public const int MontosConsignacionCia = 2130903215;
 			
 			// aapt resource value: 0x7f0300b0
-			public const int ParametrosImpresion = 2130903216;
+			public const int MontosPedido = 2130903216;
 			
 			// aapt resource value: 0x7f0300b1
-			public const int ParametrosSistema = 2130903217;
+			public const int NotaDetalleDesglose = 2130903217;
 			
 			// aapt resource value: 0x7f0300b2
-			public const int PruebaImpresion = 2130903218;
+			public const int NotaVentaConsignacion = 2130903218;
 			
 			// aapt resource value: 0x7f0300b3
-			public const int ReporteCierre = 2130903219;
+			public const int OpcionComboEnum = 2130903219;
 			
 			// aapt resource value: 0x7f0300b4
-			public const int ReporteCierreHeader = 2130903220;
+			public const int OpcionDropDownEnum = 2130903220;
 			
 			// aapt resource value: 0x7f0300b5
-			public const int ReporteCierreItem = 2130903221;
+			public const int OpcionesCliente = 2130903221;
 			
 			// aapt resource value: 0x7f0300b6
-			public const int ReporteDevuelto = 2130903222;
+			public const int OpcionMenuItem = 2130903222;
 			
 			// aapt resource value: 0x7f0300b7
-			public const int ReporteDevueltoHeader = 2130903223;
+			public const int ParametrosImpresion = 2130903223;
 			
 			// aapt resource value: 0x7f0300b8
-			public const int ReporteDevueltoItem = 2130903224;
+			public const int ParametrosSistema = 2130903224;
 			
 			// aapt resource value: 0x7f0300b9
-			public const int ReporteDocDiarios = 2130903225;
+			public const int PruebaImpresion = 2130903225;
 			
 			// aapt resource value: 0x7f0300ba
-			public const int ReporteInventario = 2130903226;
+			public const int ReporteCierre = 2130903226;
 			
 			// aapt resource value: 0x7f0300bb
-			public const int ReporteInventarioHeaderBarras = 2130903227;
+			public const int ReporteCierreCaja = 2130903227;
 			
 			// aapt resource value: 0x7f0300bc
-			public const int ReporteInventarioHeaderClase = 2130903228;
+			public const int ReporteCierreHeader = 2130903228;
 			
 			// aapt resource value: 0x7f0300bd
-			public const int ReporteInventarioHeaderCodigo = 2130903229;
+			public const int ReporteCierreItem = 2130903229;
 			
 			// aapt resource value: 0x7f0300be
-			public const int ReporteInventarioHeaderDescripcion = 2130903230;
+			public const int ReporteDevuelto = 2130903230;
 			
 			// aapt resource value: 0x7f0300bf
-			public const int ReporteInventarioHeaderFamilia = 2130903231;
+			public const int ReporteDevueltoHeader = 2130903231;
 			
 			// aapt resource value: 0x7f0300c0
-			public const int ReporteInventarioItemBarras = 2130903232;
+			public const int ReporteDevueltoItem = 2130903232;
 			
 			// aapt resource value: 0x7f0300c1
-			public const int ReporteInventarioItemClase = 2130903233;
+			public const int ReporteDocDiarios = 2130903233;
 			
 			// aapt resource value: 0x7f0300c2
-			public const int ReporteInventarioItemCodigo = 2130903234;
+			public const int ReporteInventario = 2130903234;
 			
 			// aapt resource value: 0x7f0300c3
-			public const int ReporteInventarioItemDescripcion = 2130903235;
+			public const int ReporteInventarioHeaderBarras = 2130903235;
 			
 			// aapt resource value: 0x7f0300c4
-			public const int ReporteInventarioItemFamilia = 2130903236;
+			public const int ReporteInventarioHeaderClase = 2130903236;
 			
 			// aapt resource value: 0x7f0300c5
-			public const int ReporteLiquidacionInventario = 2130903237;
+			public const int ReporteInventarioHeaderCodigo = 2130903237;
 			
 			// aapt resource value: 0x7f0300c6
-			public const int ReporteVisitaMontos = 2130903238;
+			public const int ReporteInventarioHeaderDescripcion = 2130903238;
 			
 			// aapt resource value: 0x7f0300c7
-			public const int ReporteVisitaMontosHeader = 2130903239;
+			public const int ReporteInventarioHeaderFamilia = 2130903239;
 			
 			// aapt resource value: 0x7f0300c8
-			public const int ReporteVisitaMontosItem = 2130903240;
+			public const int ReporteInventarioItemBarras = 2130903240;
 			
 			// aapt resource value: 0x7f0300c9
-			public const int ReporteVisitas = 2130903241;
+			public const int ReporteInventarioItemClase = 2130903241;
 			
 			// aapt resource value: 0x7f0300ca
-			public const int ReporteVisitasHeader = 2130903242;
+			public const int ReporteInventarioItemCodigo = 2130903242;
 			
 			// aapt resource value: 0x7f0300cb
-			public const int ReporteVisitasItem = 2130903243;
+			public const int ReporteInventarioItemDescripcion = 2130903243;
 			
 			// aapt resource value: 0x7f0300cc
-			public const int RubrosJornada = 2130903244;
+			public const int ReporteInventarioItemFamilia = 2130903244;
 			
 			// aapt resource value: 0x7f0300cd
-			public const int RubrosJornadaX = 2130903245;
+			public const int ReporteLiquidacionInventario = 2130903245;
 			
 			// aapt resource value: 0x7f0300ce
-			public const int SeleccionClienteHeader = 2130903246;
+			public const int ReporteVisitaMontos = 2130903246;
 			
 			// aapt resource value: 0x7f0300cf
-			public const int SeleccionClienteItem = 2130903247;
+			public const int ReporteVisitaMontosHeader = 2130903247;
 			
 			// aapt resource value: 0x7f0300d0
-			public const int SeleccionClientes = 2130903248;
+			public const int ReporteVisitaMontosItem = 2130903248;
 			
 			// aapt resource value: 0x7f0300d1
-			public const int SeleccionFacturas = 2130903249;
+			public const int ReporteVisitas = 2130903249;
 			
 			// aapt resource value: 0x7f0300d2
-			public const int SeleccionFacturasHeader = 2130903250;
+			public const int ReporteVisitasHeader = 2130903250;
 			
 			// aapt resource value: 0x7f0300d3
-			public const int SeleccionFacturasItem = 2130903251;
+			public const int ReporteVisitasItem = 2130903251;
 			
 			// aapt resource value: 0x7f0300d4
-			public const int SeleccionNotasCredito = 2130903252;
+			public const int RubrosJornada = 2130903252;
 			
 			// aapt resource value: 0x7f0300d5
-			public const int SeleccionNotasCreditoHeader = 2130903253;
+			public const int SeleccionClienteHeader = 2130903253;
 			
 			// aapt resource value: 0x7f0300d6
-			public const int SeleccionNotasCreditoItem = 2130903254;
+			public const int SeleccionClienteItem = 2130903254;
 			
 			// aapt resource value: 0x7f0300d7
-			public const int SeleccionRecibos = 2130903255;
+			public const int SeleccionClientes = 2130903255;
 			
 			// aapt resource value: 0x7f0300d8
-			public const int SeleccionRecibosHeader = 2130903256;
+			public const int SeleccionFacturas = 2130903256;
 			
 			// aapt resource value: 0x7f0300d9
-			public const int SeleccionRecibosItem = 2130903257;
+			public const int SeleccionFacturasHeader = 2130903257;
 			
 			// aapt resource value: 0x7f0300da
-			public const int SplashScreen = 2130903258;
+			public const int SeleccionFacturasItem = 2130903258;
 			
 			// aapt resource value: 0x7f0300db
-			public const int SugeridoVenta = 2130903259;
+			public const int SeleccionNotasCredito = 2130903259;
 			
 			// aapt resource value: 0x7f0300dc
-			public const int SugeridoVentaItem = 2130903260;
+			public const int SeleccionNotasCreditoHeader = 2130903260;
 			
 			// aapt resource value: 0x7f0300dd
-			public const int SugerirBoleta = 2130903261;
+			public const int SeleccionNotasCreditoItem = 2130903261;
 			
 			// aapt resource value: 0x7f0300de
-			public const int TipoDevolucion = 2130903262;
+			public const int SeleccionRecibos = 2130903262;
 			
 			// aapt resource value: 0x7f0300df
-			public const int TipoDevolucionHeader = 2130903263;
+			public const int SeleccionRecibosHeader = 2130903263;
 			
 			// aapt resource value: 0x7f0300e0
-			public const int TipoDevolucionItem = 2130903264;
+			public const int SeleccionRecibosItem = 2130903264;
 			
 			// aapt resource value: 0x7f0300e1
-			public const int TomaDevoluciones = 2130903265;
+			public const int SplashScreen = 2130903265;
 			
 			// aapt resource value: 0x7f0300e2
-			public const int TomaDevolucionesDocumentos = 2130903266;
+			public const int SugeridoVenta = 2130903266;
 			
 			// aapt resource value: 0x7f0300e3
-			public const int TomaDevolucionesDocumentosItem = 2130903267;
+			public const int SugeridoVentaItem = 2130903267;
 			
 			// aapt resource value: 0x7f0300e4
-			public const int TomaDevolucionesHeader = 2130903268;
+			public const int SugerirBoleta = 2130903268;
 			
 			// aapt resource value: 0x7f0300e5
-			public const int TomaDevolucionesItem = 2130903269;
+			public const int TipoDevolucion = 2130903269;
 			
 			// aapt resource value: 0x7f0300e6
-			public const int TomaEfectivo = 2130903270;
+			public const int TipoDevolucionHeader = 2130903270;
 			
 			// aapt resource value: 0x7f0300e7
-			public const int TomaFisicaInventario = 2130903271;
+			public const int TipoDevolucionItem = 2130903271;
 			
 			// aapt resource value: 0x7f0300e8
-			public const int TomaGarantia = 2130903272;
+			public const int TomaDevoluciones = 2130903272;
 			
 			// aapt resource value: 0x7f0300e9
-			public const int TomaGarantiaHeader = 2130903273;
+			public const int TomaDevolucionesDocumentos = 2130903273;
 			
 			// aapt resource value: 0x7f0300ea
-			public const int TomaGarantiaItem = 2130903274;
+			public const int TomaDevolucionesDocumentosItem = 2130903274;
 			
 			// aapt resource value: 0x7f0300eb
-			public const int TomaInventario = 2130903275;
+			public const int TomaDevolucionesHeader = 2130903275;
 			
 			// aapt resource value: 0x7f0300ec
-			public const int TomaInventarioHeader = 2130903276;
+			public const int TomaDevolucionesItem = 2130903276;
 			
 			// aapt resource value: 0x7f0300ed
-			public const int TomaInventarioItem = 2130903277;
+			public const int TomaEfectivo = 2130903277;
 			
 			// aapt resource value: 0x7f0300ee
-			public const int TomaPedido = 2130903278;
+			public const int TomaFisicaInventario = 2130903278;
 			
 			// aapt resource value: 0x7f0300ef
-			public const int TomaPedidoHeader = 2130903279;
+			public const int TomaGarantia = 2130903279;
 			
 			// aapt resource value: 0x7f0300f0
-			public const int TomaPedidoItem = 2130903280;
+			public const int TomaGarantiaHeader = 2130903280;
 			
 			// aapt resource value: 0x7f0300f1
-			public const int TomaTrasiego = 2130903281;
+			public const int TomaGarantiaItem = 2130903281;
 			
 			// aapt resource value: 0x7f0300f2
-			public const int TomaVentaConsig = 2130903282;
+			public const int TomaInventario = 2130903282;
 			
 			// aapt resource value: 0x7f0300f3
-			public const int TomaVentaConsigHeader = 2130903283;
+			public const int TomaInventarioHeader = 2130903283;
 			
 			// aapt resource value: 0x7f0300f4
-			public const int TomaVentaConsigItem = 2130903284;
+			public const int TomaInventarioItem = 2130903284;
 			
 			// aapt resource value: 0x7f0300f5
-			public const int UbicacionCliente = 2130903285;
+			public const int TomaPedido = 2130903285;
 			
 			// aapt resource value: 0x7f0300f6
-			public const int Visita = 2130903286;
+			public const int TomaPedidoHeader = 2130903286;
 			
 			// aapt resource value: 0x7f0300f7
-			public const int ZxingOverlay = 2130903287;
+			public const int TomaPedidoItem = 2130903287;
 			
 			// aapt resource value: 0x7f0300f8
-			public const int zxingscanneractivitylayout = 2130903288;
+			public const int TomaTrasiego = 2130903288;
 			
 			// aapt resource value: 0x7f0300f9
-			public const int zxingscannerfragmentlayout = 2130903289;
+			public const int TomaVentaConsig = 2130903289;
+			
+			// aapt resource value: 0x7f0300fa
+			public const int TomaVentaConsigHeader = 2130903290;
+			
+			// aapt resource value: 0x7f0300fb
+			public const int TomaVentaConsigItem = 2130903291;
+			
+			// aapt resource value: 0x7f0300fc
+			public const int UbicacionCliente = 2130903292;
+			
+			// aapt resource value: 0x7f0300fd
+			public const int Visita = 2130903293;
+			
+			// aapt resource value: 0x7f0300fe
+			public const int ZxingOverlay = 2130903294;
+			
+			// aapt resource value: 0x7f0300ff
+			public const int zxingscanneractivitylayout = 2130903295;
+			
+			// aapt resource value: 0x7f030100
+			public const int zxingscannerfragmentlayout = 2130903296;
 			
 			static Layout()
 			{

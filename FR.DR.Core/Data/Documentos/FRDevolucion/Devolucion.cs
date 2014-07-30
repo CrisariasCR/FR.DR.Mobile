@@ -719,7 +719,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRDevolucion
                 lnIndiceArticulo = 0;
                 while (((lnIndiceArticulo < this.detalles.Lista.Count) && bOk))
                 {
-                    lsArticulo = this.detalles.Lista[0].Articulo.Codigo;//  fciLineasDeDocumento[lnIndiceArticulo].sArticulo;
+                    lsArticulo = this.detalles.Lista[lnIndiceArticulo].Articulo.Codigo;//  fciLineasDeDocumento[lnIndiceArticulo].sArticulo;
                     // MRL Ajuste Colombia R5 --> Se valida el régimen del cliente, para determinar que retenciones se deben cargar
                     sSqlCmd = new StringBuilder();
                     sSqlCmd.AppendLine(string.Format(" SELECT ret.codigo_retencion, ret.descripcion FROM {0} ret,{1} art, ", Table.ERPADMIN_RETENCIONES, Table.ERPADMIN_ARTICULO));
@@ -787,6 +787,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRDevolucion
                                     newReten.nMonto = lnMontoRetencion;
                                     newReten.nBaseGravada = lnBaseRetencion;
                                     newReten.sAutoretenedora = fciRetencion.sEsAutoretenedor;
+                                    newReten.sTipo = fciRetencion.sTipo;
                                     if (pbEsDevolucion)
                                     {
                                         newReten.sDocReferencia = ("RED-#" + (lnCantidad + 1).ToString());
@@ -1010,6 +1011,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRDevolucion
                                     newReten.nMonto = lnMontoRetencion;
                                     newReten.nBaseGravada = lnBaseRetencion;
                                     newReten.sAutoretenedora = fciRetencion.sEsAutoretenedor;
+                                    newReten.sTipo = fciRetencion.sTipo;
                                     if (pbEsDevolucion)
                                     {
                                         newReten.sDocReferencia = ("RED-#" + (lnCantidad + 1).ToString());
@@ -1244,7 +1246,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRDevolucion
             detalles.Guardar(devolucionConDocumento);
 
             //Guarda las retenciones
-            if (iArregloRetenciones.Count > 0)
+            if (iArregloRetenciones != null && iArregloRetenciones.Count > 0)
             {
                 this.GuardarRetenciones();
             }

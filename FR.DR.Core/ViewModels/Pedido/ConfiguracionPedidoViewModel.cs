@@ -370,20 +370,12 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 ConfigDocCia config = Gestor.Pedidos.ObtenerConfiguracionVenta(CompaniaActual.Compania);
 
                 if (config != null)
-                {
-                    //NivelPrecio lista = ListasPrecios[listaPrecioCbo.SelectedIndex];
+                {                    
                     config.CondicionPago = this.listCondiciones.Find(x => x.Descripcion == CondicionActual);
-                    //if (NivelActual != null)
-                    //{
-                    //    foreach (NivelPrecio lista in NivelesPrecio)
-                    //    {
-                    //        if (lista == NivelActual)
-                    //        {
-                    //            config.Nivel = lista;
-                    //            break;
-                    //        }
-                    //    }
-                    //}
+                    if (config.CondicionPago.DiasNeto == 0)
+                        Pedidos.PermiteGarantia = true;
+                    else
+                        Pedidos.PermiteGarantia = false;
                 }
             }
         }
@@ -601,27 +593,20 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             {
                 //Este check indica que los pedidos seran facturados
                 Pedidos.FacturarPedido = FacturaPedidoChecked;
-                Garantias.FacturarGarantia = FacturaPedidoChecked;
 
                 if (SugeridoChecked)
                 {
                     SugeridoVentaViewModel.NivelPrecios = this.ListNiveles.Find(x => x.Nivel == NivelActual);
                     this.RequestNavigate<SugeridoVentaViewModel>();
-                    //frmSugeridoVenta sugeridos = new frmSugeridoVenta(NivelActual);   
-                    //sugeridos.Show();
                     DoClose();
                 }
                 else
                 {
-                    //Caso 28087 LDS 28087
-                    //Nos vamos a la toma de pedido
-                    //Caso R0-102009-S00S LDA
                     TomaPedidoViewModel.NivelPrecio = this.ListNiveles.Find(x => x.Nivel == NivelActual);
                     Dictionary<string, object> Parametros = new Dictionary<string, object>() { { "pedidoActual", false } };
                     this.RequestNavigate<TomaPedidoViewModel>(Parametros);
 
-                    DoClose();
-                    //Caso:32842 ABC 19/06/2008 Se deja de utiliza el dispose debido a que libera de memoria propiedas de los componentes
+                    DoClose();                    
                 }
             }
             else if(!string.IsNullOrEmpty(mensaje))

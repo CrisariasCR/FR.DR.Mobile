@@ -20,10 +20,7 @@ namespace FR.Droid.Views.Garantia
 {
     [Activity(Label = "FR - Aplicar Garantía", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, ConfigurationChanges = Android.Content.PM.ConfigChanges.KeyboardHidden | Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class AplicarGarantiaView : MvxBindingActivityView<AplicarGarantiaViewModel>
-    {
-
-        ImageButton btnCambiarFecha;
-        private DateTime date;
+    {        
         int DATE_DIALOG_ID = 0;
         //EditText porcDescuento1, porcDescuento2;
         MvxBindableSpinner cmbDirecciones, cmbCompanias;
@@ -32,8 +29,7 @@ namespace FR.Droid.Views.Garantia
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.AplicarGarantia);
-            btnCambiarFecha = this.FindViewById<ImageButton>(Resource.Id.btnCambiarFecha);
-            btnCambiarFecha.Click += new EventHandler(btnCambiarFecha_Click);
+            
             cmbDirecciones = FindViewById<MvxBindableSpinner>(Resource.Id.cmbDireccionesap);
             cmbDirecciones.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(cmbDirecciones_ItemSelected);
 
@@ -53,25 +49,7 @@ namespace FR.Droid.Views.Garantia
             base.OnStart();
             Softland.ERP.FR.Mobile.App.VerificarConexionBaseDatos(Util.cnxDefault());
             Softland.ERP.FR.Mobile.App.setCurrentActivity(this);
-            date = DateTime.Today;
-            ViewModel.OnResume();
-            UpdateDisplay();         
-        }
-
-        void OnDateSet(object sender, DatePickerDialog.DateSetEventArgs e)
-        {
-            this.date = e.Date;
-            UpdateDisplay();
-        }
-
-        private void UpdateDisplay()
-        {
-            ViewModel.FechaEntrega = date;
-        }
-
-        protected override Dialog OnCreateDialog(int id)
-        {
-            return new DatePickerDialog(this, OnDateSet, date.Year, date.Month - 1, date.Day);
+            ViewModel.OnResume();     
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

@@ -40,6 +40,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         private bool cargandoFormulario = true;
         private decimal descuentoPorCIA = decimal.Zero;
         private bool actualizandoDescuento = false;
+        private bool contContado = false;
         private bool Imprimir = false;
         public static bool ventanaInactiva = false;   
 
@@ -81,13 +82,6 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         {
             get { return companias; }
             set { companias = value; RaisePropertyChanged("Companias"); }
-        }
-
-        private DateTime fechaEntrega;
-        public DateTime FechaEntrega
-        {
-            get { return fechaEntrega; }
-            set { fechaEntrega = value; CambioFechaEntrega(); RaisePropertyChanged("FechaEntrega"); }
         }
 
         private Garantia garantia;
@@ -228,7 +222,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
             //this.lblWarning.Text = FRmConfig.MensajeCreditoExcedido;
 
-            EntregaEnabled = !Pedidos.FacturarPedido;
+            EntregaEnabled = false;
 
             bool dolar = Gestor.Garantias.Gestionados[0].Configuracion.Nivel.Moneda == TipoMoneda.DOLAR;
 
@@ -275,8 +269,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
         private void MostrarDatos()
         {
-            Garantia = Gestor.Garantias.Gestionados[0];
-            FechaEntrega = garantia.FechaEntrega;
+            Garantia = Gestor.Garantias.Gestionados[0];            
             PorcDescuento1 = Gestor.Garantias.PorcDesc1;
             PorcDescuento2 = Gestor.Garantias.PorcDesc2;
             Descuento1 = Gestor.Garantias.TotalDescuento1;
@@ -368,12 +361,8 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 }
             }
             catch (Exception ex)
-            {
-                if (Pedidos.FacturarPedido)
-                    this.mostrarAlerta("Error validando la cantidad de líneas de la Garantía. " + ex.Message);
-                else
-                    this.mostrarAlerta("Error validando la cantidad de líneas del pedido. " + ex.Message);
-
+            {                
+                this.mostrarAlerta("Error validando la cantidad de líneas de la Garantía. " + ex.Message);
                 return false;
             }
 
@@ -425,32 +414,71 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
         private void TerminarGestion()
         {
-            string mensaje = " terminar la gestión " + (Pedidos.FacturarPedido ? "de la Garantía" : "del pedido");
-
+            string mensaje = " terminar la gestión de la Garantía";
             this.mostrarMensaje(Mensaje.Accion.Decision, mensaje, resultado =>
+            {
+                if (resultado == DialogResult.Yes || resultado == DialogResult.OK)
                 {
-                    if (resultado == DialogResult.Yes || resultado == DialogResult.OK)
+                    if (FRdConfig.ReciboFacturasContado && ((Gestor.Garantias.Gestionados[0].Configuracion.CondicionPago.DiasNeto == 0)))
                     {
-                            VerificarImpresion();                       
+                        VerificarImpresionContado();
                     }
                     else
+                    {
+                        VerificarImpresion();
+                    }
+
+                }
+                else
+                    return;
+            }); 
+        }
+
+        private void VerificarImpresionContado()
+        {
+            if (Pedidos.ValidarLimiteCredito != Pedidos.LIMITECREDITO_NOAPLICA)
+            {
+                if ((Pedidos.ValidarLimiteCredito == Pedidos.LIMITECREDITO_AMBOS) || (Pedidos.ValidarLimiteCredito == Pedidos.LIMITECREDITO_FACTURA))
+                {
+                    if (GlobalUI.ClienteActual.LimiteCreditoExcedido(Gestor.Garantias.Gestionados[0].Compania, (decimal)Gestor.Garantias.Gestionados[0].MontoNeto))
+                    {
+                        this.mostrarAlerta("El monto excede el de crédito permitido para este cliente, no se podra gestionar el documento.");
                         return;
-                });
+                    }
+                }
+            }
+            try
+            {
+                 Gestor.Garantias.CargarConsecutivos();
+            }
+            catch (Exception ex)
+            {
+                this.mostrarAlerta(ex.Message + " de la garantía.");
+                return;
+            }
+            // Si es factura de contado se genera el cobro - KFC
+            //if ((Gestor.Pedidos.Gestionados[0].Configuracion.CondicionPago.Codigo == "0")
+            if (FRdConfig.ReciboFacturasContado)
+            {
+                if ((Gestor.Garantias.Gestionados[0].Configuracion.CondicionPago.DiasNeto == 0) && (Gestor.Garantias.Gestionados[0].Tipo == TipoPedido.Factura))
+                    GenerarCobro();
+            }
+
         }
 
         private void VerificarImpresion()
         {
-            //if (Pedidos.ValidarLimiteCredito != Pedidos.LIMITECREDITO_NOAPLICA)
-            //{
-            //    if ((Pedidos.ValidarLimiteCredito == Pedidos.LIMITECREDITO_AMBOS) || (Pedidos.ValidarLimiteCredito == Pedidos.LIMITECREDITO_FACTURA && Pedidos.FacturarPedido))
-            //    {
-            //        if (GlobalUI.ClienteActual.LimiteCreditoExcedido(Gestor.Garantias.Gestionados[0].Compania, (decimal)Gestor.Garantias.Gestionados[0].MontoNeto))
-            //        {
-            //            this.mostrarAlerta("El monto excede el de crédito permitido para este cliente, no se podrá gestionar el documento.");
-            //            return;
-            //        }
-            //    }
-            //}
+            if (Pedidos.ValidarLimiteCredito != Pedidos.LIMITECREDITO_NOAPLICA)
+            {
+                if ((Pedidos.ValidarLimiteCredito == Pedidos.LIMITECREDITO_AMBOS) || (Pedidos.ValidarLimiteCredito == Pedidos.LIMITECREDITO_FACTURA ))
+                {
+                    if (GlobalUI.ClienteActual.LimiteCreditoExcedido(Gestor.Garantias.Gestionados[0].Compania, (decimal)Gestor.Garantias.Gestionados[0].MontoNeto))
+                    {
+                        this.mostrarAlerta("El monto excede el de crédito permitido para este cliente, no se podrá gestionar el documento.");
+                        return;
+                    }
+                }
+            }
 
             if (!FRmConfig.EnConsulta)
             {
@@ -460,206 +488,49 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    if (Pedidos.FacturarPedido)
-                        this.mostrarAlerta(ex.Message + " de la garantía.");
-                    else
-                        this.mostrarAlerta(ex.Message + " del pedido.");
-
+                    this.mostrarAlerta(ex.Message + " de la garantía.");
                     return;
                 }
             }
 
             // Si es factura de contado se genera el cobro - KFC
             //if ((Gestor.Pedidos.Gestionados[0].Configuracion.CondicionPago.Codigo == "0")
-            //if (FRdConfig.ReciboFacturasContado)
-            //{
-            //    //TODO GARANTIAS
-            //    if ((Gestor.Pedidos.Gestionados[0].Configuracion.CondicionPago.DiasNeto == 0) && (Gestor.Pedidos.Gestionados[0].Tipo == TipoPedido.Factura))
-            //        GenerarCobro();
-            //}
+            if (FRdConfig.ReciboFacturasContado)
+            {
+                if ((Gestor.Garantias.Gestionados[0].Configuracion.CondicionPago.DiasNeto == 0))
+                     GenerarCobro();
+            }
 
             //DialogResult res = DialogResult.None;
             this.Imprimir = false;
             if (Gestor.Garantias.Gestionados[0].Tipo == TipoPedido.Factura && Pedidos.DesgloseLotesFactura && false)//de momento las garantías no soportan lotes
             {
-                if (!Pedidos.DesgloseLotesFacturaObliga)
+
+                if (Impresora.SugerirImprimir)
                 {
-                    this.mostrarMensaje(Mensaje.Accion.Decision, "realizar el desglose de lotes para la garantía en proceso", result =>
+                    string msj = "el detalle de las garantías realizadas";
+
+                    string titulo = "Impresión de Detalle de garantías";
+
+                    this.mostrarMensaje(Mensaje.Accion.Imprimir, msj, r2 =>
                     {
-                        if (result == DialogResult.Yes)
+                        if (r2 == DialogResult.Yes)
                         {
-                            if (Impresora.SugerirImprimir)
-                            {
-                                string msj = Pedidos.FacturarPedido ? "el detalle de las garantías realizadas" : "el detalle de los pedidos realizados";
-
-                                string titulo = Pedidos.FacturarPedido ? "Impresión de Detalle de garantías" : "Impresión de Detalle de Pedidos";
-
-                                this.mostrarMensaje(Mensaje.Accion.Imprimir, msj, r2 =>
-                                {
-                                    if (r2 == DialogResult.Yes)
-                                    {
-                                        Imprimir = true;
-                                        this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                        {
-                                            TerminarGestion3();
-                                        });
-                                    }
-                                    else
-                                    {
-                                        Imprimir = false;
-                                        this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                        {
-                                            TerminarGestion3();
-                                        });
-                                    }
-                                    
-                                });
-                            }
-                            else
-                            {
-                                this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                {
-                                    TerminarGestion2();
-                                });
-                            }                            
+                            Imprimir = true;
+                            TerminarGestion3();
                         }
-                        //TerminarGestion2();
+                        else
+                        {
+                            TerminarGestion3();
+                        }
+
                     });
                 }
                 else
                 {
-                    if (Impresora.SugerirImprimir)
-                    {
-                        string msj = Pedidos.FacturarPedido ? "el detalle de las garantías realizadas" : "el detalle de los pedidos realizados";
-
-                        string titulo = Pedidos.FacturarPedido ? "Impresión de Detalle de garantías" : "Impresión de Detalle de Pedidos";
-
-                        this.mostrarMensaje(Mensaje.Accion.Imprimir, msj, r2 =>
-                        {
-                            if (r2 == DialogResult.Yes)
-                            {
-                                Imprimir = true;
-                                this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                {
-                                    TerminarGestion3();
-                                });
-                            }
-                            else
-                            {
-                                
-                                this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                {
-                                    TerminarGestion3();
-                                });
-                            }
-
-                        });
-                    }
-                    else
-                    {
-                        
-                        this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                        {
-                            TerminarGestion2();
-                        });
-                    }
+                        TerminarGestion2();
                 }
-            }
-            else{
-                TerminarGestion2();
-            }
 
-            
-        }
-
-        public void ContinuarContado() 
-        {
-
-
-            //DialogResult res = DialogResult.None;
-            this.Imprimir = false;
-            if (Gestor.Pedidos.Gestionados[0].Tipo == TipoPedido.Factura && Pedidos.DesgloseLotesFactura)
-            {
-                if (!Pedidos.DesgloseLotesFacturaObliga)
-                {
-                    this.mostrarMensaje(Mensaje.Accion.Decision, "realizar el desglose de lotes para la garantía en proceso", result =>
-                    {
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Impresora.SugerirImprimir)
-                            {
-                                string msj = Pedidos.FacturarPedido ? "el detalle de las garantías realizadas" : "el detalle de los pedidos realizados";
-
-                                string titulo = Pedidos.FacturarPedido ? "Impresión de Detalle de garantías" : "Impresión de Detalle de Pedidos";
-
-                                this.mostrarMensaje(Mensaje.Accion.Imprimir, msj, r2 =>
-                                {
-                                    if (r2 == DialogResult.Yes)
-                                    {
-                                        Imprimir = true;
-                                        this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                        {
-                                            TerminarGestion3();
-                                        });
-                                    }
-                                    else
-                                    {
-                                        Imprimir = false;
-                                        this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                        {
-                                            TerminarGestion3();
-                                        });
-                                    }
-
-                                });
-                            }
-                            else
-                            {
-                                this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                {
-                                    TerminarGestion2();
-                                });
-                            }
-                        }
-                        //TerminarGestion2();
-                    });
-                }
-                else
-                {
-                    if (Impresora.SugerirImprimir)
-                    {
-                        string msj = Pedidos.FacturarPedido ? "el detalle de las garantías realizadas" : "el detalle de los pedidos realizados";
-
-                        string titulo = Pedidos.FacturarPedido ? "Impresión de Detalle de garantías" : "Impresión de Detalle de Pedidos";
-
-                        this.mostrarMensaje(Mensaje.Accion.Imprimir, msj, r2 =>
-                        {
-                            if (r2 == DialogResult.Yes)
-                            {
-                                Imprimir = true;
-                                this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                {
-                                    TerminarGestion3();
-                                });
-                            }
-                            else
-                            {
-                                this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                                {
-                                    TerminarGestion3();
-                                });
-                            }
-
-                        });
-                    }
-                    else
-                    {
-                        this.RequestDialogNavigate<LineasFacturaLoteViewModel, bool>(null, r1 =>
-                        {
-                            TerminarGestion2();
-                        });
-                    }
-                }
             }
             else
             {
@@ -667,13 +538,45 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
         }
 
+        public void ContinuarContado()
+        {
+            //DialogResult res = DialogResult.None;
+            this.Imprimir = false;
+
+            if (Impresora.SugerirImprimir)
+            {
+                string msj = "el detalle de las garantías realizadas";
+
+                string titulo = "Impresión de Detalle de garantías";
+
+                this.mostrarMensaje(Mensaje.Accion.Imprimir, msj, r2 =>
+                {
+                    if (r2 == DialogResult.Yes)
+                    {
+                        Imprimir = true;
+                        TerminarGestion3();
+                    }
+                    else
+                    {                        
+                       TerminarGestion3();
+                    }
+
+                });
+            }
+            else
+            {
+                TerminarGestion2();
+            }
+
+        }
+
         private void TerminarGestion2()
         {
             if (Impresora.SugerirImprimir)
             {
-                string msj = Pedidos.FacturarPedido ? "el detalle de las garantías realizadas" : "el detalle de los pedidos realizados";
+                string msj = "el detalle de las garantías realizadas";
 
-                string titulo = Pedidos.FacturarPedido ? "Impresión de Detalle de Garantías" : "Impresión de Detalle de Pedidos";
+                string titulo = "Impresión de Detalle de Garantías";
 
                 this.mostrarMensaje(Mensaje.Accion.Imprimir, msj, result =>
                 {
@@ -685,8 +588,16 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     }
                     else
                     {
-                        this.GuardaDocumento();
-                        this.LimpiarCerrarFormulario();
+                        string resultGuardar=this.GuardaDocumento();
+                        if (string.IsNullOrEmpty(resultGuardar))
+                        {
+                            this.LimpiarCerrarFormulario();
+                        }
+                        else
+                        {
+                            this.mostrarAlerta(resultGuardar, r => this.LimpiarCerrarFormulario());
+                        }
+                        
                     }
 
                 });
@@ -694,20 +605,23 @@ namespace Softland.ERP.FR.Mobile.ViewModels
 
             else
             {
-                this.GuardaDocumento();
-                this.LimpiarCerrarFormulario();
+                string resultGuardar = this.GuardaDocumento();
+                if (string.IsNullOrEmpty(resultGuardar))
+                {
+                    this.LimpiarCerrarFormulario();
+                }
+                else
+                {
+                    this.mostrarAlerta(resultGuardar, r => this.LimpiarCerrarFormulario());
+                }
             }
         }
 
         private void TerminarGestion3()
         {
+            string titulo = "Impresión de Garantías";
             if (Impresora.SugerirImprimir)
-            {
-                string msj = Pedidos.FacturarPedido ? "el detalle de las garantías realizadas" : "el detalle de los pedidos realizados";
-
-                string titulo = Pedidos.FacturarPedido ? "Impresión de Detalle de Garantías" : "Impresión de Detalle de Pedidos";
-
-                
+            {             
                     if (Imprimir)
                     {
                         ImpresionViewModel.OriginalEn = true;
@@ -716,17 +630,29 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     }
                     else
                     {
-                        this.GuardaDocumento();
-                        this.LimpiarCerrarFormulario();
-                    }
-
-                
+                        string resultGuardar = this.GuardaDocumento();
+                        if (string.IsNullOrEmpty(resultGuardar))
+                        {
+                            this.LimpiarCerrarFormulario();
+                        }
+                        else
+                        {
+                            this.mostrarAlerta(resultGuardar, r => this.LimpiarCerrarFormulario());
+                        }
+                    }             
             }
 
             else
             {
-                this.GuardaDocumento();
-                this.LimpiarCerrarFormulario();
+                string resultGuardar = this.GuardaDocumento();
+                if (string.IsNullOrEmpty(resultGuardar))
+                {
+                    this.LimpiarCerrarFormulario();
+                }
+                else
+                {
+                    this.mostrarAlerta(resultGuardar, r => this.LimpiarCerrarFormulario());
+                }
             }
         }
 
@@ -750,7 +676,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
         }
 
-        private void GuardaDocumento()
+        private string GuardaDocumento()
         {
             if (FRmConfig.EnConsulta)
             {
@@ -760,13 +686,12 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 {
                     garantia = Gestor.Garantias.Gestionados[0];
                     garantia.Actualizar(true,"");
+                    return string.Empty;
                 }
                 catch (Exception ex)
                 {
                     if (garantia.Tipo == TipoPedido.Factura)
-                        this.mostrarAlerta("Error al actualizar garantía. " + ex.Message);
-                    else
-                        this.mostrarAlerta("Error al actualizar pedido. " + ex.Message);
+                        return "Error al generar garantía. " + ex.Message;
                 }
             }
             else
@@ -776,16 +701,14 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                     
                     Gestor.Garantias.GuardarGarantias("");
                     ActualizarJornada(GlobalUI.RutaActual.Codigo,decimal.Round(Convert.ToDecimal(TotalNeto), 2));
-                    
+                    return string.Empty;
                 }
                 catch (Exception ex)
                 {
-                    if (Pedidos.FacturarPedido)
-                        this.mostrarAlerta("Error al generar garantía. " + ex.Message);
-                    else
-                        this.mostrarAlerta("Error al generar pedido. " + ex.Message);
+                    return "Error al generar garantía. " + ex.Message;
                 }
             }
+            return string.Empty;
         }
 
         private void ActualizarJornada(string ruta, decimal monto)
@@ -793,33 +716,41 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             TipoMoneda moneda = Gestor.Garantias.Gestionados[0].Configuracion.Nivel.Moneda;
             string colCantidad = "";
             string colMonto = "";
+            string colCantidadCondPagoGar = "";
+            string colMontoCondPagoGar = "";
 
-            if (Pedidos.FacturarPedido)
+
+            if (moneda == TipoMoneda.LOCAL)
             {
-                if (moneda == TipoMoneda.LOCAL)
-                {
-                    colCantidad = JornadaRuta.GARANTIAS_LOCAL;
-                    colMonto = JornadaRuta.MONTO_GARANTIAS_LOCAL;                    
+                colCantidad = JornadaRuta.GARANTIAS_LOCAL;
+                colMonto = JornadaRuta.MONTO_GARANTIAS_LOCAL;
+                if (this.Garantia.Configuracion.CondicionPago.DiasNeto == 0)
+                {                    
+                    colCantidadCondPagoGar = JornadaRuta.GARANTIAS_LOCAL_CONT;
+                    colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_LOCAL_CONT;
                 }
                 else
                 {
-                    colCantidad = JornadaRuta.GARANTIAS_DOLAR;
-                    colMonto = JornadaRuta.MONTO_GARANTIAS_DOLAR;
+                    colCantidadCondPagoGar = JornadaRuta.GARANTIAS_LOCAL_CRE;
+                    colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_LOCAL_CRE;
                 }
             }
             else
             {
-                if (moneda == TipoMoneda.LOCAL)
+                colCantidad = JornadaRuta.GARANTIAS_DOLAR;
+                colMonto = JornadaRuta.MONTO_GARANTIAS_DOLAR;
+                if (this.Garantia.Configuracion.CondicionPago.DiasNeto == 0)
                 {
-                    colCantidad = JornadaRuta.PEDIDOS_LOCAL;
-                    colMonto = JornadaRuta.MONTO_PEDIDOS_LOCAL;
+                    colCantidadCondPagoGar = JornadaRuta.GARANTIAS_DOLAR_CONT;
+                    colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_DOLAR_CONT;
                 }
                 else
                 {
-                    colCantidad = JornadaRuta.PEDIDOS_DOLAR;
-                    colMonto = JornadaRuta.MONTO_PEDIDOS_DOLAR;
+                    colCantidadCondPagoGar = JornadaRuta.GARANTIAS_DOLAR_CONT;
+                    colMontoCondPagoGar = JornadaRuta.MONTO_GARANTIAS_DOLAR_CONT;
                 }
             }
+
 
             try
             {
@@ -828,6 +759,9 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 JornadaRuta.ActualizarRegistro(ruta, colCantidad, 1);
                 JornadaRuta.ActualizarRegistro(ruta, colMonto, monto);
 
+                JornadaRuta.ActualizarRegistro(ruta, colCantidadCondPagoGar, 1);
+                JornadaRuta.ActualizarRegistro(ruta, colMontoCondPagoGar, monto);
+
                 GestorDatos.CommitTransaction();
             }
             catch (Exception ex)
@@ -835,7 +769,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 GestorDatos.RollbackTransaction();
                 this.mostrarAlerta("Error al actualizar datos. " + ex.Message);
             }
-        }       
+        }   
         
 
         private void CambioTextoDescuento(bool descuento1)
@@ -938,52 +872,35 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             return limpiarDescuentos;
         }
 
-        private void CambioFechaEntrega()
-        {
-            foreach (Pedido ped in Gestor.Pedidos.Gestionados)
-            {
-                ped.FechaEntrega = FechaEntrega;
-            }
-        }
-
         //Caso 25452 LDS 19/10/2007
         /// <summary>
         /// Imprime los documentos que han sido gestionados.
         /// </summary>
         private void ImprimirDocumento(bool esOriginal, int cantidadCopias, DetalleSort.Ordenador ordernarPor, BaseViewModel viewModel)
-        {            
-
-            //Caso 32081 LDS 09/04/2008
-            //Guardamos los pedidos o facturas.
-            //this.GuardaDocumento();         
-            //Caso 32081 LDS 09/04/2008
-            //Realizamos la impresión de los pedidos o facturas.
+        {
             try
             {
                 int cantidad = 0;
 
                 cantidad = cantidadCopias;
-
-                if (Garantias.FacturarGarantia)
+                if (cantidad >= 0 || esOriginal)
                 {
-                    if (cantidad >= 0 || esOriginal)
-                    {
-                        if (esOriginal)
-                            foreach (Garantia garantia in Gestor.Garantias.Gestionados)
-                                garantia.LeyendaOriginal = true;
+                    if (esOriginal)
+                        foreach (Garantia garantia in Gestor.Garantias.Gestionados)
+                            garantia.LeyendaOriginal = true;
 
-                        Garantias garantiasImprimir = new Garantias(Gestor.Garantias.Gestionados, GlobalUI.ClienteActual);
-                        garantiasImprimir.ImprimeDetalleGarantia(cantidad, (DetalleSort.Ordenador)ordernarPor);
+                    Garantias garantiasImprimir = new Garantias(Gestor.Garantias.Gestionados, GlobalUI.ClienteActual);
+                    garantiasImprimir.ImprimeDetalleGarantia(cantidad, (DetalleSort.Ordenador)ordernarPor);
 
-                        if (esOriginal)
-                            foreach (Garantia garantia in Gestor.Garantias.Gestionados)
-                                garantia.Impreso = true;
-                    }
-                    else
-                    {
-                        this.mostrarMensaje(Mensaje.Accion.Informacion, "Solo se guardará la garantía.");
-                    }
+                    if (esOriginal)
+                        foreach (Garantia garantia in Gestor.Garantias.Gestionados)
+                            garantia.Impreso = true;
                 }
+                else
+                {
+                    this.mostrarMensaje(Mensaje.Accion.Informacion, "Solo se guardará la garantía.");
+                }
+
             }
             catch (FormatException)
             {
@@ -994,13 +911,15 @@ namespace Softland.ERP.FR.Mobile.ViewModels
                 this.mostrarAlerta(ex.Message);
             }
 
-            //Caso 32081 LDS 09/04/2008
-            //Guardamos los pedidos o facturas gestionadas y luego limpiamos y regresamos al formulario que invocó el presente formulario.
-            this.GuardaDocumento();
-            //Caso 32081 LDS 09/04/2008
-            //Primero guardamos el pedido o factura y luego realizamos la impresión, ya que si ocurre un error con la impresión
-            //solo se debe imprimir el documento o no volver a cargar.
-            this.LimpiarCerrarFormulario();
+            string resultGuardar = this.GuardaDocumento();
+            if (string.IsNullOrEmpty(resultGuardar))
+            {
+                this.LimpiarCerrarFormulario();
+            }
+            else
+            {
+                this.mostrarAlerta(resultGuardar, r => this.LimpiarCerrarFormulario());
+            }
         }
 
 
@@ -1011,11 +930,6 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         public ICommand ComandoDireccion
         {
             get { return new MvxRelayCommand(MostrarDireccion); }
-        }
-
-        public ICommand ComandoConsultar
-        {
-            get { return new MvxRelayCommand(ConsultarPedido); }
         }
 
         public ICommand ComandoEditar
@@ -1041,21 +955,7 @@ namespace Softland.ERP.FR.Mobile.ViewModels
             }
         }
 
-        private void ConsultarPedido()
-        {
-            Dictionary<string, object> Parametros = new Dictionary<string, object>();
-            Parametros.Add("invocadesde", Formulario.AplicarPedido.ToString());
-            Parametros.Add("mostrarControles", "N");
-            if (Pedidos.FacturarPedido)
-            {
-                Parametros.Add("esFactura", "S");
-            }
-            else
-            {
-                Parametros.Add("esFactura", "N");
-            }
-            this.RequestNavigate<DetallePedidoViewModel>(Parametros);
-        }
+        
 
         private void MontosPedido()
         {
@@ -1095,8 +995,57 @@ namespace Softland.ERP.FR.Mobile.ViewModels
         public void OnResume()
         {
             ventanaInactiva = false;
-            //RaisePropertyChanged("PorcDescuento1");            
-        }  
+            if (contContado)
+            {
+                this.ContinuarContado();
+            }
+        }
+
+        private void GenerarCobro()
+        {
+
+            if (FRdConfig.FormaGenerarRecibo == FRmConfig.Consultar)
+            {
+                this.mostrarMensaje(Mensaje.Accion.Decision, "desglosar el cobro de la garantía", res =>
+                {
+                    if (res == DialogResult.Yes)
+                    {
+                        AplicarPagoGarantiaViewModel.genCobro = false;
+                        this.RequestDialogNavigate<AplicarPagoGarantiaViewModel, Dictionary<string, object>>(null, result =>
+                        {
+                            bool correcto = (bool)result["correcto"];
+                            contContado = true;
+
+                        });
+                    }
+                    else
+                    {
+                        //Generar el pago en efectivo automaticamente                            
+                        AplicarPagoGarantiaViewModel.genCobro = true;
+                        var cobro = new AplicarPagoGarantiaViewModel(null);
+                        ContinuarContado();
+                    }
+                });
+            } //FormaGenerarRecibo por ReciboFacturasContado 
+            if (FRdConfig.FormaGenerarRecibo == FRmConfig.ObligarDesglose) // obliga a hacer el desglose del pago
+            {
+                //llamar a la pantalla de aplicar pago                
+                AplicarPagoGarantiaViewModel.genCobro = false;
+                this.RequestDialogNavigate<AplicarPagoGarantiaViewModel, Dictionary<string, object>>(null, result =>
+                {
+                    bool correcto = (bool)result["correcto"];
+                    contContado = true;
+
+                });
+            }
+            if (FRdConfig.FormaGenerarRecibo == FRmConfig.GenerarEfectivo) // no muestra la pantalla de pago y genera automaticamente un recibo en efectivo
+            {
+                //Generar el pago en efectivo automaticamente                
+                AplicarPagoGarantiaViewModel.genCobro = true;
+                var cobro = new AplicarPagoGarantiaViewModel(null);
+                ContinuarContado();
+            }
+        }
 
         #endregion
 

@@ -202,17 +202,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
         {
             get { return Garantias.maximoLineasDetalle; }
             set { Garantias.maximoLineasDetalle = value; }
-        }
-
-        private static bool facturarPedido = false;
-        /// <summary>
-        /// Variable que indica que los Garantias en gestion deben ser facturados.
-        /// </summary>
-        public static bool FacturarGarantia
-        {
-            get { return Garantias.facturarPedido; }
-            set { Garantias.facturarPedido = value; }
-        }
+        }        
 
         private static bool existeBodega = false;
 
@@ -753,24 +743,8 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                 {
                     string consecutivo = string.Empty;
                     string ncf = string.Empty;
-
-                    if (Garantias.FacturarGarantia)
-                    {
-                        consecutivo = ParametroSistema.ObtenerGarantia(garantia.Compania, garantia.Zona);
-
-                        //Garantias no usan NCF
-                        //if (garantia.Tipo == TipoPedido.Factura && garantia.Configuracion.Compania.UsaNCF && garantia.Configuracion.ClienteCia.TipoContribuyente != string.Empty)
-                          //  garantia.NCF.cargarNuevoNCF();
-                    }
-                    else
-                    {
-                        if (garantia.UsuarioCambioDescuentos())
-                            consecutivo = ParametroSistema.ObtenerPedidoDesc(garantia.Compania, garantia.Zona);
-                        else
-                            consecutivo = ParametroSistema.ObtenerPedido(garantia.Compania, garantia.Zona);
-                    }
-                    //Caso 29861 LDS 01/10/2007
-                    //Se captura el mensaje.
+                    consecutivo = ParametroSistema.ObtenerGarantia(garantia.Compania, garantia.Zona);                 
+                    
                     if (consecutivo == string.Empty)
                         throw new Exception("Error obteniendo consecutivo");
 
@@ -852,11 +826,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
 
                 garantia.Configuracion.Cargar();
 
-                if (Garantias.BonificacionAdicional && !Garantias.FacturarGarantia)
-                    garantia.AgregarLineaDetalle(articulo, precio, cantidadDetalle, cantidadAlmacen, validarCantidadLineas, 
-                                                cantidadAlmacenAdicional, cantidadDetalleAdicional, tope);
-                else
-                    garantia.AgregarLineaDetalle(articulo, precio, cantidadDetalle, cantidadAlmacen, validarCantidadLineas, tope);
+                garantia.AgregarLineaDetalle(articulo, precio, cantidadDetalle, cantidadAlmacen, validarCantidadLineas, tope);
 
                 gestionados.Add(garantia);
             }
@@ -871,11 +841,7 @@ namespace Softland.ERP.FR.Mobile.Cls.Documentos.FRPedido
                 }
                 else
                 {
-                    if (Garantias.BonificacionAdicional && !Garantias.FacturarGarantia)
-                        garantia.AgregarLineaDetalle(articulo, precio, cantidadDetalle, cantidadAlmacen, validarCantidadLineas,
-                                                    cantidadAlmacenAdicional, cantidadDetalleAdicional, tope);
-                    else
-                        garantia.AgregarLineaDetalle(articulo, precio, cantidadDetalle, cantidadAlmacen, validarCantidadLineas, tope);
+                    garantia.AgregarLineaDetalle(articulo, precio, cantidadDetalle, cantidadAlmacen, validarCantidadLineas, tope);
                 }
             }
             SacarMontosTotales();

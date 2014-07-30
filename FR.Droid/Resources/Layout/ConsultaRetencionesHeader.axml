@@ -73,7 +73,7 @@
         android:id="@+id/text6"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_weight=".13"
+        android:layout_weight=".12"
         android:text="Autoretenedora"
         style="@style/ListHeaderText"
         android:gravity="center" />
