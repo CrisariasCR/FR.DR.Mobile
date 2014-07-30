@@ -26,11 +26,11 @@ namespace FR.Droid.Views.Principal
         void FillParametros()
         {
             _parametrostList = new List<string>();
-            _parametrostList.Add("Parámetros del Sistema");
+            _parametrostList.Add("Par¨¢metros del Sistema");
             _parametrostList.Add("Consulta NCF");
-            _parametrostList.Add("Parámetros del Dispositivo");
-            _parametrostList.Add("Corporación");
-            _parametrostList.Add("Parámetros de Impresión");
+			_parametrostList.Add("Parr¨¢etros del Dispositivo");
+            _parametrostList.Add("Corporaci¨®n");
+			_parametrostList.Add("Par¨¢metros de Impresi¨®n");
         }
 
         public override int Count
@@ -49,11 +49,11 @@ namespace FR.Droid.Views.Principal
         {
             switch (_parametrostList[position])
             {
-                case "Parámetros del Sistema": return 0;
+				case "Par¨¢metros del Sistema": return 0;
                 case "Consulta NCF": return 1;
-                case "Parámetros del Dispositivo": return 2;
-                case "Corporación": return 3;
-                case "Parámetros de Impresión": return 4;
+				case "Par¨¢metros del Dispositivo": return 2;
+                case "Corporaci¨®n": return 3;
+				case "Par¨¢metros de Impresi¨®n": return 4;
                 default: return -1;
             }
         }
