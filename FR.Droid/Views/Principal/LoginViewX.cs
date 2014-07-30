@@ -378,7 +378,7 @@ namespace FR.Droid.Views.Principal
 
                 for (int it = 1; it <= 3; it++)
                 {
-                    for (int i = 1; i <= 18; i++)
+                    for (int i = 1; i <= 19; i++)
                     {
                         string name = string.Empty;
                         string nameAs = string.Empty;
@@ -1411,6 +1411,63 @@ namespace FR.Droid.Views.Principal
                                         }
                                     } break;
                                 }
+						case 19:
+							{
+								//Detalle Devolucion   
+								if (it == 1)
+								{
+									name = "ReporteCierreCaja.rdl";
+									path = System.IO.Path.Combine(folder, name);
+									Java.IO.File file = new Java.IO.File(folder, name);
+									if (file.Length() == 0)
+									{
+										Java.IO.FileWriter writer = new Java.IO.FileWriter(file, false);
+										using (System.IO.Stream stream = this.Assets.Open(name))
+										{
+											System.IO.StreamReader reader = new System.IO.StreamReader(stream);
+											string text = reader.ReadToEnd();
+											writer.Write(text);
+											writer.Close();
+										}
+									}
+								}
+								if (it == 2)
+								{
+									name = "ReporteCierreCaja.rdl";
+									nameAs = "ReporteCierreCaja_2.rdl";
+									path = System.IO.Path.Combine(folder + "2", name);
+									Java.IO.File file = new Java.IO.File(folder + "2", name);
+									if (file.Length() == 0)
+									{
+										Java.IO.FileWriter writer = new Java.IO.FileWriter(file, false);
+										using (System.IO.Stream stream = this.Assets.Open(nameAs))
+										{
+											System.IO.StreamReader reader = new System.IO.StreamReader(stream);
+											string text = reader.ReadToEnd();
+											writer.Write(text);
+											writer.Close();
+										}
+									}
+								}
+								if (it == 3)
+								{
+									name = "ReporteCierreCaja.rdl";
+									nameAs = "ReporteCierreCaja_3.rdl";
+									path = System.IO.Path.Combine(folder + "3", name);
+									Java.IO.File file = new Java.IO.File(folder + "3", name);
+									if (file.Length() == 0)
+									{
+										Java.IO.FileWriter writer = new Java.IO.FileWriter(file, false);
+										using (System.IO.Stream stream = this.Assets.Open(nameAs))
+										{
+											System.IO.StreamReader reader = new System.IO.StreamReader(stream);
+											string text = reader.ReadToEnd();
+											writer.Write(text);
+											writer.Close();
+										}
+									}
+								} break;
+							}
                         }
 
                     }
