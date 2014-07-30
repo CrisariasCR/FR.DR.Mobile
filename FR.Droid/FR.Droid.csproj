@@ -229,6 +229,10 @@
     <Compile Include="Views\TomaFísica\FactDiferenciasTFView.cs" />
     <Compile Include="Views\TomaFísica\TomaFisicaInventarioView.cs" />
     <Compile Include="Views\TomaTrasiego\TomaTrasiegoView.cs" />
+    <Compile Include="Views\Garantias\ConsultaGarantiasView.cs" />
+    <Compile Include="Views\Cobro\AplicarPagoContadoGarantiaView.cs" />
+    <Compile Include="Views\Reportes\ReporteCierreCajaView.cs" />
+    <Compile Include="Views\Garantias\DetalleGarantiaView.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\DetalleDevolucion.rdl" />
@@ -789,6 +793,21 @@
     <AndroidAsset Include="Assets\ReporteCierreCaja.rdl" />
     <AndroidAsset Include="Assets\ReporteCierreCaja_2.rdl" />
     <AndroidAsset Include="Assets\ReporteCierreCaja_3.rdl" />
+    <AndroidResource Include="Resources\Layout\ConsultaGarantias.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaGarantiasHeader.axml" />
+    <AndroidResource Include="Resources\Layout\ConsultaGarantiasItem.axml" />
+    <AndroidResource Include="Resources\Layout\ReporteCierreCaja.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantia.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaHeaderBarras.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaHeaderClase.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaHeaderCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaHeaderDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaHeaderFamilia.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaItemBarras.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaItemClase.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaItemCodigo.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaItemDescripcion.axml" />
+    <AndroidResource Include="Resources\Layout\DetalleGarantiaItemFamilia.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Layout\MainMenu.axml">

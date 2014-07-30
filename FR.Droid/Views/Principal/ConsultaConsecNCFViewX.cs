@@ -20,18 +20,17 @@ namespace FR.Droid.Views.Principal
     {
         ConsultaConsecNCFViewModel ViewModel;
         MvxBindableSpinner cmbCompanias;
-        TextView 
 
         #region lifecycle
 
-        protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
-            SetContentView(Resource.Layout.ConsultaConsecNCF);
-            cmbCompanias = FindViewById<MvxBindableSpinner>(Resource.Id.cmbCompaniascncf);            
-            cmbCompanias.Adapter.DropDownItemTemplateId = Resource.Layout.OpcionDropDownEnum;
-            
-        }
+		protected override void OnCreate (Bundle savedInstanceState)
+		{
+			base.OnCreate (savedInstanceState);
+			SetContentView(Resource.Layout.ConsultaConsecNCF);
+			cmbCompanias = FindViewById<MvxBindableSpinner>(Resource.Id.cmbCompaniascncf);            
+			cmbCompanias.Adapter.DropDownItemTemplateId = Resource.Layout.OpcionDropDownEnum;
+		}
+
         protected override void OnStart()
         {
             base.OnStart();

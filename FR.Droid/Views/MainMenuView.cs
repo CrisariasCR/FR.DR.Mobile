@@ -74,10 +74,6 @@ namespace FR.Droid.Views
         protected override void OnStop()
         {
             base.OnStop();
-            if (ViewModel.bDispose)
-            {
-               this.Finish();
-            }
                 
         }
 

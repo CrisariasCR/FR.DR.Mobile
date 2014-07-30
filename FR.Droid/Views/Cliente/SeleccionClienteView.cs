@@ -90,10 +90,6 @@ namespace FR.Droid.Views
         {
             txtBusqueda.RequestFocus();
             SeleccionClienteViewModel.ventanaInactiva = true;
-            if (ViewModel.bDispose)
-            {
-                this.Finish();
-            }
             base.OnStop();
         }     
 

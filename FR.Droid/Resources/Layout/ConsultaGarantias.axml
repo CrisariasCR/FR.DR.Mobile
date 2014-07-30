@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/FR.Droid"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/Fondo">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".80">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <Mvx.MvxBindableListView
+                android:id="@+id/HeaderLista"
+                android:layout_width="1400dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/consultagarantiasheader"
+                local:MvxBind="ItemsSource Header" />
+            <Mvx.MvxBindableListView
+                android:id="@+id/ListaPedidos"
+                android:layout_width="1400dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                local:MvxItemTemplate="@layout/consultagarantiasitem"
+                local:MvxBind="ItemsSource Garantias" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_weight="0.10"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_gravity="right">
+        <ImageButton
+            android:src="@drawable/ic_search"
+            android:id="@+id/btnConsultar"
+            android:layout_width="0dip"
+            android:layout_weight=".3"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoConsultar" />
+        <ImageButton
+            android:src="@drawable/ic_imprimir"
+            android:id="@+id/btnImprimir"
+            android:layout_width="0dip"
+            android:layout_weight=".3"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ComandoImprimir" />
+    </LinearLayout>
+</LinearLayout>
